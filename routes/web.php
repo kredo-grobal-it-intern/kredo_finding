@@ -10,10 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-  return view('welcome');
-});
+Route::view('/', 'welcome');
 
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
   Route::get('show/{id}', 'UserController@show')->name('users.show');
@@ -23,9 +20,7 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
 
 Auth::routes();
 
-Route::get('/', function () {
-  return view('top');
-});
+Route::view('/', 'top');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/matching', 'MatchingController@index')->name('matching');
