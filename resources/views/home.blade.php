@@ -24,7 +24,7 @@
           </li>
         @endforeach
       </ul>
-      <div class="noUser">近くにお相手がいません。</div>
+      <div class="noUser">There is no user around here</div>
     </div>
     <div class="actions" id="actionBtnArea">
       <a href="#" class="dislike"><i class="fas fa-times fa-2x"></i></a>
