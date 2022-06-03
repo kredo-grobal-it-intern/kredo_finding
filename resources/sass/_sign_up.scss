@@ -1,4 +1,4 @@
-$main-color: #fd5068;
+$main-color: #f3920b;
 $main-text-color: #fff;
 
 body {
@@ -22,7 +22,7 @@ body {
     margin: 0 auto 10px auto;
     width: 100px;
     height: 100px;
-    background: #f85a6f;
+    background: #f3920b;
     display: flex;
     cursor: pointer;
     align-items: center;
@@ -81,7 +81,7 @@ body {
     }
   }
   .errorMessage{
-    color:#fd5068;
+    color:#f3920b;
   }
 }
 
@@ -89,6 +89,6 @@ body {
   margin: 15px 0 15px;
   text-align: center;
   & > a {
-    color:#fd5068;
+    color:#f3920b;
   }
 }

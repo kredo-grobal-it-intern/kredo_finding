@@ -20311,7 +20311,7 @@ readers do not read off random characters that represent icons */
   padding: 20px;
   margin: 0 auto;
   border-radius: 30px;
-  background: #fd5068;
+  background: #f3920b;
   color: #fff;
 }
 
@@ -20327,7 +20327,7 @@ body {
 .signupPage .header {
   padding: 20px;
   text-align: center;
-  background: #fd5068;
+  background: #f3920b;
   color: #fff;
 }
 .signupPage .userProfileImg {
@@ -20335,7 +20335,7 @@ body {
   margin: 0 auto 10px auto;
   width: 100px;
   height: 100px;
-  background: #f85a6f;
+  background: #f3920b;
   display: flex;
   cursor: pointer;
   align-items: center;
@@ -20383,7 +20383,7 @@ body {
   font-size: 11px;
 }
 .signupPage .submitBtn {
-  background: #fd5068;
+  background: #f3920b;
   color: #fff;
   width: 200px;
   padding: 10px;
@@ -20394,7 +20394,7 @@ body {
   opacity: 0.6;
 }
 .signupPage .errorMessage {
-  color: #fd5068;
+  color: #f3920b;
 }
 
 .linkToLogin {
@@ -20402,14 +20402,14 @@ body {
   text-align: center;
 }
 .linkToLogin > a {
-  color: #fd5068;
+  color: #f3920b;
 }
 
 .signinPage {
   margin-top: 10vh;
 }
 .signinPage .title {
-  color: #fd5068;
+  color: #f3920b;
   margin: 20px 0;
   text-align: center;
 }
@@ -20418,7 +20418,7 @@ body {
   height: 120px;
   border-radius: 50%;
   margin: 0 auto;
-  background: #fd5068;
+  background: #f3920b;
   color: #fff;
   display: flex;
   align-items: center;
@@ -20428,7 +20428,7 @@ body {
   padding: 12px;
   width: 200px;
   border-radius: 21px;
-  background: #fd5068;
+  background: #f3920b;
   color: #fff;
   text-align: center;
   border: none;
@@ -20441,7 +20441,7 @@ body {
   opacity: 0.7;
 }
 .signinPage .errorMessage {
-  color: #fd5068;
+  color: #f3920b;
 }
 
 .usershowPage .header {
@@ -20495,18 +20495,18 @@ body {
   transition: color 0.5s;
 }
 .usershowPage .userAction_common > a:hover {
-  color: #fd5068;
+  color: #f3920b;
 }
 
 .userEditPage .header {
   padding: 20px;
   margin-bottom: 40px;
   text-align: center;
-  background: #fd5068;
+  background: #f3920b;
   color: #fff;
 }
 .userEditPage .submitBtn {
-  background: #fd5068;
+  background: #f3920b;
   color: #fff;
   width: 200px;
   padding: 10px;
@@ -20740,7 +20740,7 @@ html, body {
   align-items: center;
   justify-content: center;
   padding: 10px;
-  color: #fd5068;
+  color: #f3920b;
   border-bottom: 1px solid #e8e8e8;
 }
 .matchingPage .header_logo {
@@ -20757,7 +20757,7 @@ html, body {
 .matchingPage .matchingNum {
   text-align: center;
   font-size: 12px;
-  color: #fd5068;
+  color: #f3920b;
   margin-bottom: 20px;
 }
 .matchingPage .pageTitle {
@@ -20792,7 +20792,7 @@ html, body {
 .matchingPage .matchingList .matchingPerson form .chatForm_btn {
   border: none;
   padding: 10px;
-  background: #fd5068;
+  background: #f3920b;
   color: #fff;
   border-radius: 6px;
   cursor: pointer;
@@ -20819,7 +20819,7 @@ html, body {
   left: 40px;
   border: 5px solid;
   border-radius: 4px;
-  border-color: transparent transparent #fd5068 #fd5068;
+  border-color: transparent transparent #f3920b #f3920b;
   transform: rotate(45deg);
 }
 .chatPage .header .chatPartner_name {
