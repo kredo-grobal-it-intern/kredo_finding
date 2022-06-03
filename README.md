@@ -1,7 +1,7 @@
 ## Setup
 
 ##### 1. Clone repository
-`git clone git@github.com:kredo-grobal-it-intern/kredo_finding.git
+`git clone git@github.com:kredo-grobal-it-intern/kredo_finding.git`
 
 ##### 2. Go to your directory
 `cd kredo_finding`
