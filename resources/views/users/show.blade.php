@@ -22,7 +22,7 @@
       <div class='userAction'>
         <div class="userAction_edit userAction_common">
 
-          <a href="/users/edit/{{$user->id}}"><i class="fas fa-edit fa-2x"></i></a>
+          <a href="/users/edit/{{ $user->id }}"><i class="fas fa-edit fa-2x"></i></a>
 
           <span>Edit Profile</span>
 

@@ -10,8 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::view('/', 'welcome');
-
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
   Route::get('show/{id}', 'UserController@show')->name('users.show');
   Route::get('edit/{id}', 'UserController@edit')->name('users.edit');

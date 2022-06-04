@@ -11,7 +11,7 @@
         @csrf
 
         @error('email')
-        <span class="errorMessage">{{ $message }}</span>
+          <span class="errorMessage">{{ $message }}</span>
         @enderror
 
         <label for="file_photo" class="rounded-circle userProfileImg">
@@ -44,7 +44,7 @@
         </div>
         <div class="form-group">
           <label>Self Introduction</label>
-          <textarea class="form-control" name="self_introduction" rows="10">{{$user->self_introduction}}</textarea>
+          <textarea class="form-control" name="self_introduction" rows="10">{{ $user->self_introduction }}</textarea>
         </div>
         <div class="text-center">
           <button type="submit" class="btn submitBtn">Update</button>

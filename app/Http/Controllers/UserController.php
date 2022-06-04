@@ -12,10 +12,8 @@ use Intervention\Image\Facades\Image;
 
 class UserController extends Controller
 {
-  //
   public function show($id)
   {
-
     $user = User::findorFail($id);
 
     return view('users.show', compact('user'));
@@ -52,7 +50,7 @@ class UserController extends Controller
 
     $user->save();
 
-    return view('users.show', compact('user'));
+    return redirect('home');
   }
 }
 
