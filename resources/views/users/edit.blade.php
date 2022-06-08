@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-  <div class="signupPage">
+  <div class="userEditPage">
     <header class="header">
       <div>Edit Profile</div>
     </header>
@@ -49,7 +49,7 @@
         <div class="text-center">
           <button type="submit" class="btn submitBtn">Update</button>
         </div>
-        <div class="text-center">
+        <div class="text-center mt-2">
           <button type="button" class="btn backBtn">Back</button>
         </div>
       </form>

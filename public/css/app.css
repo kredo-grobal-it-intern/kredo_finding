@@ -20514,6 +20514,9 @@ body {
   border-radius: 90px;
   transition: opacity 0.5s;
 }
+.userEditPage .submitBtn:hover {
+  opacity: 0.6;
+}
 .userEditPage .backBtn {
   background: #fff;
   color: #f3920b;
@@ -20523,8 +20526,8 @@ body {
   border-radius: 90px;
   transition: opacity 0.5s;
 }
-.userEditPage .submitBtn:hover {
-  opacity: 0.6;
+.userEditPage .backBtn:hover {
+  opacity: 0.5;
 }
 
 html, body {
