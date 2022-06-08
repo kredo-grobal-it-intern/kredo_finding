@@ -20472,6 +20472,7 @@ body {
   font-size: 30px;
 }
 .usershowPage .userInfo_selfIntroduction {
+  text-align: center;
   margin-top: 30px;
 }
 .usershowPage .userAction {
@@ -20508,6 +20509,15 @@ body {
 .userEditPage .submitBtn {
   background: #f3920b;
   color: #fff;
+  width: 200px;
+  padding: 10px;
+  border-radius: 90px;
+  transition: opacity 0.5s;
+}
+.userEditPage .backBtn {
+  background: #fff;
+  color: #f3920b;
+  border-color: #f3920b;
   width: 200px;
   padding: 10px;
   border-radius: 90px;

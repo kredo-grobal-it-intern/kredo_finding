@@ -49,6 +49,9 @@
         <div class="text-center">
           <button type="submit" class="btn submitBtn">Update</button>
         </div>
+        <div class="text-center">
+          <button type="button" class="btn backBtn">Back</button>
+        </div>
       </form>
     </div>
   </div>
