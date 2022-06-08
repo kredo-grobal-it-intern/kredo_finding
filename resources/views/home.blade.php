@@ -13,15 +13,18 @@
 
       </ul>
     </nav>
+    
     <div id="tinderslide">
       <ul>
         @foreach($users as $user)
+          @if(!$user->isLiked())
           <li data-user_id="{{ $user->id }}">
             <div class="userName">{{ $user->name }}</div>
             <img src="/storage/images/{{ $user->img_name}}">
             <div class="like"></div>
             <div class="dislike"></div>
           </li>
+          @endif
         @endforeach
       </ul>
       <div class="noUser">There is no user around here</div>
