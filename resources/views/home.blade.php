@@ -17,7 +17,7 @@
     <div id="tinderslide">
       <ul>
         @foreach($users as $user)
-          @if(!$user->isLiked())
+          @if(!$user->isLiked() && $user->id !== Auth::user()->id)
           <li data-user_id="{{ $user->id }}">
             <div class="userName">{{ $user->name }}</div>
             <img src="/storage/images/{{ $user->img_name}}">
