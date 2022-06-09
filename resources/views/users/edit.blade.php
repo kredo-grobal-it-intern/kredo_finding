@@ -23,6 +23,7 @@
           <img id="thumbnail" class="userImgPreview_content" accept="image/*" src="">
           <p class="userImgPreview_text">Uploaded Image</p>
         </div>
+
         <div class="form-group">
           <label>Name</label>
           <input type="text" name="name" class="form-control" value="{{ $user->name }}">
@@ -50,7 +51,7 @@
           <button type="submit" class="btn submitBtn">Update</button>
         </div>
         <div class="text-center mt-2">
-          <button type="button" class="btn backBtn">Back</button>
+          <button type="button" onclick="history.back()" class="btn backBtn">Back</button>
         </div>
       </form>
     </div>
