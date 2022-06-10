@@ -17,9 +17,9 @@
 
 `php artisan db:seed`
 
+`php artisan storage:link`
+
 ##### 6. Run npm
 `npm install`
 
 `npm run dev`
-
-`npm run prod` (for prod)	
