@@ -22,6 +22,9 @@ if you have any PHP version
 
 `echo 'export PATH="/opt/homebrew/opt/php@7.4/bin:$PATH"' >> ~/.zshrc`
 
+##### install mysql 
+if you don't have mysql `brew install mysql`
+
 ##### 1. Clone repository
 `git clone git@github.com:kredo-grobal-it-intern/kredo_finding.git`
 
@@ -48,3 +51,18 @@ if you have any PHP version
 `npm install`
 
 `npm run dev`
+
+##### Set Sequel Ace
+Name: localhost/kredo_finding
+
+HOST    localhost
+
+USERNAME:     root
+
+PASSWORD:     
+
+DATABASE:   kredo_finding
+
+PORT:       3306
+
+【Connect】
