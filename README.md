@@ -20,6 +20,8 @@ if you have any PHP version
 
 `brew --prefix php@7.4`
 
+`echo 'export PATH="/opt/homebrew/opt/php@7.4/bin:$PATH"' >> ~/.zshrc`
+
 ##### 1. Clone repository
 `git clone git@github.com:kredo-grobal-it-intern/kredo_finding.git`
 
