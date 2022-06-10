@@ -1,7 +1,10 @@
 ## Setup
 `less ~/.ssh/id_rsa.pub`
 
-Github > Settings > 
+if you don't have .ssh/id_rsa.pub
+`ssh-keygen -t rsa -C "your_github_email@example.com"` 
+
+Github > Settings > SSH and GPG keys
 
 ##### install php 
 `php -v`
