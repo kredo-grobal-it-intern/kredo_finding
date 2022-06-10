@@ -1,4 +1,10 @@
 ## Setup
+`less ~/.ssh/id_rsa.pub`
+
+Github > Settings > 
+
+##### install php 
+`php -v`
 
 ##### 1. Clone repository
 `git clone git@github.com:kredo-grobal-it-intern/kredo_finding.git`
