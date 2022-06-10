@@ -20466,6 +20466,11 @@ body {
 .usershowPage .userInfo_img > img {
   width: 100%;
 }
+.usershowPage .profile-icon {
+  font-size: 170px;
+  color: #818182;
+  overflow: hidden;
+}
 .usershowPage .userInfo_name {
   text-align: center;
   margin-top: 30px;
@@ -20473,6 +20478,7 @@ body {
 }
 .usershowPage .userInfo_selfIntroduction {
   margin-top: 30px;
+  text-align: center;
 }
 .usershowPage .userAction {
   display: flex;

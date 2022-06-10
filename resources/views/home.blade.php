@@ -13,14 +13,18 @@
 
       </ul>
     </nav>
-    
+
     <div id="tinderslide">
       <ul>
         @foreach($users as $user)
           @if(!$user->isLiked() && $user->id !== Auth::user()->id)
           <li data-user_id="{{ $user->id }}">
             <div class="userName">{{ $user->name }}</div>
-            <img src="/storage/images/{{ $user->img_name}}">
+            @if($user->image_name)
+              <img src="/storage/images/{{ $user->img_name}}">
+            @else
+              <i class="far fa-user profile-icon d-block text-center text-secondary profile-icon"></i>
+            @endif
             <div class="like"></div>
             <div class="dislike"></div>
           </li>

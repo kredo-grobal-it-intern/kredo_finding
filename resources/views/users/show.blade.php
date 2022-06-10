@@ -13,7 +13,11 @@
       </header>
       <div class='userInfo'>
         <div class='userInfo_img'>
-          <img src="/storage/images/{{$user -> img_name}}">
+          @if($user->image_name)
+              <img src="/storage/images/{{ $user->img_name}}">
+          @else
+            <i class="far fa-user-circle profile-icon d-block text-center text-secondary profile-icon"></i>
+          @endif
         </div>
         <div class='userInfo_name'>{{ $user -> name }}</div>
         <div class='userInfo_selfIntroduction'>{{ $user -> self_introduction }}</div>

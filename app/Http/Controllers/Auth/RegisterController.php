@@ -71,6 +71,8 @@ class RegisterController extends Controller
 
   protected function create(array $data)
   {
+    if (!empty($data['img_name'])){
+
     $imageFile = $data['img_name'];
 
     $list = FileUploadServices::fileUpload($imageFile);
@@ -82,6 +84,10 @@ class RegisterController extends Controller
     $image = Image::make($data_url);
 
     $image->resize(400, 400)->save(storage_path() . '/app/public/images/' . $fileNameToStore);
+
+  } else {
+    $fileNameToStore = NULL;
+  }
 
     return User::create([
       'name' => $data['name'],
