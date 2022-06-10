@@ -53,16 +53,16 @@ if you don't have mysql `brew install mysql`
 `npm run dev`
 
 ##### Set Sequel Ace
+<img width="485" alt="Screen Shot 2022-06-10 at 4 32 39 PM" src="https://user-images.githubusercontent.com/105486119/173014301-bf3c0b08-ae1a-48fa-930b-d13a8f8674b7.png">
+
 Name: localhost/kredo_finding
 
-HOST    localhost
+HOST: localhost
 
-USERNAME:     root
+USERNAME: root
 
 PASSWORD:     
 
-DATABASE:   kredo_finding
+DATABASE: kredo_finding
 
-PORT:       3306
-
-【Connect】
+PORT: 3306
