@@ -17,9 +17,11 @@
 
 `php artisan db:seed`
 
+##### 6. make images folder & Run storage:link
+`mkdir storage/app/public/images`
 `php artisan storage:link`
 
-##### 6. Run npm
+##### 7. Run npm
 `npm install`
 
 `npm run dev`
