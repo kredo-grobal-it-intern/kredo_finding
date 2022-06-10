@@ -19,6 +19,7 @@
 
 ##### 6. make images folder & Run storage:link
 `mkdir storage/app/public/images`
+
 `php artisan storage:link`
 
 ##### 7. Run npm
