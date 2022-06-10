@@ -10,6 +10,16 @@ Github > Settings > SSH and GPG keys
 ##### install php 
 `php -v`
 
+if you don't have any PHP version
+
+`brew install php@7.4`
+
+if you have any PHP version
+
+`phpenv install 7.4.29`
+
+`brew --prefix php@7.4`
+
 ##### 1. Clone repository
 `git clone git@github.com:kredo-grobal-it-intern/kredo_finding.git`
 
