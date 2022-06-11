@@ -28,3 +28,6 @@ Route::group(['prefix' => 'chat', 'middleware' => 'auth'], function () {
   Route::post('chat', 'ChatController@chat')->name('chat.chat');
 });
 
+Route::get('/auth/redirect', 'Auth\LoginController@redirectToProvider');
+Route::get('/login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
+
