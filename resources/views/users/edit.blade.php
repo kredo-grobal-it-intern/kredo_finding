@@ -16,8 +16,15 @@
 
         <label for="file_photo" class="rounded-circle userProfileImg">
           <div class="userProfileImg_description">Upload Image</div>
-          <i class="fas fa-camera fa-3x"></i>
-          <input type="file" id="file_photo" name="img_name">
+          @if($user->img_name)
+            <img src="/storage/images/{{ $user->img_name }}" class="rounded-circle userProfileIcon">
+          @else
+            <i class="fas fa-camera fa-3x"></i>
+          @endif
+            <input type="file" id="file_photo" name="img_name">
+          @error('avatar')
+            <p class="text-danger small">{{ $message }}</p>
+          @enderror
         </label>
         <div class="userImgPreview" id="userImgPreview">
           <img id="thumbnail" class="userImgPreview_content" accept="image/*" src="">
