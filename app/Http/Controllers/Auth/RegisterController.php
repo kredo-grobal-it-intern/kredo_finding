@@ -83,6 +83,10 @@ class RegisterController extends Controller
 
     $image->resize(400, 400)->save(storage_path() . '/app/public/images/' . $fileNameToStore);
 
+    if(empty($data['gender'])){
+      $data['gender'] = NULL;
+    }
+
     return User::create([
       'name' => $data['name'],
       'email' => $data['email'],
