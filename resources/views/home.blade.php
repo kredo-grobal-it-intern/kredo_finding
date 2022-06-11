@@ -20,8 +20,8 @@
           @if(!$user->isLiked() && $user->id !== Auth::user()->id)
           <li data-user_id="{{ $user->id }}">
             <div class="userName">{{ $user->name }}</div>
-            @if($user->image_name)
-              <img src="/storage/images/{{ $user->img_name}}">
+            @if($user->img_name)
+              <img src="/storage/images/{{ $user->img_name }}">
             @else
               <i class="fa-solid fa-user profile-icon d-block text-center profile-icon"></i>
             @endif

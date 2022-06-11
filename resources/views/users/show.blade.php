@@ -13,7 +13,7 @@
       </header>
       <div class='userInfo'>
         <div class='userInfo_img'>
-          @if($user->image_name)
+          @if($user->img_name)
             <img src="/storage/images/{{ $user->img_name }}">
           @else
             <i class="fa-solid fa-circle-user profile-icon d-block text-center profile-icon"></i>
