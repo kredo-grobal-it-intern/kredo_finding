@@ -21,10 +21,7 @@
           @else
             <i class="fas fa-camera fa-3x"></i>
           @endif
-            <input type="file" id="file_photo" name="img_name">
-          @error('avatar')
-            <p class="text-danger small">{{ $message }}</p>
-          @enderror
+          <input type="file" id="file_photo" name="img_name">
         </label>
         <div class="userImgPreview" id="userImgPreview">
           <img id="thumbnail" class="userImgPreview_content" accept="image/*" src="">
