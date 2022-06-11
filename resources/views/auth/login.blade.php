@@ -11,7 +11,7 @@
         @csrf
         <div class="form-group @error('email')has-error @enderror">
           <label>Email</label>
-          <input type="email" name="email" class="form-control" placeholder="Enter your email address" autofocus>
+          <input type="email" name="email" class="form-control" value="{{ old('email') }}"placeholder="Enter your email address" autofocus>
           @error('email')
           <span class="errorMessage">
           {{ $message }}
