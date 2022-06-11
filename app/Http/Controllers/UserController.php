@@ -38,7 +38,13 @@ class UserController extends Controller
 
       $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
       $image = Image::make($data_url);
-      $image->resize(400,400)->save(storage_path() . '/app/public/images/' . $fileNameToStore );
+      $image->resize(400, 400, function ($constraint) {
+        $constraint->aspectRatio();
+        $constraint->upsize();
+      }
+    );
+
+      $image->save(storage_path() . '/app/public/images/' . $fileNameToStore);
 
       $user->img_name = $fileNameToStore;
     }
@@ -53,4 +59,3 @@ class UserController extends Controller
     return redirect('home');
   }
 }
-
