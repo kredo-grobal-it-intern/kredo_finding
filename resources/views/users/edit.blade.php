@@ -10,9 +10,7 @@
       <form class="form mt-5" method="POST" action="/users/update/{{ $user->id }}" enctype="multipart/form-data">
         @csrf
 
-        @error('email')
-          <span class="errorMessage">{{ $message }}</span>
-        @enderror
+
 
         <label for="file_photo" class="rounded-circle userProfileImg">
           <div class="userProfileImg_description">Upload Image</div>
@@ -31,10 +29,16 @@
         <div class="form-group">
           <label>Name</label>
           <input type="text" name="name" class="form-control" value="{{ $user->name }}">
+          @error('name')
+            <span class="errorMessage">{{ $message }}</span>
+          @enderror
         </div>
         <div class="form-group">
           <label>Email</label>
           <input type="email" name="email" class="form-control" value="{{ $user->email }}">
+          @error('email')
+            <span class="errorMessage">{{ $message }}</span>
+          @enderror
         </div>
         <div class="form-group">
           <div><label>Gender</label></div>

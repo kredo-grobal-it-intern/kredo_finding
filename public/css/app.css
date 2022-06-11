@@ -20571,6 +20571,9 @@ body {
 .userEditPage .userImgPreview_text {
   font-size: 11px;
 }
+.userEditPage .errorMessage {
+  color: #f3920b;
+}
 .userEditPage .submitBtn {
   background: #f3920b;
   color: #fff;
