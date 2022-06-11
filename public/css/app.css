@@ -20468,7 +20468,7 @@ body {
 }
 .usershowPage .profile-icon {
   font-size: 170px;
-  color: #818182;
+  color: #f3920b;
   overflow: hidden;
 }
 .usershowPage .userInfo_name {
@@ -20803,6 +20803,11 @@ html, body {
 }
 .topPage .nav > ul > li.messageIcon i {
   color: #dccbcb;
+}
+.topPage .profile-icon {
+  font-size: 400px;
+  padding-top: 50px;
+  color: #f3920b;
 }
 
 .matchingPage .header {

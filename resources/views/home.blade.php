@@ -23,7 +23,7 @@
             @if($user->image_name)
               <img src="/storage/images/{{ $user->img_name}}">
             @else
-              <i class="far fa-user profile-icon d-block text-center text-secondary profile-icon"></i>
+              <i class="fa-solid fa-user profile-icon d-block text-center profile-icon"></i>
             @endif
             <div class="like"></div>
             <div class="dislike"></div>
