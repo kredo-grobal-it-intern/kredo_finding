@@ -22,14 +22,14 @@
 
         <div class="form-group @error('name')has-error @enderror">
           <label>Name</label>
-          <input type="text" name="name" class="form-control" placeholder="Enter your name">
+          <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="Enter your name">
           @error('name')
             <span class="errorMessage">{{ $message }}</span>
           @enderror
         </div>
         <div class="form-group @error('email')has-error @enderror">
           <label>Email</label>
-          <input type="email" name="email" class="form-control" placeholder="Enter your email address">
+          <input type="email" name="email" class="form-control" value="{{ old('email') }}" placeholder="Enter your email address">
           @error('email')
             <span class="errorMessage">{{ $message }}</span>
           @enderror
@@ -59,7 +59,7 @@
         </div>
         <div class="form-group @error('self_introduction')has-error @enderror">
           <label>Self Introduction</label>
-          <textarea class="form-control" name="self_introduction" rows="10"></textarea>
+          <textarea class="form-control" name="self_introduction" rows="10">{{ old('self_introduction') }}</textarea>
           @error('self_introduction')
             <span class="errorMessage">{{ $message }}</span>
           @enderror
@@ -77,4 +77,3 @@
     </div>
   </div>
 @endsection
-

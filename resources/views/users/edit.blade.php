@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-  <div class="signupPage">
+  <div class="userEditPage">
     <header class="header">
       <div>Edit Profile</div>
     </header>
@@ -10,26 +10,35 @@
       <form class="form mt-5" method="POST" action="/users/update/{{ $user->id }}" enctype="multipart/form-data">
         @csrf
 
-        @error('email')
-          <span class="errorMessage">{{ $message }}</span>
-        @enderror
+
 
         <label for="file_photo" class="rounded-circle userProfileImg">
           <div class="userProfileImg_description">Upload Image</div>
-          <i class="fas fa-camera fa-3x"></i>
+          @if($user->img_name)
+            <img src="/storage/images/{{ $user->img_name }}" class="rounded-circle userProfileIcon">
+          @else
+            <i class="fas fa-camera fa-3x"></i>
+          @endif
           <input type="file" id="file_photo" name="img_name">
         </label>
         <div class="userImgPreview" id="userImgPreview">
           <img id="thumbnail" class="userImgPreview_content" accept="image/*" src="">
           <p class="userImgPreview_text">Uploaded Image</p>
         </div>
+
         <div class="form-group">
           <label>Name</label>
           <input type="text" name="name" class="form-control" value="{{ $user->name }}">
+          @error('name')
+            <span class="errorMessage">{{ $message }}</span>
+          @enderror
         </div>
         <div class="form-group">
           <label>Email</label>
           <input type="email" name="email" class="form-control" value="{{ $user->email }}">
+          @error('email')
+            <span class="errorMessage">{{ $message }}</span>
+          @enderror
         </div>
         <div class="form-group">
           <div><label>Gender</label></div>
@@ -48,6 +57,9 @@
         </div>
         <div class="text-center">
           <button type="submit" class="btn submitBtn">Update</button>
+        </div>
+        <div class="text-center mt-2">
+          <button type="button" onclick="history.back()" class="btn backBtn">Back</button>
         </div>
       </form>
     </div>

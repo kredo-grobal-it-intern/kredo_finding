@@ -71,17 +71,29 @@ class RegisterController extends Controller
 
   protected function create(array $data)
   {
-    $imageFile = $data['img_name'];
+    if (!empty($data['img_name'])){
 
-    $list = FileUploadServices::fileUpload($imageFile);
+      $imageFile = $data['img_name'];
 
-    list($extension, $fileNameToStore, $fileData) = $list;
+      $list = FileUploadServices::fileUpload($imageFile);
 
-    $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
+      list($extension, $fileNameToStore, $fileData) = $list;
 
-    $image = Image::make($data_url);
+      $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
 
-    $image->resize(400, 400)->save(storage_path() . '/app/public/images/' . $fileNameToStore);
+      $image = Image::make($data_url);
+
+      $image->resize(400, 400, function ($constraint) {
+          $constraint->aspectRatio();
+          $constraint->upsize();
+        }
+      );
+
+      $image->save(storage_path() . '/app/public/images/' . $fileNameToStore);
+
+  } else {
+    $fileNameToStore = NULL;
+  }
 
     if(empty($data['gender'])){
       $data['gender'] = NULL;
