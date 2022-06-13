@@ -95,6 +95,10 @@ class RegisterController extends Controller
     $fileNameToStore = NULL;
   }
 
+    if(empty($data['gender'])){
+      $data['gender'] = NULL;
+    }
+
     return User::create([
       'name' => $data['name'],
       'email' => $data['email'],

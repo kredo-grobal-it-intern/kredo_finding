@@ -20,6 +20,9 @@ Auth::routes();
 
 Route::view('/', 'top');
 
+Route::get('/login/google', 'Auth\LoginController@redirectToGoogle')->name('google.redirect');
+Route::get('/login/google/callback', 'Auth\LoginController@handleGoogleCallback')->name('google.callback');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/matching', 'MatchingController@index')->name('matching');
 
