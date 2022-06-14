@@ -20843,6 +20843,13 @@ html, body {
   height: 400px;
   object-fit: cover;
 }
+
+.topPage .profile-image-nav-var {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
 .matchingPage .header {
   display: flex;
   align-items: center;
