@@ -99,6 +99,7 @@ class UserController extends Controller
         Storage::disk('public')->delete('public/images/'.$user->img_name);
         $user->img_name = null;
         $user->save();
+
         return redirect()->back();
     }
 }
