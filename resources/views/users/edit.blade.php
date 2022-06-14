@@ -5,6 +5,13 @@
     <header class="header">
       <div>Edit Profile</div>
     </header>
+    <div class="userDelete mx-auto">
+      <form action="{{ route('users.destroy', $user->id) }}" method="post">
+        @csrf
+        @method('delete')
+        <button type="submit" class="btn btn-danger btn-sm border border-0 mx-auto"><i class="fa-regular fa-trash-can"></i> Delete</button>
+      </form>
+    </div>
 
     <div class='container'>
       <form class="form mt-5" method="POST" action="/users/update/{{ $user->id }}" enctype="multipart/form-data">

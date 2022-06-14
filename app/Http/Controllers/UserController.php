@@ -8,10 +8,11 @@ use App\User;
 use App\Services\CheckExtensionServices;
 use App\Services\FileUploadServices;
 use Intervention\Image\Facades\Image;
-
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
+  const LOCAL_STORAGE_FOLDER = 'public/images/';
   public function show($id)
   {
     $user = User::findorFail($id);
@@ -49,6 +50,14 @@ class UserController extends Controller
       $user->img_name = $fileNameToStore;
     }
 
+    if ($request->image) {
+      // Delete the previous image from the local storage
+      $this->deleteImage($user->image);
+
+      // Move the new image to the local storage
+      $user->image = $this->saveImage($request);
+  }
+
     $user->name = $request->name;
     $user->email = $request->email;
     $user->gender = $request->gender;
@@ -58,4 +67,25 @@ class UserController extends Controller
 
     return redirect('home');
   }
+
+  private function deleteImage($image_name)
+    {
+        $image_path = Self::LOCAL_STORAGE_FOLDER . $image_name;
+        // $image_name = "public/images/167862457.jpg";
+
+        // If the image is existing, delete.
+        if (Storage::disk('local')->exists($image_path)) {
+            Storage::disk('local')->delete($image_path);
+        }
+    }
+
+    public function destroy(User $user)
+    {
+        $path = $user->img_name;
+        if($path !== ''){
+          \Storage::disk('public')->delete($path);
+        }
+        $user->delete();
+        return redirect()->back();
+    }
 }
