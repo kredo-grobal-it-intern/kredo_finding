@@ -79,13 +79,26 @@ class UserController extends Controller
         }
     }
 
-    public function destroy(User $user)
+    // public function destroy(User $user)
+    // {
+    //     $uploaded_img = $user->img_name;
+    //     if($uploaded_img !== null){
+    //       \Storage::disk('public')->delete($uploaded_img);
+    //     }
+    //     $uploaded_img->delete();
+    //     return redirect()->back();
+    // }
+
+    public function destroy(Request $request, $id)
     {
-        $path = $user->img_name;
-        if($path !== ''){
-          \Storage::disk('public')->delete($path);
+        $user = User::find($id);
+        //ファイルがアップロードされてない場合に削除ボタンをクリックした時の挙動を制御
+        if (is_null($user->img_name)) {
+            return redirect()->back();
         }
-        $user->delete();
+        Storage::disk('public')->delete('public/images/'.$user->img_name);
+        $user->img_name = null;
+        $user->save();
         return redirect()->back();
     }
 }
