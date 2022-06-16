@@ -22,6 +22,8 @@ Route::view('/', 'top');
 
 Route::get('/login/google', 'Auth\LoginController@redirectToGoogle')->name('google.redirect');
 Route::get('/login/google/callback', 'Auth\LoginController@handleGoogleCallback')->name('google.callback');
+Route::get('/login/facebook', 'Auth\LoginController@redirectToFacebook')->name('facebook.redirect');
+Route::get('/login/facebook/callback', 'Auth\LoginController@handleFacebookCallback')->name('facebook.callback');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/matching', 'MatchingController@index')->name('matching');
