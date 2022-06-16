@@ -32,6 +32,15 @@
         <div class="form-group text-center">
           <button type="submit" class="loginBtn">Log in</button>
         </div>
+        <div class="form-group row justify-content-center">
+          <div class="col-md-8 text-center">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" name="remember" id="remember">
+
+              <label for="remember" class="form-check-label">{{ __('Remember me') }}</label>
+            </div>
+          </div>
+        </div>
         <a href="{{ route('google.redirect') }}">
           <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png" class="d-block mx-auto mt-3">
         </a>
