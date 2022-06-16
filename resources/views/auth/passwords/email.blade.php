@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
 @section('content')
-<div class="container">
+<div class="container pt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -36,6 +36,11 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Send Password Reset Link') }}
                                 </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-auto mx-auto mt-3">
+                                <a href="{{ route('login') }}">{{ __('Log in') }}</a>
                             </div>
                         </div>
                     </form>
