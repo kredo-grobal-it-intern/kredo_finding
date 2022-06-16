@@ -51,10 +51,8 @@ class UserController extends Controller
     }
 
     if ($request->image) {
-      // Delete the previous image from the local storage
       $this->deleteImage($user->image);
 
-      // Move the new image to the local storage
       $user->image = $this->saveImage($request);
   }
 
@@ -71,28 +69,16 @@ class UserController extends Controller
   private function deleteImage($image_name)
     {
         $image_path = Self::LOCAL_STORAGE_FOLDER . $image_name;
-        // $image_name = "public/images/167862457.jpg";
 
-        // If the image is existing, delete.
         if (Storage::disk('local')->exists($image_path)) {
             Storage::disk('local')->delete($image_path);
         }
     }
 
-    // public function destroy(User $user)
-    // {
-    //     $uploaded_img = $user->img_name;
-    //     if($uploaded_img !== null){
-    //       \Storage::disk('public')->delete($uploaded_img);
-    //     }
-    //     $uploaded_img->delete();
-    //     return redirect()->back();
-    // }
 
     public function destroy(Request $request, $id)
     {
         $user = User::find($id);
-        //ファイルがアップロードされてない場合に削除ボタンをクリックした時の挙動を制御
         if (is_null($user->img_name)) {
             return redirect()->back();
         }
