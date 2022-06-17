@@ -9,8 +9,7 @@
             <form action="{{ route('users.delete', $user->id) }}" method="post">
                 @csrf
                 @method('delete')
-                <button type="submit" class="btn btn-danger btn-sm border border-0 mx-auto d-block"><i
-                        class="fa-regular fa-trash-can"></i>Delete Image</button>
+                <button type="submit" class="btn btn-danger btn-sm border border-0 mx-auto d-block"><i class="fa-regular fa-trash-can"></i>Delete Image</button>
             </form>
         @endif
         <div class='container'>
