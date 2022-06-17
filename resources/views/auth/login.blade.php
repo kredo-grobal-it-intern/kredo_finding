@@ -50,6 +50,7 @@
         <div class="linkToLogin">
           <a href="{{ route('register') }}">Create new account</a>
         </div>
+        <a href="{{ route('password.request') }}" class="text-primary text-center d-block">Forget Your Password?</a>
       </form>
     </div>
   </div>
