@@ -20422,6 +20422,24 @@ body {
 .linkToLogin > a {
   color: #f3920b;
 }
+.forgotPasswordPage .header {
+  padding: 20px;
+  text-align: center;
+  background: #f3920b;
+  color: #fff;
+}
+.forgotPasswordPage .submitBtn {
+  background: #f3920b;
+  color: #fff;
+  width: 200px;
+  padding: 10px;
+  border-radius: 90px;
+  transition: opacity 0.5s;
+  margin-top: 20px;
+}
+.forgotPasswordPage .submitBtn:hover {
+  opacity: 0.6;
+}
 
 .signinPage {
   margin-top: 10vh;

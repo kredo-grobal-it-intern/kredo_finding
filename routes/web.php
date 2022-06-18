@@ -14,6 +14,8 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
   Route::get('show/{id}', 'UserController@show')->name('users.show');
   Route::get('edit/{id}', 'UserController@edit')->name('users.edit');
   Route::post('update/{id}', 'UserController@update')->name('users.update');
+
+  Route::get('/resetpassword' , 'ResetPasswordController@show')->name('password.update');
 });
 
 Auth::routes();
@@ -22,6 +24,7 @@ Route::view('/', 'top');
 
 Route::get('/login/google', 'Auth\LoginController@redirectToGoogle')->name('google.redirect');
 Route::get('/login/google/callback', 'Auth\LoginController@handleGoogleCallback')->name('google.callback');
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/matching', 'MatchingController@index')->name('matching');
