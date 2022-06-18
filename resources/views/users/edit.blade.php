@@ -5,12 +5,13 @@
         <header class="header">
             <div>Edit Profile</div>
         </header>
-        <form action="{{ route('users.delete', $user->id) }}" method="post">
-            @csrf
-            @method('delete')
-            <button type="submit" class="btn btn-danger btn-sm border border-0 mx-auto d-block"><i
-                    class="fa-regular fa-trash-can"></i> Delete Image</button>
-        </form>
+        @if ($user->img_name)
+            <form action="{{ route('users.delete', $user->id) }}" method="post">
+                @csrf
+                @method('delete')
+                <button type="submit" class="btn btn-danger btn-sm border border-0 mx-auto d-block"><i class="fa-regular fa-trash-can"></i>Delete Image</button>
+            </form>
+        @endif
         <div class='container'>
             <form class="form mt-5" method="POST" action="/users/update/{{ $user->id }}"
                 enctype="multipart/form-data">
