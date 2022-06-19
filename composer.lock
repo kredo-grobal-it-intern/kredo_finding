@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "44e2741975339c51681f9304be80f77d",
+    "content-hash": "eb93740fd26c8db77de5810ab8c8ae5f",
     "packages": [
         {
             "name": "doctrine/cache",
@@ -3140,6 +3140,7 @@
                     "type": "tidelift"
                 }
             ],
+            "abandoned": "symfony/error-handler",
             "time": "2022-04-12T15:19:55+00:00"
         },
         {
