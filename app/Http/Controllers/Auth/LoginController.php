@@ -10,6 +10,7 @@ use Exception;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 {
@@ -72,5 +73,28 @@ class LoginController extends Controller
         }catch(Exception $e){
             dd($e->getMessage());
         }
+    }
+
+    public function redirectToFacebook()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    public function handleFacebookCallback()
+    {
+        $user = Socialite::driver('facebook')->stateless()->user();
+
+        $userModel = User::where('facebook_id', $user->id)->first();
+        if (!$userModel) {
+            $userModel = new User([
+                'name' => $user->name,
+                'email' => $user->email,
+                'facebook_id' => $user->id
+            ]);
+
+            $userModel->save();
+        }
+        Auth::login($userModel);
+        return Redirect::route('home');
     }
 }
