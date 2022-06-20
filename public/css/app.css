@@ -20300,7 +20300,6 @@ readers do not read off random characters that represent icons */
   height: 80vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   text-align: center;
   position: relative;
 }
@@ -20310,16 +20309,24 @@ readers do not read off random characters that represent icons */
   display: block;
   z-index: 1;
 }
-.loginPage_btn {
+.loginPage_login_btn {
   position: relative;
   display: block;
-  max-width: 200px;
-  padding: 20px;
+  width: 180px;
+  padding: 15px;
   border-radius: 30px;
   background: #f3920b;
   color: #fff;
   z-index: 2;
-  margin: 0 auto;
+  margin: 300px auto 0;
+}
+.loginPage_new_account_btn {
+  position: relative;
+  display: block;
+  width: 180px;
+  padding: 15px;
+  border-radius: 30px;
+  z-index: 2;
 }
 .loginPage video {
   position: absolute;
