@@ -20339,7 +20339,7 @@ body {
 
 .notice,
 .alert {
-  display: none;
+  display: block;
 }
 
 .signupPage .header {
@@ -20421,6 +20421,24 @@ body {
 }
 .linkToLogin > a {
   color: #f3920b;
+}
+.forgotPasswordPage .header {
+  padding: 20px;
+  text-align: center;
+  background: #f3920b;
+  color: #fff;
+}
+.forgotPasswordPage .submitBtn {
+  background: #f3920b;
+  color: #fff;
+  width: 200px;
+  padding: 10px;
+  border-radius: 90px;
+  transition: opacity 0.5s;
+  margin-top: 20px;
+}
+.forgotPasswordPage .submitBtn:hover {
+  opacity: 0.6;
 }
 
 .signinPage {
@@ -20829,6 +20847,11 @@ html, body {
 }
 .topPage .nav > ul > li.appIcon > a > img {
   width: 100%;
+  align-items: center;
+}
+.topPage .nav > ul > li.heartIcon i {
+  color: #dccbcb;
+  text-align: right;
 }
 .topPage .nav > ul > li.messageIcon i {
   color: #dccbcb;

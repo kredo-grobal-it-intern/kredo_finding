@@ -32,14 +32,28 @@
         <div class="form-group text-center">
           <button type="submit" class="loginBtn">Log in</button>
         </div>
+        <div class="form-group row justify-content-center">
+          <div class="col-md-8 text-center">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" name="remember" id="remember">
+
+              <label for="remember" class="form-check-label">{{ __('Remember me') }}</label>
+            </div>
+          </div>
+        </div>
         <a href="{{ route('google.redirect') }}">
           <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png" class="d-block mx-auto mt-3">
         </a>
+
+        <a href="{{ route('facebook.redirect') }}">
+          <div class="d-block text-center mt-3"><i class="fa-brands fa-facebook"></i> Log in with Facebook</div>
+        </a>
+
         <div class="linkToLogin">
           <a href="{{ route('register') }}">Create new account</a>
         </div>
+        <a href="{{ route('password.request') }}" class="text-primary text-center d-block">Forget Your Password?</a>
       </form>
     </div>
   </div>
 @endsection
-

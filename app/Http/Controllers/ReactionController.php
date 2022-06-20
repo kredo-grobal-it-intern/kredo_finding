@@ -12,6 +12,11 @@ use App\Constants\Status;
 
 class ReactionController extends Controller
 {
+  public function index()
+  {
+    return view('like.show');
+  }
+
   public function create(Request $request)
   {
 //    Log::debug($request);
