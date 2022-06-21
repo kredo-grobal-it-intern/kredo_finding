@@ -77,23 +77,13 @@ class RegisterController extends Controller
 
       $list = FileUploadServices::fileUpload($imageFile);
 
-      list($extension, $fileNameToStore, $fileData) = $list;
+      list($extension, $fileData) = $list;
 
-      $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
+      $bin_image = CheckExtensionServices::checkExtension($fileData, $extension);
 
-      $image = Image::make($data_url);
-
-      $image->resize(400, 400, function ($constraint) {
-          $constraint->aspectRatio();
-          $constraint->upsize();
-        }
-      );
-
-      $image->save(storage_path() . '/app/public/images/' . $fileNameToStore);
-
-  } else {
-    $fileNameToStore = NULL;
-  }
+    } else {
+      $bin_image = NULL;
+    }
 
     if(empty($data['gender'])){
       $data['gender'] = NULL;
@@ -105,7 +95,7 @@ class RegisterController extends Controller
       'password' => Hash::make($data['password']),
       'self_introduction' => $data['self_introduction'],
       'gender' => $data['gender'],
-      'img_name' => $fileNameToStore,
+      'img_name' => $bin_image,
     ]);
   }
 }

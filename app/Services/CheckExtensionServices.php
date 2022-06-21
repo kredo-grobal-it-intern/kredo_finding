@@ -13,7 +13,7 @@ class CheckExtensionServices
     }
 
     if ($extension === 'jpeg'){
-      $data_url = 'data:image/jpg;base64,'. base64_encode($fileData);
+      $data_url = 'data:image/jpeg;base64,'. base64_encode($fileData);
     }
 
     if ($extension === 'png'){
