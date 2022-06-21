@@ -20,7 +20,7 @@
                 <label for="file_photo" class="rounded-circle userProfileImg">
                     <div class="userProfileImg_description">Upload Image</div>
                     @if ($user->img_name)
-                        <img src="/storage/images/{{ $user->img_name }}" class="rounded-circle userProfileIcon">
+                        <img src="{{ $user->img_name }}" class="rounded-circle userProfileIcon">
                     @else
                         <i class="fas fa-camera fa-3x"></i>
                     @endif

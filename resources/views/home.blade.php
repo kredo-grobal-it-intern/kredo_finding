@@ -21,7 +21,7 @@
           <li data-user_id="{{ $user->id }}">
             <div class="userName">{{ $user->name }}</div>
             @if($user->img_name)
-              <img src="/storage/images/{{ $user->img_name }}" class="profile-image">
+              <img src="{{ $user->img_name }}" class="profile-image">
             @else
               <i class="fa-solid fa-user profile-icon d-block text-center profile-icon"></i>
             @endif
