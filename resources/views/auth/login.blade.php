@@ -44,9 +44,11 @@
         <a href="{{ route('google.redirect') }}">
           <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png" class="d-block mx-auto mt-3">
         </a>
+
         <a href="{{ route('facebook.redirect') }}">
           <div class="d-block text-center mt-3"><i class="fa-brands fa-facebook"></i> Log in with Facebook</div>
         </a>
+
         <div class="linkToLogin">
           <a href="{{ route('register') }}">Create new account</a>
         </div>
@@ -55,4 +57,3 @@
     </div>
   </div>
 @endsection
-

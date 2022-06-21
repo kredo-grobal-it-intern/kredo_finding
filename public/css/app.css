@@ -20422,6 +20422,24 @@ body {
 .linkToLogin > a {
   color: #f3920b;
 }
+.forgotPasswordPage .header {
+  padding: 20px;
+  text-align: center;
+  background: #f3920b;
+  color: #fff;
+}
+.forgotPasswordPage .submitBtn {
+  background: #f3920b;
+  color: #fff;
+  width: 200px;
+  padding: 10px;
+  border-radius: 90px;
+  transition: opacity 0.5s;
+  margin-top: 20px;
+}
+.forgotPasswordPage .submitBtn:hover {
+  opacity: 0.6;
+}
 
 .signinPage {
   margin-top: 10vh;
@@ -20829,6 +20847,11 @@ html, body {
 }
 .topPage .nav > ul > li.appIcon > a > img {
   width: 100%;
+  align-items: center;
+}
+.topPage .nav > ul > li.heartIcon i {
+  color: #dccbcb;
+  text-align: right;
 }
 .topPage .nav > ul > li.messageIcon i {
   color: #dccbcb;
@@ -20842,6 +20865,13 @@ html, body {
   width: 400px;
   height: 400px;
   object-fit: cover;
+}
+
+.topPage .profile-image-navbar {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 .matchingPage .header {
   display: flex;

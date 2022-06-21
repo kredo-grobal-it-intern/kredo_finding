@@ -1,7 +1,6 @@
 @extends('layouts.layout')
 
 @section('content')
-
   <div class="matchingPage">
     <header class="header">
       <i class="fas fa-comments fa-3x"></i>
@@ -14,20 +13,22 @@
         <div class="matchingList">
           @foreach( $matching_users as $user)
             <div class="matchingPerson">
-              <div class="matchingPerson_img"><img src="{{ $user->img_name }}"></div>
-              <div class="matchingPerson_name">{{ $user->name }}</div>
+              @if ($user->img_name)
+               <div class="matchingPerson_img"><img src="{{ $user->img_name }}"></div>
+              @else
+               <i class="fa-solid fa-user me-5"></i>
+              @endif
+               <div class="matchingPerson_name">{{ $user->name }}</div>
 
               <form method="POST" action="{{ route('chat.show') }}">
                 @csrf
                 <input name="user_id" type="hidden" value="{{ $user->id }}">
                 <button type="submit" class="chatForm_btn">Open Chat</button>
               </form>
-
             </div>
           @endforeach
         </div>
-        <div>
-        </div>
       </div>
-
+    </div>
+  </div>
 @endsection
