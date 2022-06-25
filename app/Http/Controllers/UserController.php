@@ -54,14 +54,14 @@ class UserController extends Controller
 
   public function destroy(Request $request, $id)
   {
-      $user = User::find($id);
-      if (is_null($user->img_name)) {
-          return redirect()->back();
-      }
-      
-      $user->img_name = null;
-      $user->save();
+    $user = User::find($id);
+    if (is_null($user->img_name)) {
+        return redirect()->back();
+    }
+    
+    $user->img_name = null;
+    $user->save();
 
-      return redirect()->back();
+    return redirect()->back();
   }
 }
