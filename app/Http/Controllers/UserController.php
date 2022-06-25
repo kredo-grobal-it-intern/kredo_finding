@@ -56,7 +56,7 @@ class UserController extends Controller
   {
     $user = User::find($id);
     if (is_null($user->img_name)) {
-        return redirect()->back();
+      return redirect()->back();
     }
     
     $user->img_name = null;
