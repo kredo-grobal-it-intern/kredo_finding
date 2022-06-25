@@ -35,26 +35,12 @@ class UserController extends Controller
       $imageFile = $request['img_name'];
 
       $list = FileUploadServices::fileUpload($imageFile);
-      list($extension, $fileNameToStore, $fileData) = $list;
+      list($extension, $fileData) = $list;
 
-      $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
-      $image = Image::make($data_url);
-      $image->resize(400, 400, function ($constraint) {
-        $constraint->aspectRatio();
-        $constraint->upsize();
-      }
-    );
+      $bin_image = CheckExtensionServices::checkExtension($fileData, $extension);
 
-      $image->save(storage_path() . '/app/public/images/' . $fileNameToStore);
-
-      $user->img_name = $fileNameToStore;
+      $user->img_name = $bin_image;
     }
-
-    if ($request->image) {
-      $this->deleteImage($user->image);
-
-      $user->image = $this->saveImage($request);
-  }
 
     $user->name = $request->name;
     $user->email = $request->email;
@@ -66,26 +52,16 @@ class UserController extends Controller
     return redirect('home');
   }
 
-  private function deleteImage($image_name)
-    {
-        $image_path = Self::LOCAL_STORAGE_FOLDER . $image_name;
+  public function destroy(Request $request, $id)
+  {
+      $user = User::find($id);
+      if (is_null($user->img_name)) {
+          return redirect()->back();
+      }
+      
+      $user->img_name = null;
+      $user->save();
 
-        if (Storage::disk('local')->exists($image_path)) {
-            Storage::disk('local')->delete($image_path);
-        }
-    }
-
-
-    public function destroy(Request $request, $id)
-    {
-        $user = User::find($id);
-        if (is_null($user->img_name)) {
-            return redirect()->back();
-        }
-        Storage::disk('public')->delete('public/images/'.$user->img_name);
-        $user->img_name = null;
-        $user->save();
-
-        return redirect()->back();
-    }
+      return redirect()->back();
+  }
 }

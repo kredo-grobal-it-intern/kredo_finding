@@ -7,7 +7,7 @@
       <ul>
         <li class="personIcon">
           @if (Auth::user()->img_name)
-            <a href="/users/show/{{ Auth::id() }}"><img src="/storage/images/{{ Auth::user()->img_name }}" class="profile-image-navbar"></a>
+            <a href="/users/show/{{ Auth::id() }}"><img src="{{ Auth::user()->img_name }}" class="profile-image-navbar"></a>
           @else
             <a href="/users/show/{{ Auth::id() }}"><i class="fas fa-user fa-2x"></i></a>
           @endif
