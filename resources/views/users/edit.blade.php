@@ -46,17 +46,56 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <div><label>Gender</label></div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="gender" value="0" type="radio" id="inlineRadio1"
-                            @if ($user->gender === 0) checked @endif>
-                        <label class="form-check-label" for="inlineRadio1">male</label>
+                  <div class="row pt-3"><p class="text-danger d-inline">*once the address is filled, you never change them. </p></div>
+                  <div class="row">
+                    <div class="col-6">
+                      <label>Address 1</label><p class="text-danger d-inline">*</p>
+                      <input type="address" name="address1" class="form-control" value="{{ $user->address1 }}" >
+                      <input type="hidden" name="old_address1" class="form-control" value="{{ $user->address1 }}" >
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="gender" value="1" type="radio" id="inlineRadio2"
-                            @if ($user->gender === 1) checked @endif>
-                        <label class="form-check-label" for="inlineRadio2">female</label>
+                      <div class="col-6">
+                        <label>Address 2</label>
+                    <input type="address" name="address2" class="form-control" value="{{ $user->address2 }}" >
+                    @error('address2')
+                        <span class="errorMessage">{{ $message }}</span>
+                    @enderror
                     </div>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col">
+                      <label>City</label><p class="text-danger d-inline">*</p>
+                    <input type="text" name="city" class="form-control" value="{{ $user->city }}" >
+                    <input type="hidden" name="old_city" class="form-control" value="{{ $user->city }}" >
+                    </div>
+                    <div class="col">
+                      <label>State</label><p class="text-danger d-inline">*</p>
+                    <input type="text" name="state" class="form-control" value="{{ $user->state }}" >
+                    <input type="hidden" name="old_state" class="form-control" value="{{ $user->state }}" >
+                    </div>
+                    <div class="col">
+                        <label>Country</label><p class="text-danger d-inline">*</p>
+                      <input type="text" name="country" class="form-control" value="{{ $user->country }}" >
+                      <input type="hidden" name="old_country" class="form-control" value="{{ $user->country }}" >
+                    </div>
+                    <div class="col">
+                        <label>Zipcode</label><p class="text-danger d-inline">*</p>
+                      <input type="number" name="zipcode" class="form-control" value="{{ $user->zipcode }}" >
+                      <input type="hidden" name="old_zipcode" class="form-control" value="{{ $user->zipcode }}" >
+                  </div>
+              </div>
+                 <div class="form-group pt-4">
+                  <div><label>Gender</label></div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" name="gender" value="0" type="radio" id="inlineRadio1"
+                          @if ($user->gender === 0) checked @endif>
+                      <label class="form-check-label" for="inlineRadio1">male</label>
+                   </div>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" name="gender" value="1" type="radio" id="inlineRadio2"
+                          @if ($user->gender === 1) checked @endif>
+                      <label class="form-check-label" for="inlineRadio2">female</label>
+                  </div>
                 </div>
                 <div class="form-group">
                     <label>Self Introduction</label>

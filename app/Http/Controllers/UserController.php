@@ -29,7 +29,44 @@ class UserController extends Controller
 
   public function update($id, ProfileRequest $request)
   {
+    $request->validate([
+         'name'         => 'required|min:1|max:50',
+         'email'        => 'required|email|max:50',
+         'img_name'     => 'mimes:jpg,jpeg,png,gif|max:1048',
+         'address1'     => 'min:1|max:50|nullable',
+         'city'         => 'min:1|max:50|nullable',
+         'state'        => 'min:1|max:50|nullable',
+         'country'      => 'min:1|max:50|nullable',
+         'zipcode'      => 'min:1|max:7|nullable'
+    ]);
+
     $user = User::findorFail($id);
+
+    if(is_null($request['address1'])){
+      $address1 = $request['old_address1'];
+    }else{
+      $address1 = $request['address1'];
+    }
+    if(is_null($request['city'])){
+      $city = $request['old_city'];
+    }else{
+      $city = $request['city'];
+    }
+    if(is_null($request['state'])){
+      $state = $request['old_state'];
+    }else{
+      $state = $request['state'];
+    }
+    if(is_null($request['country'])){
+      $country = $request['old_country'];
+    }else{
+      $country = $request['country'];
+    }
+    if(is_null($request['zipcode'])){
+      $zipcode = $request['old_zipcode'];
+    }else{
+      $zipcode = $request['zipcode'];
+    }
 
     if(!is_null($request['img_name'])){
       $imageFile = $request['img_name'];
@@ -56,10 +93,16 @@ class UserController extends Controller
       $user->image = $this->saveImage($request);
   }
 
-    $user->name = $request->name;
-    $user->email = $request->email;
-    $user->gender = $request->gender;
+    $user->name              = $request->name;
+    $user->email             = $request->email;
+    $user->gender            = $request->gender;
     $user->self_introduction = $request->self_introduction;
+    $user->address1          = $address1;
+    $user->address2          = $request->address2;
+    $user->city              = $city;
+    $user->state             = $state;
+    $user->country           = $country;
+    $user->zipcode           = $zipcode;
 
     $user->save();
 
