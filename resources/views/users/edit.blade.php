@@ -33,25 +33,23 @@
 
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" name="name" class="form-control" value="{{ $user->name }}">
+                    <input type="text" name="name" class="form-control" value="{{ $user->name }}" {{ $user->name ? 'required' : ''}}>
                     @error('name')
                         <span class="errorMessage">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" name="email" class="form-control" value="{{ $user->email }}">
+                    <input type="email" name="email" class="form-control" value="{{ $user->email }}" {{ $user->name ? 'required' : ''}}>
                     @error('email')
                         <span class="errorMessage">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="form-group">
-                  <div class="row pt-3"><p class="text-danger d-inline">*once the address is filled, you never change them. </p></div>
                   <div class="row">
                     <div class="col-6">
-                      <label>Address 1</label><p class="text-danger d-inline">*</p>
-                      <input type="address" name="address1" class="form-control" value="{{ $user->address1 }}" >
-                      <input type="hidden" name="old_address1" class="form-control" value="{{ $user->address1 }}" >
+                      <label>Address 1</label> <p class="text-danger d-inline">*</p>
+                      <input type="address" name="address1" class="form-control" value="{{ $user->address1 }}" {{ $user->address1 ? 'required' : ''}}>
                     </div>
                       <div class="col-6">
                         <label>Address 2</label>
@@ -65,37 +63,46 @@
                   <div class="row">
                     <div class="col">
                       <label>City</label><p class="text-danger d-inline">*</p>
-                    <input type="text" name="city" class="form-control" value="{{ $user->city }}" >
-                    <input type="hidden" name="old_city" class="form-control" value="{{ $user->city }}" >
+                    <input type="text" name="city" class="form-control" value="{{ $user->city }}" {{ $user->city ? 'required' : ''}} >
+                    @error('city')
+                        <span class="errorMessage">{{ $message }}</span>
+                    @enderror
                     </div>
                     <div class="col">
                       <label>State</label><p class="text-danger d-inline">*</p>
-                    <input type="text" name="state" class="form-control" value="{{ $user->state }}" >
-                    <input type="hidden" name="old_state" class="form-control" value="{{ $user->state }}" >
+                    <input type="text" name="state" class="form-control" value="{{ $user->state }}" {{ $user->state ? 'required' : ''}} >
+                    @error('state')
+                        <span class="errorMessage">{{ $message }}</span>
+                    @enderror
                     </div>
                     <div class="col">
                         <label>Country</label><p class="text-danger d-inline">*</p>
-                      <input type="text" name="country" class="form-control" value="{{ $user->country }}" >
-                      <input type="hidden" name="old_country" class="form-control" value="{{ $user->country }}" >
+                      <input type="text" name="country" class="form-control" value="{{ $user->country }}" {{ $user->country ? 'required' : ''}} >
+                      @error('country')
+                          <span class="errorMessage">{{ $message }}</span>
+                      @enderror
                     </div>
                     <div class="col">
                         <label>Zipcode</label><p class="text-danger d-inline">*</p>
-                      <input type="number" name="zipcode" class="form-control" value="{{ $user->zipcode }}" >
-                      <input type="hidden" name="old_zipcode" class="form-control" value="{{ $user->zipcode }}" >
+                      <input type="number" name="zipcode" class="form-control" value="{{ $user->zipcode }}" {{ $user->zipcode ? 'required' : ''}} >
+                      @error('zipcode')
+                          <span class="errorMessage">{{ $message }}</span>
+                      @enderror
                   </div>
               </div>
-                 <div class="form-group pt-4">
-                  <div><label>Gender</label></div>
+
+                <div class="form-group pt-4">
+                    <div><label>Gender</label></div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input" name="gender" value="0" type="radio" id="inlineRadio1"
-                          @if ($user->gender === 0) checked @endif>
-                      <label class="form-check-label" for="inlineRadio1">male</label>
-                   </div>
-                  <div class="form-check form-check-inline">
-                      <input class="form-check-input" name="gender" value="1" type="radio" id="inlineRadio2"
-                          @if ($user->gender === 1) checked @endif>
-                      <label class="form-check-label" for="inlineRadio2">female</label>
-                  </div>
+                        <input class="form-check-input" name="gender" value="0" type="radio" id="inlineRadio1"
+                            @if ($user->gender === 0) checked @endif>
+                        <label class="form-check-label" for="inlineRadio1">male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" name="gender" value="1" type="radio" id="inlineRadio2"
+                            @if ($user->gender === 1) checked @endif>
+                        <label class="form-check-label" for="inlineRadio2">female</label>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>Self Introduction</label>
