@@ -29,20 +29,10 @@ class UserController extends Controller
 
   public function update($id, ProfileRequest $request)
   {
-    $request->validate([
-         'name'         => 'min:1|max:50|nullable',
-         'email'        => 'email|max:50|nullable',
-         'img_name'     => 'mimes:jpg,jpeg,png,gif|max:1048',
-         'address1'     => 'min:1|max:50|nullable',
-         'city'         => 'min:1|max:50|nullable',
-         'state'        => 'min:1|max:50|nullable',
-         'country'      => 'min:1|max:50|nullable',
-         'zipcode'      => 'min:1|max:7|nullable'
-    ]);
 
     $user = User::findorFail($id);
 
-    if(!is_null($request['img_name'])){
+    if (!is_null($request['img_name'])) {
       $imageFile = $request['img_name'];
 
       $list = FileUploadServices::fileUpload($imageFile);
@@ -53,8 +43,6 @@ class UserController extends Controller
       $user->img_name = $bin_image;
     }
 
-    $user->name              = $request->name;
-    $user->email             = $request->email;
     $user->gender            = $request->gender;
     $user->self_introduction = $request->self_introduction;
     $user->address1          = $request->address1;
@@ -75,7 +63,7 @@ class UserController extends Controller
     if (is_null($user->img_name)) {
       return redirect()->back();
     }
-    
+
     $user->img_name = null;
     $user->save();
 
