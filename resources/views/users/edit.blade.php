@@ -33,19 +33,65 @@
 
                 <div class="form-group">
                     <label>Name</label>
-                    <input type="text" name="name" class="form-control" value="{{ $user->name }}">
+                    <input type="text" name="name" class="form-control" value="{{ $user->name }}" {{ $user->name ? 'required' : ''}}>
                     @error('name')
                         <span class="errorMessage">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" name="email" class="form-control" value="{{ $user->email }}">
+                    <input type="email" name="email" class="form-control" value="{{ $user->email }}" {{ $user->name ? 'required' : ''}}>
                     @error('email')
                         <span class="errorMessage">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="form-group">
+                  <div class="row">
+                    <div class="col-6">
+                      <label>Address 1</label> <p class="text-danger d-inline">*</p>
+                      <input type="address" name="address1" class="form-control" value="{{ $user->address1 }}" {{ $user->address1 ? 'required' : ''}}>
+                    </div>
+                      <div class="col-6">
+                        <label>Address 2</label>
+                    <input type="address" name="address2" class="form-control" value="{{ $user->address2 }}" >
+                    @error('address2')
+                        <span class="errorMessage">{{ $message }}</span>
+                    @enderror
+                    </div>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col">
+                      <label>City</label><p class="text-danger d-inline">*</p>
+                    <input type="text" name="city" class="form-control" value="{{ $user->city }}" {{ $user->city ? 'required' : ''}} >
+                    @error('city')
+                        <span class="errorMessage">{{ $message }}</span>
+                    @enderror
+                    </div>
+                    <div class="col">
+                      <label>State</label><p class="text-danger d-inline">*</p>
+                    <input type="text" name="state" class="form-control" value="{{ $user->state }}" {{ $user->state ? 'required' : ''}} >
+                    @error('state')
+                        <span class="errorMessage">{{ $message }}</span>
+                    @enderror
+                    </div>
+                    <div class="col">
+                        <label>Country</label><p class="text-danger d-inline">*</p>
+                      <input type="text" name="country" class="form-control" value="{{ $user->country }}" {{ $user->country ? 'required' : ''}} >
+                      @error('country')
+                          <span class="errorMessage">{{ $message }}</span>
+                      @enderror
+                    </div>
+                    <div class="col">
+                        <label>Zipcode</label><p class="text-danger d-inline">*</p>
+                      <input type="number" name="zipcode" class="form-control" value="{{ $user->zipcode }}" {{ $user->zipcode ? 'required' : ''}} >
+                      @error('zipcode')
+                          <span class="errorMessage">{{ $message }}</span>
+                      @enderror
+                  </div>
+              </div>
+
+                <div class="form-group pt-4">
                     <div><label>Gender</label></div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" name="gender" value="0" type="radio" id="inlineRadio1"
