@@ -14,6 +14,7 @@ class ReactionController extends Controller
 {
   public function index()
   {
+    
     return view('like.show');
   }
 
