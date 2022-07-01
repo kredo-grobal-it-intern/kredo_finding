@@ -43,6 +43,8 @@ class UserController extends Controller
       $user->img_name = $bin_image;
     }
 
+    $user->name              = $request->name;
+    $user->email             = $request->email;
     $user->gender            = $request->gender;
     $user->self_introduction = $request->self_introduction;
     $user->address1          = $request->address1;
