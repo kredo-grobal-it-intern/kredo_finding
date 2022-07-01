@@ -45,6 +45,10 @@ class RegisterController extends Controller
     $this->middleware('guest');
   }
 
+  public function showCompanyRegister(){
+    return view('companies/register');
+  }
+
   /**
    * Get a validator for an incoming registration request.
    *
@@ -91,6 +95,7 @@ class RegisterController extends Controller
 
     return User::create([
       'name' => $data['name'],
+      'user_type' => $data['user_type'],
       'email' => $data['email'],
       'password' => Hash::make($data['password']),
       'self_introduction' => $data['self_introduction'],
