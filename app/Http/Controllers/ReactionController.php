@@ -7,20 +7,23 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Reaction;
 use App\Constants\Status;
+use Auth;
 
 //use Log;
 
 class ReactionController extends Controller
 {
-  public function index()
+  public function show()
   {
-    return view('like.show');
+    $user = User::find(Auth::id());
+    $you_liked = $user->fromUserId()->where('status', 0)->get();
+    $liked_by = $user->toUserId()->where('status', 0)->get();
+
+    return view('like.show', compact('you_liked', 'liked_by'));
   }
 
   public function create(Request $request)
   {
-//    Log::debug($request);
-
     $to_user_id = $request->to_user_id;
     $like_status = $request->reaction;
     $from_user_id = $request->from_user_id;
@@ -46,5 +49,10 @@ class ReactionController extends Controller
 
       $reaction->save();
     }
+  }
+
+  public function index()
+  {
+    return view('like.show');
   }
 }

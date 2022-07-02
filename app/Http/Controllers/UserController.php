@@ -29,63 +29,46 @@ class UserController extends Controller
 
   public function update($id, ProfileRequest $request)
   {
+
     $user = User::findorFail($id);
 
-    if(!is_null($request['img_name'])){
+    if (!is_null($request['img_name'])) {
       $imageFile = $request['img_name'];
 
       $list = FileUploadServices::fileUpload($imageFile);
-      list($extension, $fileNameToStore, $fileData) = $list;
+      list($extension, $fileData) = $list;
 
-      $data_url = CheckExtensionServices::checkExtension($fileData, $extension);
-      $image = Image::make($data_url);
-      $image->resize(400, 400, function ($constraint) {
-        $constraint->aspectRatio();
-        $constraint->upsize();
-      }
-    );
+      $bin_image = CheckExtensionServices::checkExtension($fileData, $extension);
 
-      $image->save(storage_path() . '/app/public/images/' . $fileNameToStore);
-
-      $user->img_name = $fileNameToStore;
+      $user->img_name = $bin_image;
     }
 
-    if ($request->image) {
-      $this->deleteImage($user->image);
-
-      $user->image = $this->saveImage($request);
-  }
-
-    $user->name = $request->name;
-    $user->email = $request->email;
-    $user->gender = $request->gender;
+    $user->name              = $request->name;
+    $user->email             = $request->email;
+    $user->gender            = $request->gender;
     $user->self_introduction = $request->self_introduction;
+    $user->address1          = $request->address1;
+    $user->address2          = $request->address2;
+    $user->city              = $request->city;
+    $user->state             = $request->state;
+    $user->country           = $request->country;
+    $user->zipcode           = $request->zipcode;
 
     $user->save();
 
     return redirect('home');
   }
 
-  private function deleteImage($image_name)
-    {
-        $image_path = Self::LOCAL_STORAGE_FOLDER . $image_name;
-
-        if (Storage::disk('local')->exists($image_path)) {
-            Storage::disk('local')->delete($image_path);
-        }
+  public function destroy(Request $request, $id)
+  {
+    $user = User::find($id);
+    if (is_null($user->img_name)) {
+      return redirect()->back();
     }
 
+    $user->img_name = null;
+    $user->save();
 
-    public function destroy(Request $request, $id)
-    {
-        $user = User::find($id);
-        if (is_null($user->img_name)) {
-            return redirect()->back();
-        }
-        Storage::disk('public')->delete('public/images/'.$user->img_name);
-        $user->img_name = null;
-        $user->save();
-
-        return redirect()->back();
-    }
+    return redirect()->back();
+  }
 }
