@@ -13,7 +13,6 @@ use Auth;
 
 class ReactionController extends Controller
 {
-
   public function show()
   {
     $user = User::find(Auth::id());
@@ -23,11 +22,8 @@ class ReactionController extends Controller
     return view('like.show', compact('you_liked', 'liked_by'));
   }
 
-
   public function create(Request $request)
   {
-    //    Log::debug($request);
-
     $to_user_id = $request->to_user_id;
     $like_status = $request->reaction;
     $from_user_id = $request->from_user_id;
@@ -57,7 +53,6 @@ class ReactionController extends Controller
 
   public function index()
   {
-
     return view('like.show');
   }
 }
