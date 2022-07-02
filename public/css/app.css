@@ -20421,7 +20421,6 @@ body {
 .signupPage .errorMessage {
   color: #f3920b;
 }
-
 .linkToLogin {
   margin: 15px 0 15px;
   text-align: center;
@@ -20450,11 +20449,9 @@ body {
 
 .signinPage {
   margin-top: 10vh;
-}
-.signinPage .title {
-  color: #f3920b;
-  margin: 20px 0;
-  text-align: center;
+  background-image: url("../images/login_background.png");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .signinPage .userIcon {
   width: 120px;
@@ -20466,6 +20463,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.signinPage .signInInfo {
+  align-items: center;
+  border-bottom: 3px solid #f3920b;
+  border-right: none;
+  border-left: none;
+  border-top: none;
+  border-radius: 0px;
+  outline: none;
 }
 .signinPage .loginBtn {
   padding: 12px;
@@ -20485,6 +20491,11 @@ body {
 }
 .signinPage .errorMessage {
   color: #f3920b;
+}
+.signinPage .card{
+  margin: 0 auto;
+  background: #d3d3d3;
+
 }
 
 .usershowPage .header {
@@ -20980,22 +20991,29 @@ html, body {
   margin-top: 30px;
   padding: 0;
 }
-.showLikePage .likingList .likePerson {
+.showLikePage .likingList .likingPerson {
   display: flex;
   align-items: center;
   padding: 20px 0px;
   border-bottom: 1px solid #e8e8e8;
   position: relative;
 }
-.showLikePage .likingList .likePerson_img {
+.showLikePage .likingList .liking_img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   overflow: hidden;
-  margin-right: 10px;
+  margin-right: 20px;
+  text-align: center;
 }
-.showLikePage .likingList .likePerson_img > img {
+.showLikePage .likingList .liking_img > img {
   width: 100%;
+  object-fit: cover;
+}
+.showLikePage .likingList i{
+  font-size: 50px;
+  margin-right: 20px;
+  color: #f3920b;
 }
 .showLikePage .likingList .likePerson form {
   position: absolute;

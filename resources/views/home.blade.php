@@ -13,7 +13,7 @@
           @endif
         </li>
         <li class="appIcon"><a href="{{ route('home') }}"><img src="/images/kredo_logo.jpg"></a></li>
-        <li class="heartIcon"><a href="{{ route('like') }}"><i class="fas fa-2x fa-heart"></i></a></li>
+        <li class="heartIcon"><a href="{{ route('reaction.show') }}"><i class="fas fa-2x fa-heart"></i></a></li>
         <li class="messageIcon"><a href="{{ route('matching') }}"><i class="fas fa-2x fa-comments"></i></a></li>
       </ul>
     </nav>
