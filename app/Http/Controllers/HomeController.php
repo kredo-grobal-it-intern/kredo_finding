@@ -25,9 +25,15 @@ class HomeController extends Controller
    * @return \Illuminate\Contracts\Support\Renderable
    */
   public function index()
-  {
-    $users = User::all();
+  { 
+    $user = User::find(Auth::id());
 
+    if($user->user_type == 0){
+      $users = User::all()->where('user_type', 1);
+    }else{
+      $users = User::all()->where('user_type', 0);
+    }
+    
     $userCount = $users->count();
     $from_user_id = Auth::id();
 

@@ -18,6 +18,7 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
 });
 
 Auth::routes();
+Route::get('/register/company', 'Auth\RegisterController@showCompanyRegister')->name('company.register');
 
 Route::view('/', 'top');
 
@@ -26,10 +27,9 @@ Route::get('/login/google/callback', 'Auth\LoginController@handleGoogleCallback'
 Route::get('/login/facebook', 'Auth\LoginController@redirectToFacebook')->name('facebook.redirect');
 Route::get('/login/facebook/callback', 'Auth\LoginController@handleFacebookCallback')->name('facebook.callback');
 
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/matching', 'MatchingController@index')->name('matching');
-Route::get('/reaction', 'ReactionController@index')->name('like');
+Route::get('/reaction', 'ReactionController@show')->name('reaction.show');
 
 Route::group(['prefix' => 'chat', 'middleware' => 'auth'], function () {
   Route::post('show', 'ChatController@show')->name('chat.show');
