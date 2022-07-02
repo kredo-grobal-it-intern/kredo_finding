@@ -39,14 +39,11 @@
             <div class='userInfo_selfIntroduction'>{{ $user -> self_introduction }}</div>
             <h1 class="mt-5 mx-4">Gender</h1>
             <div class="form-check form-check-inline mx-4">
-              <input class="form-check-input" name="gender" value="0" type="radio" id="inlineRadio1"
-                  @if ($user->gender === 0) checked @endif>
-              <h2 class="form-check-label" for="inlineRadio1">male</h2>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" name="gender" value="1" type="radio" id="inlineRadio2"
-                  @if ($user->gender === 1) checked @endif>
-              <h2 class="form-check-label" for="inlineRadio2">female</h2>
+              @if ($user->gender === 0)
+                <h2 class="form-check" for="inlineRadio1">male</h2>
+              @else
+                <h2 class="form-check" for="inlineRadio2">female</h2>
+              @endif
             </div>
             <h1 class="mt-5 mx-4">Personal Information</h1>
             <h2 type="email" name="email" class="mt-4 mx-4" >{{ $user->email }}</h2>
@@ -63,4 +60,5 @@
     </div>
   </div>
 @endsection
+
 
