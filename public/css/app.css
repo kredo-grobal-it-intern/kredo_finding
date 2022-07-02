@@ -20421,6 +20421,83 @@ body {
 .signupPage .errorMessage {
   color: #f3920b;
 }
+
+.signupCompanyPage .header {
+  padding: 20px;
+  text-align: center;
+  background: #00008b;
+  color: #fff;
+}
+.signupCompanyPage .userProfileImg {
+  position: relative;
+  margin: 0 auto 10px auto;
+  width: 100px;
+  height: 100px;
+  background: #00008b;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+.signupCompanyPage .userProfileImg:hover .userProfileImg_description {
+  opacity: 1;
+}
+.signupCompanyPage .userProfileImg_description {
+  transition: opacity 0.5s;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 5, 5, 0.5);
+  color: #fff;
+}
+.signupCompanyPage .userProfileImg .fa-camera {
+  color: #fff;
+}
+.signupCompanyPage .userProfileImg > input {
+  display: none;
+}
+.signupCompanyPage .userImgPreview {
+  margin: 0 auto;
+  display: none;
+  text-align: center;
+}
+.signupCompanyPage .userImgPreview.is-active {
+  display: block;
+}
+.signupCompanyPage .userImgPreview_content {
+  max-width: 100px;
+  margin: 10px;
+  padding: 10px;
+  border: solid thin lightgray;
+  border-radius: 5px;
+}
+.signupCompanyPage .userImgPreview_text {
+  font-size: 11px;
+}
+.signupCompanyPage .submitBtn {
+  background: #00008b;
+  color: #fff;
+  width: 200px;
+  padding: 10px;
+  border-radius: 90px;
+  transition: opacity 0.5s;
+}
+.signupCompanyPage .submitBtn:hover {
+  opacity: 0.6;
+}
+.signupCompanyPage .errorMessage {
+  color: #f3920b;
+}
+.signupCompanyPage .linkToLogin > a {
+  color: #00008b;
+}
+
 .linkToLogin {
   margin: 15px 0 15px;
   text-align: center;

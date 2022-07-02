@@ -29,9 +29,10 @@ class UserController extends Controller
 
   public function update($id, ProfileRequest $request)
   {
+
     $user = User::findorFail($id);
 
-    if(!is_null($request['img_name'])){
+    if (!is_null($request['img_name'])) {
       $imageFile = $request['img_name'];
 
       $list = FileUploadServices::fileUpload($imageFile);
@@ -42,10 +43,16 @@ class UserController extends Controller
       $user->img_name = $bin_image;
     }
 
-    $user->name = $request->name;
-    $user->email = $request->email;
-    $user->gender = $request->gender;
+    $user->name              = $request->name;
+    $user->email             = $request->email;
+    $user->gender            = $request->gender;
     $user->self_introduction = $request->self_introduction;
+    $user->address1          = $request->address1;
+    $user->address2          = $request->address2;
+    $user->city              = $request->city;
+    $user->state             = $request->state;
+    $user->country           = $request->country;
+    $user->zipcode           = $request->zipcode;
 
     $user->save();
 
@@ -58,7 +65,7 @@ class UserController extends Controller
     if (is_null($user->img_name)) {
       return redirect()->back();
     }
-    
+
     $user->img_name = null;
     $user->save();
 

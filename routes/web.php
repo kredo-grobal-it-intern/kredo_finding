@@ -18,6 +18,7 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
 });
 
 Auth::routes();
+Route::get('/register/company', 'Auth\RegisterController@showCompanyRegister')->name('company.register');
 
 Route::view('/', 'top');
 
