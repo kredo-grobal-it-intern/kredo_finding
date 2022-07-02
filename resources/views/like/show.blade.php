@@ -15,42 +15,54 @@
         <label class="tab1_label" for="tab1">You Liked</label>
         <label class="tab2_label" for="tab2">Liked By</label>
       </div>
-      
+
       <!-- タブの中身 -->
       <div class="content_area">
         <div id="content1" class="tab_content">
-          <div class="likingNum">you liked ○ people</div>
+          <div class="likingNum">You liked {{ $you_liked->count() }} people</div>
           <h2 class="pageTitle">List of people you liked</h2>
           <div class="likingList">
-            <div class="like_profiles">
-              <div>image</div>
-              <div class="like_name">username</div>
+
+            @foreach($you_liked as $you_liked_user)
+            <div class="likingPerson">
+              @if ($you_liked_user->toUserId->img_name)
+               <div class="liking_img"><img src="{{ $you_liked_user->toUserId->img_name }}"></div>
+              @else
+               <i class="fa-solid fa-circle-user me-5"></i>
+              @endif
+               <div class="liking_name">{{ $you_liked_user->toUserId->name }}</div>
+
               <form method="POST" action="{{ route('chat.show') }}">
                 @csrf
                 <input name="user_id" type="hidden" value="">
               </form>
             </div>
+            @endforeach
           </div>
         </div>
 
         <div id="content2" class="tab_content">
-          <div class="likingNum">○ people liked you</div>
+          <div class="likingNum">{{ $liked_by->count() }} people liked you</div>
           <h2 class="pageTitle">List of people who liked you</h2>
           <div class="likingList">
-            <div class="like_profiles">
-              <div>image</div>
-              <div class="like_name">username</div>
+
+            @foreach( $liked_by as $liked_by_user)
+            <div class="likingPerson">
+              @if ($liked_by_user->fromUserId->img_name)
+               <div class="liking_img"><img src="{{ $liked_by_user->fromUserId->img_name }}"></div>
+              @else
+               <i class="fa-solid fa-circle-user me-5"></i>
+              @endif
+               <div class="liking_name">{{ $liked_by_user->fromUserId->name }}</div>
+
               <form method="POST" action="{{ route('chat.show') }}">
                 @csrf
                 <input name="user_id" type="hidden" value="">
               </form>
             </div>
+            @endforeach
           </div>
         </div>
-
       </div>
     </div>
   </div>
-
-
-@endsection
