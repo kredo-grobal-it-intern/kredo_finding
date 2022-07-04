@@ -46,6 +46,10 @@
                     @enderror
                 </div>
                 <div class="form-group">
+                  <!-- Change password -->
+                  <a href="{{ route('changePasswordGet') }}">Change Password </a>
+                </div>
+                <div class="form-group">
                   <div class="row">
                     <div class="col-6">
                       <label>Address 1</label> <p class="text-danger d-inline">*</p>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 use Auth;
+use Hash;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,7 @@ class HomeController extends Controller
    * @return \Illuminate\Contracts\Support\Renderable
    */
   public function index()
-  { 
+  {
     $user = User::find(Auth::id());
 
     if($user->user_type == 0){
@@ -33,10 +34,38 @@ class HomeController extends Controller
     }else{
       $users = User::all()->where('user_type', 0);
     }
-    
+
     $userCount = $users->count();
     $from_user_id = Auth::id();
 
     return view('home', compact('users', 'userCount', 'from_user_id'));
   }
+
+  public function showChangePasswordGet() {
+    return view('auth.passwords.change-password');
+}
+
+public function changePasswordPost(Request $request) {
+    if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
+        // The passwords matches
+        return redirect()->back()->with("error","Your current password does not matches with the password.");
+    }
+
+    if(strcmp($request->get('current-password'), $request->get('new-password')) == 0){
+        // Current password and new password same
+        return redirect()->back()->with("error","New Password cannot be same as your current password.");
+    }
+
+    $validatedData = $request->validate([
+        'current-password' => 'required',
+        'new-password' => 'required|string|min:8|confirmed',
+    ]);
+
+    //Change Password
+    $user = Auth::user();
+    $user->password = bcrypt($request->get('new-password'));
+    $user->save();
+
+    return redirect()->route('home')->with("success","Password successfully changed!");
+}
 }
