@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Company;
 use App\Services\CheckExtensionServices;
 use App\Services\FileUploadServices;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -93,14 +94,34 @@ class RegisterController extends Controller
       $data['gender'] = NULL;
     }
 
-    return User::create([
-      'name' => $data['name'],
-      'user_type' => $data['user_type'],
-      'email' => $data['email'],
-      'password' => Hash::make($data['password']),
-      'self_introduction' => $data['self_introduction'],
-      'gender' => $data['gender'],
-      'img_name' => $bin_image,
-    ]);
+    if($data['user_type'] == 0){
+      return User::create([
+        'name' => $data['name'],
+        'user_type' => $data['user_type'],
+        'email' => $data['email'],
+        'password' => Hash::make($data['password']),
+        'self_introduction' => $data['self_introduction'],
+        'gender' => $data['gender'],
+        'img_name' => $bin_image,
+      ]);
+    }else{
+      Company::create([
+        'name' => $data['name'],
+        'email' => $data['email'],
+        'password' => Hash::make($data['password']),
+        'services' => $data['self_introduction'],
+        'img_name' => $bin_image,
+      ]);
+
+      return User::create([
+        'name' => $data['name'],
+        'user_type' => $data['user_type'],
+        'email' => $data['email'],
+        'password' => Hash::make($data['password']),
+        'self_introduction' => $data['self_introduction'],
+        'gender' => $data['gender'],
+        'img_name' => $bin_image,
+      ]);
+    }
   }
 }
