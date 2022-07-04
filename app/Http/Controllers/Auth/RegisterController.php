@@ -98,7 +98,9 @@ class RegisterController extends Controller
       $data['gender'] = NULL;
     }
 
-    ($data['user_type'] == 1) ? $this->company->createCompany($data, $bin_image) : '';
+    if($data['user_type'] == 1){
+      $this->company->createCompany($data, $bin_image);
+    }
 
     return $this->user->createUser($data, $bin_image);
   }
