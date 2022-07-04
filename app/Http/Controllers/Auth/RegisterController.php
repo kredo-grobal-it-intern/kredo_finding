@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Company;
 use App\Services\CheckExtensionServices;
 use App\Services\FileUploadServices;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 use Intervention\Image\Facades\Image;
@@ -40,9 +40,14 @@ class RegisterController extends Controller
    *
    * @return void
    */
-  public function __construct()
+  protected $user;
+  protected $company;
+
+  public function __construct(User $user, Company $company)
   {
     $this->middleware('guest');
+    $this->user = $user;
+    $this->company = $company;
   }
 
   public function showCompanyRegister(){
@@ -93,14 +98,10 @@ class RegisterController extends Controller
       $data['gender'] = NULL;
     }
 
-    return User::create([
-      'name' => $data['name'],
-      'user_type' => $data['user_type'],
-      'email' => $data['email'],
-      'password' => Hash::make($data['password']),
-      'self_introduction' => $data['self_introduction'],
-      'gender' => $data['gender'],
-      'img_name' => $bin_image,
-    ]);
+    if($data['user_type'] == 1){
+      $this->company->createCompany($data, $bin_image);
+    }
+
+    return $this->user->createUser($data, $bin_image);
   }
 }
