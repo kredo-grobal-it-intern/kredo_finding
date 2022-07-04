@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -53,5 +54,18 @@ class User extends Authenticatable
   public function isLiked()
   {
     return $this->toUserId()->where('from_user_id', Auth::user()->id)->exists();
+  }
+
+  public function createUser($data, $bin_image)
+  {
+    return User::create([
+      'name' => $data['name'],
+      'user_type' => $data['user_type'],
+      'email' => $data['email'],
+      'password' => Hash::make($data['password']),
+      'self_introduction' => $data['self_introduction'],
+      'gender' => $data['gender'],
+      'img_name' => $bin_image,
+    ]);
   }
 }
