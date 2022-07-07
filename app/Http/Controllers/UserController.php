@@ -47,6 +47,7 @@ class UserController extends Controller
     $user->email             = $request->email;
     $user->gender            = $request->gender;
     $user->self_introduction = $request->self_introduction;
+    $user->contact_number    = $request->contact_number;
     $user->address1          = $request->address1;
     $user->address2          = $request->address2;
     $user->city              = $request->city;

@@ -20615,6 +20615,12 @@ body {
   color: #f3920b;
   overflow: hidden;
 }
+.usershowPage .userAction .logout-hover:hover{
+  color:red !important;
+}
+.usershowPage .profile-icon-for-show {
+  padding-right: 20px;
+}
 .usershowPage .userInfo_name {
   text-align: center;
   margin-top: 5px;
@@ -20652,8 +20658,10 @@ body {
 }
 .usershowPage .profile_container{
   width:100%;
-  height:900px;
+  height:auto;
+  overflow: hidden;
   box-shadow: #000;
+  border:red solid 1px;
 }
 .usershowPage .inner_container{
   width: 1200px;
