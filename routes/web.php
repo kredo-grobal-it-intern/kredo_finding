@@ -28,6 +28,8 @@ Route::get('/login/facebook', 'Auth\LoginController@redirectToFacebook')->name('
 Route::get('/login/facebook/callback', 'Auth\LoginController@handleFacebookCallback')->name('facebook.callback');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/changePassword', 'HomeController@showChangePasswordGet')->name('changePasswordGet');
+Route::post('/changePassword', 'HomeController@changePasswordPost')->name('changePasswordPost');
 Route::get('/matching', 'MatchingController@index')->name('matching');
 Route::get('/reaction', 'ReactionController@show')->name('reaction.show');
 
