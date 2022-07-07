@@ -50,6 +50,10 @@
           <input type="password" name="password_confirmation" class="form-control" placeholder="Enter confirmation password">
         </div>
         <div class="form-group">
+          <label>Contact Number</label>
+          <input type="tel" name="contact_number" class="form-control" placeholder="Enter Contact Number" maxlength="11">
+        </div>
+        <div class="form-group">
           <div><label>Gender</label></div>
           <div class="form-check form-check-inline">
             <input class="form-check-input" name="gender" value="0" type="radio" id="inlineRadio1">

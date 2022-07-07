@@ -24,7 +24,7 @@
                </div>
               <div class='userAction_logout userAction_common'>
                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();"><i class="fas fa-door-open fa-3x text-white"></i></a>
+                document.getElementById('logout-form').submit();"><i class="fas fa-door-open fa-3x text-white logout-hover"></i></a>
                 <span class="h4 text-white">LOGOUT</span>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                   {{ csrf_field() }}
@@ -46,7 +46,8 @@
               @endif
             </div>
             <h1 class="mt-5 mx-4">Personal Information</h1>
-            <h2 type="email" name="email" class="mt-4 mx-4" >{{ $user->email }}</h2>
+            <h2 type="email" name="email" class="mt-4 mx-4"><i class="fa-solid fa-envelope profile-icon-for-show"></i>{{ $user->email }}</h2>
+            <h2 type="munber" name="contact_number" class="mt-4 mx-4" ><i class="fa-solid fa-phone profile-icon-for-show"></i>{{ $user->contact_number }}</h2>
           </div>
         </div>
       </div>

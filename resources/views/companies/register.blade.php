@@ -48,6 +48,10 @@
           <label>Confirmation Password</label>
           <input type="password" name="password_confirmation" class="form-control" placeholder="Enter confirmation password">
         </div>
+        <div class="form-group">
+          <label>Contact Number</label>
+          <input type="number" name="contact_number" class="form-control" placeholder="Enter Contact Number">
+        </div>
         <div class="form-group @error('self_introduction')has-error @enderror">
           <label>Company Info</label>
           <textarea class="form-control" name="self_introduction" rows="10">{{ old('self_introduction') }}</textarea>
