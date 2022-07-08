@@ -16,11 +16,14 @@
               @if ($user->img_name)
                <div class="matchingPerson_img"><img src="{{ $user->img_name }}"></div>
               @else
-               <i class="fa-solid fa-user me-5"></i>
+                @if ($user->user_type == 0)
+                  <i class="fa-solid fa-user index-icon"></i>
+                @else
+                  <i class="fa-solid fa-building index-icon"></i>
+                @endif
               @endif
                <div class="matchingPerson_name">{{ $user->name }}</div>
-
-              <form method="POST" action="{{ route('chat.show') }}">
+               <form method="POST" action="{{ route('chat.show') }}">
                 @csrf
                 <input name="user_id" type="hidden" value="{{ $user->id }}">
                 <button type="submit" class="chatForm_btn">Open Chat</button>

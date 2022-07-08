@@ -28,7 +28,11 @@
               @if ($you_liked_user->toUserId->img_name)
                <div class="liking_img"><img src="{{ $you_liked_user->toUserId->img_name }}"></div>
               @else
-               <i class="fa-solid fa-circle-user me-5"></i>
+                @if ($you_liked_user->toUserId->user_type == 0)
+                  <i class="fa-solid fa-circle-user me-5"></i>
+                @else
+                  <i class="fa-solid fa-building me-5"></i>
+                @endif
               @endif
                <div class="liking_name">{{ $you_liked_user->toUserId->name }}</div>
 
@@ -51,7 +55,11 @@
               @if ($liked_by_user->fromUserId->img_name)
                <div class="liking_img"><img src="{{ $liked_by_user->fromUserId->img_name }}"></div>
               @else
-               <i class="fa-solid fa-circle-user me-5"></i>
+                @if ($liked_by_user->fromUserId->user_type == 0)
+                   <i class="fa-solid fa-circle-user me-5"></i>
+                @else
+                   <i class="fa-solid fa-building me-5"></i>
+                @endif
               @endif
                <div class="liking_name">{{ $liked_by_user->fromUserId->name }}</div>
 

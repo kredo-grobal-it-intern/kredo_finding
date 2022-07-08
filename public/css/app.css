@@ -20585,7 +20585,9 @@ body {
 .signinPage .facebookBtn{
   background-color: #4058bd;
 }
-
+.index-icon {
+  margin-right: 10px;
+}
 .usershowPage .header {
   display: flex;
   flex-direction: row-reverse;
