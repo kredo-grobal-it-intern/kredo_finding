@@ -4,18 +4,27 @@
 
   <div class="topPage">
     <nav class="nav">
-      <ul>
-        <li class="personIcon">
-          @if (Auth::user()->img_name)
-            <a href="/users/show/{{ Auth::id() }}"><img src="{{ Auth::user()->img_name }}" class="profile-image-navbar"></a>
-          @else
-            <a href="/users/show/{{ Auth::id() }}"><i class="fas fa-user fa-2x"></i></a>
-          @endif
-        </li>
-        <li class="appIcon"><a href="{{ route('home') }}"><img src="/images/kredo_logo.jpg"></a></li>
-        <li class="heartIcon"><a href="{{ route('reaction.show') }}"><i class="fas fa-2x fa-heart"></i></a></li>
-        <li class="messageIcon"><a href="{{ route('matching') }}"><i class="fas fa-2x fa-comments"></i></a></li>
-      </ul>
+      <div class="nav-items">
+        <div class="appIcon"><a href="{{ route('home') }}"><img src="/images/kredo_logo.jpg"></a></div>
+
+        <div class="hamburger-menu">
+          <input type="checkbox" id="menu-btn-check">
+          <label for="menu-btn-check" class="menu-btn"><span class="navicon"></span></label>
+
+          <ul class="menu-content">
+            <li class="personIcon">
+              @if (Auth::user()->img_name)
+                <a href="/users/show/{{ Auth::id() }}"><img src="{{ Auth::user()->img_name }}" class="profile-image-navbar"></a>
+              @else
+                <a href="/users/show/{{ Auth::id() }}"><i class="fas fa-user fa-2x"></i></a>
+              @endif
+            </li>
+            <li class="heartIcon"><a href="{{ route('reaction.show') }}"><i class="fas fa-2x fa-heart"></i></a></li>
+            <li class="messageIcon"><a href="{{ route('matching') }}"><i class="fas fa-2x fa-comments"></i></a></li>
+          </ul>
+
+        </div>
+      </div>
     </nav>
 
     <div id="tinderslide">
