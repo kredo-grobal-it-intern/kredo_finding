@@ -9,7 +9,11 @@
           @if (Auth::user()->img_name)
             <a href="/users/show/{{ Auth::id() }}"><img src="{{ Auth::user()->img_name }}" class="profile-image-navbar"></a>
           @else
-            <a href="/users/show/{{ Auth::id() }}"><i class="fas fa-user fa-2x"></i></a>
+          @if (Auth::user()->user_type == 0)
+          <a href="/users/show/{{ Auth::id() }}"><i class="fas fa-user fa-2x"></i></a>
+          @else
+            <a href="/users/show/{{ Auth::id() }}"><i class="fas fa-building fa-2x"></i></a>
+          @endif
           @endif
         </li>
         <li class="appIcon"><a href="{{ route('home') }}"><img src="/images/kredo_logo.jpg"></a></li>
@@ -27,7 +31,11 @@
             @if($user->img_name)
               <img src="{{ $user->img_name }}" class="profile-image">
             @else
-              <i class="fa-solid fa-user profile-icon d-block text-center profile-icon"></i>
+              @if ($user->user_type == 0)
+                <i class="fa-solid fa-user profile-icon d-block text-center"></i>
+              @else
+                <i class="fa-solid fa-building profile-icon d-block text-center"></i>
+              @endif
             @endif
             <div class="like"></div>
             <div class="dislike"></div>

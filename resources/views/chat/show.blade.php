@@ -7,13 +7,33 @@
       <a href="{{ route('matching') }}" class="linkToMatching"></a>
       <div class="chatPartner">
         <div class="chatPartner_img"><img src="{{$chat_room_user -> img_name}}"></div>
-        <div class="chatPartner_name">{{ $chat_room_user -> name }}</div>
+        <div class="chatPartner_name">
+          @if ($chat_room_user -> img_name)
+            <img src="{{$chat_room_user -> img_name}}">
+          @else
+            @if ($chat_room_user->chat_room_id == 1)
+              <i class="fa-solid fa-user index-icon"></i>
+            @else
+              <i class="fa-solid fa-building index-icon"></i>
+            @endif
+          @endif
+          {{ $chat_room_user -> name }}
+        </div>
       </div>
     </header>
     <div class="container">
       <div class="messagesArea messages">
         @foreach($chat_messages as $message)
           <div class="message">
+            @if ($chat_room_user -> img_name)
+              <img src="{{$chat_room_user -> img_name}}">
+            @else
+              @if ($chat_room_user->chat_room_id == 0)
+                <i class="fa-solid fa-user index-icon"></i>
+              @else
+                <i class="fa-solid fa-building index-icon"></i>
+              @endif
+            @endif
             @if($message->user_id == Auth::id())
               <span>{{ Auth::user()->name }}</span>
             @else
