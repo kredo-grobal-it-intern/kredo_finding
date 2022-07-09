@@ -52,6 +52,15 @@ if you don't have mysql `brew install mysql`
 
 `npm run dev`
 
+##### 8. Set Application key
+`php artisan key:generate`
+
+##### 9. Server start
+`php artisan serve`
+
+##### 10. Visit a website
+http://127.0.0.1:8000/
+
 ##### Set Sequel Ace
 <img width="485" alt="Screen Shot 2022-06-10 at 4 32 39 PM" src="https://user-images.githubusercontent.com/105486119/173014301-bf3c0b08-ae1a-48fa-930b-d13a8f8674b7.png">
 
