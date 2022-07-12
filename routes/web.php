@@ -32,6 +32,7 @@ Route::get('/changePassword', 'HomeController@showChangePasswordGet')->name('cha
 Route::post('/changePassword', 'HomeController@changePasswordPost')->name('changePasswordPost');
 Route::get('/matching', 'MatchingController@index')->name('matching');
 Route::get('/reaction', 'ReactionController@show')->name('reaction.show');
+Route::patch('/reaction/{id}/update', 'ReactionController@ChangeLiked')->name('reaction.ChangeLiked');
 
 Route::group(['prefix' => 'chat', 'middleware' => 'auth'], function () {
   Route::post('show', 'ChatController@show')->name('chat.show');

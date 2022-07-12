@@ -13,6 +13,13 @@ use Auth;
 
 class ReactionController extends Controller
 {
+  private $user;
+
+  public function __construct(User $user)
+  {
+    $this->user = $user;
+  }
+
   public function show()
   {
     $user = User::find(Auth::id());
@@ -55,4 +62,20 @@ class ReactionController extends Controller
   {
     return view('like.show');
   }
+
+  public function ChangeLiked($id){
+     Reaction::where([
+      ['to_user_id', $id],
+      ['from_user_id', Auth::id()],
+     ])->update(['status'=> 1]);
+     return redirect()->back();
+  }
+
+  public function ChangeDisliked($id){
+    Reaction::where([
+     ['to_user_id', $id],
+     ['from_user_id', Auth::id()],
+    ])->update(['status'=> 0]);
+    return redirect()->back();
+ }
 }
