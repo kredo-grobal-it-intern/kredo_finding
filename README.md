@@ -49,7 +49,7 @@ if you don't have mysql `brew install mysql`
 
 enter your password
 
-`create database kredo_finding`
+`create database kredo_finding;`
 
 ##### 7. Run migration and seeder
 `php artisan migrate`
