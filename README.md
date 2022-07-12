@@ -1,5 +1,6 @@
 ## Setup
 `less ~/.ssh/id_rsa.pub` (Mac)
+
 `type ~/.ssh/id_rsa.pub` (Windows)
 
 if you don't have `.ssh/id_rsa.pub`
@@ -42,7 +43,11 @@ if you don't have mysql `brew install mysql`
 `composer install`
 
 ##### 6. Setup Environment
-`[create database kredo_finding]`
+`mysql -u root -p`
+
+enter your password
+
+`create database kredo_finding`
 
 ##### 7. Run migration and seeder
 `php artisan migrate`
@@ -75,13 +80,8 @@ http://127.0.0.1:8000/
 <img width="400" alt="Screen Shot 2022-06-10 at 4 32 39 PM" src="https://user-images.githubusercontent.com/105486119/173014301-bf3c0b08-ae1a-48fa-930b-d13a8f8674b7.png">
 
 Name: localhost/kredo_finding
-
 HOST: localhost
-
 USERNAME: root
-
 PASSWORD:     
-
 DATABASE: kredo_finding
-
 PORT: 3306
