@@ -44,7 +44,7 @@
               <form action="{{ route('reaction.ChangeLiked' ,$you_liked_user->toUserId->id) }}" method="post" class="mb-0">
                 @csrf
                 @method('PATCH')
-                <button type="submit" class="col-auto btn btn-danger">delete</button>
+                <button type="submit" class="col-auto btn btn-danger">dislike</button>
               </form>
             </div>
             @endforeach
@@ -57,9 +57,9 @@
           <div class="likingList">
 
             @foreach( $liked_by as $liked_by_user)
-            <div class="likingPerson">
+            <div class="likingPerson row">
               @if ($liked_by_user->fromUserId->img_name)
-               <div class="liking_img"><img src="{{ $liked_by_user->fromUserId->img_name }}"></div>
+               <div class="liking_img col-auto"><img src="{{ $liked_by_user->fromUserId->img_name }}"></div>
               @else
                 @if ($liked_by_user->fromUserId->user_type == 0)
                    <i class="fa-solid fa-circle-user me-5"></i>
@@ -67,7 +67,7 @@
                    <i class="fa-solid fa-building me-5"></i>
                 @endif
               @endif
-               <div class="liking_name">{{ $liked_by_user->fromUserId->name }}</div>
+               <div class="liking_name col">{{ $liked_by_user->fromUserId->name }}</div>
 
               <form method="POST" action="{{ route('chat.show') }}">
                 @csrf

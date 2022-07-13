@@ -29,6 +29,15 @@ class ReactionController extends Controller
     return view('like.show', compact('you_liked', 'liked_by'));
   }
 
+  public function showDisliked()
+  {
+    $user = User::find(Auth::id());
+    $you_liked = $user->fromUserId()->where('status', 1)->get();
+    $liked_by = $user->toUserId()->where('status', 1)->get();
+
+    return view('layouts.dislike.show', compact('you_liked', 'liked_by'));
+  }
+
   public function create(Request $request)
   {
     $to_user_id = $request->to_user_id;
