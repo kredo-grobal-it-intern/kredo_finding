@@ -1,0 +1,183 @@
+.userEditPage .header {
+    padding: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+    background: #f3920b;
+    color: #fff;
+  }
+  .userEditPage .userProfileImg {
+    position: relative;
+    margin: 0 auto 10px auto;
+    width: 100px;
+    height: 100px;
+    background: #f3920b;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .userEditPage .userProfileImg:hover .userProfileImg_description {
+    opacity: 1;
+  }
+  .userEditPage .userProfileImg_description {
+    transition: opacity 0.5s;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(5, 5, 5, 0.5);
+    color: #fff;
+  }
+  .userEditPage .userProfileIcon {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+  .userEditPage .userProfileImg .fa-camera {
+    color: #fff;
+  }
+  .userEditPage .userProfileImg > input {
+    display: none;
+  }
+  .userEditPage .userImgPreview {
+    margin: 0 auto;
+    display: none;
+    text-align: center;
+  }
+  .userEditPage .userImgPreview.is-active {
+    display: block;
+  }
+  .userEditPage .userImgPreview_content {
+    max-width: 100px;
+    margin: 10px;
+    padding: 10px;
+    border: solid thin lightgray;
+    border-radius: 5px;
+  }
+  .userEditPage .userImgPreview_text {
+    font-size: 11px;
+  }
+  .userEditPage .errorMessage {
+    color: #f3920b;
+  }
+  .userEditPage .submitBtn {
+    background: #f3920b;
+    color: #fff;
+    width: 200px;
+    padding: 10px;
+    border-radius: 90px;
+    transition: opacity 0.5s;
+  }
+  .userEditPage .submitBtn:hover {
+    opacity: 0.6;
+  }
+  .userEditPage .backBtn {
+    background: #fff;
+    color: #f3920b;
+    border-color: #f3920b;
+    width: 200px;
+    padding: 10px;
+    border-radius: 90px;
+    transition: opacity 0.5s;
+  }
+  .userEditPage .backBtn:hover {
+    opacity: 0.6;
+  }
+
+  .companyEditPage .header {
+    padding: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+    background: #00008b;
+    color: #fff;
+  }
+  .companyEditPage .companyProfileImg {
+    position: relative;
+    margin: 0 auto 10px auto;
+    width: 100px;
+    height: 100px;
+    background: #00008b;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .companyEditPage .companyProfileImg:hover .companyProfileImg_description {
+    opacity: 1;
+  }
+  .companyEditPage .companyProfileImg_description {
+    transition: opacity 0.5s;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(5, 5, 5, 0.5);
+    color: #fff;
+  }
+  .companyEditPage .companyProfileIcon {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+  .companyEditPage .companyProfileImg .fa-camera {
+    color: #fff;
+  }
+  .companyEditPage .companyProfileImg > input {
+    display: none;
+  }
+  .companyEditPage .companyImgPreview {
+    margin: 0 auto;
+    display: none;
+    text-align: center;
+  }
+  .companyEditPage .companyImgPreview.is-active {
+    display: block;
+  }
+  .companyEditPage .companyImgPreview_content {
+    max-width: 100px;
+    margin: 10px;
+    padding: 10px;
+    border: solid thin lightgray;
+    border-radius: 5px;
+  }
+  .companyEditPage .companyImgPreview_text {
+    font-size: 11px;
+  }
+  .companyEditPage .errorMessage {
+    color: #f3920b;
+  }
+  .companyEditPage .submitBtn {
+    background: #00008b;
+    color: #fff;
+    width: 200px;
+    padding: 10px;
+    border-radius: 90px;
+    transition: opacity 0.5s;
+  }
+  .companyEditPage .submitBtn:hover {
+    opacity: 0.6;
+  }
+  .companyEditPage .backBtn {
+    background: #fff;
+    color: #00008b;
+    border-color: #00008b;
+    width: 200px;
+    padding: 10px;
+    border-radius: 90px;
+    transition: opacity 0.5s;
+  }
+  .companyEditPage .backBtn:hover {
+    opacity: 0.6;
+  }

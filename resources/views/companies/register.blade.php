@@ -50,7 +50,10 @@
         </div>
         <div class="form-group">
           <label>Contact Number</label>
-          <input type="number" name="contact_number" class="form-control" placeholder="Enter Contact Number">
+          <input type="tel" name="contact_number" class="form-control" placeholder="Enter Contact Number" maxlength="11">
+          @error('contact_number')
+            <span class="errorMessage">{{ $message }}</span>
+          @enderror
         </div>
         <div class="form-group @error('self_introduction')has-error @enderror">
           <label>Company Info</label>

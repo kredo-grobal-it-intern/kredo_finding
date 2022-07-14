@@ -50,6 +50,11 @@ class User extends Authenticatable
     return $this->hasMany('App\ChatRoomUsers');
   }
 
+  public function company()
+  {
+    return $this->hasOne('App\Company');
+  }
+
   # Return true if the Auth user already liked this user
   public function isLiked()
   {

@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
+    @if($user->user_type == 0)
     <div class="userEditPage">
         <header class="header">
             <div>Edit Profile</div>
@@ -124,4 +125,7 @@
             </form>
         </div>
     </div>
+    @else
+        @include('companies.edit')
+    @endif
 @endsection

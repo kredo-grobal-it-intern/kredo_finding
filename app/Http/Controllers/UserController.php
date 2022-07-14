@@ -5,14 +5,23 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProfileRequest;
 use App\User;
+use App\Company;
 use App\Services\CheckExtensionServices;
 use App\Services\FileUploadServices;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
   const LOCAL_STORAGE_FOLDER = 'public/images/';
+  private $company;
+
+  public function __construct(Company $company)
+  {
+    $this->company = $company;
+  }
+
   public function show($id)
   {
     $user = User::findorFail($id);
@@ -41,6 +50,10 @@ class UserController extends Controller
       $bin_image = CheckExtensionServices::checkExtension($fileData, $extension);
 
       $user->img_name = $bin_image;
+    }elseif(is_null($request['img_name']) && !empty($user->image_name)){
+      $bin_image = $user->image_name;
+    }else{
+      $bin_image = NULL;
     }
 
     $user->name              = $request->name;
@@ -57,6 +70,10 @@ class UserController extends Controller
 
     $user->save();
 
+    if($user->user_type == 1){
+      $this->company->updateCompany($request, $bin_image);
+    }
+   
     return redirect('home');
   }
 
