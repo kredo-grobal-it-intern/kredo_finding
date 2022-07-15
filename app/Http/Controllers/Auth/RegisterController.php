@@ -10,6 +10,7 @@ use App\Services\CheckExtensionServices;
 use App\Services\FileUploadServices;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
+use App\Constants\UserType;
 
 use Intervention\Image\Facades\Image;
 
@@ -103,7 +104,7 @@ class RegisterController extends Controller
 
     $user = User::find($create_user->id);
     
-    if($user->user_type == 1){
+    if($user->user_type == UserType::Company){
       $this->company->createCompany($user, $bin_image);
     }
 

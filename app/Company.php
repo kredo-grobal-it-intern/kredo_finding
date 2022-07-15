@@ -31,7 +31,7 @@ class Company extends Model
         'homepage_url'
     ];
 
-    public function user()
+    public function companyUser()
     {
         return $this->belongsTo('App\User');
     }

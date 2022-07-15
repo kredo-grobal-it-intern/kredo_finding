@@ -8,6 +8,7 @@ use App\User;
 use App\Company;
 use Auth;
 use Hash;
+use App\Constants\UserType;
 
 class HomeController extends Controller
 {
@@ -30,10 +31,10 @@ class HomeController extends Controller
   {
     $user = User::find(Auth::id());
 
-    if($user->user_type == 0){
-      $users = User::all()->where('user_type', 1);
+    if($user->user_type == UserType::Worker){
+      $users = User::all()->where('user_type', UserType::Company);
     }else{
-      $users = User::all()->where('user_type', 0);
+      $users = User::all()->where('user_type', UserType::Worker);
     }
 
     $userCount = $users->count();
@@ -64,7 +65,7 @@ class HomeController extends Controller
     $user->password = bcrypt($request->get('new-password'));
     $user->save();
     
-    if($user->user_type == 1){
+    if($user->user_type == UserType::Company){
       Company::where('user_id', Auth::id())->update(['password' => $user->password]);
     }
 

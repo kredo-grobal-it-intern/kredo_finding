@@ -11,7 +11,7 @@
                 @if($user->img_name)
                   <img src="{{ $user->img_name }}">
                 @else
-                  <i class="{{ $user->user_type === 0 ? 'fa-solid fa-circle-user' : 'fas fa-building fa-2x' }} profile-icon d-block text-center mt-4"></i>
+                  <i class="{{ $user->user_type === App\Constants\UserType::Worker ? 'fa-solid fa-circle-user' : 'fas fa-building fa-2x' }} profile-icon d-block text-center mt-4"></i>
                 @endif
               </div>
               <div class='userInfo_name'>{{ $user -> name }}</div>
@@ -35,9 +35,9 @@
         </div>
         <div class="right innerbox">
           <div class='userInfo'>
-            <h1 class="mt-5 mx-4">{{ $user->user_type === 0 ? 'Self introduction' : 'Services' }}</h1>
+            <h1 class="mt-5 mx-4">{{ $user->user_type === App\Constants\UserType::Worker ? 'Self introduction' : 'Services' }}</h1>
             <div class='userInfo_selfIntroduction'>{{ $user -> self_introduction }}</div>
-            @if($user->user_type === 0)
+            @if($user->user_type === App\Constants\UserType::Worker)
             <h1 class="mt-5 mx-4">Gender</h1>
             <div class="form-check form-check-inline mx-4">
               @if ($user->gender === 0)
@@ -49,7 +49,7 @@
               @endif
             </div>
             @endif
-            <h1 class="mt-5 mx-4">{{ $user->user_type === 0 ? 'Personal Information' : 'Company Information' }}</h1>
+            <h1 class="mt-5 mx-4">{{ $user->user_type === App\Constants\UserType::Worker ? 'Personal Information' : 'Company Information' }}</h1>
             <h2 type="email" name="email" class="mt-4 mx-4"><i class="fa-solid fa-envelope profile-icon-for-show"></i>{{ $user->email }}</h2>
             <h2 type="munber" name="contact_number" class="mt-4 mx-4" ><i class="fa-solid fa-phone profile-icon-for-show"></i>{{ $user->contact_number }}</h2>
           </div>

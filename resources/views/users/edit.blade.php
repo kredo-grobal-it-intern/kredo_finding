@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-    @if($user->user_type == 0)
+    @if($user->user_type == App\Constants\UserType::Worker)
     <div class="userEditPage">
         <header class="header">
             <div>Edit Profile</div>

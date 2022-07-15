@@ -11,6 +11,7 @@ use App\Services\FileUploadServices;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use App\Constants\UserType;
 
 class UserController extends Controller
 {
@@ -50,10 +51,8 @@ class UserController extends Controller
       $bin_image = CheckExtensionServices::checkExtension($fileData, $extension);
 
       $user->img_name = $bin_image;
-    }elseif(is_null($request['img_name']) && !empty($user->image_name)){
-      $bin_image = $user->image_name;
     }else{
-      $bin_image = NULL;
+      $bin_image = $user->img_name;
     }
 
     $user->name              = $request->name;
@@ -70,7 +69,7 @@ class UserController extends Controller
 
     $user->save();
 
-    if($user->user_type == 1){
+    if($user->user_type == UserType::Company){
       $this->company->updateCompany($request, $bin_image);
     }
    
@@ -86,6 +85,10 @@ class UserController extends Controller
 
     $user->img_name = null;
     $user->save();
+
+    if($user->user_type == UserType::Company){
+      Company::where('user_id', Auth::id())->update(['img_name' => null]);
+    }
 
     return redirect()->back();
   }
