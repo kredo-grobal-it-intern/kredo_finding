@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\Http\Controllers\HomeController;
+
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
   Route::get('show/{id}', 'UserController@show')->name('users.show');
   Route::get('edit/{id}', 'UserController@edit')->name('users.edit');
@@ -40,3 +43,7 @@ Route::group(['prefix' => 'chat', 'middleware' => 'auth'], function () {
   Route::post('show', 'ChatController@show')->name('chat.show');
   Route::post('chat', 'ChatController@chat')->name('chat.chat');
 });
+
+Route::get('/showAbout',[HomeController::class, 'showAbout'])->name('showAbout');
+Route::get('/showContact',[HomeController::class, 'showContact'])->name('showContact');
+Route::get('/showFaq',[HomeController::class, 'showFaq'])->name('showFaq');
