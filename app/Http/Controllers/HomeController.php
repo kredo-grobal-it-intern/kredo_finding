@@ -19,7 +19,7 @@ class HomeController extends Controller
    */
   public function __construct()
   {
-    $this->middleware('auth');
+    $this->middleware('auth', ['only' => ['index', 'showChangePasswordGet', 'changePasswordPost']]);
   }
 
   /**
@@ -64,11 +64,23 @@ class HomeController extends Controller
     $user = Auth::user();
     $user->password = bcrypt($request->get('new-password'));
     $user->save();
-    
+
     if($user->user_type == UserType::Company){
       Company::where('user_id', Auth::id())->update(['password' => $user->password]);
     }
 
     return redirect()->route('home')->with("success","Password successfully changed!");
+
+  }
+
+  public function showAbout(){
+    return view('menu_top.about_us');
+  }
+  public function showContact(){
+    return view('menu_top.contact_us');
+  }
+  public function showFaq(){
+    return view('menu_top.faq');
   }
 }
+
