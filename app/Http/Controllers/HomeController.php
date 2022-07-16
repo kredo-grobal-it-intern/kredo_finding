@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\Company;
 use Auth;
 use Hash;
+use App\Constants\UserType;
 
 class HomeController extends Controller
 {
@@ -29,10 +31,10 @@ class HomeController extends Controller
   {
     $user = User::find(Auth::id());
 
-    if($user->user_type == 0){
-      $users = User::all()->where('user_type', 1);
+    if($user->user_type == UserType::Worker){
+      $users = User::all()->where('user_type', UserType::Company);
     }else{
-      $users = User::all()->where('user_type', 0);
+      $users = User::all()->where('user_type', UserType::Worker);
     }
 
     $userCount = $users->count();
@@ -43,9 +45,9 @@ class HomeController extends Controller
 
   public function showChangePasswordGet() {
     return view('auth.passwords.change-password');
-}
+  }
 
-public function changePasswordPost(Request $request) {
+  public function changePasswordPost(Request $request) {
     if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
         return redirect()->back()->with("error","Your current password does not matches with the password.");
     }
@@ -62,7 +64,11 @@ public function changePasswordPost(Request $request) {
     $user = Auth::user();
     $user->password = bcrypt($request->get('new-password'));
     $user->save();
+    
+    if($user->user_type == UserType::Company){
+      Company::where('user_id', Auth::id())->update(['password' => $user->password]);
+    }
 
     return redirect()->route('home')->with("success","Password successfully changed!");
-}
+  }
 }
