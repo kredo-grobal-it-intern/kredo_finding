@@ -9,6 +9,7 @@
 
 @import url(user/edit.css);
 @import url(company/edit.css);
+@import url(faq/faq.css);
 
 :root {
   --blue: #3490dc;
