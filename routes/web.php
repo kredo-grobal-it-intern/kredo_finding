@@ -46,4 +46,4 @@ Route::group(['prefix' => 'chat', 'middleware' => 'auth'], function () {
 
 Route::get('/showAbout',[HomeController::class, 'showAbout'])->name('showAbout');
 Route::get('/showContact',[HomeController::class, 'showContact'])->name('showContact');
-Route::get('/showFaq',[HomeController::class, 'showFaq'])->name('showFaq');
+Route::get('/faq',[HomeController::class, 'showFaq'])->name('faq');
