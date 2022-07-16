@@ -20529,13 +20529,28 @@ body {
 }
 
 .signinPage {
-  margin-top: 10vh;
   margin-right: 5vh;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#signPicture {
   background-image: url("../images/login_background.png");
   background-repeat: no-repeat;
   background-size: contain;
-  background-position-x: 50px;
+  background-position: right bottom;
+  top: 270px;
+  width: 650px;
+  height: 600px;
+  float: left;
+  margin-right: -100px;
+  margin-top: 180px;
 }
+
+.signinPage .signinputholder{
+  margin-top: 50px;
+}
+
 .signinPage .userIcon {
   width: 120px;
   height: 120px;

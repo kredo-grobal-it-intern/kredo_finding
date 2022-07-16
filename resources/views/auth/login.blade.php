@@ -3,8 +3,9 @@
 @section('content')
   <div class='signinPage'>
     <div class="row">
-      <div class="col-5"></div>
-      <div class='col-7'>
+      <div class="" id="signPicture">
+      </div>
+      <div class='col-7 signinputholder'>
         <div class='userIcon'>
           <i class="fas fa-user fa-3x"></i>
         </div>
