@@ -17,7 +17,7 @@
               <i class="fa-solid fa-envelope"></i>
             </div>
             <div class="col-11">
-              <input type="email" name="email" class="signInInfo form-control" value="{{ old('email') }}"placeholder="email" autofocus>
+              <input type="email" name="email" class="signInInfo form-control-plaintext" value="{{ old('email') }}"placeholder="email" autofocus>
               @error('email')
               <span class="errorMessage">
               {{ $message }}
@@ -31,7 +31,7 @@
               <i class="fa-solid fa-lock"></i>
             </div>
             <div class="col-11">
-              <input type="password" name="password" class="signInInfo form-control" placeholder="password">
+              <input type="password" name="password" class="signInInfo form-control-plaintext" placeholder="password">
               @error('password')
               <span class="errorMessage">
               {{ $message }}
