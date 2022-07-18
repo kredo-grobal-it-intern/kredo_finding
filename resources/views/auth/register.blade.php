@@ -24,30 +24,30 @@
         </div>
 
         <div class="form-group @error('name')has-error @enderror">
-          <label>Name</label>
-          <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="Enter your name">
+          <label>Name <span style="color: red">*</span></label>
+          <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="Enter your name" required>
           @error('name')
             <span class="errorMessage">{{ $message }}</span>
           @enderror
         </div>
         <div class="form-group @error('email')has-error @enderror">
-          <label>Email</label>
-          <input type="email" name="email" class="form-control" value="{{ old('email') }}" placeholder="Enter your email address">
+          <label>Email <span style="color: red">*</span></label>
+          <input type="email" name="email" class="form-control" value="{{ old('email') }}" placeholder="Enter your email address" required>
           @error('email')
             <span class="errorMessage">{{ $message }}</span>
           @enderror
         </div>
         <div class="form-group @error('password')has-error @enderror">
-          <label>Password</label>
+          <label>Password <span style="color: red">*</span></label>
           <em>(Please enter at least 8 characters)</em>
-          <input type="password" name="password" class="form-control" placeholder="Enter password">
+          <input type="password" name="password" class="form-control" placeholder="Enter password" required>
           @error('password')
            <span class="errorMessage">{{ $message }}</span>
           @enderror
         </div>
         <div class="form-group">
-          <label>Confirmation Password</label>
-          <input type="password" name="password_confirmation" class="form-control" placeholder="Enter confirmation password">
+          <label>Confirmation Password <span style="color: red">*</span></label>
+          <input type="password" name="password_confirmation" class="form-control" placeholder="Enter confirmation password" required>
         </div>
         <div class="form-group">
           <label>Contact Number</label>
@@ -68,8 +68,8 @@
           </div>
         </div>
         <div class="form-group @error('self_introduction')has-error @enderror">
-          <label>Self Introduction</label>
-          <textarea class="form-control" name="self_introduction" rows="10">{{ old('self_introduction') }}</textarea>
+          <label>Self Introduction <span style="color: red">*</span></label>
+          <textarea class="form-control" name="self_introduction" rows="10" required>{{ old('self_introduction') }}</textarea>
           @error('self_introduction')
             <span class="errorMessage">{{ $message }}</span>
           @enderror
