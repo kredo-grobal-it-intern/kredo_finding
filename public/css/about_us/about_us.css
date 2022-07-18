@@ -1,0 +1,33 @@
+.ABOUTUS {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+  }
+  
+  .AboutusPage .AboutusPic2 {
+    width: 700px;
+    height: 700px;
+    background-image: url("/images/about_us_background.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: 600px 650px;
+  }
+
+  .AboutusPage .col-7 {
+    padding-right: 100px;  
+    padding-left: 200px;  
+}
+  
+  .AboutusPage .title {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+  }
+  
+  .AboutusPage .LEARNMORE {
+    background: #FAAC64;
+    display: block;
+    margin: auto;
+  }
