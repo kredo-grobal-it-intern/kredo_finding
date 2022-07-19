@@ -12,31 +12,36 @@
         <h2 class="title text-dark text-center mt-3">WELCOME</h2>
         <form class="form" method="POST" action="{{ route('login') }}">
           @csrf
-          <div class="form-group @error('email')has-error @enderror mt-4 row">
-            <div class="signInIcon col-1">
-              <i class="fa-solid fa-envelope"></i>
-            </div>
-            <div class="col-11">
-              <input type="email" name="email" class="signInInfo form-control" value="{{ old('email') }}"placeholder="email" autofocus>
-              @error('email')
-              <span class="errorMessage">
-              {{ $message }}
-              </span>
-              @enderror
+
+          <div class="card card-body border-0 rounded-0 w-50 p-2 bg-white">
+            <div class="form-group @error('email')has-error @enderror mt-4 row">
+              <div class="signInIcon col-1">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div class="col-11">
+                <input type="email" name="email" class="signInInfo form-control" value="{{ old('email') }}"placeholder="email" autofocus>
+                @error('email')
+                <span class="errorMessage">
+                {{ $message }}
+                </span>
+                @enderror
+              </div>
             </div>
           </div>
 
-          <div class="form-group @error('password')has-error @enderror row">
-            <div class="signInIcon col-1">
-              <i class="fa-solid fa-lock"></i>
-            </div>
-            <div class="col-11">
-              <input type="password" name="password" class="signInInfo form-control" placeholder="password">
-              @error('password')
-              <span class="errorMessage">
-              {{ $message }}
-              </span>
-              @enderror
+          <div class="card card-body border-0 rounded-0 w-50 p-2 bg-white">
+            <div class="form-group @error('password')has-error @enderror row">
+              <div class="signInIcon col-1">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <div class="col-11">
+                <input type="password" name="password" class="signInInfo form-control" placeholder="password">
+                @error('password')
+                <span class="errorMessage">
+                {{ $message }}
+                </span>
+                @enderror
+              </div>
             </div>
           </div>
 
