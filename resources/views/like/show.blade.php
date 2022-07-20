@@ -44,7 +44,7 @@
               <form action="{{ route('reaction.ChangeLiked' ,$you_liked_user->toUserId->id) }}" method="post" class="mb-0">
                 @csrf
                 @method('PATCH')
-                <button type="submit" class="col-auto btn btn-danger">dislike</button>
+                <button type="submit" class="btn btn-danger btn-sm" style="border-radius:50%;"><i class="fa-solid fa-thumbs-down text-white mx-auto" style="font-size:1.5rem;"></i></button>
               </form>
             </div>
             @endforeach
