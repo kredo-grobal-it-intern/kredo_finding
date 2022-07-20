@@ -43,9 +43,9 @@ class HomeController extends Controller
 
   public function showChangePasswordGet() {
     return view('auth.passwords.change-password');
-}
+  }
 
-public function changePasswordPost(Request $request) {
+  public function changePasswordPost(Request $request) {
     if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
         return redirect()->back()->with("error","Your current password does not matches with the password.");
     }
@@ -64,5 +64,5 @@ public function changePasswordPost(Request $request) {
     $user->save();
 
     return redirect()->route('home')->with("success","Password successfully changed!");
-}
+  }
 }

@@ -51,15 +51,6 @@
           </div>
         </div>
       </div>
-      <div class="logo">
-        <p class='header_logo'>
-          <a href="{{ route('home') }}">
-            <img src="/images/kredo_logo.jpg">
-          </a>
-        </p>
-      </div>
     </div>
   </div>
 @endsection
-
-

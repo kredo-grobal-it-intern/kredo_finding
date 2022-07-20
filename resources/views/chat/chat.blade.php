@@ -1,9 +1,8 @@
 @extends('layouts.layout')
-
 @section('content')
 
   <div class="chatPage">
-    <header class="header">
+    <!-- <header class="header">
       <a href="{{ route('matching') }}" class="linkToMatching"></a>
       <div class="chatPartner">
         <div class="chatPartner_img"><img src="{{$chat_room_user -> img_name}}"></div>
@@ -20,7 +19,7 @@
           {{ $chat_room_user -> name }}
         </div>
       </div>
-    </header>
+    </header> -->
     <div class="container">
       <div class="messagesArea messages">
         @foreach($chat_messages as $message)
@@ -64,4 +63,3 @@
   </script>
 
 @endsection
-

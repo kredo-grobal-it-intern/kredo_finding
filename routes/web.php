@@ -11,7 +11,7 @@
 |
 */
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
-  Route::get('show/{id}', 'UserController@show')->name('users.show');
+  Route::get('mypage/show/{id}', 'UserController@show')->name('profile.show');
   Route::get('edit/{id}', 'UserController@edit')->name('users.edit');
   Route::post('update/{id}', 'UserController@update')->name('users.update');
   Route::delete('destroy/{id}', 'UserController@destroy')->name('users.delete');
@@ -30,8 +30,9 @@ Route::get('/login/facebook/callback', 'Auth\LoginController@handleFacebookCallb
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/changePassword', 'HomeController@showChangePasswordGet')->name('changePasswordGet');
 Route::post('/changePassword', 'HomeController@changePasswordPost')->name('changePasswordPost');
-Route::get('/matching', 'MatchingController@index')->name('matching');
-Route::get('/reaction', 'ReactionController@show')->name('reaction.show');
+Route::get('/mypage', 'HomeController@showMyPage')->name('mypage.show');
+Route::get('/mypage/matching', 'MatchingController@index')->name('matching');
+Route::get('/mypage/reaction', 'ReactionController@show')->name('reaction.show');
 
 Route::group(['prefix' => 'chat', 'middleware' => 'auth'], function () {
   Route::post('show', 'ChatController@show')->name('chat.show');

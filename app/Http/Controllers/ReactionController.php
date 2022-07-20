@@ -19,7 +19,7 @@ class ReactionController extends Controller
     $you_liked = $user->fromUserId()->where('status', 0)->get();
     $liked_by = $user->toUserId()->where('status', 0)->get();
 
-    return view('like.show', compact('you_liked', 'liked_by'));
+    return view('mypage.like', compact('you_liked', 'liked_by'));
   }
 
   public function create(Request $request)
@@ -53,6 +53,6 @@ class ReactionController extends Controller
 
   public function index()
   {
-    return view('like.show');
+    return view('mypage.like');
   }
 }
