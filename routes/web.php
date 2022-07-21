@@ -33,7 +33,6 @@ Route::get('/login/facebook/callback', 'Auth\LoginController@handleFacebookCallb
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/changePassword', 'HomeController@showChangePasswordGet')->name('changePasswordGet');
 Route::post('/changePassword', 'HomeController@changePasswordPost')->name('changePasswordPost');
-Route::get('/mypage', 'MatchingController@index')->name('mypage.show');
 Route::get('/mypage/matching', 'MatchingController@index')->name('matching');
 Route::get('/mypage/reaction', 'ReactionController@show')->name('reaction.show');
 Route::get('/reaction/showDisliked', 'ReactionController@showDisliked')->name('reaction.showDisliked');
