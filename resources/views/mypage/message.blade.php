@@ -2,10 +2,6 @@
 
 @section('content')
   <div class="matchingPage">
-    <header class="header">
-      <i class="fas fa-comments fa-3x"></i>
-      <div class="header_logo"><a href="{{ route('home') }}"><img src="/images/kredo_logo.jpg"></a></div>
-    </header>
     <div class="container">
       <div class="mt-5">
         <div class="matchingNum">You've matched with {{ $match_users_count }} people</div>
