@@ -20,7 +20,7 @@
           <div class="likingList">
 
             @foreach($you_liked as $you_liked_user)
-            <div class="likingPerson">
+            <div class="liking_wrap">
               @if ($you_liked_user->toUserId->img_name)
               <div class="liking_img"><img src="{{ $you_liked_user->toUserId->img_name }}"></div>
               @else
@@ -31,10 +31,10 @@
                 @endif
               @endif
               <div class="liking_name">{{ $you_liked_user->toUserId->name }}</div>
-
-              <form method="POST" action="{{ route('chat.show') }}">
+              <form action="{{ route('reaction.ChangeLiked' ,$you_liked_user->toUserId->id) }}" method="post" class="mb-0">
                 @csrf
-                <input name="user_id" type="hidden" value="">
+                @method('PATCH')
+                  <button type="submit" class="dislike_btn btn btn-danger btn-sm"><i class="dislike_icon fa-solid fa-thumbs-down text-white mx-auto" style="font-size:1.2rem;"></i></button>
               </form>
             </div>
             @endforeach
