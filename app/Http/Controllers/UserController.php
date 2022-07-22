@@ -27,7 +27,7 @@ class UserController extends Controller
   {
     $user = User::findorFail($id);
 
-    return view('users.show', compact('user'));
+    return view('mypage.profile', compact('user'));
   }
 
   public function edit($id)
@@ -72,7 +72,7 @@ class UserController extends Controller
     if($user->user_type == UserType::Company){
       $this->company->updateCompany($request, $bin_image);
     }
-   
+
     return redirect('home');
   }
 

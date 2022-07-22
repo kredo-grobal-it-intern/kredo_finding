@@ -70,7 +70,6 @@ class HomeController extends Controller
     }
 
     return redirect()->route('home')->with("success","Password successfully changed!");
-
   }
 
   public function showAbout(){
@@ -83,4 +82,3 @@ class HomeController extends Controller
     return view('menu_top.faq');
   }
 }
-
