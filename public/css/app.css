@@ -11,6 +11,7 @@
 @import url(company/edit.css);
 @import url(faq/faq.css);
 @import url(about_us/about_us.css);
+@import url(reset_password/reset_password.css);
 
 :root {
   --blue: #3490dc;
@@ -20510,24 +20511,6 @@ body {
 }
 .linkToLogin > a {
   color: #f3920b;
-}
-.forgotPasswordPage .header {
-  padding: 20px;
-  text-align: center;
-  background: #f3920b;
-  color: #fff;
-}
-.forgotPasswordPage .submitBtn {
-  background: #f3920b;
-  color: #fff;
-  width: 200px;
-  padding: 10px;
-  border-radius: 90px;
-  transition: opacity 0.5s;
-  margin-top: 20px;
-}
-.forgotPasswordPage .submitBtn:hover {
-  opacity: 0.6;
 }
 
 .signinPage {
