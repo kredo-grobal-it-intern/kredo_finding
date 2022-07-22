@@ -20631,15 +20631,15 @@ body {
 }
 
 .usershowPage .userInfo_img {
-  width: 400px;
-  height: 350px;
-  margin: 0 auto;
   border-radius: 50%;
   overflow: hidden;
+  margin: 0 auto;
+  width: 350px;
+  height: 350px;
 }
 .usershowPage .userInfo_img > img {
-  width: 170px;
-  height: 170px;
+  width: 350px;
+  height: 350px;
   object-fit: cover;
 }
 .usershowPage .profile-icon {

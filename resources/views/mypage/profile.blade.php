@@ -14,7 +14,7 @@
                   <i class="{{ $user->user_type === App\Constants\UserType::Worker ? 'fa-solid fa-circle-user' : 'fas fa-building fa-2x' }} profile-icon d-block text-center mt-4"></i>
                 @endif
               </div>
-              <div class='userInfo_name'>{{ $user -> name }}</div>
+              <div class='userInfo_name'>{{ $user->name }}</div>
             </div>
           <div class="left_down">
             <div class='userAction'>

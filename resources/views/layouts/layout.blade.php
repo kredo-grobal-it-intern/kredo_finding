@@ -24,9 +24,7 @@
       <div class="col-3 sideBar">
         <div class="list-group">
           <a href="{{ route('profile.show', Auth::user()->id) }}" class="{{ request()->is('users/mypage/show/*') ? 'active' : '' }} sideBarItem">
-            @if (Auth::user()->img_name)
-              <img src="{{ Auth::user()->img_name }}" class="profile-image">
-            @elseif (Auth::user()->user_type == 0)
+            @if (Auth::user()->user_type == 0)
               <i class="fas fa-user"></i>
             @else
               <i class="fas fa-building fa-2x"></i>
