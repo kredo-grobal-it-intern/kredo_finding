@@ -51,7 +51,7 @@
         </div>
         <div class="form-group">
           <label>Contact Number</label>
-          <input type="tel" name="contact_number" class="form-control" placeholder="Enter Contact Number" maxlength="11">
+          <input type="tel" name="contact_number" class="form-control" pattern="\d{2,4}-?\d{2,4}-?\d{3,4}" placeholder="Enter Contact Number" maxlength="11">
           @error('contact_number')
            <span class="errorMessage">{{ $message }}</span>
           @enderror
