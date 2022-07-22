@@ -11,6 +11,7 @@
 @import url(company/edit.css);
 @import url(faq/faq.css);
 @import url(about_us/about_us.css);
+@import url(mypage/like.css);
 
 :root {
   --blue: #3490dc;
@@ -20297,6 +20298,25 @@ readers do not read off random characters that represent icons */
   content: "\f431";
 }
 
+.sideBar a {
+  text-decoration: none;
+  color: #f3920b;
+  font-size: 18px;
+}
+.sideBar {
+  background-color: #f2e9dc;
+  padding-right: 0;
+}
+.sideBarItem {
+  padding: 1.2rem 1rem;
+  color: #212529;
+  text-decoration: none;
+}
+.sideBarItem.active {
+  color: #fff;
+  background-color: #f3920b;
+}
+
 .fa-zhihu:before {
   content: "\f63f";
 }
@@ -20609,18 +20629,7 @@ body {
 .index-icon {
   margin-right: 10px;
 }
-.usershowPage .header {
-  display: flex;
-  flex-direction: row-reverse;
-  padding-top: 10px;
-}
-.usershowPage .header_logo > a {
-  width: 40px;
-  display: block;
-}
-.usershowPage .header_logo > a > img {
-  width: 100%;
-}
+
 .usershowPage .userInfo_img {
   width: 400px;
   height: 350px;
@@ -20759,7 +20768,7 @@ html, body {
   top: 0;
   z-index: 2;
   left: 0;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   text-align: center;
   padding: 10px 10px 10px 10px;
@@ -20909,31 +20918,6 @@ html, body {
   font-weight: bold;
 }
 
-.topPage .nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100vw;
-  max-width: 610px;
-  margin: 0 auto;
-}
-.topPage .nav > ul {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 10px;
-}
-.topPage .nav > ul > li {
-  list-style: none;
-}
-.topPage .nav > ul > li.personIcon i {
-  color: #dccbcb;
-}
-.topPage .nav > ul > li.appIcon > a {
-  width: 40px;
-  display: inline-block;
-}
 .topPage .nav > ul > li.appIcon > a > img {
   width: 100%;
   align-items: center;
@@ -20941,9 +20925,6 @@ html, body {
 .topPage .nav > ul > li.heartIcon i {
   color: #dccbcb;
   text-align: right;
-}
-.topPage .nav > ul > li.messageIcon i {
-  color: #dccbcb;
 }
 .topPage .profile-icon {
   font-size: 400px;
@@ -20955,14 +20936,34 @@ html, body {
   height: 400px;
   object-fit: cover;
 }
-
-.topPage .profile-image-navbar {
-  width: 40px;
-  height: 40px;
+.topPage .nav {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+.topPage .logo img {
+  width: 45px;
+}
+.topPage .myPageIcon {
+  margin: 0 8px 0 auto;
+}
+.topPage .myPageIcon img{
+  width: 35px;
+  height: 35px;
   object-fit: cover;
   border-radius: 50%;
 }
-.matchingPage .header {
+.topPage .myPageIcon i {
+  font-size: 35px;
+  color: #c9b9b9;
+}
+.topPage span a{
+ text-decoration: none;
+}
+
+.navpage .mypage-header {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20970,16 +20971,26 @@ html, body {
   color: #f3920b;
   border-bottom: 1px solid #e8e8e8;
 }
-.matchingPage .header_logo {
+.navpage .mypage-header .header_logo {
   position: absolute;
   left: 30px;
 }
-.matchingPage .header_logo > a {
+.navpage .mypage-header .header_logo > a {
   width: 40px;
   display: block;
 }
-.matchingPage .header_logo > a > img {
+.navpage .mypage-header .header_logo > a > img {
   width: 100%;
+}
+.navpage .mypage-header .header_icon p {
+  color: #f3920b;
+  font-size: 20px;
+  vertical-align: middle;
+  margin-top: 10px;
+}
+
+.matchingPage {
+  height: 100vh;
 }
 .matchingPage .matchingNum {
   text-align: center;
@@ -21028,117 +21039,6 @@ html, body {
 .matchingPage .matchingList .matchingPerson form .chatForm_btn:hover {
   opacity: 0.7;
 }
-
-.showLikePage .header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  color: #f3920b;
-  border-bottom: 1px solid #e8e8e8;
-}
-.showLikePage .header_logo {
-  position: absolute;
-  left: 30px;
-}
-.showLikePage .header_logo > a {
-  width: 40px;
-  display: block;
-}
-.showLikePage .header_logo > a > img {
-  width: 100%;
-}
-.showLikePage .likingNum {
-  text-align: center;
-  font-size: 12px;
-  color: #f3920b;
-  margin-bottom: 5px;
-}
-.showLikePage .pageTitle {
-  font-size: 20px;
-  text-align: center;
-}
-.showLikePage .likingList {
-  margin-top: 30px;
-  padding: 0;
-}
-.showLikePage .likingList .likingPerson {
-  display: flex;
-  align-items: center;
-  padding: 20px 0px;
-  border-bottom: 1px solid #e8e8e8;
-  position: relative;
-}
-.showLikePage .likingList .liking_img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-right: 20px;
-  text-align: center;
-}
-.showLikePage .likingList .liking_img > img {
-  width: 100%;
-  object-fit: cover;
-}
-.showLikePage .likingList i{
-  font-size: 50px;
-  margin-right: 20px;
-  color: #f3920b;
-}
-.showLikePage .likingList .likePerson form {
-  position: absolute;
-  right: 0;
-}
-
-/*タブ切り替え全体のスタイル*/
-.showLikePage .tabs {
-  margin-top: 50px;
-  padding-bottom: 40px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  width: 90%;
-  margin: 0 auto;
-}
-/*ラジオボタンを全て消す*/
-.showLikePage input {
-  display: none;
-}
-/*タブのスタイル*/
-.showLikePage .tab_area label{
-  width: calc(100%/2);
-  height: 50px;
-  border-bottom: 3px solid #f3920b;
-  background-color: #fff;
-  line-height: 50px;
-  font-size: 16px;
-  text-align: center;
-  color: #000;
-  display: block;
-  float: left;
-  text-align: center;
-  font-weight: bold;
-  cursor:pointer;
-  transition:ease 0.2s opacity;
-}
-.showLikePage label:hover {
-  opacity: 0.5;
-}
-.showLikePage .panel_area {
-  background:#fff;
-}
-/*タブ切り替えの中身のスタイル*/
-.showLikePage .tab_content {
-  display: none;
-  padding: 40px 40px 0;
-  clear: both;
-  overflow: hidden;
-}
-/*選択されているタブのコンテンツのみを表示*/
-.showLikePage #tab1:checked ~ .tab_area .tab1_label{background:#f3920b; color:#fff;}
-#tab1:checked ~ .content_area #content1{display:block;}
-.showLikePage #tab2:checked ~ .tab_area .tab2_label{background:#f3920b; color:#fff;}
-#tab2:checked ~ .content_area #content2{display:block;}
 
 .chatPage input[type=text]:focus {
   outline: 0;
@@ -21248,6 +21148,4 @@ html, body {
 .chatPage .messageInputForm_input {
   width: 100%;
   border: none;
-} 
-
-
+}
