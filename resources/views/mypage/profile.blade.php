@@ -4,7 +4,7 @@
 
   <div class='usershowPage'>
     <div class='profile_container'>
-      <div class="inner_container">
+      <div class="inner_container mt-0" style="width:auto;">
         <div class="left innerbox">
           <div class="left_up">
               <div class='userInfo_img'>

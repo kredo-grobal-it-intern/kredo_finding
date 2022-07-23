@@ -45,7 +45,7 @@
           </a>
         </div>
       </div>
-      <div class="col-9">
+      <div class="col-9" style="padding-left:0px;">
         @yield('content')
       </div>
     </div>
