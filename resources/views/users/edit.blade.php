@@ -111,6 +111,25 @@
                         <label class="form-check-label" for="inlineRadio2">female</label>
                     </div>
                 </div>
+<<<<<<< Updated upstream
+=======
+                <div class="form-group pt-4">
+                  <select>
+                    <option></option>
+                    @foreach(App\Constants\employment_status::Employment_status as $employment_status_id => $employment_status_name)
+                      <option value="{{ $employment_status_id }}">{{ $employment_status_name }}</option>
+                    @endforeach
+                    </select>
+                </div>
+                <div class="form-group pt-4">
+                  <select>
+                    <option></option>
+                    @foreach(App\Constants\JobPosition::JobPosition as $job_position_id => $job_position_name)
+                      <option value="{{ $job_position_id }}">{{ $job_position_name }}</option>
+                    @endforeach
+                    </select>
+                </div>
+>>>>>>> Stashed changes
                 <div class="form-group">
                     <label>Self Introduction</label>
                     <textarea class="form-control" name="self_introduction" rows="10">{{ $user->self_introduction }}</textarea>
