@@ -30,7 +30,9 @@
                   <i class="fa-solid fa-building me-5"></i>
                 @endif
               @endif
-              <div class="liking_name">{{ $you_liked_user->toUserId->name }}</div>
+              <div class="liking_name">{{ $you_liked_user->toUserId->name }}
+                <p class="h5 text-secondary">{{ date("m/d/Y")}}</p>
+              </div>
               <form action="{{ route('reaction.ChangeLiked' ,$you_liked_user->toUserId->id) }}" method="post" class="mb-0">
                 @csrf
                 @method('PATCH')
@@ -57,7 +59,9 @@
                   <i class="fa-solid fa-building me-5"></i>
                 @endif
               @endif
-              <div class="liking_name">{{ $liked_by_user->fromUserId->name }}</div>
+              <div class="liking_name">{{ $liked_by_user->fromUserId->name }}
+                <p class="h5 text-secondary">{{ date("m/d/Y")}}</p>
+              </div>
 
               <form method="POST" action="{{ route('chat.show') }}">
                 @csrf
