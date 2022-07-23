@@ -67,7 +67,7 @@
 .showLikePage .likingList .liking_wrap {
   display: flex;
   align-items: center;
-  padding: 20px 0px;
+  padding-top: 20px;
   position: relative;
 }
 .showLikePage .likingList .liking_img {
@@ -82,6 +82,11 @@
   width: 100%;
   object-fit: cover;
 }
+
+.showLikePage .likingList .liking_name {
+  padding-top: 15px;
+}
+
 .showLikePage .likingList i{
   font-size: 50px;
   margin-right: 20px;

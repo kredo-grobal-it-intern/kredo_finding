@@ -30,7 +30,9 @@
                   <i class="fa-solid fa-building me-5"></i>
                 @endif
               @endif
-              <div class="liking_name">{{ $you_liked_user->toUserId->name }}</div>
+              <div class="liking_name">{{ $you_liked_user->toUserId->name }}
+                <p class="h5 text-secondary">{{ date("m/d/Y", strtotime($you_liked_user->created_at)) }}</p>
+              </div>
               <form action="{{ route('reaction.ChangeLiked' ,$you_liked_user->toUserId->id) }}" method="post" class="mb-0">
                 @csrf
                 @method('PATCH')
@@ -47,7 +49,7 @@
           <div class="likingList">
 
             @foreach( $liked_by as $liked_by_user)
-            <div class="likingPerson">
+            <div class="liking_wrap">
               @if ($liked_by_user->fromUserId->img_name)
               <div class="liking_img"><img src="{{ $liked_by_user->fromUserId->img_name }}"></div>
               @else
@@ -57,7 +59,9 @@
                   <i class="fa-solid fa-building me-5"></i>
                 @endif
               @endif
-              <div class="liking_name">{{ $liked_by_user->fromUserId->name }}</div>
+              <div class="liking_name">{{ $liked_by_user->fromUserId->name }}
+                <p class="h5 text-secondary">{{ date("m/d/Y", strtotime($liked_by_user->created_at))}}</p>
+              </div>
 
               <form method="POST" action="{{ route('chat.show') }}">
                 @csrf
