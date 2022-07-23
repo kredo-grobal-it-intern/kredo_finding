@@ -76,9 +76,6 @@
         </div>
         <div class="text-center">
           <button type="submit" class="btn submitBtn">Register</button>
-          <a href="{{ route('google.redirect') }}">
-            <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png" class="d-block mx-auto mt-3">
-          </a>
           <div class="linkToLogin">
             <a href="{{ route('login') }}">Log in</a>
           </div>
