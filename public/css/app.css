@@ -21132,3 +21132,9 @@ html, body {
   width: 100%;
   border: none;
 }
+.back_to_prepage {
+  text-align: right;
+  margin: 0.7em 4em;
+  font-size: 20px;
+
+}
