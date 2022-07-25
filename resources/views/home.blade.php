@@ -4,23 +4,25 @@
 
   <div class="topPage">
     <nav class="nav">
-      <ul>
-        <li class="personIcon">
-          @if (Auth::user()->img_name)
-            <a href="/users/show/{{ Auth::id() }}"><img src="{{ Auth::user()->img_name }}" class="profile-image-navbar"></a>
+      <div class="logo">
+        <a href="{{ route('home') }}">
+          <img src="/images/kredo_logo.jpg">
+        </a>
+      </div>
+      <div class="myPageIcon">
+        @if (Auth::user()->img_name)
+            <a href="{{ route('profile.show', Auth::user()->id) }}"><img src="{{ Auth::user()->img_name }}" class="profile-image-navbar"></a>
           @else
           @if (Auth::user()->user_type == 0)
-          <a href="/users/show/{{ Auth::id() }}"><i class="fas fa-user fa-2x"></i></a>
+            <a href="{{ route('profile.show', Auth::user()->id) }}"><i class="fa-solid fa-circle-user"></i></a>
           @else
-            <a href="/users/show/{{ Auth::id() }}"><i class="fas fa-building fa-2x"></i></a>
+            <a href="{{ route('profile.show', Auth::user()->id) }}"><i class="fas fa-building fa-2x"></i></a>
           @endif
-          @endif
-        </li>
-        <li class="appIcon"><a href="{{ route('home') }}"><img src="/images/kredo_logo.jpg"></a></li>
-        <li class="heartIcon"><a href="{{ route('reaction.show') }}"><i class="fas fa-2x fa-heart"></i></a></li>
-        <li class="heartIcon"><a href="{{ route('reaction.showDisliked') }}"><i class="fa-solid fa-2x fa-heart-crack"></i></a></li>
-        <li class="messageIcon"><a href="{{ route('matching') }}"><i class="fas fa-2x fa-comments"></i></a></li>
-      </ul>
+        @endif
+      </div>
+      <span>
+        <a href="{{ route('profile.show', Auth::user()->id) }}" class="text-dark font-weight-bold">MyPage</a>
+      </span>
     </nav>
 
     <div id="tinderslide">

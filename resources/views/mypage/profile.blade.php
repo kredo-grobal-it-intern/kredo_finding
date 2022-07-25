@@ -4,17 +4,17 @@
 
   <div class='usershowPage'>
     <div class='profile_container'>
-      <div class="inner_container">
+      <div class="inner_container mt-0" style="width:auto;">
         <div class="left innerbox">
           <div class="left_up">
               <div class='userInfo_img'>
                 @if($user->img_name)
-                  <img src="{{ $user->img_name }}"  class="">
+                  <img src="{{ $user->img_name }}">
                 @else
-                  <i class="fa-solid fa-circle-user profile-icon d-block text-center mt-4"></i>
+                  <i class="{{ $user->user_type === App\Constants\UserType::Worker ? 'fa-solid fa-circle-user' : 'fas fa-building fa-2x' }} profile-icon d-block text-center mt-4"></i>
                 @endif
               </div>
-              <div class='userInfo_name'>{{ $user -> name }}</div>
+              <div class='userInfo_name'>{{ $user->name }}</div>
             </div>
           <div class="left_down">
             <div class='userAction'>
@@ -35,31 +35,26 @@
         </div>
         <div class="right innerbox">
           <div class='userInfo'>
-            <h1 class="mt-5 mx-4">Self Introdution</h1>
+            <h1 class="mt-5 mx-4">{{ $user->user_type === App\Constants\UserType::Worker ? 'Self introduction' : 'Services' }}</h1>
             <div class='userInfo_selfIntroduction'>{{ $user -> self_introduction }}</div>
+            @if($user->user_type === App\Constants\UserType::Worker)
             <h1 class="mt-5 mx-4">Gender</h1>
             <div class="form-check form-check-inline mx-4">
               @if ($user->gender === 0)
                 <h2 class="form-check" for="inlineRadio1">male</h2>
-              @else
+              @elseif($user->gender === 1)
                 <h2 class="form-check" for="inlineRadio2">female</h2>
+              @else
+                <h2 class="form-check" for="inlineRadio2">not entered</h2>
               @endif
             </div>
-            <h1 class="mt-5 mx-4">Personal Information</h1>
+            @endif
+            <h1 class="mt-5 mx-4">{{ $user->user_type === App\Constants\UserType::Worker ? 'Personal Information' : 'Company Information' }}</h1>
             <h2 type="email" name="email" class="mt-4 mx-4"><i class="fa-solid fa-envelope profile-icon-for-show"></i>{{ $user->email }}</h2>
             <h2 type="munber" name="contact_number" class="mt-4 mx-4" ><i class="fa-solid fa-phone profile-icon-for-show"></i>{{ $user->contact_number }}</h2>
           </div>
         </div>
       </div>
-      <div class="logo">
-        <p class='header_logo'>
-          <a href="{{ route('home') }}">
-            <img src="/images/kredo_logo.jpg">
-          </a>
-        </p>
-      </div>
     </div>
   </div>
 @endsection
-
-
