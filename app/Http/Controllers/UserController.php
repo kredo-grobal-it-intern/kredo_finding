@@ -40,6 +40,10 @@ class UserController extends Controller
   public function update($id, ProfileRequest $request)
   {
 
+    $request->validate([
+        'contact_number' => 'unique:users'
+    ]);
+
     $user = User::findorFail($id);
 
     if (!is_null($request['img_name'])) {
