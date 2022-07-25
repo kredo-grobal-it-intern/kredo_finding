@@ -46,7 +46,6 @@ class UserController extends Controller
 
     $user = User::findorFail($id);
 
-
     if (!is_null($request['img_name'])) {
       $imageFile = $request['img_name'];
 
