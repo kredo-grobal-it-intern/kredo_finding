@@ -98,8 +98,12 @@
               <div class="form-group pt-4">
                 <label>Contact Number</label>
                 <input type="number" name="contact_number" class="form-control" placeholder="Enter Contact Number" value="{{ $user->contact_number }}">
+                @error('contact_number')
+                  <span class="errorMessage">{{ $message }}</span>
+                @enderror
               </div>
-                 <div class="form-group pt-4">
+
+                <div class="form-group pt-4">
                     <div><label>Gender</label></div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" name="gender" value="0" type="radio" id="inlineRadio1"
