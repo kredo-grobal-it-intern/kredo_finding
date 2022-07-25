@@ -10,6 +10,7 @@ use App\Services\CheckExtensionServices;
 use App\Services\FileUploadServices;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
+use App\Constants\UserType;
 
 use Intervention\Image\Facades\Image;
 
@@ -66,7 +67,7 @@ class RegisterController extends Controller
       'name' => ['required', 'string', 'max:255'],
       'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
       'password' => ['required', 'string', 'min:8', 'confirmed'],
-      'contact_number' => ['required', 'string', 'max:9'],
+      'contact_number' => ['nullable', 'string', 'max:11'],
       'img_name' => ['file', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2000'],
       'self_introduction' => ['string', 'max:255'],
     ]);
@@ -99,10 +100,14 @@ class RegisterController extends Controller
       $data['gender'] = NULL;
     }
 
-    if($data['user_type'] == 1){
-      $this->company->createCompany($data, $bin_image);
+    $create_user = $this->user->createUser($data, $bin_image);
+
+    $user = User::find($create_user->id);
+    
+    if($user->user_type == UserType::Company){
+      $this->company->createCompany($user, $bin_image);
     }
 
-    return $this->user->createUser($data, $bin_image);
+    return $create_user;
   }
 }

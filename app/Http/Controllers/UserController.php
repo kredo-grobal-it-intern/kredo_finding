@@ -5,19 +5,29 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProfileRequest;
 use App\User;
+use App\Company;
 use App\Services\CheckExtensionServices;
 use App\Services\FileUploadServices;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+use App\Constants\UserType;
 
 class UserController extends Controller
 {
   const LOCAL_STORAGE_FOLDER = 'public/images/';
+  private $company;
+
+  public function __construct(Company $company)
+  {
+    $this->company = $company;
+  }
+
   public function show($id)
   {
     $user = User::findorFail($id);
 
-    return view('users.show', compact('user'));
+    return view('mypage.profile', compact('user'));
   }
 
   public function edit($id)
@@ -41,6 +51,8 @@ class UserController extends Controller
       $bin_image = CheckExtensionServices::checkExtension($fileData, $extension);
 
       $user->img_name = $bin_image;
+    }else{
+      $bin_image = $user->img_name;
     }
 
     $user->name              = $request->name;
@@ -57,6 +69,10 @@ class UserController extends Controller
 
     $user->save();
 
+    if($user->user_type == UserType::Company){
+      $this->company->updateCompany($request, $bin_image);
+    }
+
     return redirect('home');
   }
 
@@ -69,6 +85,10 @@ class UserController extends Controller
 
     $user->img_name = null;
     $user->save();
+
+    if($user->user_type == UserType::Company){
+      Company::where('user_id', Auth::id())->update(['img_name' => null]);
+    }
 
     return redirect()->back();
   }

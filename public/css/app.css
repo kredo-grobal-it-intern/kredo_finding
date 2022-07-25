@@ -6,6 +6,14 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+@import url(user/edit.css);
+@import url(company/edit.css);
+@import url(faq/faq.css);
+@import url(about_us/about_us.css);
+@import url(reset_password/reset_password.css);
+@import url(mypage/like.css);
+
 :root {
   --blue: #3490dc;
   --indigo: #6574cd;
@@ -20291,6 +20299,25 @@ readers do not read off random characters that represent icons */
   content: "\f431";
 }
 
+.sideBar a {
+  text-decoration: none;
+  color: #f3920b;
+  font-size: 18px;
+}
+.sideBar {
+  background-color: #f2e9dc;
+  padding-right: 0;
+}
+.sideBarItem {
+  padding: 1.2rem 1rem;
+  color: #212529;
+  text-decoration: none;
+}
+.sideBarItem.active {
+  color: #fff;
+  background-color: #f3920b;
+}
+
 .fa-zhihu:before {
   content: "\f63f";
 }
@@ -20505,33 +20532,30 @@ body {
 .linkToLogin > a {
   color: #f3920b;
 }
-.forgotPasswordPage .header {
-  padding: 20px;
-  text-align: center;
-  background: #f3920b;
-  color: #fff;
-}
-.forgotPasswordPage .submitBtn {
-  background: #f3920b;
-  color: #fff;
-  width: 200px;
-  padding: 10px;
-  border-radius: 90px;
-  transition: opacity 0.5s;
-  margin-top: 20px;
-}
-.forgotPasswordPage .submitBtn:hover {
-  opacity: 0.6;
-}
 
 .signinPage {
-  margin-top: 10vh;
   margin-right: 5vh;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#signPicture {
   background-image: url("../images/login_background.png");
   background-repeat: no-repeat;
   background-size: contain;
-  background-position-x: 50px;
+  background-position: right bottom;
+  top: 270px;
+  width: 650px;
+  height: 600px;
+  float: left;
+  margin-right: -100px;
+  margin-top: 180px;
 }
+
+.signinPage .signinputholder{
+  margin-top: 50px;
+}
+
 .signinPage .userIcon {
   width: 120px;
   height: 120px;
@@ -20588,28 +20612,17 @@ body {
 .index-icon {
   margin-right: 10px;
 }
-.usershowPage .header {
-  display: flex;
-  flex-direction: row-reverse;
-  padding-top: 10px;
-}
-.usershowPage .header_logo > a {
-  width: 40px;
-  display: block;
-}
-.usershowPage .header_logo > a > img {
-  width: 100%;
-}
+
 .usershowPage .userInfo_img {
-  width: 400px;
-  height: 350px;
-  margin: 0 auto;
   border-radius: 50%;
   overflow: hidden;
+  margin: 0 auto;
+  width: 350px;
+  height: 350px;
 }
 .usershowPage .userInfo_img > img {
-  width: 170px;
-  height: 170px;
+  width: 350px;
+  height: 350px;
   object-fit: cover;
 }
 .usershowPage .profile-icon {
@@ -20663,7 +20676,6 @@ body {
   height:auto;
   overflow: hidden;
   box-shadow: #000;
-  border:red solid 1px;
 }
 .usershowPage .inner_container{
   width: 1200px;
@@ -20703,98 +20715,6 @@ body {
   font-size: 50px ;
 }
 
-.userEditPage .header {
-  padding: 20px;
-  margin-bottom: 40px;
-  text-align: center;
-  background: #f3920b;
-  color: #fff;
-}
-.userEditPage .userProfileImg {
-  position: relative;
-  margin: 0 auto 10px auto;
-  width: 100px;
-  height: 100px;
-  background: #f3920b;
-  display: flex;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-.userEditPage .userProfileImg:hover .userProfileImg_description {
-  opacity: 1;
-}
-.userEditPage .userProfileImg_description {
-  transition: opacity 0.5s;
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  position: absolute;
-  font-size: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(5, 5, 5, 0.5);
-  color: #fff;
-}
-.userEditPage .userProfileIcon {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-}
-.userEditPage .userProfileImg .fa-camera {
-  color: #fff;
-}
-.userEditPage .userProfileImg > input {
-  display: none;
-}
-.userEditPage .userImgPreview {
-  margin: 0 auto;
-  display: none;
-  text-align: center;
-}
-.userEditPage .userImgPreview.is-active {
-  display: block;
-}
-.userEditPage .userImgPreview_content {
-  max-width: 100px;
-  margin: 10px;
-  padding: 10px;
-  border: solid thin lightgray;
-  border-radius: 5px;
-}
-.userEditPage .userImgPreview_text {
-  font-size: 11px;
-}
-.userEditPage .errorMessage {
-  color: #f3920b;
-}
-.userEditPage .submitBtn {
-  background: #f3920b;
-  color: #fff;
-  width: 200px;
-  padding: 10px;
-  border-radius: 90px;
-  transition: opacity 0.5s;
-}
-.userEditPage .submitBtn:hover {
-  opacity: 0.6;
-}
-.userEditPage .backBtn {
-  background: #fff;
-  color: #f3920b;
-  border-color: #f3920b;
-  width: 200px;
-  padding: 10px;
-  border-radius: 90px;
-  transition: opacity 0.5s;
-}
-.userEditPage .backBtn:hover {
-  opacity: 0.6;
-}
-
 html, body {
   height: 100%;
   padding: 0;
@@ -20831,7 +20751,7 @@ html, body {
   top: 0;
   z-index: 2;
   left: 0;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   text-align: center;
   padding: 10px 10px 10px 10px;
@@ -20981,31 +20901,6 @@ html, body {
   font-weight: bold;
 }
 
-.topPage .nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100vw;
-  max-width: 610px;
-  margin: 0 auto;
-}
-.topPage .nav > ul {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 10px;
-}
-.topPage .nav > ul > li {
-  list-style: none;
-}
-.topPage .nav > ul > li.personIcon i {
-  color: #dccbcb;
-}
-.topPage .nav > ul > li.appIcon > a {
-  width: 40px;
-  display: inline-block;
-}
 .topPage .nav > ul > li.appIcon > a > img {
   width: 100%;
   align-items: center;
@@ -21013,9 +20908,6 @@ html, body {
 .topPage .nav > ul > li.heartIcon i {
   color: #dccbcb;
   text-align: right;
-}
-.topPage .nav > ul > li.messageIcon i {
-  color: #dccbcb;
 }
 .topPage .profile-icon {
   font-size: 400px;
@@ -21027,14 +20919,34 @@ html, body {
   height: 400px;
   object-fit: cover;
 }
-
-.topPage .profile-image-navbar {
-  width: 40px;
-  height: 40px;
+.topPage .nav {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+.topPage .logo img {
+  width: 45px;
+}
+.topPage .myPageIcon {
+  margin: 0 8px 0 auto;
+}
+.topPage .myPageIcon img{
+  width: 35px;
+  height: 35px;
   object-fit: cover;
   border-radius: 50%;
 }
-.matchingPage .header {
+.topPage .myPageIcon i {
+  font-size: 35px;
+  color: #c9b9b9;
+}
+.topPage span a{
+ text-decoration: none;
+}
+
+.navpage .mypage-header {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21042,16 +20954,26 @@ html, body {
   color: #f3920b;
   border-bottom: 1px solid #e8e8e8;
 }
-.matchingPage .header_logo {
+.navpage .mypage-header .header_logo {
   position: absolute;
   left: 30px;
 }
-.matchingPage .header_logo > a {
+.navpage .mypage-header .header_logo > a {
   width: 40px;
   display: block;
 }
-.matchingPage .header_logo > a > img {
+.navpage .mypage-header .header_logo > a > img {
   width: 100%;
+}
+.navpage .mypage-header .header_icon p {
+  color: #f3920b;
+  font-size: 20px;
+  vertical-align: middle;
+  margin-top: 10px;
+}
+
+.matchingPage {
+  height: 100vh;
 }
 .matchingPage .matchingNum {
   text-align: center;
@@ -21100,117 +21022,6 @@ html, body {
 .matchingPage .matchingList .matchingPerson form .chatForm_btn:hover {
   opacity: 0.7;
 }
-
-.showLikePage .header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  color: #f3920b;
-  border-bottom: 1px solid #e8e8e8;
-}
-.showLikePage .header_logo {
-  position: absolute;
-  left: 30px;
-}
-.showLikePage .header_logo > a {
-  width: 40px;
-  display: block;
-}
-.showLikePage .header_logo > a > img {
-  width: 100%;
-}
-.showLikePage .likingNum {
-  text-align: center;
-  font-size: 12px;
-  color: #f3920b;
-  margin-bottom: 5px;
-}
-.showLikePage .pageTitle {
-  font-size: 20px;
-  text-align: center;
-}
-.showLikePage .likingList {
-  margin-top: 30px;
-  padding: 0;
-}
-.showLikePage .likingList .likingPerson {
-  display: flex;
-  align-items: center;
-  padding: 20px 0px;
-  border-bottom: 1px solid #e8e8e8;
-  position: relative;
-}
-.showLikePage .likingList .liking_img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-right: 20px;
-  text-align: center;
-}
-.showLikePage .likingList .liking_img > img {
-  width: 100%;
-  object-fit: cover;
-}
-.showLikePage .likingList i{
-  font-size: 50px;
-  margin-right: 20px;
-  color: #f3920b;
-}
-.showLikePage .likingList .likePerson form {
-  position: absolute;
-  right: 0;
-}
-
-/*タブ切り替え全体のスタイル*/
-.showLikePage .tabs {
-  margin-top: 50px;
-  padding-bottom: 40px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  width: 90%;
-  margin: 0 auto;
-}
-/*ラジオボタンを全て消す*/
-.showLikePage input {
-  display: none;
-}
-/*タブのスタイル*/
-.showLikePage .tab_area label{
-  width: calc(100%/2);
-  height: 50px;
-  border-bottom: 3px solid #f3920b;
-  background-color: #fff;
-  line-height: 50px;
-  font-size: 16px;
-  text-align: center;
-  color: #000;
-  display: block;
-  float: left;
-  text-align: center;
-  font-weight: bold;
-  cursor:pointer;
-  transition:ease 0.2s opacity;
-}
-.showLikePage label:hover {
-  opacity: 0.5;
-}
-.showLikePage .panel_area {
-  background:#fff;
-}
-/*タブ切り替えの中身のスタイル*/
-.showLikePage .tab_content {
-  display: none;
-  padding: 40px 40px 0;
-  clear: both;
-  overflow: hidden;
-}
-/*選択されているタブのコンテンツのみを表示*/
-.showLikePage #tab1:checked ~ .tab_area .tab1_label{background:#f3920b; color:#fff;}
-#tab1:checked ~ .content_area #content1{display:block;}
-.showLikePage #tab2:checked ~ .tab_area .tab2_label{background:#f3920b; color:#fff;}
-#tab2:checked ~ .content_area #content2{display:block;}
 
 .chatPage input[type=text]:focus {
   outline: 0;
@@ -21321,4 +21132,3 @@ html, body {
   width: 100%;
   border: none;
 }
-

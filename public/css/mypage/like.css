@@ -1,0 +1,102 @@
+/*タブ切り替え全体のスタイル*/
+.showLikePage .tabs {
+  margin-top: 50px;
+  padding-bottom: 40px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  margin: 0 auto;
+}
+/*ラジオボタンを全て消す*/
+.showLikePage input {
+  display: none;
+}
+/*タブのスタイル*/
+.showLikePage .tab_area label{
+  width: calc(100%/2);
+  height: 50px;
+  border-bottom: 3px solid #f3920b;
+  background-color: #fff;
+  line-height: 50px;
+  font-size: 16px;
+  text-align: center;
+  color: #000;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  cursor:pointer;
+  transition:ease 0.2s opacity;
+}
+.showLikePage label:hover {
+  opacity: 0.5;
+}
+.showLikePage .panel_area {
+  background:#fff;
+}
+/*タブ切り替えの中身のスタイル*/
+.showLikePage .tab_content {
+  display: none;
+  padding: 40px 40px 0;
+  clear: both;
+  overflow: hidden;
+}
+/*選択されているタブのコンテンツのみを表示*/
+.showLikePage #tab1:checked ~ .tab_area .tab1_label{background:#f3920b; color:#fff;}
+#tab1:checked ~ .content_area #content1{display:block;}
+.showLikePage #tab2:checked ~ .tab_area .tab2_label{background:#f3920b; color:#fff;}
+#tab2:checked ~ .content_area #content2{display:block;}
+
+.showLikePage .likingNum {
+  text-align: center;
+  font-size: 12px;
+  color: #f3920b;
+  margin-bottom: 5px;
+}
+.showLikePage .pageTitle {
+  font-size: 20px;
+  text-align: center;
+}
+.showLikePage .likingList {
+  margin-top: 30px;
+  padding: 0;
+}
+.showLikePage .likingList .liking_wrap {
+  border-bottom: 1px solid #e8e8e8;
+}
+.showLikePage .likingList .liking_wrap {
+  display: flex;
+  align-items: center;
+  padding-top: 20px;
+  position: relative;
+}
+.showLikePage .likingList .liking_img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20px;
+  text-align: center;
+}
+.showLikePage .likingList .liking_img > img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.showLikePage .likingList .liking_name {
+  padding-top: 15px;
+}
+
+.showLikePage .likingList i{
+  font-size: 50px;
+  margin-right: 20px;
+  color: #f3920b;
+}
+.showLikePage .likingList form {
+  position: absolute;
+  right: 1rem;
+}
+.showLikePage .dislike_btn {
+  border-radius: 50%;
+  opacity: 0.8;
+}
