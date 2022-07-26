@@ -39,6 +39,11 @@ Route::get('/reaction/showDisliked', 'ReactionController@showDisliked')->name('r
 Route::patch('/reaction/ChangeLiked/{id}/update', 'ReactionController@ChangeLiked')->name('reaction.ChangeLiked');
 Route::patch('/reaction/ChangeDisliked/{id}/update', 'ReactionController@ChangeDisliked')->name('reaction.ChangeDisliked');
 
+Route::group(['middleware' => 'company'], function () {
+  Route::get('/mypage/create/posting', 'JobPostingController@create')->name('posting.create');
+  Route::post('/mypage/store/posting', 'JobPostingController@store')->name('posting.store');
+});
+
 Route::group(['prefix' => 'chat', 'middleware' => 'auth'], function () {
   Route::post('show', 'ChatController@show')->name('chat.show');
   Route::post('chat', 'ChatController@chat')->name('chat.chat');
