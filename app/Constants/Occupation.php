@@ -24,7 +24,7 @@ class Occupation
         17 => 'Toiletry(technical job)',
         18 => 'Cosmetic(technical job)',
         19 => 'Food(technical job)',
-        20 => 'Fragrance(technical job)'
+        20 => 'Fragrance(technical job)',
         21 => 'Feed(technical job)',
         22 => 'Architecture(technical job)',
         23 => 'Construction(technical job)',
@@ -34,7 +34,7 @@ class Occupation
         27 => 'Creator',
         28 => 'Service',
         29 => 'Civil Servant',
-        30 => 'Office Work'
+        30 => 'Office Work',
         31 => 'Medical(profession)',
         32 => 'Finance(profession)',
      ];

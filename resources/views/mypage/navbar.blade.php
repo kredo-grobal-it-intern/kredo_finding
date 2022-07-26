@@ -13,6 +13,8 @@
         <i class="fas fa-heart fa-3x header-icon"></i>
       @elseif(Request::routeIs('matching'))
         <i class="fas fa-comments fa-3x header-icon"></i>
+      @elseif(Request::routeIs('posting.create'))
+        <i class="fas fa-file-circle-plus fa-3x header-icon"></i>
       @endif
     </div>
   </header>
