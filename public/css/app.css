@@ -13,6 +13,7 @@
 @import url(about_us/about_us.css);
 @import url(reset_password/reset_password.css);
 @import url(mypage/like.css);
+@import url(home_page/home.css);
 
 :root {
   --blue: #3490dc;
@@ -20899,51 +20900,6 @@ html, body {
   font-family: arial;
   margin-top: 30px;
   font-weight: bold;
-}
-
-.topPage .nav > ul > li.appIcon > a > img {
-  width: 100%;
-  align-items: center;
-}
-.topPage .nav > ul > li.heartIcon i {
-  color: #dccbcb;
-  text-align: right;
-}
-.topPage .profile-icon {
-  font-size: 400px;
-  padding-top: 50px;
-  color: #f3920b;
-}
-.topPage .profile-image {
-  width: 400px;
-  height: 400px;
-  object-fit: cover;
-}
-.topPage .nav {
-  display: flex;
-  align-items: center;
-  width: 90%;
-  margin: 0 auto;
-  padding: 15px 0;
-}
-.topPage .logo img {
-  width: 45px;
-}
-.topPage .myPageIcon {
-  margin: 0 8px 0 auto;
-}
-.topPage .myPageIcon img{
-  width: 35px;
-  height: 35px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-.topPage .myPageIcon i {
-  font-size: 35px;
-  color: #c9b9b9;
-}
-.topPage span a{
- text-decoration: none;
 }
 
 .navpage .mypage-header {
