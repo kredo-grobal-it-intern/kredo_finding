@@ -25,7 +25,7 @@
               </form>
               @endif
              <div class='container'>
-              <form class="form mt-5" method="POST" action="/users/update/{{ $user->id }}"
+              <form class="form mt-5" method="POST" action="/users/updateUser/{{ $user->id }}"
                enctype="multipart/form-data">
                @csrf
 
@@ -140,9 +140,10 @@
           </div>
 
           <div id="panel2" class="tab_panel">
-            <form class="form mt-5" method="POST" action="/users/update/{{ $user->id }}"
+            <form class="form mt-5" method="POST" action="/users/updateJob/{{ $user->id }}"
               enctype="multipart/form-data">
               @csrf
+              @method('PATCH')
 
                 <div class="form-group">
                  <label>Company Name</label>
@@ -153,62 +154,62 @@
                </div>
                <div class="form-group pt-4">
                 <label class="form-check-label">Occupation</label>
-                <select class="form-control">
+                <select class="form-control" name="occupation">
                   <option></option>
                   @foreach(App\Constants\Occupation::Occupation as $occupation_id => $occupation_name)
-                    <option value="{{ $occupation_id }}">{{ $occupation_name }}</option>
+                    <option value="{{ $occupation_id }}" @if($user->occupation === $occupation_id) selected @endif>{{ $occupation_name }}</option>
                   @endforeach
                   </select>
                </div>
                <div class="form-group pt-4">
                 <label class="form-check-label">Employment Status</label>
-                <select class="form-control">
+                <select class="form-control" name="preferred_employment_status">
                   <option></option>
                   @foreach(App\Constants\EmploymentStatus::EmploymentStatus as $employment_status_id => $employment_status_name)
-                    <option value="{{ $employment_status_id }}">{{ $employment_status_name }}</option>
+                    <option value="{{ $employment_status_id }}" @if($user->preferred_employment_status === $employment_status_id) selected @endif>{{ $employment_status_name }}</option>
                   @endforeach
                   </select>
                </div>
                <div class="form-group pt-4">
                 <label class="form-check-label">Job Position</label>
-                <select class="form-control">
+                <select class="form-control" name="job_position">
                   <option></option>
                   @foreach(App\Constants\JobPosition::JobPosition as $job_position_id => $job_position_name)
-                    <option value="{{ $job_position_id }}">{{ $job_position_name }}</option>
+                    <option value="{{ $job_position_id }}" @if($user->job_position === $job_position_id) selected @endif>{{ $job_position_name }}</option>
                   @endforeach
                   </select>
                </div>
                <div class="form-group pt-4">
                 <label class="form-check-label">Tenureship</label>
-                <select class="form-control">
+                <select class="form-control" name="tenureship">
                   <option></option>
                   @foreach(App\Constants\Tenureship::Tenureship as $tenureship_id => $tenureship_name)
-                    <option value="{{ $tenureship_id }}">{{ $tenureship_name }}</option>
+                    <option value="{{ $tenureship_id }}" @if($user->tenureship == $tenureship_id) selected @endif>{{ $tenureship_name }}</option>
                   @endforeach
                   </select>
                </div>
-               <div class="form-group">
+               <div class="form-group pt-4">
                  <div class="row">
                    <div class="col-6">
                      <label class="form-check-label">Preferred Country</label>
-                      <select class="form-control">
+                      <select class="form-control" name="preferred_country">
                         <option></option>
-                        @foreach(App\Constants\Tenureship::Tenureship as $preferred_country_id => $preferred_country_name)
-                          <option value="{{ $preferred_country_id }}">{{ $preferred_country_name }}</option>
+                        @foreach($countries as $country_code => $country_name)
+                        <option value="{{ $country_code }}" @if($user->preferred_country == $country_code) selected @endif>{{ $country_name }}</option>
                         @endforeach
                       </select>
                    </div>
                    <div class="col-6">
-                     <label>Preferred State</label>
-                     <input type="address" name="Preferred_state" class="form-control" value="{{ $user->preferred_state }}" >
-                     @error('Preferred_state')
+                     <label class="form-check-label">Preferred State</label>
+                     <input type="text" name="preferred_state" class="form-control" value="{{ $user->preferred_state }}" >
+                     @error('preferred_state')
                          <span class="errorMessage">{{ $message }}</span>
                      @enderror
                    </div>
                  </div>
-                 <div class="form-group">
+                 <div class="form-group pt-4">
                   <label>Job Skills</label>
-                  <textarea class="form-control" name="self_introduction" rows="3">{{ $user->job_skills }}</textarea>
+                  <textarea class="form-control" name="job_skills" rows="3">{{ $user->job_skills }}</textarea>
                   @error('job_skills')
                       <span class="errorMessage">{{ $message }}</span>
                   @enderror

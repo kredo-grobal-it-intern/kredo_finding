@@ -16,7 +16,8 @@ use App\Http\Controllers\HomeController;
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
   Route::get('mypage/show/{id}', 'UserController@show')->name('profile.show');
   Route::get('edit/{id}', 'UserController@edit')->name('users.edit');
-  Route::post('update/{id}', 'UserController@update')->name('users.update');
+  Route::post('updateUser/{id}', 'UserController@updateUser')->name('users.updateUser');
+  Route::patch('updateJob/{id}', 'UserController@updateJob')->name('users.updateJob');
   Route::delete('destroy/{id}', 'UserController@destroy')->name('users.delete');
 });
 

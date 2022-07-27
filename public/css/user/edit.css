@@ -96,7 +96,7 @@
   .userEditPage .tab_area label{width:150px; margin:0 5px; display:inline-block; padding:12px 0; color:#999; background:#ddd; text-align:center; font-size:13px; cursor:pointer; transition:ease 0.2s opacity;}
   .userEditPage .tab_area label:hover{opacity:0.5;}
   .userEditPage .panel_area{background:#fff;}
-  .userEditPage .tab_panel{width:100%; padding:80px 0; display:none;}
+  .userEditPage .tab_panel{width:100%; padding:0 0; display:none;}
   .userEditPage .tab_panel p{font-size:14px; letter-spacing:1px; text-align:center;}
   .userEditPage #tab1 ~ .tab_area .tab1_label{
   background:#fff ; color:#000;
