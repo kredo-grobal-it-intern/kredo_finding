@@ -34,6 +34,7 @@ class AddNewColumnsForSearchFunctionToUsersTable extends Migration
           $table->dropColumn('preferred_country');
           $table->dropColumn('preferred_state');
           $table->dropColumn('company_name');
+          $table->string('occupation')->nullable()->default(NULL)->after('self_introduction')->change();
           $table->dropColumn('preferred_employment_status');
           $table->dropColumn('job_position');
           $table->dropColumn('tenureship');
