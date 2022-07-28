@@ -5,6 +5,9 @@
     <header class="header">
       <div>Create new account</div>
     </header>
+    <div class="text-right pt-2">
+      <button type="button" onclick="history.back()" class="btn backBtn">Back</button>
+    </div>
     <div class='container'>
       <form class="form mt-5" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf

@@ -13,6 +13,14 @@
                 <button type="submit" class="btn btn-danger btn-sm border border-0 mx-auto d-block"><i class="fa-regular fa-trash-can"></i>Delete Image</button>
             </form>
         @endif
+        <div class = "back_to_prepage">
+            <?php
+            $h = $_SERVER['HTTP_HOST'];
+            if (!empty($_SERVER['HTTP_REFERER']) && (strpos($_SERVER['HTTP_REFERER'],$h) !== false)) {
+                echo '<a href="' . $_SERVER['HTTP_REFERER'] . '">Back</a>';
+            }
+            ?>
+        </div>
         <div class='container'>
             <form class="form mt-5" method="POST" action="/users/update/{{ $user->id }}"
                 enctype="multipart/form-data">
