@@ -5,15 +5,9 @@
     <header class="header">
       <div>Create new account</div>
     </header>
-    <div class = "back_to_prepage">
-   <?php
-    $h = $_SERVER['HTTP_HOST'];
-    if (!empty($_SERVER['HTTP_REFERER']) && (strpos($_SERVER['HTTP_REFERER'],$h) !== false)) {
-    echo '<a href="' . $_SERVER['HTTP_REFERER'] . '">Back</a>';
-    }
-
-?>
-</div>
+    <div class="text-right pt-2">
+      <button type="button" onclick="history.back()" class="btn backBtn">Back</button>
+    </div>
     <div class='container'>
       <form class="form mt-5" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
