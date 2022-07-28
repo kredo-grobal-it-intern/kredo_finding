@@ -21,8 +21,6 @@
         </a>
       </div>
 
-
-
       <div class="myPageIcon">
         @if (Auth::user()->img_name)
             <a href="{{ route('profile.show', Auth::user()->id) }}"><img src="{{ Auth::user()->img_name }}" class="profile-image-navbar"></a>

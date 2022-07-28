@@ -73,14 +73,3 @@
   </form>
 
 </div>
-
-<script>
-  var elem = document.getElementById('tenureship');
-  var target = document.getElementById('years');
-  var rangeValue = function (elem, target) {
-    return function(evt){
-      target.innerHTML = elem.value;
-    }
-  }
-  elem.addEventListener('input', rangeValue(elem, target));
-</script>

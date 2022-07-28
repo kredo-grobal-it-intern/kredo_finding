@@ -48,7 +48,3 @@ Route::group(['prefix' => 'chat', 'middleware' => 'auth'], function () {
 Route::get('/showAbout',[HomeController::class, 'showAbout'])->name('showAbout');
 Route::get('/showContact',[HomeController::class, 'showContact'])->name('showContact');
 Route::get('/faq',[HomeController::class, 'showFaq'])->name('faq');
-
-Route::get('homepage.blade.php', function(){
-echo 'This is Working';
-});

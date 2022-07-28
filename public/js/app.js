@@ -32,6 +32,15 @@ var AxiosError = __webpack_require__(/*! ../core/AxiosError */ "./node_modules/a
 var CanceledError = __webpack_require__(/*! ../cancel/CanceledError */ "./node_modules/axios/lib/cancel/CanceledError.js");
 var parseProtocol = __webpack_require__(/*! ../helpers/parseProtocol */ "./node_modules/axios/lib/helpers/parseProtocol.js");
 
+var elem = document.getElementById('tenureship');
+var target = document.getElementById('years');
+var rangeValue = function (elem, target) {
+  return function(evt){
+    target.innerHTML = elem.value;
+  }
+}
+elem.addEventListener('input', rangeValue(elem, target));
+
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
     var requestData = config.data;
