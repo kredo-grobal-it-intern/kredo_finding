@@ -81,4 +81,7 @@ class HomeController extends Controller
   public function showFaq(){
     return view('menu_top.faq');
   }
+  public function showSearchBox(){
+    return view('search.homepage');
+  }
 }

@@ -31,6 +31,7 @@ Route::get('/login/facebook', 'Auth\LoginController@redirectToFacebook')->name('
 Route::get('/login/facebook/callback', 'Auth\LoginController@handleFacebookCallback')->name('facebook.callback');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/searchbox', 'HomeController@showSearchBox')->name('showSearchBox');
 Route::get('/changePassword', 'HomeController@showChangePasswordGet')->name('changePasswordGet');
 Route::post('/changePassword', 'HomeController@changePasswordPost')->name('changePasswordPost');
 Route::get('/mypage/matching', 'MatchingController@index')->name('matching');

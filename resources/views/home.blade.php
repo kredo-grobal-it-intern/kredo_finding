@@ -2,13 +2,25 @@
 
 @section('content')
 
-  <div class="topPage">
+  <div class="homePage">
     <nav class="nav">
+      <div class="searchIcon">
+        <label class="open" onclick="myFunction()" for="pop-up"><i class="fa-solid fa-magnifying-glass"></i></label>
+        <input type="checkbox" id="pop-up">
+        <div class="overlay">
+          <div class="window px-0" id="window">
+            <label class="close" for="pop-up">×</label>
+            @include('search.homepage')
+          </div>
+        </div>
+      </div>
+
       <div class="logo">
         <a href="{{ route('home') }}">
           <img src="/images/kredo_logo.jpg">
         </a>
       </div>
+
       <div class="myPageIcon">
         @if (Auth::user()->img_name)
             <a href="{{ route('profile.show', Auth::user()->id) }}"><img src="{{ Auth::user()->img_name }}" class="profile-image-navbar"></a>
