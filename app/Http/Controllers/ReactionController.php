@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Company;
 use Illuminate\Http\Request;
 
 use App\User;
@@ -87,4 +88,15 @@ class ReactionController extends Controller
     ])->update(['status'=> 0]);
     return redirect()->back();
  }
+
+  public function showLikedUser($id){
+  $user = User::find($id);
+  return view('mypage.liked_user_detail')->with('user', $user);
+
+}
+
+public function showLikedCompany($id){
+  $company = User::find($id);
+  return view('mypage.liked_company_detail')->with('company', $company);
+}
 }
