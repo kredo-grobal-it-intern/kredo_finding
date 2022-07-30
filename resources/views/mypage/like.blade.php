@@ -70,6 +70,11 @@
               <div class="liking_name">{{ $liked_by_user->fromUserId->name }}
                 <p class="h5 text-secondary">{{ date("m/d/Y", strtotime($liked_by_user->created_at))}}</p>
               </div>
+              <form action="{{ route('reaction.ChangeDisliked' ,$liked_by_user->fromUserId->id) }}" method="post" class="mb-0">
+                @csrf
+                @method('PATCH')
+                  <button type="submit" class="dislike_btn btn btn-danger btn-sm"><i class="like_icon fa-solid fa-thumbs-up text-white mx-auto" style="font-size:1.2rem;"></i></button>
+              </form>
 
               <form method="POST" action="{{ route('chat.show') }}">
                 @csrf
