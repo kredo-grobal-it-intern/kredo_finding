@@ -12,6 +12,7 @@
 */
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ContactController;
 
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
   Route::get('mypage/show/{id}', 'UserController@show')->name('profile.show');
@@ -23,7 +24,7 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
 Auth::routes();
 Route::get('/register/company', 'Auth\RegisterController@showCompanyRegister')->name('company.register');
 
-Route::view('/', 'top');
+Route::view('/', 'top')->name('top');
 
 Route::get('/login/google', 'Auth\LoginController@redirectToGoogle')->name('google.redirect');
 Route::get('/login/google/callback', 'Auth\LoginController@handleGoogleCallback')->name('google.callback');
@@ -45,5 +46,10 @@ Route::group(['prefix' => 'chat', 'middleware' => 'auth'], function () {
 });
 
 Route::get('/showAbout',[HomeController::class, 'showAbout'])->name('showAbout');
-Route::get('/showContact',[HomeController::class, 'showContact'])->name('showContact');
+// Route::get('/showContact',[HomeController::class, 'showContact'])->name('showContact');
 Route::get('/faq',[HomeController::class, 'showFaq'])->name('faq');
+
+Route::get('/contact',[ContactController::class, 'index'])->name('contacts');
+Route::post('/contact/confirm',[ContactController::class, 'confirm'])->name('contact.confirm');
+// Route::post('/contact/process',[ContactController::class, 'process'])->name('contact.process');
+Route::post('/contact/complete',[ContactController::class, 'complete'])->name('contact.complete');

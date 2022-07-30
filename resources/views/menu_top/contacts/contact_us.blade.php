@@ -26,7 +26,7 @@
           <img src="/images/mail.png" alt="height:150px; width:150px;">
         </div>
         <div class="col-md-3">
-          <form action="" method="post">
+          <form action="{{ route('contact.confirm') }}" method="post">
             @csrf
             <input type="text" name="first_name" id="first_name" placeholder="first name" class="form-control mb-3">
             <input type="text" name="last_name" id="last_name" placeholder="last name" class="form-control mb-3">
