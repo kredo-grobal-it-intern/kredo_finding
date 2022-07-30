@@ -90,13 +90,12 @@ class ReactionController extends Controller
  }
 
   public function showLikedUser($id){
-  $user = User::find($id);
-  return view('mypage.liked_user_detail')->with('user', $user);
+    $user = User::find($id);
+    return view('mypage.liked_user_detail')->with('user', $user);
+  }
 
-}
-
-public function showLikedCompany($id){
-  $company = User::find($id);
-  return view('mypage.liked_company_detail')->with('company', $company);
-}
+  public function showLikedCompany($id){
+    $company = User::find($id);
+    return view('mypage.liked_company_detail')->with('company', $company);
+  }
 }
