@@ -12,6 +12,7 @@
 */
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReactionController;
 
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
   Route::get('mypage/show/{id}', 'UserController@show')->name('profile.show');
@@ -47,3 +48,5 @@ Route::group(['prefix' => 'chat', 'middleware' => 'auth'], function () {
 Route::get('/showAbout',[HomeController::class, 'showAbout'])->name('showAbout');
 Route::get('/showContact',[HomeController::class, 'showContact'])->name('showContact');
 Route::get('/faq',[HomeController::class, 'showFaq'])->name('faq');
+Route::get('/user_detail/{id}',[ReactionController::class, 'showLikedUser'])->name('user_detail.show');
+Route::get('/company_detail/{id}',[ReactionController::class, 'showLikedCompany'])->name('company_detail.show');
