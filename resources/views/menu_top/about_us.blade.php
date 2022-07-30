@@ -5,7 +5,9 @@
 <div class="container-fluid">
     <div class="container-fluid mt-2">
         <header class="row">
-            <div class="col-1"><a href="{{URL::to('/')}}"><img src="/images/kredo_logo.jpg"  width="50px" height="50px"></div>
+            <div class="col-1">
+            <a href="{{ route('home') }}">
+            <img src="/images/kredo_logo.jpg"  width="50px" height="50px"></div>
             <div class="col-11 text-center ABOUTUS">ABOUT US</div>
         </header>
     </div>
