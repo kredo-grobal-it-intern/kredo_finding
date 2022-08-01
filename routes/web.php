@@ -35,9 +35,9 @@ Route::get('/changePassword', 'HomeController@showChangePasswordGet')->name('cha
 Route::post('/changePassword', 'HomeController@changePasswordPost')->name('changePasswordPost');
 Route::get('/mypage/matching', 'MatchingController@index')->name('matching');
 Route::get('/mypage/reaction', 'ReactionController@show')->name('reaction.show');
-Route::get('/reaction/showDisliked', 'ReactionController@showDisliked')->name('reaction.showDisliked');
-Route::patch('/reaction/ChangeLiked/{id}/update', 'ReactionController@ChangeLiked')->name('reaction.ChangeLiked');
-Route::patch('/reaction/ChangeDisliked/{id}/update', 'ReactionController@ChangeDisliked')->name('reaction.ChangeDisliked');
+Route::get('/mypage/reaction/showDisliked', 'ReactionController@showDisliked')->name('reaction.showDisliked');
+Route::patch('/reaction/ChangeLiked/{id}/update', 'ReactionController@changeLikedToDislike')->name('reaction.changeLikedToDislike');
+Route::patch('/reaction/ChangeDisliked/{id}/update', 'ReactionController@changeDislikedToLike')->name('reaction.changeDislikedToLike');
 
 Route::group(['middleware' => 'company'], function () {
   Route::get('/mypage/create/posting', 'JobPostingController@create')->name('posting.create');

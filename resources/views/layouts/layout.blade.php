@@ -35,6 +35,10 @@
             <i class="fas fa-heart"></i>
             <span class="font-weight-bold">LIKE</span>
           </a>
+          <a href="{{ route('reaction.showDisliked') }}" class="{{ request()->is('mypage/reaction/showDisliked') ? 'active' : '' }} sideBarItem">
+            <i class="fa-solid fa-heart-crack"></i>
+            <span class="font-weight-bold">DisLIKE</span>
+          </a>
           <a href="{{ route('matching') }}" class="{{ request()->is('mypage/matching') ? 'active' : '' }} sideBarItem">
             <i class="fas fa-comments"></i>
             <span class="font-weight-bold">MESSAGES</span>
