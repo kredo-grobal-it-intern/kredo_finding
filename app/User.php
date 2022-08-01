@@ -55,6 +55,16 @@ class User extends Authenticatable
     return $this->hasOne('App\Company');
   }
 
+  public function jobPostings()
+  {
+    return $this->hasMany('App\JobPosting');
+  }
+
+  public function fromWorkerId()
+  {
+    return $this->hasMany('App\WorkerReaction', 'from_worker_id', 'id');
+  }
+
   # Return true if the Auth user already liked this user
   public function isLiked()
   {

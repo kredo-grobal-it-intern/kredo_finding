@@ -61,7 +61,7 @@ class ChatController extends Controller
       ->orderby('created_at')
       ->get();
 
-    return view('mypage.chat',
+    return view('chat.show',
       compact('chat_room_id', 'chat_room_user',
         'chat_messages','chat_room_user_name'));
   }

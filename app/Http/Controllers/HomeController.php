@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\Company;
+use App\Country;
 use Auth;
 use Hash;
 use App\Constants\UserType;
@@ -40,7 +41,9 @@ class HomeController extends Controller
     $userCount = $users->count();
     $from_user_id = Auth::id();
 
-    return view('home', compact('users', 'userCount', 'from_user_id'));
+    $countries = Country::pluck('name', 'code')->all();
+
+    return view('home', compact('users', 'userCount', 'from_user_id', 'countries'));
   }
 
   public function showChangePasswordGet() {
