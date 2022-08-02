@@ -54,7 +54,7 @@
           </div>
 
           <div class="card card-body border-0 rounded-0 w-50 p-2">
-            <button class="btn rounded-0 facebookBtn">
+            <button type="button" class="btn rounded-0 facebookBtn">
               <div class="row">
                 <div class="col-2 text-white">
                   <i class="fa-brands fa-facebook-f"></i>
@@ -67,7 +67,7 @@
               </div>
             </button>
 
-            <button class="btn btn-danger rounded-0 mt-3">
+            <button type="button" class="btn btn-danger rounded-0 mt-3">
               <div class="row">
                 <div class="col-2">
                   <i class="fa-brands fa-google"></i>
