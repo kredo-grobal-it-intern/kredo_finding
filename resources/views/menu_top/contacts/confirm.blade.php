@@ -33,28 +33,44 @@
                         <p class="col-3 inquiry-title">First name</p>
                         <p class="col-9 inquiry-detail" name="first_name">{{ $first_name }}</p>
                         <input type="hidden" name="first_name" value="{{ $first_name }}">
+
+                        @error('first_name')
+                            <p class="text-danger small">{{ $message }}</p>
+                        @enderror
                     </div>
     
                     <div class="body-inquiry row">
                         <p class="col-3 inquiry-title">Last name</p>
                         <p class="col-9 inquiry-detail" name="last_name">{{ $last_name }}</p>
                         <input type="hidden" name="last_name" value="{{ $last_name }}">
+
+                        @error('last_name')
+                            <p class="text-danger small">{{ $message }}</p>
+                        @enderror
                     </div>
     
                     <div class="body-inquiry row">
                         <p class="col-3 inquiry-title">email</p>
                         <p class="col-9 inquiry-detail" name="email">{{ $email }}</p>
                         <input type="hidden" name="email" value="{{ $email }}">
+
+                        @error('email')
+                            <p class="text-danger small">{{ $message }}</p>
+                        @enderror                        
                     </div>
     
                     <div class="body-inquiry row">
                         <p class="col-3 inquiry-title">Inquiry</p>
-                        <p class="col-9 inquiry-detail" name="question">{{ $question }}</p>
-                        <input type="hidden" name="question" value="{{ $question }}">
+                        <p class="col-9 inquiry-detail" name="inquiry">{{ $inquiry }}</p>
+                        <input type="hidden" name="inquiry" value="{{ $inquiry }}">
+
+                        @error('inquiry')
+                            <p class="text-danger small">{{ $message }}</p>
+                        @enderror
                     </div>
     
                     <div class="button">
-                        <button type="submit" name="return" value="return" class="button-return">RETURN</button>
+                        <button type="submit" name="back" value="back" class="button-return">BACK</button>
                         <button type="submit" name="submit" value="submit" class="button-send">SEND</button>
                     </div>
                 </div>

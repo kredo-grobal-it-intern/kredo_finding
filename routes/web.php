@@ -46,10 +46,8 @@ Route::group(['prefix' => 'chat', 'middleware' => 'auth'], function () {
 });
 
 Route::get('/showAbout',[HomeController::class, 'showAbout'])->name('showAbout');
-// Route::get('/showContact',[HomeController::class, 'showContact'])->name('showContact');
 Route::get('/faq',[HomeController::class, 'showFaq'])->name('faq');
 
 Route::get('/contact',[ContactController::class, 'index'])->name('contacts');
 Route::post('/contact/confirm',[ContactController::class, 'confirm'])->name('contact.confirm');
-// Route::post('/contact/process',[ContactController::class, 'process'])->name('contact.process');
 Route::post('/contact/complete',[ContactController::class, 'complete'])->name('contact.complete');

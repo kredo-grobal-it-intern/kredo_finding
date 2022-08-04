@@ -1,4 +1,14 @@
-/* CONFIRM page */
+/* 
+CONTACT_US.blade.php
+*/
+.contact-inquiry{
+    resize: none;
+	min-height: 230px;
+}
+
+/* 
+CONFIRM.blade.php
+*/
 
 /* whole CARD */
 .card{
@@ -24,20 +34,16 @@
     margin-left: 5%;
     padding: 1rem 0;
     width: 90%;
-    align-items: center;
-    /* background-color: teal; */
-    
+    align-items: center;    
 }
 .card-body .body-inquiry .inquiry-title{
     text-align: right;
     padding-right: 2rem;
-    /* background-color: #FAAC64; */
     margin: auto;
 }
 .card-body .body-inquiry .inquiry-detail{
     margin-bottom: 1.5rem;
     margin: auto;
-    /* background-color: aqua; */
 }
 .card-body .button-return{
     border: solid 1px #FAAC64;
@@ -70,8 +76,9 @@
     margin-top: 3rem;
 }
 
-
-/* COMPLETE page */
+/*
+COMPLETE.blade.php
+*/
 
 .comp-content{
     text-align: center;
