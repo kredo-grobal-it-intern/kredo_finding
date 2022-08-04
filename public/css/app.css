@@ -11,9 +11,11 @@
 @import url(company/edit.css);
 @import url(faq/faq.css);
 @import url(about_us/about_us.css);
-@import url(reset_password/reset_password.css);
+@import url(password/reset_password.css);
 @import url(mypage/like.css);
 @import url(contacts/contact.css);
+@import url(password/change_password.css);
+@import url(register/register.css);
 
 :root {
   --blue: #3490dc;
@@ -20377,23 +20379,6 @@ body {
   display: block;
 }
 
-.signupPage .header {
-  padding: 20px;
-  text-align: center;
-  background: #f3920b;
-  color: #fff;
-}
-.signupPage .userProfileImg {
-  position: relative;
-  margin: 0 auto 10px auto;
-  width: 100px;
-  height: 100px;
-  background: #f3920b;
-  display: flex;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-}
 .signupPage .userProfileImg:hover .userProfileImg_description {
   opacity: 1;
 }
@@ -20409,9 +20394,6 @@ body {
   align-items: center;
   justify-content: center;
   background: rgba(5, 5, 5, 0.5);
-  color: #fff;
-}
-.signupPage .userProfileImg .fa-camera {
   color: #fff;
 }
 .signupPage .userProfileImg > input {
@@ -20431,17 +20413,6 @@ body {
   padding: 10px;
   border: solid thin lightgray;
   border-radius: 5px;
-}
-.signupPage .userImgPreview_text {
-  font-size: 11px;
-}
-.signupPage .submitBtn {
-  background: #f3920b;
-  color: #fff;
-  width: 200px;
-  padding: 10px;
-  border-radius: 90px;
-  transition: opacity 0.5s;
 }
 .signupPage .submitBtn:hover {
   opacity: 0.6;

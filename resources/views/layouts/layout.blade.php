@@ -39,13 +39,16 @@
             <i class="fas fa-comments"></i>
             <span class="font-weight-bold">MESSAGES</span>
           </a>
-          <a href="{{ route('logout') }}" style="padding: 1.2rem 1rem;" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();"><i class="fas fa-door-open logout-hover"></i>
-                <span class="font-weight-bold">LOGOUT</span>
+          <a href="{{ route('logout') }}" style="padding: 1.2rem 1rem;" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            <i class="fas fa-door-open logout-hover"></i>
+            <span class="font-weight-bold">LOGOUT</span>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              {{ csrf_field() }}
+            </form>
           </a>
         </div>
       </div>
-      <div class="col-9">
+      <div class="col-9" style="padding-left:0px;">
         @yield('content')
       </div>
     </div>

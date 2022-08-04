@@ -160,9 +160,6 @@
         <div class="text-center">
           <button type="submit" class="btn submitBtn">Update</button>
         </div>
-        <div class="text-center mt-2">
-          <button type="button" onclick="history.back()" class="btn backBtn">Back</button>
-        </div>
       </form>
     </div>
   </div>

@@ -25,9 +25,13 @@
               <div class="liking_img"><img src="{{ $you_liked_user->toUserId->img_name }}"></div>
               @else
                 @if ($you_liked_user->toUserId->user_type == 0)
+                <a href="{{ route('user_detail.show', $you_liked_user->toUserId->id) }}">
                   <i class="fa-solid fa-circle-user me-5"></i>
+                </a>
                 @else
+                <a href="{{ route('company_detail.show', $you_liked_user->toUserId->id) }}">
                   <i class="fa-solid fa-building me-5"></i>
+                </a>
                 @endif
               @endif
               <div class="liking_name">{{ $you_liked_user->toUserId->name }}
@@ -54,14 +58,23 @@
               <div class="liking_img"><img src="{{ $liked_by_user->fromUserId->img_name }}"></div>
               @else
                 @if ($liked_by_user->fromUserId->user_type == 0)
+                <a href="{{ route('user_detail.show', $liked_by_user->fromUserId->id) }}">
                   <i class="fa-solid fa-circle-user me-5"></i>
+                </a>
                 @else
+                <a href="{{ route('company_detail.show', $liked_by_user->fromUserId->id) }}">
                   <i class="fa-solid fa-building me-5"></i>
+                </a>
                 @endif
               @endif
               <div class="liking_name">{{ $liked_by_user->fromUserId->name }}
                 <p class="h5 text-secondary">{{ date("m/d/Y", strtotime($liked_by_user->created_at))}}</p>
               </div>
+              <form action="{{ route('reaction.ChangeDisliked' ,$liked_by_user->fromUserId->id) }}" method="post" class="mb-0">
+                @csrf
+                @method('PATCH')
+                  <button type="submit" class="dislike_btn btn btn-danger btn-sm"><i class="like_icon fa-solid fa-thumbs-up text-white mx-auto" style="font-size:1.2rem;"></i></button>
+              </form>
 
               <form method="POST" action="{{ route('chat.show') }}">
                 @csrf
