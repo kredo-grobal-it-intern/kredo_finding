@@ -15,6 +15,7 @@
 @import url(mypage/like.css);
 @import url(password/change_password.css);
 @import url(register/register.css);
+@import url(register/register_company.css);
 
 :root {
   --blue: #3490dc;
@@ -20419,24 +20420,6 @@ body {
 .signupPage .errorMessage {
   color: #f3920b;
 }
-
-.signupCompanyPage .header {
-  padding: 20px;
-  text-align: center;
-  background: #00008b;
-  color: #fff;
-}
-.signupCompanyPage .userProfileImg {
-  position: relative;
-  margin: 0 auto 10px auto;
-  width: 100px;
-  height: 100px;
-  background: #00008b;
-  display: flex;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-}
 .signupCompanyPage .userProfileImg:hover .userProfileImg_description {
   opacity: 1;
 }
@@ -20452,9 +20435,6 @@ body {
   align-items: center;
   justify-content: center;
   background: rgba(5, 5, 5, 0.5);
-  color: #fff;
-}
-.signupCompanyPage .userProfileImg .fa-camera {
   color: #fff;
 }
 .signupCompanyPage .userProfileImg > input {
@@ -20478,22 +20458,11 @@ body {
 .signupCompanyPage .userImgPreview_text {
   font-size: 11px;
 }
-.signupCompanyPage .submitBtn {
-  background: #00008b;
-  color: #fff;
-  width: 200px;
-  padding: 10px;
-  border-radius: 90px;
-  transition: opacity 0.5s;
-}
 .signupCompanyPage .submitBtn:hover {
   opacity: 0.6;
 }
 .signupCompanyPage .errorMessage {
   color: #f3920b;
-}
-.signupCompanyPage .linkToLogin > a {
-  color: #00008b;
 }
 
 .linkToLogin {

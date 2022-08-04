@@ -1,0 +1,76 @@
+.signupCompanyPage .companyImg{
+    background-image: url(/images/register.png);
+    background-repeat: no-repeat;
+    background-color: #EFDBBE;
+    background-size: 610px auto;
+}
+
+.signupCompanyPage header{
+    display: flex;
+    padding-bottom: 10px;
+}
+.signupCompanyPage a{
+    text-decoration: none;
+    color: #201301;
+}
+.signupCompanyPage header div {
+    padding: 10px;
+    margin-right: 10px;
+}
+.signupCompanyPage header div:first-child{
+    margin-right: auto;
+}
+
+.signupCompanyPage .container {
+    padding: 0 40px;
+}
+.signupCompanyPage .title {
+    display: flex;
+    justify-content:space-between;
+}
+
+.signupCompanyPage .outside {
+    width: 200px;
+    height: 50px;
+    background-color: #F6F6FB;
+    border-radius: 40px;
+}
+.signupCompanyPage .button {
+    width: 240px;
+    padding:5px 0 0 5px;
+    margin: 0 auto;
+}
+.signupCompanyPage .btnA {
+    background-color: #F6F6FB;
+    color: #fa9f03;
+}
+.signupCompanyPage .button .btnB {
+    background-color: #fa9f03;
+    color: #F6F6FB;
+    border-radius: 40px;
+    width: 100px;
+}
+
+.signupCompanyPage .userProfileImg {
+  position: relative;
+  margin: 0 auto 10px auto;
+  width: 100px;
+  height: 100px;
+  background: #EFDBBE;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+.signupCompanyPage .userProfileImg .fa-user {
+    color: #fff;
+}
+
+.signupCompanyPage .submitBtn {
+    background: #fa9f03;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    border-radius: 90px;
+    transition: opacity 0.5s;
+  }
