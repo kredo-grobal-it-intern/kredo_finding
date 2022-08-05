@@ -8,7 +8,7 @@
         <div class="left innerbox">
           <div class="left_up">
               <div class='userInfo_img'>
-                {{ showProfileImageInProfile($user->img_name) }}
+                {{ profileImageInProfile($user->img_name) }}
               </div>
               <div class='userInfo_name'>{{ $user->name }}</div>
             </div>

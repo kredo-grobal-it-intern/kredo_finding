@@ -22,7 +22,7 @@
       </div>
 
       <div class="myPageIcon">
-        <a href="{{ route('profile.show', Auth::user()->id) }}">{{ showProfileImageInNav(Auth::user()->img_name) }}</a>
+        <a href="{{ route('profile.show', Auth::user()->id) }}">{{ profileImageInNav(Auth::user()->img_name) }}</a>
       </div>
       <span>
         <a href="{{ route('profile.show', Auth::user()->id) }}" class="text-dark font-weight-bold">MyPage</a>
@@ -36,7 +36,7 @@
             @if(!$user->isLiked())
               <li data-user_id="{{ $user->id }}">
                 <div class="userName">{{ $user->name }}</div>
-                {{ showWorkerProfileImage($user->img_name) }}
+                {{ workerProfileImage($user->img_name) }}
                 <div class="like"></div>
                 <div class="dislike"></div>
               </li>
@@ -49,7 +49,7 @@
                     <div class="jobPosting card">
                       <div class="card-header row pb-0 align-items-center">
                         <div class="col-auto pr-0">
-                          {{ showCompanyProfileImage($user->img_name) }}
+                          {{ companyProfileImage($user->img_name) }}
                         </div>
                         <div class="col pl-0"><h3>{{ $user->name }}</h3></div>
                       </div>

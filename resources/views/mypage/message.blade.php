@@ -9,7 +9,7 @@
         <div class="matchingList">
           @foreach( $matching_users as $user)
             <div class="matchingPerson">
-              <a href="#" class="text-dark @if($user->img_name) matchingPerson_img @endif">{{ showProfileImageInMessage($user->img_name) }}</a>
+              <a href="#" class="text-dark @if($user->img_name) matchingPerson_img @endif">{{ profileImageInMessage($user->img_name) }}</a>
               <div class="matchingPerson_name">{{ $user->name }}</div>
               <form method="POST" action="{{ route('chat.show') }}">
                 @csrf
