@@ -24,8 +24,8 @@ class ReactionController extends Controller
   public function show()
   {
     $user = User::find(Auth::id());
-    $you_liked = $user->fromUserId()->where('status', 0)->get();
-    $liked_by = $user->toUserId()->where('status', 0)->get();
+    $you_liked = $user->fromUserId()->where('status', 0)->paginate(5);
+    $liked_by = $user->toUserId()->where('status', 0)->paginate(5);
 
     return view('mypage.like', compact('you_liked', 'liked_by'));
   }
