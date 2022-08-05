@@ -22,15 +22,7 @@
       </div>
 
       <div class="myPageIcon">
-        @if (Auth::user()->img_name)
-            <a href="{{ route('profile.show', Auth::user()->id) }}"><img src="{{ Auth::user()->img_name }}" class="profile-image-navbar"></a>
-          @else
-          @if (Auth::user()->user_type == 0)
-            <a href="{{ route('profile.show', Auth::user()->id) }}"><i class="fa-solid fa-circle-user"></i></a>
-          @else
-            <a href="{{ route('profile.show', Auth::user()->id) }}"><i class="fas fa-building fa-2x"></i></a>
-          @endif
-        @endif
+        <a href="{{ route('profile.show', Auth::user()->id) }}">{{ showProfileImageInNav(Auth::user()->img_name) }}</a>
       </div>
       <span>
         <a href="{{ route('profile.show', Auth::user()->id) }}" class="text-dark font-weight-bold">MyPage</a>
@@ -44,15 +36,7 @@
             @if(!$user->isLiked())
               <li data-user_id="{{ $user->id }}">
                 <div class="userName">{{ $user->name }}</div>
-                @if($user->img_name)
-                  <img src="{{ $user->img_name }}" class="profile-image">
-                @else
-                  @if ($user->user_type == 0)
-                    <i class="fa-solid fa-user profile-icon d-block text-center"></i>
-                  @else
-                    <i class="fa-solid fa-building profile-icon d-block text-center"></i>
-                  @endif
-                @endif
+                {{ showWorkerProfileImage($user->img_name) }}
                 <div class="like"></div>
                 <div class="dislike"></div>
               </li>
@@ -65,11 +49,7 @@
                     <div class="jobPosting card">
                       <div class="card-header row pb-0 align-items-center">
                         <div class="col-auto pr-0">
-                          @if($user->img_name)
-                            <div class="mb-5 ml-5"><img src="{{ $user->img_name }}" class="rounded-circle d-inline"></div>
-                          @else
-                            <i class="fa-solid fa-building mr-3"></i>
-                          @endif
+                          {{ showCompanyProfileImage($user->img_name) }}
                         </div>
                         <div class="col pl-0"><h3>{{ $user->name }}</h3></div>
                       </div>

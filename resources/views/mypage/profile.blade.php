@@ -8,11 +8,7 @@
         <div class="left innerbox">
           <div class="left_up">
               <div class='userInfo_img'>
-                @if($user->img_name)
-                  <img src="{{ $user->img_name }}">
-                @else
-                  <i class="{{ $user->user_type === App\Constants\UserType::Worker ? 'fa-solid fa-circle-user' : 'fas fa-building fa-2x' }} profile-icon d-block text-center mt-4"></i>
-                @endif
+                {{ showProfileImageInProfile($user->img_name) }}
               </div>
               <div class='userInfo_name'>{{ $user->name }}</div>
             </div>

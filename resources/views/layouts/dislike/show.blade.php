@@ -10,11 +10,7 @@
           @foreach($you_liked as $you_liked_user)
             @if(Auth::user()->user_type == App\Constants\UserType::Company)
               <div class="likingPerson row mb-3 align-items-center">
-                @if ($you_liked_user->toUserId->img_name)
-                <div class="liking_img col-auto"><img src="{{ $you_liked_user->toUserId->img_name }}"></div>
-                @else
-                <i class="fa-solid fa-circle-user"></i>
-                @endif
+                <a href="#" @if($you_liked_user->toUserId->img_name) class="liking_img col-auto" @endif>{{ showProfileImageInLike($you_liked_user->toUserId->img_name) }}</a>
                 <div class="liking_name col pl-0 pb-3">{{ $you_liked_user->toUserId->name }}</div>
 
                 <form action="{{ route('reaction.changeDislikedToLike' ,$you_liked_user->toUserId->id) }}" method="post" class="col-auto">
@@ -25,11 +21,7 @@
               </div>
             @else
               <div class="likingPerson row mb-3 align-items-center">
-                @if ($you_liked_user->companyUser->img_name)
-                <div class="liking_img col-auto"><img src="{{ $you_liked_user->companyUser->img_name }}"></div>
-                @else
-                <i class="fa-solid fa-building"></i>
-                @endif
+                <a href="#" @if($you_liked_user->companyUser->img_name) class="liking_img col-auto" @endif>{{ showProfileImageInLike($you_liked_user->companyUser->img_name) }}</a>
                 <div class="liking_name col pl-0 pb-3">{{ $you_liked_user->companyUser->name.' ['.App\Constants\Occupation::Occupation[$you_liked_user->occupation].']' }}</div>
 
                 <form action="{{ route('reaction.changeDislikedToLike' ,$you_liked_user->id) }}" method="post" class="col-auto">
