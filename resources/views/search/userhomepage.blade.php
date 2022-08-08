@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 
 <div class="search_home w-100">
-  <div class="search_header bg-dark text-white mb-5 p-3">
-    <h1>Search for employees</h1>
+  <div class="search_header bg-primary text-white mb-5 p-3">
+    <h1>Search for company</h1>
   </div>
 
   <form action="{{ route('home') }}" class="px-4">
@@ -21,7 +21,14 @@
     <div class="form-group row">
       <label for="preferred_state" class="col-sm-3 col-form-label">State</label>
       <div class="col-sm-9">
-        <input type="text" id="preferred_state" name="preferred_state" class="form-control">
+        <input type="text" name="state" id="preferred_state" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="preferred_city" class="col-sm-3 col-form-label">City</label>
+      <div class="col-sm-9">
+        <input type="text" id="preferred_state" name="city" class="form-control">
       </div>
     </div>
 
@@ -32,6 +39,18 @@
           <option></option>
           @foreach(App\Constants\Occupation::Occupation as $occupation_id => $occupation_name)
             <option value="{{ $occupation_id }}">{{ $occupation_name }}</option>
+          @endforeach
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="industry" class="col-sm-3 col-form-label">Industry</label>
+      <div class="col-sm-9">
+        <select name="industry" id="industry" class="form-control">
+          <option></option>
+          @foreach(App\Constants\JobPosting::Industry as $industry_id => $industry_name)
+            <option value="{{ $industry_id }}">{{ $industry_name }}</option>
           @endforeach
         </select>
       </div>
@@ -49,34 +68,16 @@
       </div>
     </div>
 
-    <div class="form-group row">
-      <label for="job_position" class="col-sm-3 col-form-label">Current Job Position</label>
-      <div class="col-sm-9">
-        <select name="job_position" id="job_position" class="form-control">
-          <option></option>
-          @foreach(App\Constants\JobPosition::JobPosition as $job_position_id => $job_position_name)
-            <option value="{{ $job_position_id }}">{{ $job_position_name }}</option>
-          @endforeach
-        </select>
-      </div>
-    </div>
 
     <div class="form-group row">
-      <label for="tenureship" class="mb-0 col-sm-3 col-form-label">Tenureship</label>
+      <label for="tenureship" class="mb-0 col-sm-3 col-form-label">Salary</label>
       <div class="col-sm-9">
-        <select class="form-control" name="tenureship">
+        <select name="salary" id="salary" class="form-control">
           <option></option>
-          @foreach(App\Constants\Tenureship::Tenureship as $tenureship_id => $tenureship_name)
-            <option value="{{ $tenureship_id }}">{{ $tenureship_name }}</option>
+          @foreach(App\Constants\JobPosting::Salary as $salary_id => $salary_name)
+            <option value="{{ $salary_id }}">{{ $salary_name }}</option>
           @endforeach
         </select>
-      </div>
-    </div>
-
-    <div class="form-group row mb-5">
-      <label for="preferred_state" class="col-sm-3 col-form-label">Job Skills</label>
-      <div class="col-sm-9">
-        <input type="text" id="job_skills" name="job_skills" class="form-control">
       </div>
     </div>
 

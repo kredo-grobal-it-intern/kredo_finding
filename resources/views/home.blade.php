@@ -10,7 +10,11 @@
         <div class="overlay">
           <div class="window px-0" id="window">
             <label class="close" for="pop-up">×</label>
-            @include('search.homepage')
+            @if (Auth::user()->user_type == 0)
+               @include('search.userhomepage')
+            @else
+               @include('search.homepage')
+            @endif
           </div>
         </div>
       </div>
@@ -39,8 +43,8 @@
 
     <div id="tinderslide">
       <ul>
-        @foreach($users as $user)
-          @if(Auth::user()->user_type === App\Constants\UserType::Company)
+        @if(Auth::user()->user_type === App\Constants\UserType::Company)
+          @foreach($users as $user)
             @if(!$user->isLiked())
               <li data-user_id="{{ $user->id }}">
                 <div class="userName">{{ $user->name }}</div>
@@ -57,51 +61,49 @@
                 <div class="dislike"></div>
               </li>
             @endif
-          @else
-            @if($user->jobPostings)
-              @foreach($user->jobPostings as $jobPosting)
-                @if(!$jobPosting->isLiked())
-                  <li data-user_id="{{ $jobPosting->id }}" class="text-left p-0">
-                    <div class="jobPosting card">
-                      <div class="card-header row pb-0 align-items-center">
-                        <div class="col-auto pr-0">
-                          @if($user->img_name)
-                            <div class="mb-5 ml-5"><img src="{{ $user->img_name }}" class="rounded-circle d-inline"></div>
-                          @else
-                            <i class="fa-solid fa-building mr-3"></i>
-                          @endif
-                        </div>
-                        <div class="col pl-0"><h3>{{ $user->name }}</h3></div>
-                      </div>
-                      <div class="card-body">
-                        <h3 class="card-title display-5 mb-2 pl-1">Occupation</h3>
-                        <p class="card-text fw-lighter">{{ App\Constants\Occupation::Occupation[$jobPosting->occupation] }}</p>
-                        <h3 class="card-title display-5 mb-2 pl-1">Industry</h3>
-                        <p>{{ App\Constants\JobPosting::Industry[$jobPosting->industry] }}</p>
-                        <h3 class="card-title display-5 mb-2 pl-1">Work Location<h3>
-                        <p>{{ $jobPosting->city.', '.$jobPosting->state.', '.$countries[$jobPosting->country] }}</p>
-                        <h3 class="card-title display-5 mb-2 pl-1">Employment status<h3>
-                        <p>{{ App\Constants\EmploymentStatus::EmploymentStatus[$jobPosting->employment_status] }}</p>
-                        <h3 class="card-title display-5 mb-2 pl-1">Working hours<h3>
-                        <p>{{ $jobPosting->opening_time.' ~ '.$jobPosting->closing_time }}</p>
-                        <h3 class="card-title display-5 mb-2 pl-1">Salary<h3>
-                        <p>{{ App\Constants\JobPosting::Salary[$jobPosting->salary] }}</p>
-                        <h3 class="card-title display-5 mb-2 pl-1">Job Description<h3>
-                        <p>{{ $jobPosting->job_description }}</p>
-                        <h3 class="card-title display-5 mb-2 pl-1">Welcome requirements<h3>
-                        <p>{{ $jobPosting->welcome_requirements}}</p>
-                        <h3 class="card-title display-5 mb-2 pl-1">Employee benefits<h3>
-                        <p class="mb-4">{{ $jobPosting->employee_benefits }}</p>
-                      </div>
+          @endforeach
+        @else
+          @foreach ($job_postings as $jobPosting)
+            @if(!$jobPosting->isLiked())
+              <li data-user_id="{{ $jobPosting->id }}" class="text-left p-0">
+                <div class="jobPosting card">
+                  <div class="card-header row pb-0 align-items-center">
+                    <div class="col-auto pr-0">
+                      @if($jobPosting->companyUser->img_name)
+                        <div class="mb-5 ml-5"><img src="{{ $jobPosting->companyUser->img_name }}" class="rounded-circle d-inline"></div>
+                      @else
+                        <i class="fa-solid fa-building mr-3"></i>
+                      @endif
                     </div>
-                    <div class="like"></div>
-                    <div class="dislike"></div>
-                  </li>
-                @endif
-              @endforeach
+                    <div class="col pl-0"><h3>{{$jobPosting->companyUser->name }}</h3></div>
+                  </div>
+                  <div class="card-body">
+                    <h3 class="card-title display-5 mb-2 pl-1">Occupation</h3>
+                    <p class="card-text fw-lighter">{{ App\Constants\Occupation::Occupation[$jobPosting->occupation] }}</p>
+                    <h3 class="card-title display-5 mb-2 pl-1">Industry</h3>
+                    <p>{{ App\Constants\JobPosting::Industry[$jobPosting->industry] }}</p>
+                    <h3 class="card-title display-5 mb-2 pl-1">Work Location<h3>
+                    <p>{{ $jobPosting->city.', '.$jobPosting->state.', '.$countries[$jobPosting->country] }}</p>
+                    <h3 class="card-title display-5 mb-2 pl-1">Employment status<h3>
+                    <p>{{ App\Constants\EmploymentStatus::EmploymentStatus[$jobPosting->employment_status] }}</p>
+                    <h3 class="card-title display-5 mb-2 pl-1">Working hours<h3>
+                    <p>{{ $jobPosting->opening_time.' ~ '.$jobPosting->closing_time }}</p>
+                    <h3 class="card-title display-5 mb-2 pl-1">Salary<h3>
+                    <p>{{ App\Constants\JobPosting::Salary[$jobPosting->salary] }}</p>
+                    <h3 class="card-title display-5 mb-2 pl-1">Job Description<h3>
+                    <p>{{ $jobPosting->job_description }}</p>
+                    <h3 class="card-title display-5 mb-2 pl-1">Welcome requirements<h3>
+                    <p>{{ $jobPosting->welcome_requirements}}</p>
+                    <h3 class="card-title display-5 mb-2 pl-1">Employee benefits<h3>
+                    <p class="mb-4">{{ $jobPosting->employee_benefits }}</p>
+                  </div>
+                </div>
+                <div class="like"></div>
+                <div class="dislike"></div>
+              </li>
             @endif
-          @endif
-        @endforeach
+          @endforeach
+        @endif
       </ul>
       <div class="noUser">There is no user around here</div>
     </div>
