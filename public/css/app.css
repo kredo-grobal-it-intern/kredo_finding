@@ -15,6 +15,8 @@
 @import url(mypage/like.css);
 @import url(contacts/contact.css);
 @import url(password/change_password.css);
+@import url(company_detail_page/company_detail.css);
+@import url(user_detail_page/user_detail.css);
 @import url(register/register.css);
 @import url(register/register_company.css);
 
