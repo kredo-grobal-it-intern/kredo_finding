@@ -44,6 +44,7 @@
               </form>
             </div>
             @endforeach
+            {{ $you_liked->links() }}
           </div>
         </div>
 
@@ -82,6 +83,7 @@
               </form>
             </div>
             @endforeach
+            {{ $liked_by->links() }}
           </div>
         </div>
       </div>
