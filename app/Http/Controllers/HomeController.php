@@ -45,27 +45,27 @@ class HomeController extends Controller
 
     if($request->preferred_state){
       $users = $users->where('preferred_state', 'LIKE', '%'.$request->preferred_state.'%');
-  }
+    }
     if($request->occupation){
       $users = $users->where('occupation', $request->occupation);
-  }
+    }
     if($request->preferred_employment_status){
       $users = $users->where('preferred_employment_status', $request->preferred_employment_status);
-  }
+    }
     if($request->preferred_country){
       $users = $users->where('preferred_country', $request->preferred_country);
-  }
+    }
     if($request->job_position){
       $users = $users->where('job_position', $request->job_position);
-  }
+    }
     if($request->tenureship){
       $users = $users->where('tenureship', $request->tenureship);
-  }
-  if($request->job_skills){
+    }
+    if($request->job_skills){
     $users = $users->where('job_skills', 'LIKE', '%'.$request->job_skills.'%');
-  }
+    }
 
-  if($user->user_type == UserType::Worker){
+    if($user->user_type == UserType::Worker){
     $job_postings = JobPosting::all();
 
     if($request->preferred_country){
@@ -90,7 +90,7 @@ class HomeController extends Controller
       $job_postings = $job_postings->where('salary', $request->salary);
     }
     return view('home', compact('job_postings', 'userCount','from_user_id', 'countries'));
-  }
+   }
 
 
     return view('home', compact('users', 'userCount', 'from_user_id', 'countries'));
