@@ -16,7 +16,7 @@ use App\Constants\Status;
 class MatchingController extends Controller
 {
   public static function index(){
-    if(Auth::user()->user_type == UserType::Company){
+    if(!isWorker(Auth::id())){
       $got_reaction_ids = Reaction::where([
         ['from_user_id', Auth::id()],
         ['status', Status::LIKE]

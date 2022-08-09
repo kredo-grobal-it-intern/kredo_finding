@@ -73,7 +73,7 @@ class UserController extends Controller
 
     $user->save();
 
-    if($user->user_type == UserType::Company){
+    if(!isWorker($user->id)){
       $this->company->updateCompany($request, $bin_image);
     }
 
@@ -108,7 +108,7 @@ class UserController extends Controller
     $user->img_name = null;
     $user->save();
 
-    if($user->user_type == UserType::Company){
+    if(!isWorker($user->id)){
       Company::where('user_id', Auth::id())->update(['img_name' => null]);
     }
 

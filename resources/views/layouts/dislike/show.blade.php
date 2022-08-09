@@ -8,7 +8,7 @@
         <h2 class="pageTitle">List of people you disliked</h2>
         <div class="likingList col-10 mx-auto">
           @foreach($you_liked as $you_liked_user)
-            @if(Auth::user()->user_type == App\Constants\UserType::Company)
+            @if(!isWorker(Auth::id()))
               <div class="likingPerson row mb-3 align-items-center">
                 <a href="#" @if($you_liked_user->toUserId->img_name) class="liking_img col-auto" @endif>{{ profileImageInLike($you_liked_user->toUserId->img_name) }}</a>
                 <div class="liking_name col pl-0 pb-3">{{ $you_liked_user->toUserId->name }}</div>

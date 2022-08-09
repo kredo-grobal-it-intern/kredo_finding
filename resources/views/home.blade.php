@@ -32,7 +32,7 @@
     <div id="tinderslide">
       <ul>
         @foreach($users as $user)
-          @if(Auth::user()->user_type === App\Constants\UserType::Company)
+          @if(!isWorker(Auth::id()))
             @if(!$user->isLiked())
               <li data-user_id="{{ $user->id }}">
                 <div class="userName">{{ $user->name }}</div>

@@ -25,11 +25,7 @@
       <div class="col-3 sideBar">
         <div class="list-group">
           <a href="{{ route('profile.show', Auth::user()->id) }}" class="{{ request()->is('users/mypage/show/*') ? 'active' : '' }} sideBarItem">
-            @if (Auth::user()->user_type == 0)
-              <i class="fas fa-user"></i>
-            @else
-              <i class="fas fa-building fa-2x"></i>
-            @endif
+            {{ profileImageInMypage() }}
             <span class="font-weight-bold">PROFILE</span>
           </a>
           <a href="{{ route('reaction.show') }}" class="{{ request()->is('mypage/reaction') ? 'active' : '' }} sideBarItem">
@@ -44,7 +40,7 @@
             <i class="fas fa-comments"></i>
             <span class="font-weight-bold">MESSAGES</span>
           </a>
-          @if(Auth::user()->user_type === App\Constants\UserType::Company)
+          @if(!isWorker(Auth::id()))
           <a href="{{ route('posting.create') }}" class="{{ request()->is('mypage/create/posting') ? 'active' : '' }} sideBarItem">
             <i class="fas fa-file-circle-plus"></i>
             <span class="font-weight-bold">Job Posting</span>
