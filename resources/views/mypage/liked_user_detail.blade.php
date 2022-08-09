@@ -1,6 +1,13 @@
 @extends('layouts.layout')
 
 @section('content')
+<div class="navpage mt-3">
+  <header class="mypage-header p-4">
+    <div class="header_logo">
+      <a href="{{ route('home') }}"><img src="/images/kredo_logo.jpg"></a>
+    </div>
+  </header>
+</div>
 <div class="container user_detail">
   <div class="card bg-light w-75 mx-auto mt-5">
     <div class="card-header border border-none p-0">
