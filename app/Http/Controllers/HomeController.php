@@ -128,9 +128,6 @@ class HomeController extends Controller
   public function showAbout(){
     return view('menu_top.about_us');
   }
-  public function showContact(){
-    return view('menu_top.contact_us');
-  }
   public function showFaq(){
     return view('menu_top.faq');
   }

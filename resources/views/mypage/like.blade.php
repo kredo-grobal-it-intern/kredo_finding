@@ -31,18 +31,20 @@
                   <button type="submit" class="dislike_btn btn btn-danger btn-sm"><i class="dislike_icon fa-solid fa-thumbs-down text-white mx-auto" style="font-size:1.2rem;"></i></button>
                 </form>
               @else
-                <a href="#" @if($you_liked_user->toUserId->img_name) class="liking_img" @endif>{{ profileImageInLike($you_liked_user->toUserId->img_name) }}</a>
+                <a href="{{ route('user_detail.show', $you_liked_user->toUserId->id) }}" @if($you_liked_user->toUserId->img_name) class="liking_img" @endif>{{ profileImageInLike($you_liked_user->toUserId->img_name) }}</a>
                 <div class="liking_name">{{ $you_liked_user->toUserId->name }}
                   <p class="h5 text-secondary">{{ date("m/d/Y", strtotime($you_liked_user->created_at)) }}</p>
                 </div>
                 <form action="{{ route('reaction.changeLikedToDislike' ,$you_liked_user->toUserId->id) }}" method="post" class="mb-0">
                   @csrf
                   @method('PATCH')
+                  
                   <button type="submit" class="dislike_btn btn btn-danger btn-sm"><i class="dislike_icon fa-solid fa-thumbs-down text-white mx-auto" style="font-size:1.2rem;"></i></button>
                 </form>
               @endif
             </div>
             @endforeach
+            {{ $you_liked->links() }}
           </div>
         </div>
 
@@ -63,10 +65,17 @@
                   <input name="user_id" type="hidden" value="">
                 </form>
               @else
-                <a href="#" @if($liked_by_user->fromUserId->img_name) class="liking_img" @endif>{{ profileImageInLike($liked_by_user->fromUserId->img_name) }}</a>
+                <a href="{{ route('user_detail.show', $liked_by_user->fromUserId->id) }}" @if($liked_by_user->fromUserId->img_name) class="liking_img" @endif>{{ profileImageInLike($liked_by_user->fromUserId->img_name) }}</a>
                 <div class="liking_name">{{ $liked_by_user->fromUserId->name }}
                   <p class="h5 text-secondary">{{ date("m/d/Y", strtotime($liked_by_user->created_at))}}</p>
                 </div>
+
+                <form action="{{ route('reaction.ChangeDisliked' ,$liked_by_user->fromUserId->id) }}" method="post" class="mb-0">
+                  @csrf
+                  @method('PATCH')
+
+                  <button type="submit" class="dislike_btn btn btn-danger btn-sm"><i class="like_icon fa-solid fa-thumbs-up text-white mx-auto" style="font-size:1.2rem;"></i></button>
+                </form>
 
                 <form method="POST" action="{{ route('chat.show') }}">
                   @csrf
@@ -75,6 +84,7 @@
               @endif
             </div>
             @endforeach
+            {{ $liked_by->links() }}
           </div>
         </div>
       </div>

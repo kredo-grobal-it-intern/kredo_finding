@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Company;
 use Illuminate\Http\Request;
 
 use App\User;
@@ -26,14 +27,15 @@ class ReactionController extends Controller
   public function show()
   {
     $user = User::find(Auth::id());
+
     if(isWorker($user->id)){
       $you_likes = WorkerReaction::where('from_worker_id', Auth::id())->where('status', 0)->pluck('to_job_id');
-      $you_liked = JobPosting::whereIn('id', $you_likes)->get();
-      $liked_by = $user->toUserId()->where('status', 0)->get();
+      $you_liked = JobPosting::whereIn('id', $you_likes)->paginate(5);
+      $liked_by = $user->toUserId()->where('status', 0)->paginate(5);
     }else{
-      $you_liked = $user->fromUserId()->where('status', 0)->get();
+      $you_liked = $user->fromUserId()->where('status', 0)->paginate(5);
       $job_postings = JobPosting::where('user_id', Auth::id())->pluck('id');
-      $liked_by = WorkerReaction::whereIn('to_job_id', $job_postings)->where('status', 0)->get();
+      $liked_by = WorkerReaction::whereIn('to_job_id', $job_postings)->where('status', 0)->paginate(5);
     }
     
     return view('mypage.like', compact('you_liked', 'liked_by'));
@@ -131,5 +133,15 @@ class ReactionController extends Controller
     }
 
     return redirect()->back();
+  }
+
+  public function showLikedUser($id){
+    $user = User::find($id);
+    return view('mypage.liked_user_detail')->with('user', $user);
+  }
+
+  public function showLikedCompany($id){
+    $company = User::find($id);
+    return view('mypage.liked_company_detail')->with('company', $company);
   }
 }

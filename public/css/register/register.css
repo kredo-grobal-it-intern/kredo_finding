@@ -1,0 +1,125 @@
+.signupPage {
+    display: flex;
+    flex-wrap: wrap;
+  }
+.column {
+    width: 100%;
+}
+@media (min-width: 1024px) {
+    .column {
+      width: 50%;
+    }
+}
+
+.signupPage header{
+    display: flex;
+    padding-bottom: 10px;
+}
+.signupPage a{
+    text-decoration: none;
+    color: #201301;
+}
+.signupPage header div {
+    padding: 10px;
+}
+.signupPage header div:first-child{
+    margin-right: auto;
+    margin-left: 20px;
+}
+
+.signupPage .container {
+    margin: 0 0 0 30px;
+}
+.signupPage .title {
+    display: flex;
+    justify-content:space-between;
+}
+.signupPage .outside {
+    width: 250px;
+    height: 50px;
+    background-color: #F6F6FB;
+    border-radius: 40px;
+}
+.signupPage .button {
+    width: 240px;
+    padding:5px 0 0 5px;
+    margin: 0 auto;
+}
+.signupPage a.btnA {
+    width: 110px;
+    background-color: #fa9f03;
+    border-radius: 50px;
+    text-align: right;
+    color: #ffffff;
+}
+.signupPage .button .btnB {
+    background-color: #F6F6FB;
+    color: #fa9f03;
+}
+
+.signupPage .userProfileImg {
+    position: relative;
+    margin: 0 auto 10px auto;
+    width: 100px;
+    height: 100px;
+    background: #EFDBBE;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+.signupPage .userProfileImg .fa-user {
+    color: #fff;
+}
+
+.signupPage .image{
+    background-image: url(/images/register.png);
+    background-repeat: no-repeat;
+    background-color: #EFDBBE;
+    width: 600px;
+}
+
+.signupPage p.line{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: 1px solid #201301;
+}
+.signupPage p.line:before,
+.signupPage p.line:after {
+    border-top: 1px solid #201301;
+    content: "";
+    width: 100%; 
+}
+.signupPage p.line:before {
+    margin-right: 10px; 
+}
+.signupPage p.line:after {
+    margin-left: 10px; 
+  }
+
+.signupPage .submitBtn {
+    background: #f3920b;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    border-radius: 90px;
+    transition: opacity 0.5s;
+}
+.signupPage .submitBtn:hover {
+    opacity: 0.6;
+}
+.signupPage .errorMessage {
+    color: #f3920b;
+}
+
+.signupPage .snsIcons {
+    background: #F6F6FB;
+    border-radius: 14px;
+    height: 40px;
+    padding-top: 8px;
+    margin: 0 10px 0 10px;
+}
+.signupPage .snsSignup{
+    margin-left: 60px;
+}

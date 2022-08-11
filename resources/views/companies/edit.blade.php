@@ -98,6 +98,9 @@
         <div class="form-group">
           <label>Contact Number</label>
           <input type="tel" name="contact_number" class="form-control" placeholder="Enter Contact Number" value="{{ $user->contact_number }}">
+          @error('contact_number')
+            <span class="errorMessage">{{ $message }}</span>
+          @enderror
         </div>
         <div class="form-group">
           <div class="row">
@@ -159,9 +162,6 @@
         </div>
         <div class="text-center">
           <button type="submit" class="btn submitBtn">Update</button>
-        </div>
-        <div class="text-center mt-2">
-          <button type="button" onclick="history.back()" class="btn backBtn">Back</button>
         </div>
       </form>
     </div>

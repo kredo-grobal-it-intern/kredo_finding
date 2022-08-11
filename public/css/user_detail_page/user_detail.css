@@ -1,0 +1,18 @@
+.user_detail .user_img{
+  background-image: url("/images/user_detail.png");
+  width:100%;
+  height:0;
+  padding-top:calc(2000 / 4000 * 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+}
+.user_detail p{
+  color: #10040490;
+  position: absolute;
+  left: 50%;
+  top:5%;
+  transform: translateX(-50%);
+  z-index: 1;
+  font-size: 30px;
+}

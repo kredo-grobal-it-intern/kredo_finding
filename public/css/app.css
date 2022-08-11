@@ -12,9 +12,15 @@
 @import url(company/edit.css);
 @import url(faq/faq.css);
 @import url(about_us/about_us.css);
-@import url(reset_password/reset_password.css);
+@import url(password/reset_password.css);
 @import url(mypage/like.css);
 @import url(home_page/home.css);
+@import url(contacts/contact.css);
+@import url(password/change_password.css);
+@import url(company_detail_page/company_detail.css);
+@import url(user_detail_page/user_detail.css);
+@import url(register/register.css);
+@import url(register/register_company.css);
 
 :root {
   --blue: #3490dc;
@@ -20378,23 +20384,6 @@ body {
   display: block;
 }
 
-.signupPage .header {
-  padding: 20px;
-  text-align: center;
-  background: #f3920b;
-  color: #fff;
-}
-.signupPage .userProfileImg {
-  position: relative;
-  margin: 0 auto 10px auto;
-  width: 100px;
-  height: 100px;
-  background: #f3920b;
-  display: flex;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-}
 .signupPage .userProfileImg:hover .userProfileImg_description {
   opacity: 1;
 }
@@ -20410,9 +20399,6 @@ body {
   align-items: center;
   justify-content: center;
   background: rgba(5, 5, 5, 0.5);
-  color: #fff;
-}
-.signupPage .userProfileImg .fa-camera {
   color: #fff;
 }
 .signupPage .userProfileImg > input {
@@ -20433,40 +20419,11 @@ body {
   border: solid thin lightgray;
   border-radius: 5px;
 }
-.signupPage .userImgPreview_text {
-  font-size: 11px;
-}
-.signupPage .submitBtn {
-  background: #f3920b;
-  color: #fff;
-  width: 200px;
-  padding: 10px;
-  border-radius: 90px;
-  transition: opacity 0.5s;
-}
 .signupPage .submitBtn:hover {
   opacity: 0.6;
 }
 .signupPage .errorMessage {
   color: #f3920b;
-}
-
-.signupCompanyPage .header {
-  padding: 20px;
-  text-align: center;
-  background: #00008b;
-  color: #fff;
-}
-.signupCompanyPage .userProfileImg {
-  position: relative;
-  margin: 0 auto 10px auto;
-  width: 100px;
-  height: 100px;
-  background: #00008b;
-  display: flex;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
 }
 .signupCompanyPage .userProfileImg:hover .userProfileImg_description {
   opacity: 1;
@@ -20483,9 +20440,6 @@ body {
   align-items: center;
   justify-content: center;
   background: rgba(5, 5, 5, 0.5);
-  color: #fff;
-}
-.signupCompanyPage .userProfileImg .fa-camera {
   color: #fff;
 }
 .signupCompanyPage .userProfileImg > input {
@@ -20509,22 +20463,11 @@ body {
 .signupCompanyPage .userImgPreview_text {
   font-size: 11px;
 }
-.signupCompanyPage .submitBtn {
-  background: #00008b;
-  color: #fff;
-  width: 200px;
-  padding: 10px;
-  border-radius: 90px;
-  transition: opacity 0.5s;
-}
 .signupCompanyPage .submitBtn:hover {
   opacity: 0.6;
 }
 .signupCompanyPage .errorMessage {
   color: #f3920b;
-}
-.signupCompanyPage .linkToLogin > a {
-  color: #00008b;
 }
 
 .linkToLogin {

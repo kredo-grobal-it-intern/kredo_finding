@@ -8,7 +8,7 @@
       <div class="menu" style="z-index: 1;">
           <a href="{{ route('showAbout') }}"class="text-white text-decoration-none">ABOUT US &nbsp;&nbsp;&nbsp;</a>
           <a href="{{ route('faq') }}"class="text-white text-decoration-none">FAQ &nbsp;&nbsp;&nbsp;</a>
-          <a href="{{ route('showContact') }}"class="text-white text-decoration-none">CONTACT US &nbsp;&nbsp;&nbsp;</a>
+          <a href="{{ route('contacts') }}"class="text-white text-decoration-none">CONTACT US &nbsp;&nbsp;&nbsp;</a>
       </div>
     </div>
 

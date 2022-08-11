@@ -67,7 +67,7 @@ class RegisterController extends Controller
       'name' => ['required', 'string', 'max:255'],
       'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
       'password' => ['required', 'string', 'min:8', 'confirmed'],
-      'contact_number' => ['nullable', 'string', 'max:11'],
+      'contact_number' => ['nullable', 'string', 'max:11', 'unique:users'],
       'img_name' => ['file', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2000'],
       'self_introduction' => ['string', 'max:255'],
     ]);
@@ -103,7 +103,7 @@ class RegisterController extends Controller
     $create_user = $this->user->createUser($data, $bin_image);
 
     $user = User::find($create_user->id);
-    
+
     if(!isWorker($user->id)){
       $this->company->createCompany($user, $bin_image);
     }
