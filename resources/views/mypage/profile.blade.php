@@ -1,60 +1,72 @@
 @extends('layouts.layout')
 
 @section('content')
+  <div class="usershowPage">
+    <div class="myPageIcon">
+      @if (Auth::user()->img_name)
+          <a href="{{ route('profile.show', Auth::user()->id) }}"><img src="{{ Auth::user()->img_name }}"></a>
+        @else
+        @if (Auth::user()->user_type == 0)
+          <a href="{{ route('profile.show', Auth::user()->id) }}"><i class="fa-solid fa-circle-user"></i></a>
+        @else
+          <a href="{{ route('profile.show', Auth::user()->id) }}"><i class="fas fa-building fa-2x"></i></a>
+        @endif
+      @endif
+      <p>Hi,&nbsp;{{ $user->name }}</p>
+    </div>
 
-  <div class='usershowPage'>
-    <div class='profile_container'>
-      <div class="inner_container mt-0" style="width:auto;">
-        <div class="left innerbox">
-          <div class="left_up">
-              <div class='userInfo_img'>
-                @if($user->img_name)
-                  <img src="{{ $user->img_name }}">
-                @else
-                  <i class="{{ $user->user_type === App\Constants\UserType::Worker ? 'fa-solid fa-circle-user' : 'fas fa-building fa-2x' }} profile-icon d-block text-center mt-4"></i>
-                @endif
-              </div>
-              <div class='userInfo_name'>{{ $user->name }}</div>
-            </div>
-          <div class="left_down">
-            <div class='userAction'>
-              <div class="userAction_edit userAction_common">
-                <a href="/users/edit/{{ $user->id }}"><i class="fas fa-edit fa-3x text-white"></i></a>
-                <span class="h4 text-white">EDIT</span>
-               </div>
-              <div class='userAction_logout userAction_common'>
-                <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();"><i class="fas fa-door-open fa-3x text-white logout-hover"></i></a>
-                <span class="h4 text-white">LOGOUT</span>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                  {{ csrf_field() }}
-                </form>
-              </div>
-            </div>
-          </div>
+    <div class="profile">
+      <div class='userInfo_img'>
+        @if($user->img_name)
+          <img src="{{ $user->img_name }}">
+        @else
+          <i class="{{ $user->user_type === App\Constants\UserType::Worker ? 'fa-solid fa-circle-user' : 'fa-solid fa-circle-user' }}"></i>
+        @endif
+      </div>
+      <a class="btn editBtn" href="/users/edit/{{ $user->id }}" role="button">Edit</a>
+
+      <div class="row">
+        <div class="col">
+          <p>Name</p>
+          <div class="border">{{ $user->name }}</div>
         </div>
-        <div class="right innerbox">
-          <div class='userInfo'>
-            <h1 class="mt-5 mx-4">{{ $user->user_type === App\Constants\UserType::Worker ? 'Self introduction' : 'Services' }}</h1>
-            <div class='userInfo_selfIntroduction'>{{ $user -> self_introduction }}</div>
+        <div class="col">
+          <p>Email</p>
+          <div class="border">{{ $user->email }}</div>
+        </div>
+        <div class="col">
+          <p>Password</p>
+          <div class="border">********</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <p>Contact Number</p>
+          <div class="border">{{ $user->contact_number }}</div>
+        </div>
+        <div class="col-4">
+          <p>Gender</p>
+          <div class="border">
             @if($user->user_type === App\Constants\UserType::Worker)
-            <h1 class="mt-5 mx-4">Gender</h1>
-            <div class="form-check form-check-inline mx-4">
               @if ($user->gender === 0)
-                <h2 class="form-check" for="inlineRadio1">male</h2>
+                <div class="form-check" for="inlineRadio1">male</div>
               @elseif($user->gender === 1)
-                <h2 class="form-check" for="inlineRadio2">female</h2>
+                <div class="form-check" for="inlineRadio2">female</div>
               @else
-                <h2 class="form-check" for="inlineRadio2">not entered</h2>
+                <div class="form-check" for="inlineRadio2">not entered</div>
               @endif
-            </div>
             @endif
-            <h1 class="mt-5 mx-4">{{ $user->user_type === App\Constants\UserType::Worker ? 'Personal Information' : 'Company Information' }}</h1>
-            <h2 type="email" name="email" class="mt-4 mx-4"><i class="fa-solid fa-envelope profile-icon-for-show"></i>{{ $user->email }}</h2>
-            <h2 type="munber" name="contact_number" class="mt-4 mx-4" ><i class="fa-solid fa-phone profile-icon-for-show"></i>{{ $user->contact_number }}</h2>
           </div>
         </div>
       </div>
-    </div>
+
+      <div class="row">
+        <div class="col">
+          <p>{{ $user->user_type === App\Constants\UserType::Worker ? 'Introduction' : 'Services' }}</p>
+          <div class="border textarea">{{ $user -> self_introduction }}</div>
+        </div>       
+      </div>
   </div>
+</div>
 @endsection

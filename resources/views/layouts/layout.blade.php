@@ -17,37 +17,43 @@
 <body>
 
 @if(Request::is('mypage/*')||Request::is('users/mypage/*'))
-  @include('mypage.navbar')
+  <!-- @include('mypage.navbar') -->
   <main class="sideBar_area">
     <div class="row">
       <!-- for mypage-->
       <div class="col-3 sideBar">
+        <div class="logo">
+          <a href="{{ route('home') }}"><img src="/images/kredo_logo.jpg" style="height: 5rem; width:5rem;"></a>
+        </div>
+        <p class="menu font-weight-bold">Main Menu</p>
+
         <div class="list-group">
           <a href="{{ route('profile.show', Auth::user()->id) }}" class="{{ request()->is('users/mypage/show/*') ? 'active' : '' }} sideBarItem">
             @if (Auth::user()->user_type == 0)
               <i class="fas fa-user"></i>
             @else
-              <i class="fas fa-building fa-2x"></i>
+              <i class="fas fa-building"></i>
             @endif
-            <span class="font-weight-bold">PROFILE</span>
+            <span class="font-weight-bold">Profile</span>
           </a>
           <a href="{{ route('reaction.show') }}" class="{{ request()->is('mypage/reaction') ? 'active' : '' }} sideBarItem">
             <i class="fas fa-heart"></i>
-            <span class="font-weight-bold">LIKE</span>
+            <span class="font-weight-bold">Likes</span>
           </a>
           <a href="{{ route('matching') }}" class="{{ request()->is('mypage/matching') ? 'active' : '' }} sideBarItem">
-            <i class="fas fa-comments"></i>
-            <span class="font-weight-bold">MESSAGES</span>
+            <i class="fas fa-comment-dots"></i>
+            <span class="font-weight-bold">Messages</span>
           </a>
-          <a href="{{ route('logout') }}" style="padding: 1.2rem 1rem;" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+          <a href="{{ route('logout') }}" class="sideBarItem" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             <i class="fas fa-door-open logout-hover"></i>
-            <span class="font-weight-bold">LOGOUT</span>
+            <span class="font-weight-bold">Logout</span>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               {{ csrf_field() }}
             </form>
           </a>
         </div>
       </div>
+
       <div class="col-9" style="padding-left:0px;">
         @yield('content')
       </div>
