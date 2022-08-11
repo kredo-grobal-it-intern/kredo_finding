@@ -70,7 +70,7 @@
                   <p class="h5 text-secondary">{{ date("m/d/Y", strtotime($liked_by_user->created_at))}}</p>
                 </div>
 
-                <form action="{{ route('reaction.ChangeDisliked' ,$liked_by_user->fromUserId->id) }}" method="post" class="mb-0">
+                <form action="{{ route('reaction.changeDislikedToLike' ,$liked_by_user->fromUserId->id) }}" method="post" class="mb-0">
                   @csrf
                   @method('PATCH')
 
