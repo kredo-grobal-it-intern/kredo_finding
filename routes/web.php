@@ -18,7 +18,8 @@ use App\Http\Controllers\ReactionController;
 Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
   Route::get('mypage/show/{id}', 'UserController@show')->name('profile.show');
   Route::get('edit/{id}', 'UserController@edit')->name('users.edit');
-  Route::post('update/{id}', 'UserController@update')->name('users.update');
+  Route::post('updateUser/{id}', 'UserController@updateUser')->name('users.updateUser');
+  Route::patch('updateJob/{id}', 'UserController@updateJob')->name('users.updateJob');
   Route::delete('destroy/{id}', 'UserController@destroy')->name('users.delete');
 });
 
@@ -33,13 +34,19 @@ Route::get('/login/facebook', 'Auth\LoginController@redirectToFacebook')->name('
 Route::get('/login/facebook/callback', 'Auth\LoginController@handleFacebookCallback')->name('facebook.callback');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/searchbox', 'HomeController@showSearchBox')->name('showSearchBox');
 Route::get('/changePassword', 'HomeController@showChangePasswordGet')->name('changePasswordGet');
 Route::post('/changePassword', 'HomeController@changePasswordPost')->name('changePasswordPost');
 Route::get('/mypage/matching', 'MatchingController@index')->name('matching');
 Route::get('/mypage/reaction', 'ReactionController@show')->name('reaction.show');
-Route::get('/reaction/showDisliked', 'ReactionController@showDisliked')->name('reaction.showDisliked');
-Route::patch('/reaction/ChangeLiked/{id}/update', 'ReactionController@ChangeLiked')->name('reaction.ChangeLiked');
-Route::patch('/reaction/ChangeDisliked/{id}/update', 'ReactionController@ChangeDisliked')->name('reaction.ChangeDisliked');
+Route::get('/mypage/reaction/showDisliked', 'ReactionController@showDisliked')->name('reaction.showDisliked');
+Route::patch('/reaction/ChangeLiked/{id}/update', 'ReactionController@changeLikedToDislike')->name('reaction.changeLikedToDislike');
+Route::patch('/reaction/ChangeDisliked/{id}/update', 'ReactionController@changeDislikedToLike')->name('reaction.changeDislikedToLike');
+
+Route::group(['middleware' => 'company'], function () {
+  Route::get('/mypage/create/posting', 'JobPostingController@create')->name('posting.create');
+  Route::post('/mypage/store/posting', 'JobPostingController@store')->name('posting.store');
+});
 
 Route::group(['prefix' => 'chat', 'middleware' => 'auth'], function () {
   Route::post('show', 'ChatController@show')->name('chat.show');
