@@ -20,12 +20,8 @@
           <div class="likingList">
             @foreach($you_liked as $you_liked_user)
             <div class="liking_wrap">
-              @if(Auth::user()->user_type === App\Constants\UserType::Worker)
-                @if ($you_liked_user->companyUser->img_name)
-                  <a href="#" class="liking_img"><img src="{{ $you_liked_user->companyUser->img_name }}"></a>
-                @else
-                  <i class="fa-solid fa-building me-5"></i>
-                @endif
+              @if(isWorker(Auth::id()))
+                <a href="#" @if($you_liked_user->companyUser->img_name) class="liking_img" @endif>{{ profileImageInLike($you_liked_user->companyUser->img_name) }}</a>
                 <div class="liking_name">{{ $you_liked_user->companyUser->name.'  ['.App\Constants\Occupation::Occupation[$you_liked_user->occupation].']' }} 
                   <p class="h5 text-secondary">{{ date("m/d/Y", strtotime($you_liked_user->created_at)) }}</p>
                 </div>
@@ -35,11 +31,7 @@
                   <button type="submit" class="dislike_btn btn btn-danger btn-sm"><i class="dislike_icon fa-solid fa-thumbs-down text-white mx-auto" style="font-size:1.2rem;"></i></button>
                 </form>
               @else
-                @if ($you_liked_user->toUserId->img_name)
-                <a href="#" class="liking_img"><img src="{{ $you_liked_user->toUserId->img_name }}"></a>
-                @else
-                <i class="fa-solid fa-circle-user me-5"></i>
-                @endif
+                <a href="#" @if($you_liked_user->toUserId->img_name) class="liking_img" @endif>{{ profileImageInLike($you_liked_user->toUserId->img_name) }}</a>
                 <div class="liking_name">{{ $you_liked_user->toUserId->name }}
                   <p class="h5 text-secondary">{{ date("m/d/Y", strtotime($you_liked_user->created_at)) }}</p>
                 </div>
@@ -61,12 +53,8 @@
 
             @foreach( $liked_by as $liked_by_user)
             <div class="liking_wrap">
-              @if (Auth::user()->user_type === App\Constants\UserType::Company)
-                @if($liked_by_user->fromWorkerId->img_name)
-                <a href="#" class="liking_img"><img src="{{ $liked_by_user->fromWorkerId->img_name }}"></a>
-                @else
-                <i class="fa-solid fa-circle-user me-5"></i>
-                @endif
+              @if (!isWorker(Auth::id()))
+                <a href="#" @if($liked_by_user->fromWorkerId->img_name) class="liking_img" @endif>{{ profileImageInLike($liked_by_user->fromWorkerId->img_name) }}</a>
                 <div class="liking_name">{{ $liked_by_user->fromWorkerId->name }} <i class="fa-solid fa-heart text-danger" style="font-size: 0.7rem;"> {{ App\Constants\Occupation::Occupation[$liked_by_user->toJobId->occupation] }}</i>
                   <p class="h5 text-secondary">{{ date("m/d/Y", strtotime($liked_by_user->created_at))}}</p>
                 </div>
@@ -75,11 +63,7 @@
                   <input name="user_id" type="hidden" value="">
                 </form>
               @else
-                @if ($liked_by_user->fromUserId->img_name)
-                <a href="#" class="liking_img"><img src="{{ $liked_by_user->fromUserId->img_name }}"></a>
-                @else
-                <i class="fa-solid fa-building me-5"></i>
-                @endif
+                <a href="#" @if($liked_by_user->fromUserId->img_name) class="liking_img" @endif>{{ profileImageInLike($liked_by_user->fromUserId->img_name) }}</a>
                 <div class="liking_name">{{ $liked_by_user->fromUserId->name }}
                   <p class="h5 text-secondary">{{ date("m/d/Y", strtotime($liked_by_user->created_at))}}</p>
                 </div>

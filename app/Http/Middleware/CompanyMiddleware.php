@@ -17,7 +17,7 @@ class CompanyMiddleware
      */
     public function handle($request, Closure $next)
     {   
-        if(Auth::check() && Auth::user()->user_type === UserType::Company){
+        if(Auth::check() && !isWorker(Auth::id())){
             return $next($request); 
         }
         

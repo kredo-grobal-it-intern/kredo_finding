@@ -34,7 +34,7 @@ class HomeController extends Controller
     $user = User::find(Auth::id());
     $countries = Country::pluck('name', 'code')->all();
 
-    if($user->user_type == UserType::Worker){
+    if(isWorker($user->id)){
       $users = User::all()->where('user_type', UserType::Company);
     }else{
       $users = User::all()->where('user_type', UserType::Worker);
@@ -118,7 +118,7 @@ class HomeController extends Controller
     $user->password = bcrypt($request->get('new-password'));
     $user->save();
 
-    if($user->user_type == UserType::Company){
+    if(!isWorker($user->id)){
       Company::where('user_id', Auth::id())->update(['password' => $user->password]);
     }
 
