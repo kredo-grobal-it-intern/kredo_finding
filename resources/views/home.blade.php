@@ -53,7 +53,7 @@
                 <div class="jobPosting card">
                   <div class="card-header row pb-0 align-items-center">
                     <div class="col-auto pr-0">
-                      {{ companyProfileImage($user->img_name) }}
+                      {{ companyProfileImage($jobPosting->companyUser->img_name) }}
                     </div>
                     <div class="col pl-0"><h3>{{$jobPosting->companyUser->name }}</h3></div>
                   </div>
