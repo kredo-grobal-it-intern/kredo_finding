@@ -11,8 +11,12 @@
         <i class="fas fa-user fa-3x header-icon"></i>
       @elseif(Request::routeIs('reaction.show'))
         <i class="fas fa-heart fa-3x header-icon"></i>
+      @elseif(Request::routeIs('reaction.showDisliked'))
+        <i class="fas fa-heart-crack fa-3x header-icon"></i>
       @elseif(Request::routeIs('matching'))
         <i class="fas fa-comments fa-3x header-icon"></i>
+      @elseif(Request::routeIs('posting.create'))
+        <i class="fas fa-file-circle-plus fa-3x header-icon"></i>
       @endif
     </div>
   </header>

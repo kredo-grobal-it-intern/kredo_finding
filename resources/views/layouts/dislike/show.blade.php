@@ -2,44 +2,38 @@
 
 @section('content')
   <div class="showLikePage">
-    <header class="header">
-      <i class="fa-solid fa-heart-crack fa-3x"></i>
-      <div class="header_logo"><a href="{{ route('home') }}"><img src="/images/kredo_logo.jpg"></a></div>
-    </header>
+    <div class="container mt-3">
+      <div>
+        <div class="likingNum">You disliked {{ $you_liked->count() }} people</div>
+        <h2 class="pageTitle">List of people you disliked</h2>
+        <div class="likingList col-10 mx-auto">
+          @foreach($you_liked as $you_liked_user)
+            @if(!isWorker(Auth::id()))
+              <div class="likingPerson row mb-3 align-items-center">
+                <a href="#" @if($you_liked_user->toUserId->img_name) class="liking_img col-auto" @endif>{{ profileImageInLike($you_liked_user->toUserId->img_name) }}</a>
+                <div class="liking_name col pl-0 pb-3">{{ $you_liked_user->toUserId->name }}</div>
 
-      <div class="container mt-3">
-        <div>
-          <div class="likingNum">You disliked {{ $you_liked->count() }} people</div>
-          <h2 class="pageTitle">List of people you disliked</h2>
-          <div class="likingList">
+                <form action="{{ route('reaction.changeDislikedToLike' ,$you_liked_user->toUserId->id) }}" method="post" class="col-auto">
+                  @csrf
+                  @method('PATCH')
+                  <button type="submit" class="btn btn-primary">Liked</button>
+                </form>
+              </div>
+            @else
+              <div class="likingPerson row mb-3 align-items-center">
+                <a href="#" @if($you_liked_user->companyUser->img_name) class="liking_img col-auto" @endif>{{ profileImageInLike($you_liked_user->companyUser->img_name) }}</a>
+                <div class="liking_name col pl-0 pb-3">{{ $you_liked_user->companyUser->name.' ['.App\Constants\Occupation::Occupation[$you_liked_user->occupation].']' }}</div>
 
-            @foreach($you_liked as $you_liked_user)
-            <div class="likingPerson row">
-              @if ($you_liked_user->toUserId->img_name)
-               <div class="liking_img col-auto"><img src="{{ $you_liked_user->toUserId->img_name }}"></div>
-              @else
-                @if ($you_liked_user->toUserId->user_type == 1)
-                  <i class="fa-solid fa-circle-user me-5"></i>
-                @else
-                  <i class="fa-solid fa-building me-5"></i>
-                @endif
-              @endif
-               <div class="liking_name col">{{ $you_liked_user->toUserId->name }}</div>
-
-              <form method="POST" action="{{ route('chat.show') }}">
-                @csrf
-                <input name="user_id" type="hidden" value="">
-              </form>
-
-              <form action="{{ route('reaction.ChangeDisliked' ,$you_liked_user->toUserId->id) }}" method="post" class="mb-0">
-                @csrf
-                @method('PATCH')
-                <button type="submit" class="col-auto btn btn-primary">Liked</button>
-              </form>
-            </div>
-            @endforeach
-          </div>
+                <form action="{{ route('reaction.changeDislikedToLike' ,$you_liked_user->id) }}" method="post" class="col-auto">
+                  @csrf
+                  @method('PATCH')
+                  <button type="submit" class="btn btn-primary">Liked</button>
+                </form>
+              </div>
+            @endif
+          @endforeach
         </div>
       </div>
     </div>
   </div>
+@endsection

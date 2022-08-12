@@ -18,32 +18,33 @@
           <div class="likingNum">You liked {{ $you_liked->count() }} people</div>
           <h2 class="pageTitle">List of people you liked</h2>
           <div class="likingList">
-
             @foreach($you_liked as $you_liked_user)
             <div class="liking_wrap">
-              @if ($you_liked_user->toUserId->img_name)
-              <div class="liking_img"><img src="{{ $you_liked_user->toUserId->img_name }}"></div>
-              @else
-                @if ($you_liked_user->toUserId->user_type == 0)
-                <a href="{{ route('user_detail.show', $you_liked_user->toUserId->id) }}">
-                  <i class="fa-solid fa-circle-user me-5"></i>
-                </a>
-                @else
-                <a href="{{ route('company_detail.show', $you_liked_user->toUserId->id) }}">
-                  <i class="fa-solid fa-building me-5"></i>
-                </a>
-                @endif
-              @endif
-              <div class="liking_name">{{ $you_liked_user->toUserId->name }}
-                <p class="h5 text-secondary">{{ date("m/d/Y", strtotime($you_liked_user->created_at)) }}</p>
-              </div>
-              <form action="{{ route('reaction.ChangeLiked' ,$you_liked_user->toUserId->id) }}" method="post" class="mb-0">
-                @csrf
-                @method('PATCH')
+              @if(isWorker(Auth::id()))
+                <a href="{{ route('company_detail.show', $you_liked_user->companyUser->id) }}" @if($you_liked_user->companyUser->img_name) class="liking_img" @endif>{{ profileImageInLike($you_liked_user->companyUser->img_name) }}</a>
+                <div class="liking_name">{{ $you_liked_user->companyUser->name.'  ['.App\Constants\Occupation::Occupation[$you_liked_user->occupation].']' }} 
+                  <p class="h5 text-secondary">{{ date("m/d/Y", strtotime($you_liked_user->created_at)) }}</p>
+                </div>
+                <form action="{{ route('reaction.changeLikedToDislike' ,$you_liked_user->id) }}" method="post" class="mb-0">
+                  @csrf
+                  @method('PATCH')
                   <button type="submit" class="dislike_btn btn btn-danger btn-sm"><i class="dislike_icon fa-solid fa-thumbs-down text-white mx-auto" style="font-size:1.2rem;"></i></button>
-              </form>
+                </form>
+              @else
+                <a href="{{ route('user_detail.show', $you_liked_user->toUserId->id) }}" @if($you_liked_user->toUserId->img_name) class="liking_img" @endif>{{ profileImageInLike($you_liked_user->toUserId->img_name) }}</a>
+                <div class="liking_name">{{ $you_liked_user->toUserId->name }}
+                  <p class="h5 text-secondary">{{ date("m/d/Y", strtotime($you_liked_user->created_at)) }}</p>
+                </div>
+                <form action="{{ route('reaction.changeLikedToDislike' ,$you_liked_user->toUserId->id) }}" method="post" class="mb-0">
+                  @csrf
+                  @method('PATCH')
+                  
+                  <button type="submit" class="dislike_btn btn btn-danger btn-sm"><i class="dislike_icon fa-solid fa-thumbs-down text-white mx-auto" style="font-size:1.2rem;"></i></button>
+                </form>
+              @endif
             </div>
             @endforeach
+            {{ $you_liked->links() }}
           </div>
         </div>
 
@@ -54,34 +55,36 @@
 
             @foreach( $liked_by as $liked_by_user)
             <div class="liking_wrap">
-              @if ($liked_by_user->fromUserId->img_name)
-              <div class="liking_img"><img src="{{ $liked_by_user->fromUserId->img_name }}"></div>
+              @if (!isWorker(Auth::id()))
+                <a href="{{ route('user_detail.show', $liked_by_user->fromWorkerId->id) }}" @if($liked_by_user->fromWorkerId->img_name) class="liking_img" @endif>{{ profileImageInLike($liked_by_user->fromWorkerId->img_name) }}</a>
+                <div class="liking_name">{{ $liked_by_user->fromWorkerId->name }} <i class="fa-solid fa-heart text-danger" style="font-size: 0.7rem;"> {{ App\Constants\Occupation::Occupation[$liked_by_user->toJobId->occupation] }}</i>
+                  <p class="h5 text-secondary">{{ date("m/d/Y", strtotime($liked_by_user->created_at))}}</p>
+                </div>
+                <form method="POST" action="{{ route('chat.show') }}">
+                  @csrf
+                  <input name="user_id" type="hidden" value="">
+                </form>
               @else
-                @if ($liked_by_user->fromUserId->user_type == 0)
-                <a href="{{ route('user_detail.show', $liked_by_user->fromUserId->id) }}">
-                  <i class="fa-solid fa-circle-user me-5"></i>
-                </a>
-                @else
-                <a href="{{ route('company_detail.show', $liked_by_user->fromUserId->id) }}">
-                  <i class="fa-solid fa-building me-5"></i>
-                </a>
-                @endif
-              @endif
-              <div class="liking_name">{{ $liked_by_user->fromUserId->name }}
-                <p class="h5 text-secondary">{{ date("m/d/Y", strtotime($liked_by_user->created_at))}}</p>
-              </div>
-              <form action="{{ route('reaction.ChangeDisliked' ,$liked_by_user->fromUserId->id) }}" method="post" class="mb-0">
-                @csrf
-                @method('PATCH')
-                  <button type="submit" class="dislike_btn btn btn-danger btn-sm"><i class="like_icon fa-solid fa-thumbs-up text-white mx-auto" style="font-size:1.2rem;"></i></button>
-              </form>
+                <a href="{{ route('company_detail.show', $liked_by_user->fromUserId->id) }}" @if($liked_by_user->fromUserId->img_name) class="liking_img" @endif>{{ profileImageInLike($liked_by_user->fromUserId->img_name) }}</a>
+                <div class="liking_name">{{ $liked_by_user->fromUserId->name }}
+                  <p class="h5 text-secondary">{{ date("m/d/Y", strtotime($liked_by_user->created_at))}}</p>
+                </div>
 
-              <form method="POST" action="{{ route('chat.show') }}">
-                @csrf
-                <input name="user_id" type="hidden" value="">
-              </form>
+                <form action="{{ route('reaction.changeDislikedToLike' ,$liked_by_user->fromUserId->id) }}" method="post" class="mb-0">
+                  @csrf
+                  @method('PATCH')
+
+                  <button type="submit" class="dislike_btn btn btn-danger btn-sm"><i class="like_icon fa-solid fa-thumbs-up text-white mx-auto" style="font-size:1.2rem;"></i></button>
+                </form>
+
+                <form method="POST" action="{{ route('chat.show') }}">
+                  @csrf
+                  <input name="user_id" type="hidden" value="">
+                </form>
+              @endif
             </div>
             @endforeach
+            {{ $liked_by->links() }}
           </div>
         </div>
       </div>
