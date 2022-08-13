@@ -21,6 +21,7 @@
 @import url(user_detail_page/user_detail.css);
 @import url(register/register.css);
 @import url(register/register_company.css);
+@import url(mypage/profile.css);
 
 :root {
   --blue: #3490dc;
@@ -20307,25 +20308,6 @@ readers do not read off random characters that represent icons */
   content: "\f431";
 }
 
-.sideBar a {
-  text-decoration: none;
-  color: #f3920b;
-  font-size: 18px;
-}
-.sideBar {
-  background-color: #f2e9dc;
-  padding-right: 0;
-}
-.sideBarItem {
-  padding: 1.2rem 1rem;
-  color: #212529;
-  text-decoration: none;
-}
-.sideBarItem.active {
-  color: #fff;
-  background-color: #f3920b;
-}
-
 .fa-zhihu:before {
   content: "\f63f";
 }
@@ -20558,97 +20540,11 @@ body {
   margin-right: 10px;
 }
 
-.usershowPage .userInfo_img {
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 0 auto;
-  width: 350px;
-  height: 350px;
-}
-.usershowPage .userInfo_img > img {
-  width: 350px;
-  height: 350px;
-  object-fit: cover;
-}
-.usershowPage .profile-icon {
-  font-size: 300px;
-  color: #f3920b;
-  overflow: hidden;
-}
 .usershowPage .userAction .logout-hover:hover{
   color:red !important;
 }
 .usershowPage .profile-icon-for-show {
   padding-right: 20px;
-}
-.usershowPage .userInfo_name {
-  text-align: center;
-  margin-top: 5px;
-  font-size: 40px;
-}
-.usershowPage .userInfo_selfIntroduction {
-  margin-top: 15px;
-  text-align: start;
-  margin-left: 30px;
-}
-.usershowPage .userAction {
-  display: flex;
-  justify-content: space-between;
-  width: 250px;
-  height: auto;
-  margin: 20vh auto 0;
-  color: #c3c7d0;
-}
-.usershowPage .userAction_common > a {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
-  color: #c3c7d0;
-  text-decoration: none;
-  transition: color 0.5s;
-  margin-top: -130px;
-}
-.usershowPage .userAction_common > a:hover {
-  color: red;
-  border-radius: 50%;
-}
-.usershowPage .profile_container{
-  width:100%;
-  height:auto;
-  overflow: hidden;
-  box-shadow: #000;
-}
-.usershowPage .inner_container{
-  width: 1200px;
-  height:700px;
-  margin: 0 auto;
-  margin-top: 100px;
-}
-.usershowPage .innerbox{
-  height:100%;
-  float:left;
-}
-.usershowPage .left{
-  width:50%;
-}
-.usershowPage .right{
-  background-color:rgba(196, 196, 196, 0.814);
-  width:50%;
-}
-.usershowPage .left_up{
-  height:70%;
-  width:100%;
-  float: left;
-}
-.usershowPage .left_down{
-  height:30%;
-  width:100%;
-  background-color: #f7b947;
-  float: left;
 }
 .usershowPage .logo{
   width:100px;

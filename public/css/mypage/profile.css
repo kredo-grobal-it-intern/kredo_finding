@@ -1,0 +1,107 @@
+/* side bar */
+.sideBar_area .sideBar {
+    background-color: #fff;
+    padding-right: 0;
+}
+.sideBar .logo{
+    padding: 1rem;
+}
+.sideBar a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+}
+.sideBar i{
+    padding-right: 1rem;
+}
+.sideBar .menu{
+    padding: 1.5rem 0 0.5rem 1rem;
+    font-size: 14px;
+}
+.sideBarItem {
+    padding: 0.5rem 1rem;
+    color: #212529;
+    text-decoration: none;
+}
+.sideBarItem.active {
+    background-color: #F4F7FC;
+}
+.sideBarItem.active i{
+    color: #F4920B;
+}
+
+/* profile */
+.usershowPage {
+    position: relative;
+    background-color: #F4F7FC;
+    padding: 150px 30px;
+    padding-bottom: 200px;
+}
+.usershowPage .myPageIcon {
+    position: absolute;
+    display: flex;
+    top: 10px;
+    right: 40px;
+}
+.usershowPage .myPageIcon img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.usershowPage .myPageIcon i{
+    font-size: 50px;
+    color: #c9b9b9;
+}
+.usershowPage .myPageIcon p{
+    margin: auto 10px;
+}
+
+.usershowPage .profile{
+    background-color: white;
+    padding: 15px;
+    border-radius: 2%;
+    position: relative;
+}
+.usershowPage .userInfo_img {
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 120px;
+    height: 120px;
+    margin-top: -70px;
+    border: solid 3px #F4920B;
+}
+.usershowPage .userInfo_img > img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
+.usershowPage i{
+    color: #F4920B;
+    overflow: hidden;
+    font-size: 115px;
+}
+.usershowPage .editBtn {
+    background-color:#F4920B;
+    color: white;
+    width: 100px;
+    border-radius: 10px;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+.usershowPage .border{
+    border: solid 2px #D8CFC3;
+    padding: 10px;
+    border-radius: 10px;
+}
+.usershowPage .border .form-check{
+    padding-left: 0;
+}
+.usershowPage .profile p{
+    margin: 30px 0 10px 0;
+}
+.usershowPage .textarea{
+    white-space: pre-wrap;
+}
