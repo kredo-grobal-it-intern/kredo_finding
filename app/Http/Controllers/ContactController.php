@@ -18,7 +18,7 @@ class ContactController extends Controller
         $validator = Validator::make($request->all(), [
             'first_name' => 'required|min:1|max:255',
             'last_name' => 'required|min:1|max:255',
-            'email' => 'required|email|max:50|',
+            'email' => 'required|email|max:50',
             'inquiry' => 'required',
         ]);
         if ($validator->fails()) {
@@ -35,7 +35,7 @@ class ContactController extends Controller
             return redirect()
                     ->route('contacts')
                     ->withInput($request->except('back'));
-        }     
+        }
 
         Contact::create([
             'user_id' => (Auth::check()) ? Auth::user()->id : NULL,
