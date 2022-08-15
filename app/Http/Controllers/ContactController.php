@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
-use App\User;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -11,21 +10,8 @@ use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
-    private $contact;
-    private $user;
-
-    public function __construct(Contact $contact, User $user){
-        $this->contact = $contact;
-        $this->user = $user;
-    }
-
     public function index(){
-        if (Auth::check()) {
-            $contactUser = $this->user->find(Auth::user()->id);        
-            return view('menu_top.contacts.contact_us')->with('contactUser', $contactUser);
-        } else {
-            return view('menu_top.contacts.contact_us');
-        }
+        return view('menu_top.contacts.contact_us');
     }
 
     public function confirm(Request $request){
@@ -51,14 +37,8 @@ class ContactController extends Controller
                     ->withInput($request->except('back'));
         }     
 
-        if (Auth::check()){
-            $this->contact->user_id = Auth::user()->id;
-        } else {
-            $this->contact->user_id = 0;
-        }
-
         Contact::create([
-            'user_id' => $this->contact->user_id,
+            'user_id' => (Auth::check()) ? Auth::user()->id : NULL,
             'first_name' => $request['first_name'],
             'last_name' => $request['last_name'],
             'email' => $request['email'],

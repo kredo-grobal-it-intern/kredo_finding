@@ -31,47 +31,26 @@
           <form action="{{ route('contact.confirm') }}" method="post">
             @csrf
 
-            @if (Auth::check())
-            
-              @error('first_name')
-                <span class="text-danger">{{ $message }}</span>
-              @enderror
-              <input type="text" name="first_name" id="first_name" placeholder="first name" class="form-control mb-3" value="{{ old('first_name') }}" required>
-            
-              @error('last_name')
-                <span class="text-danger">{{ $message }}</span>
-              @enderror
-              <input type="text" name="last_name" id="last_name" placeholder="last name" class="form-control mb-3" value="{{ old('last_name') }}" required>
+            @error('first_name')
+              <span class="text-danger">{{ $message }}</span>
+            @enderror
+            <input type="text" name="first_name" id="first_name" placeholder="first name" class="form-control mb-3" value="{{ old('first_name') }}" required>
+          
+            @error('last_name')
+              <span class="text-danger">{{ $message }}</span>
+            @enderror
+            <input type="text" name="last_name" id="last_name" placeholder="last name" class="form-control mb-3" value="{{ old('last_name') }}" required>
 
-              <input type="email" name="email" id="email" placeholder="email" class="form-control mb-3" value="{{ $contactUser->email }}" readonly>
+            @error('email')
+              <span class="text-danger">{{ $message }}</span>
+            @enderror
 
-              @error('inquiry')
-                <span class="text-danger">{{ $message }}</span>
-              @enderror
-              <textarea name="inquiry" id="inquiry" cols="100" row="10" class="form-control contact-inquiry mb-3" placeholder="Enter your question..." required>{{ old('inquiry') }}</textarea>
-              
-            @else            
+            <input type="email" name="email" id="email" placeholder="email" class="form-control mb-3" value="{{ (Auth::check()) ? Auth::user()->email : old('email') }}" {{ (Auth::check()) ? 'readonly' : 'required' }}>
 
-              @error('first_name')
-                <span class="text-danger">{{ $message }}</span>
-              @enderror
-              <input type="text" name="first_name" id="first_name" placeholder="first name" class="form-control mb-3" value="{{ old('first_name') }}" required>
-            
-              @error('last_name')
-                <span class="text-danger">{{ $message }}</span>
-              @enderror
-              <input type="text" name="last_name" id="last_name" placeholder="last name" class="form-control mb-3" value="{{ old('last_name') }}" required>
-
-              @error('email')
-                <span class="text-danger">{{ $message }}</span>
-              @enderror
-              <input type="email" name="email" id="email" placeholder="email" class="form-control mb-3" value="{{ old('email') }}" required>
-
-              @error('inquiry')
-                <span class="text-danger">{{ $message }}</span>
-              @enderror
-              <textarea name="inquiry" id="inquiry" cols="100" row="10" class="form-control contact-inquiry mb-3" placeholder="Enter your question..." required>{{ old('inquiry') }}</textarea>
-            @endif
+            @error('inquiry')
+              <span class="text-danger">{{ $message }}</span>
+            @enderror
+            <textarea name="inquiry" id="inquiry" cols="100" row="10" class="form-control contact-inquiry mb-3" placeholder="Enter your question..." required>{{ old('inquiry') }}</textarea>
 
             <button type="submit" class="w-100 text-white border border-none" style="background-color: #FAAC64; font-size:22px; line-height:27px; font-weight:500;">SEND MESSAGE</button>
           </form>
