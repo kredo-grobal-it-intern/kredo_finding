@@ -104,7 +104,7 @@ class RegisterController extends Controller
 
     $user = User::find($create_user->id);
 
-    if($user->user_type == UserType::Company){
+    if(!isWorker($user->id)){
       $this->company->createCompany($user, $bin_image);
     }
 
