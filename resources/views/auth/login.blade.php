@@ -10,7 +10,7 @@
           <i class="fas fa-user fa-3x"></i>
         </div>
         <h2 class="title text-dark text-center mt-3">WELCOME</h2>
-        <form class="form" method="POST" action="{{ route('login') }}">
+        <form class="form w-50 mx-auto" method="POST" action="{{ route('login') }}">
           @csrf
           <div class="form-group @error('email')has-error @enderror mt-4 row">
             <div class="signInIcon col-1">
@@ -53,7 +53,7 @@
             </div>
           </div>
 
-          <div class="card card-body border-0 rounded-0 w-50 p-2">
+          <div class="card card-body border-0 rounded-0 w-100 p-2">
             <button type="button" class="btn rounded-0 facebookBtn">
               <div class="row">
                 <div class="col-2 text-white">
