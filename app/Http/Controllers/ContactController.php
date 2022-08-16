@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
-    public function index(){        
+    public function index(){
         return view('menu_top.contacts.contact_us');
     }
 
@@ -36,6 +38,7 @@ class ContactController extends Controller
         }
 
         Contact::create([
+            'user_id' => (Auth::check()) ? Auth::user()->id : NULL,
             'first_name' => $request['first_name'],
             'last_name' => $request['last_name'],
             'email' => $request['email'],

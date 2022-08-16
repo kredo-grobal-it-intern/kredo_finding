@@ -35,7 +35,7 @@
               <span class="text-danger">{{ $message }}</span>
             @enderror
             <input type="text" name="first_name" id="first_name" placeholder="first name" class="form-control mb-3" value="{{ old('first_name') }}" required>
-           
+          
             @error('last_name')
               <span class="text-danger">{{ $message }}</span>
             @enderror
@@ -44,7 +44,8 @@
             @error('email')
               <span class="text-danger">{{ $message }}</span>
             @enderror
-            <input type="email" name="email" id="email" placeholder="email" class="form-control mb-3" value="{{ old('email') }}" required>
+
+            <input type="email" name="email" id="email" placeholder="email" class="form-control mb-3" value="{{ (Auth::check()) ? Auth::user()->email : old('email') }}" {{ (Auth::check()) ? 'readonly' : 'required' }}>
 
             @error('inquiry')
               <span class="text-danger">{{ $message }}</span>
