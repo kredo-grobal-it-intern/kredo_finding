@@ -33,19 +33,24 @@ class ReactionController extends Controller
       $you_liked = JobPosting::whereIn('id', $you_likes)->paginate(5);
       $liked_by = $user->toUserId()->where('status', 0)->paginate(5);
     }else{
-      $you_liked = $user->fromUserId()->where('status', 0)->paginate(5);
+      $you_liked = $user->fromUserId()->where('status', 0)->pluck('to_user_id');
+      $you_liked = User::whereIn('id', $you_liked)->paginate(5);
       $job_postings = JobPosting::where('user_id', Auth::id())->pluck('id');
       $liked_by = WorkerReaction::whereIn('to_job_id', $job_postings)->where('status', 0)->paginate(5);
+      $liked_by_count = WorkerReaction::whereIn('to_job_id', $job_postings)->where('status', 0)->pluck('from_worker_id');
+      $liked_by_count = User::whereIn('id', $liked_by_count)->get();
+      return view('mypage.like', compact('you_liked', 'liked_by', 'liked_by_count'));
     }
-    
+
     return view('mypage.like', compact('you_liked', 'liked_by'));
   }
 
   public function showDisliked()
-  { 
+  {
     if(!isWorker(Auth::id())){
       $user = User::find(Auth::id());
-      $you_liked = $user->fromUserId()->where('status', 1)->get();
+      $you_liked = $user->fromUserId()->where('status', 1)->pluck('to_user_id');
+      $you_liked = User::whereIn('id', $you_liked)->get();
     }else{
       $you_likes = WorkerReaction::where('from_worker_id', Auth::id())->where('status', 1)->pluck('to_job_id');
       $you_liked = JobPosting::whereIn('id', $you_likes)->get();
@@ -88,7 +93,7 @@ class ReactionController extends Controller
         $workerReaction->to_job_id = $to_user_id;
         $workerReaction->from_worker_id = $from_user_id;
         $workerReaction->status = $status;
-  
+
         $workerReaction->save();
       }
     }
@@ -113,7 +118,7 @@ class ReactionController extends Controller
         ])->update(['status'=> 1]
       );
     }
-    
+
     return redirect()->back();
   }
 

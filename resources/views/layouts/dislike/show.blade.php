@@ -10,10 +10,10 @@
           @foreach($you_liked as $you_liked_user)
             @if(!isWorker(Auth::id()))
               <div class="likingPerson row mb-3 align-items-center">
-                <a href="#" @if($you_liked_user->toUserId->img_name) class="liking_img col-auto" @endif>{{ profileImageInLike($you_liked_user->toUserId->img_name) }}</a>
-                <div class="liking_name col pl-0 pb-3">{{ $you_liked_user->toUserId->name }}</div>
+                <a href="#" @if($you_liked_user->img_name) class="liking_img col-auto" @endif>{{ profileImageInLike($you_liked_user->img_name) }}</a>
+                <div class="liking_name col pl-0 pb-3">{{ $you_liked_user->name }} <span class="text-primary">have {{ $you_liked_user->toUserId->where('status', 0)->count() }} likes</span></div>
 
-                <form action="{{ route('reaction.changeDislikedToLike' ,$you_liked_user->toUserId->id) }}" method="post" class="col-auto">
+                <form action="{{ route('reaction.changeDislikedToLike' ,$you_liked_user->id) }}" method="post" class="col-auto">
                   @csrf
                   @method('PATCH')
                   <button type="submit" class="btn btn-primary">Liked</button>
@@ -21,8 +21,8 @@
               </div>
             @else
               <div class="likingPerson row mb-3 align-items-center">
-                <a href="#" @if($you_liked_user->companyUser->img_name) class="liking_img col-auto" @endif>{{ profileImageInLike($you_liked_user->companyUser->img_name) }}</a>
-                <div class="liking_name col pl-0 pb-3">{{ $you_liked_user->companyUser->name.' ['.App\Constants\Occupation::Occupation[$you_liked_user->occupation].']' }}</div>
+                <a href="{{ route('company_detail.show', $you_liked_user->id) }}" @if($you_liked_user->companyUser->img_name) class="liking_img col-auto" @endif>{{ profileImageInLike($you_liked_user->companyUser->img_name) }}</a>
+                <div class="liking_name col pl-0 pb-3">{{ $you_liked_user->companyUser->name.' ['.App\Constants\Occupation::Occupation[$you_liked_user->occupation].']' }} </div>
 
                 <form action="{{ route('reaction.changeDislikedToLike' ,$you_liked_user->id) }}" method="post" class="col-auto">
                   @csrf
