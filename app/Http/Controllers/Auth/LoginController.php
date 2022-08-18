@@ -57,9 +57,9 @@ class LoginController extends Controller
 
             if($finduser == null){
                 $newUser = User::create([
-                    'name' => $user->name,
+                    'name' => $user->getName(),
                     'gender' => NULL,
-                    'email' => $user->email,
+                    'email' => $user->getEmail(),
                     'password' => Hash::make(uniqid()),
                     'google_id' => $user->id
                 ]);
