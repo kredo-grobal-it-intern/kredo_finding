@@ -24,7 +24,7 @@
       <!-- for mypage-->
       <div class="col-3 sideBar">
         <div class="list-group">
-          <a href="{{ route('profile.show', Auth::user()->id) }}" class="{{ request()->is('users/mypage/show/*') ? 'active' : '' }} sideBarItem">
+          <a href="{{ route('users.show', Auth::user()->id) }}" class="{{ request()->is('users/mypage/show/*') ? 'active' : '' }} sideBarItem">
             {{ profileImageInMypage() }}
             <span class="font-weight-bold">PROFILE</span>
           </a>
