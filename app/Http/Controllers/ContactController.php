@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
-    public function index(){        
+    public function index(){
         return view('menu_top.contacts.contact_us');
     }
 
@@ -21,17 +21,17 @@ class ContactController extends Controller
         ]);
         if ($validator->fails()) {
             return redirect()
-                    ->route('contacts')
+                    ->route('contact.show')
                     ->withErrors($validator);
         }
-        
+
         return view('menu_top.contacts.confirm', $request);
     }
 
     public function complete(Request $request){
         if ($request->input('back') == 'back'){
             return redirect()
-                    ->route('contacts')
+                    ->route('contact.show')
                     ->withInput($request->except('back'));
         }
 
@@ -41,7 +41,7 @@ class ContactController extends Controller
             'email' => $request['email'],
             'inquiry' => $request['inquiry'],
         ]);
-        
+
         return view('menu_top.contacts.complete');
     }
 }
