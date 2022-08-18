@@ -29,22 +29,22 @@ Route::get('/register/company', 'Auth\RegisterController@showCompanyRegister')->
 Route::view('/', 'top')->name('top');
 
 Route::group(['prefix' => 'login'], function () {
-Route::get('/google', 'Auth\LoginController@redirectToGoogle')->name('google.redirect');
-Route::get('/google/callback', 'Auth\LoginController@handleGoogleCallback')->name('google.callback');
-Route::get('/facebook', 'Auth\LoginController@redirectToFacebook')->name('facebook.redirect');
-Route::get('/facebook/callback', 'Auth\LoginController@handleFacebookCallback')->name('facebook.callback');
+  Route::get('/google', 'Auth\LoginController@redirectToGoogle')->name('google.redirect');
+  Route::get('/google/callback', 'Auth\LoginController@handleGoogleCallback')->name('google.callback');
+  Route::get('/facebook', 'Auth\LoginController@redirectToFacebook')->name('facebook.redirect');
+  Route::get('/facebook/callback', 'Auth\LoginController@handleFacebookCallback')->name('facebook.callback');
 });
 
 Route::group(['prefix' => 'home'], function () {
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('/searchbox', 'HomeController@showSearchBox')->name('showSearchBox');
-Route::get('/changePassword', 'HomeController@showChangePasswordGet')->name('changePasswordGet');
-Route::post('/changePassword', 'HomeController@changePasswordPost')->name('changePasswordPost');
+  Route::get('/', 'HomeController@index')->name('home');
+  Route::get('/searchbox', 'HomeController@showSearchBox')->name('showSearchBox');
+  Route::get('/changePassword', 'HomeController@showChangePasswordGet')->name('changePasswordGet');
+  Route::post('/changePassword', 'HomeController@changePasswordPost')->name('changePasswordPost');
 });
 
 Route::group(['prefix' => 'reaction', 'as' => 'reaction.'], function () {
-Route::patch('/ChangeLiked/{id}/update', 'ReactionController@changeLikedToDislike')->name('changeLikedToDislike');
-Route::patch('/ChangeDisliked/{id}/update', 'ReactionController@changeDislikedToLike')->name('changeDislikedToLike');
+    Route::patch('/ChangeLiked/{id}/update', 'ReactionController@changeLikedToDislike')->name('changeLikedToDislike');
+    Route::patch('/ChangeDisliked/{id}/update', 'ReactionController@changeDislikedToLike')->name('changeDislikedToLike');
 });
 
 Route::group(['prefix' => 'mypage'], function () {
@@ -66,9 +66,9 @@ Route::get('/showAbout',[HomeController::class, 'showAbout'])->name('showAbout')
 Route::get('/faq',[HomeController::class, 'showFaq'])->name('faq');
 
 Route::group(['prefix' => 'contact', 'as' => 'contact.'], function () {
-Route::get('/',[ContactController::class, 'index'])->name('show');
-Route::post('/confirm',[ContactController::class, 'confirm'])->name('confirm');
-Route::post('/complete',[ContactController::class, 'complete'])->name('complete');
+  Route::get('/',[ContactController::class, 'index'])->name('show');
+  Route::post('/confirm',[ContactController::class, 'confirm'])->name('confirm');
+  Route::post('/complete',[ContactController::class, 'complete'])->name('complete');
 });
 
 Route::get('/user_detail/{id}',[ReactionController::class, 'showLikedUser'])->name('user_detail.show');
