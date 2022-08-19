@@ -20699,17 +20699,6 @@ html, body {
   width: 100%;
   object-fit: cover;
 }
-.showLikePage .likingList .likePerson form {
-  position: absolute;
-  right: 0;
-}
-
-/*タブ切り替え全体のスタイル*/
-/*ラジオボタンを全て消す*/
-.showLikePage input {
-  display: none;
-}
-/*タブのスタイル*/
 .showLikePage label:hover {
   opacity: 0.5;
 }
