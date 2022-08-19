@@ -55,6 +55,11 @@ class User extends Authenticatable
     return $this->hasOne('App\Company');
   }
 
+  public function contacts()
+  {
+    return $this->hasMany('App\Contact');
+  }
+
   public function jobPostings()
   {
     return $this->hasMany('App\JobPosting');

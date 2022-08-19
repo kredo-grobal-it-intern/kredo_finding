@@ -7,7 +7,9 @@
     <div class="contact_top my-4">
         <div class="row">
             <div class="col-5 px-5">
-                <img src="/images/kredo_logo.jpg" style="height: 2.5rem; width:2.5rem;">
+                <a href="{{ route('home') }}">
+                    <img src="/images/kredo_logo.jpg" style="height: 2.5rem; width:2.5rem;">
+                </a>
             </div>
             <div class="col px-0">
                 <p style="font-size:18px; font-weight:700; font-family:'Inter'; line-height:22px; color:#000000;" >CONTACT US</p>

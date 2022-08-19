@@ -7,7 +7,7 @@
     <div class="header_icon">
       @if(Request::routeIs('mypage.show'))
         <p>MYPAGE</p>
-      @elseif(Request::routeIs('profile.show'))
+      @elseif(Request::routeIs('users.show'))
         <i class="fas fa-user fa-3x header-icon"></i>
       @elseif(Request::routeIs('reaction.show'))
         <i class="fas fa-heart fa-3x header-icon"></i>

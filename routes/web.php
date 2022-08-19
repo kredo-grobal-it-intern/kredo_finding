@@ -15,12 +15,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ReactionController;
 
-Route::group(['prefix' => 'users', 'middleware' => 'auth'], function () {
-  Route::get('mypage/show/{id}', 'UserController@show')->name('profile.show');
-  Route::get('edit/{id}', 'UserController@edit')->name('users.edit');
-  Route::post('updateUser/{id}', 'UserController@updateUser')->name('users.updateUser');
-  Route::patch('updateJob/{id}', 'UserController@updateJob')->name('users.updateJob');
-  Route::delete('destroy/{id}', 'UserController@destroy')->name('users.delete');
+Route::group(['prefix' => 'users', 'middleware' => 'auth', 'as' => 'users.'], function () {
+  Route::get('mypage/show/{id}', 'UserController@show')->name('show');
+  Route::get('edit/{id}', 'UserController@edit')->name('edit');
+  Route::post('updateUser/{id}', 'UserController@updateUser')->name('updateUser');
+  Route::patch('updateJob/{id}', 'UserController@updateJob')->name('updateJob');
+  Route::delete('destroy/{id}', 'UserController@destroy')->name('delete');
 });
 
 Auth::routes();
@@ -28,37 +28,48 @@ Route::get('/register/company', 'Auth\RegisterController@showCompanyRegister')->
 
 Route::view('/', 'top')->name('top');
 
-Route::get('/login/google', 'Auth\LoginController@redirectToGoogle')->name('google.redirect');
-Route::get('/login/google/callback', 'Auth\LoginController@handleGoogleCallback')->name('google.callback');
-Route::get('/login/facebook', 'Auth\LoginController@redirectToFacebook')->name('facebook.redirect');
-Route::get('/login/facebook/callback', 'Auth\LoginController@handleFacebookCallback')->name('facebook.callback');
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home/searchbox', 'HomeController@showSearchBox')->name('showSearchBox');
-Route::get('/changePassword', 'HomeController@showChangePasswordGet')->name('changePasswordGet');
-Route::post('/changePassword', 'HomeController@changePasswordPost')->name('changePasswordPost');
-Route::get('/mypage/matching', 'MatchingController@index')->name('matching');
-Route::get('/mypage/reaction', 'ReactionController@show')->name('reaction.show');
-Route::get('/mypage/reaction/showDisliked', 'ReactionController@showDisliked')->name('reaction.showDisliked');
-Route::patch('/reaction/ChangeLiked/{id}/update', 'ReactionController@changeLikedToDislike')->name('reaction.changeLikedToDislike');
-Route::patch('/reaction/ChangeDisliked/{id}/update', 'ReactionController@changeDislikedToLike')->name('reaction.changeDislikedToLike');
-
-Route::group(['middleware' => 'company'], function () {
-  Route::get('/mypage/create/posting', 'JobPostingController@create')->name('posting.create');
-  Route::post('/mypage/store/posting', 'JobPostingController@store')->name('posting.store');
+Route::group(['prefix' => 'login'], function () {
+  Route::get('/google', 'Auth\LoginController@redirectToGoogle')->name('google.redirect');
+  Route::get('/google/callback', 'Auth\LoginController@handleGoogleCallback')->name('google.callback');
+  Route::get('/facebook', 'Auth\LoginController@redirectToFacebook')->name('facebook.redirect');
+  Route::get('/facebook/callback', 'Auth\LoginController@handleFacebookCallback')->name('facebook.callback');
 });
 
-Route::group(['prefix' => 'chat', 'middleware' => 'auth'], function () {
-  Route::post('show', 'ChatController@show')->name('chat.show');
-  Route::post('chat', 'ChatController@chat')->name('chat.chat');
+Route::group(['prefix' => 'home'], function () {
+  Route::get('/', 'HomeController@index')->name('home');
+  Route::get('/searchbox', 'HomeController@showSearchBox')->name('showSearchBox');
+  Route::get('/changePassword', 'HomeController@showChangePasswordGet')->name('changePasswordGet');
+  Route::post('/changePassword', 'HomeController@changePasswordPost')->name('changePasswordPost');
+});
+
+Route::group(['prefix' => 'reaction', 'as' => 'reaction.'], function () {
+    Route::patch('/ChangeLiked/{id}/update', 'ReactionController@changeLikedToDislike')->name('changeLikedToDislike');
+    Route::patch('/ChangeDisliked/{id}/update', 'ReactionController@changeDislikedToLike')->name('changeDislikedToLike');
+});
+
+Route::group(['prefix' => 'mypage'], function () {
+  Route::get('/matching', 'MatchingController@index')->name('matching');
+  Route::get('/reaction', 'ReactionController@show')->name('reaction.show');
+  Route::get('/reaction/showDisliked', 'ReactionController@showDisliked')->name('reaction.showDisliked');
+  Route::group(['middleware' => 'company', 'as' => 'posting.'], function () {
+    Route::get('/create/posting', 'JobPostingController@create')->name('create');
+    Route::post('/store/posting', 'JobPostingController@store')->name('store');
+  });
+});
+
+Route::group(['prefix' => 'chat', 'middleware' => 'auth', 'as' => 'chat.'], function () {
+  Route::post('show', 'ChatController@show')->name('show');
+  Route::post('chat', 'ChatController@chat')->name('chat');
 });
 
 Route::get('/showAbout',[HomeController::class, 'showAbout'])->name('showAbout');
 Route::get('/faq',[HomeController::class, 'showFaq'])->name('faq');
 
-Route::get('/contact',[ContactController::class, 'index'])->name('contacts');
-Route::post('/contact/confirm',[ContactController::class, 'confirm'])->name('contact.confirm');
-Route::post('/contact/complete',[ContactController::class, 'complete'])->name('contact.complete');
+Route::group(['prefix' => 'contact', 'as' => 'contact.'], function () {
+  Route::get('/',[ContactController::class, 'index'])->name('show');
+  Route::post('/confirm',[ContactController::class, 'confirm'])->name('confirm');
+  Route::post('/complete',[ContactController::class, 'complete'])->name('complete');
+});
 
 Route::get('/user_detail/{id}',[ReactionController::class, 'showLikedUser'])->name('user_detail.show');
 Route::get('/company_detail/{id}',[ReactionController::class, 'showLikedCompany'])->name('company_detail.show');

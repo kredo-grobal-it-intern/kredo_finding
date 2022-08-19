@@ -8,10 +8,10 @@
         <div><a href="{{ route('home') }}"><img src="/images/kredo_logo.jpg" style="height: 3rem; width:3rem;"></a></div>
         <div><a href="{{ route('showAbout') }}">About Us</a></div>
         <div><a href="{{ route('faq') }}">FAQ</a></div>
-        <div><a href="{{ route('contacts') }}">Contact Us</a></div>
+        <div><a href="{{ route('contact.show') }}">Contact Us</a></div>
       </header>
 
-      <div class='container'>       
+      <div class='container'>
         <div class="title">
           <h2>Create your account</h2>
           <div class="outside">
@@ -20,7 +20,7 @@
               <a href="{{ route('company.register') }}" class="btn btnB" onfocus="this.blur();">Business</a>
             </div>
           </div>
-        </div>        
+        </div>
         <form class="form" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
           @csrf
           <input type="hidden" name="user_type" value=0>
@@ -109,7 +109,7 @@
           </div>
           <div class="linkToLogin">
               Already have an account?<a href="{{ route('login') }}">&nbsp;Sign in here!</a>
-          </div>            
+          </div>
         </form>
       </div>
     </div>

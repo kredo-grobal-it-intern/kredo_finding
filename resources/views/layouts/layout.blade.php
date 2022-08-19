@@ -28,7 +28,7 @@
         </div>
         <p class="menu font-weight-bold">Main Menu</p>
         <div class="list-group">
-          <a href="{{ route('profile.show', Auth::user()->id) }}" class="{{ request()->is('users/mypage/show/*') ? 'active' : '' }} sideBarItem">
+          <a href="{{ route('users.show', Auth::user()->id) }}" class="{{ request()->is('users/mypage/show/*') ? 'active' : '' }} sideBarItem">
             {{ profileImageInMypage() }}
             <span class="font-weight-bold">PROFILE</span>
           </a>
@@ -44,6 +44,12 @@
             <i class="fas fa-comment-dots"></i>
             <span class="font-weight-bold">MESSAGES</span>
           </a>
+
+          <a href="{{ route('contacts') }}" class="sideBarItem">
+            <i class="fa-solid fa-envelope"></i>
+            <span class="font-weight-bold">CONTACT</span>
+          </a>
+
           @if(!isWorker(Auth::id()))
           <a href="{{ route('posting.create') }}" class="{{ request()->is('mypage/create/posting') ? 'active' : '' }} sideBarItem">
             <i class="fas fa-file-circle-plus"></i>
@@ -51,6 +57,7 @@
           </a>
           @endif
           <a href="{{ route('logout') }}" class="sideBarItem" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+
             <i class="fas fa-door-open logout-hover"></i>
             <span class="font-weight-bold">LOGOUT</span>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
