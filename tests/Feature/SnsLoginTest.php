@@ -10,7 +10,7 @@ use Socialite;
 use Mockery;
 use Session;
 
-class SnsLogin extends TestCase
+class SnsLoginTest extends TestCase
 {
     use RefreshDatabase;
 
