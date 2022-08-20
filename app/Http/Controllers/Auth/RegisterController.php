@@ -11,6 +11,8 @@ use App\Services\FileUploadServices;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
 use App\Constants\UserType;
+use App\Mail\TestMail;
+use Illuminate\Support\Facades\Mail;
 
 use Intervention\Image\Facades\Image;
 
@@ -103,11 +105,14 @@ class RegisterController extends Controller
     $create_user = $this->user->createUser($data, $bin_image);
 
     $user = User::find($create_user->id);
+    $name = $user->name;
+    $email = $user->email;
 
     if(!isWorker($user->id)){
       $this->company->createCompany($user, $bin_image);
     }
 
+    Mail::send(new TestMail($name,$email));
     return $create_user;
   }
 }
