@@ -11,7 +11,7 @@
   <div class="container">
     <div class="header">
       <h1>
-        Dear: &nbsp; {{ $name }}
+        Dear: &nbsp; {{ $user->name }}
       </h1>
     </div>
     <div class="main">
