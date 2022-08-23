@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Company;
+use App\User;
+use Faker\Factory as Faker;
 
 class CompaniesTableSeeder extends Seeder
 {
@@ -10,78 +13,39 @@ class CompaniesTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {   
-        DB::table('companies')->insert([
-            [   
-                'name' => 'Google',
-                'email' => 'company1@example.com',
-                'services' => 'We are Google',
-                'img_name' => NULL,
-                'password' => Hash::make('password123'),
-            ],
-            [
-                'name' => 'Apple',
-                'email' => 'company2@example.com',
-                'services' => 'We are Apple',
-                'img_name' => NULL,
-                'password' => Hash::make('password123'),
-            ],
-            [   
-                'name' => 'The Walt Disney Company',
-                'email' => 'company3@example.com',
-                'services' => 'We are The Walt Disney Company',
-                'img_name' => NULL,
-                'password' => Hash::make('password123'),
-            ],
-            [   
-                'name' => 'Amazon',
-                'email' => 'company4@example.com',
-                'services' => 'We are Amazon',
-                'img_name' => NULL,
-                'password' => Hash::make('password123'),
-            ],
-            [   
-                'name' => 'Nike',
-                'email' => 'company5@example.com',
-                'services' => 'We are Nike',
-                'img_name' => NULL,
-                'password' => Hash::make('password123'),
-            ],
-            [   
-                'name' => 'J.P. Morgan',
-                'email' => 'company6@example.com',
-                'services' => 'We are J.P. Morgan',
-                'img_name' => NULL,
-                'password' => Hash::make('password123'),
-            ],
-            [   
-                'name' => 'Netflix',
-                'email' => 'company7@example.com',
-                'services' => 'We are Netflix',
-                'img_name' => NULL,
-                'password' => Hash::make('password123'),
-            ],
-            [   
-                'name' => 'Tesla',
-                'email' => 'company8@example.com',
-                'services' => 'We are Tesla',
-                'img_name' => NULL,
-                'password' => Hash::make('password123'),
-            ],
-            [   
-                'name' => 'Goldman Sachs',
-                'email' => 'company9@example.com',
-                'services' => 'We are Goldman Sachs',
-                'img_name' => NULL,
-                'password' => Hash::make('password123'),
-            ],
-            [   
-                'name' => 'Spotify',
-                'email' => 'company10@example.com',
-                'services' => 'We are Spotify',
-                'img_name' => NULL,
-                'password' => Hash::make('password123'),
-            ],
-        ]);
+    {
+        DB::table('companies')->truncate();
+
+        $faker = Faker::create('en_US');
+
+        for ($i = 501; $i <= 1000; $i++){
+            $user = User::Find($i);
+
+            DB::table('companies')->insert([
+                'name' => $user->name,
+                'user_id' => $user->id,
+                'services' => $user->self_introduction,
+                'address1' => $user->address1,
+                'address2' => $user->address2,
+                'city' => $user->city,
+                'state' => $user->state,
+                'country' => $user->country,
+                'zipcode' => $user->zipcode,
+                'contact_number' => $user->contact_number,
+                'establishment_year' => '2022-04',
+                'president_name' => $faker->name,
+                'total_personnel' => $faker->numberBetween(5, 10000),
+                'capital' => $faker->numberBetween(50000, 10000000000),
+                'gross_sales' => $faker->numberBetween(50000, 10000000000),
+                'average_age' => $faker->numberBetween(25, 45),
+                'homepage_url' => $faker->url,
+                'email' => $user->email,
+                'email_verified_at' => $user->email_verified_at,
+                'password' => $user->password,
+                'remember_token' => $user->remember_token,
+                'created_at' => $user->created_at,
+                'updated_at' => $user->updated_at
+            ]);
+        }
     }
 }
