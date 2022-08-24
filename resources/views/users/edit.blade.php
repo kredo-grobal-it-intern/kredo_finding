@@ -25,7 +25,7 @@
             </form>
             @endif
             <div class='container'>
-            <form class="form mt-5" method="POST" action="/users/updateUser/{{ $user->id }}"
+            <form class="form mt-5" method="POST" action="/users/{{ $user->id }}"
               enctype="multipart/form-data">
               @csrf
               @method('PATCH')
