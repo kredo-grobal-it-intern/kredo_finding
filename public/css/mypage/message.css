@@ -1,0 +1,219 @@
+.messageBox {
+    margin: 0%;
+    padding: 0%;
+    /* background-color: gray; */
+
+    overflow: hidden;
+    display: flex;
+    height: calc(100vh - 26px);
+}
+.users_chat {
+    /* background-color: aquamarine; */
+
+    width: 30%;
+    overflow: hidden;
+    padding-right: 10px;
+    background-color: #FFFFFF;
+}
+.users_chat:hover {
+    overflow-y: scroll;
+    padding-right: 0%;
+}
+.users_chat::-webkit-scrollbar {
+    width: 10px;
+}
+.users_chat::-webkit-scrollbar-track {
+    background-color: #FFFFFF;
+}
+.users_chat::-webkit-scrollbar-thumb {
+    background-color: gainsboro;
+    border-radius: 5px;
+}
+.users_chat > .chatbox_for_every_user {
+    /* border: solid 2px slateblue; */
+
+    width: 100%;
+    height: 80px;
+    background: #FFFFFF;
+
+    display: flex;
+    display: table;
+}
+.users_chat > .chatbox_for_every_user:hover {
+    background: #F4F7FC;
+}
+.chatbox_user_icon {
+    width: 60px;
+    height: 60px;
+    /* top: 10px; */
+    /* left: 10px; */
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.06);
+    margin: 10px;
+}
+.user_icon {
+    width: 100%;
+    height: 100%;
+}
+.chatbox_detail {
+    /* background-color: aqua; */
+
+    width: 90%;
+    height: 100%;
+    vertical-align: middle;
+    display: table-cell;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #201301;
+}
+.chatbox_detail > .chatbox_user_name {
+    font-weight: 600;
+}
+.chatbox_header_user_name {
+    margin-top: 10px;
+}
+.users_chat > .chatbox_for_every_user > .chatbox_detail > .chatbox_user_msg {
+    opacity: 0.5;
+}
+.users_chat > .chatbox_for_every_user > .chatbox_timestamp {
+    /* background-color: #F4920B; */
+
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: inline-block;
+    transform: translate(0, -28px);
+}
+.users_chat > .chatbox_for_every_user > .chatbox_timestamp .time{
+   transform: translate(0, 28px);
+   display: block;
+   color:#201301;
+}
+.chatbox {
+    background-color: #E5E5E5;;
+
+    width: 70%;
+    display: flex; 
+    flex-direction:column;
+}
+.chatbox_header {
+    /* border: solid 2px red; */
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+    height: 80px;
+    display: flex;
+    display: table;
+}
+.chatbox_detail > span {
+    display: block;
+    margin: 5px;
+}
+.chatbox_detail > .chatbox_user_status {
+    opacity: 0.5;
+    margin-left: 5px;
+}
+.chatbox_main {
+    /* border: solid 2px blue; */
+
+    overflow: hidden;
+    padding-right: 10px;
+}
+.chatbox_main:hover {
+    overflow-y: scroll;
+    padding-right: 0%;
+}
+.chatbox_main::-webkit-scrollbar {
+    width: 10px;
+}
+.chatbox_main::-webkit-scrollbar-track {
+    background-color: #FFFFFF;
+}
+.chatbox_main::-webkit-scrollbar-thumb {
+    background-color: gainsboro;
+    border-radius: 5px;
+}
+
+.chatbox_main > .msg_for_you {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.chatbox_main > .msg_for_you > .user_icon_for_msg {
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    display: block;
+}
+.chatbox_main > .msg_for_you > .message_unit_you {
+    color: #201301;
+    background-color: #FFFFFF;
+    border-radius: 0px 25px 25px 25px;
+    margin-left: 10px;
+
+    min-width: 30%;
+    max-width: 70%;
+}
+.chatbox_main > .message_unit_me {
+    color: #FFFFFF;
+    background-color: #F4920B;
+    border-radius: 25px 0px 25px 25px;
+    transform: translate(-10px);
+
+    margin: 0 0 0 auto;
+    min-width: 30%;
+    /* max-width: 70%; */
+    /* display: inline-block; */
+}
+.every_message_you, .every_message_me {
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    display: block;
+
+    padding: 0.5rem;
+    margin-bottom: 10px;
+}
+
+.chatbox_footer {
+    /* border: solid 2px green; */
+
+    height: 70px;
+    margin-top: auto;
+    background-color: #FFFFFF;
+}
+
+.chatbox_footer > .enter_message {
+ border: none;
+ width: 85%;
+ height: 100%;
+ resize: none;
+}
+.chatbox_footer > .enter_message::placeholder {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+
+    position: absolute;
+    height: 17px;
+    left: 20px;
+    top: 25px;
+}
+.chatbox_footer > .send_button {
+    color: #ffffff;
+    margin: auto;
+    width: 77.82px;
+    height: 30px;
+    transform: translate(27%, -100%);
+    border: none;
+    background: #F4920B;
+    border-radius: 15px;
+}

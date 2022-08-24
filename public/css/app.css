@@ -22,6 +22,7 @@
 @import url(register/register.css);
 @import url(register/register_company.css);
 @import url(mypage/profile.css);
+@import url(mypage/message.css);
 
 :root {
   --blue: #3490dc;
