@@ -13,9 +13,10 @@
     </form>
     @endif
     <div class='container'>
-      <form class="form mt-5" method="POST" action="/users/update/{{ $user->id }}"
+      <form class="form mt-5" method="POST" action="/users/updateUser/{{ $user->id }}"
         enctype="multipart/form-data">
         @csrf
+        @method('PATCH')
 
         <label for="file_photo" class="rounded-circle companyProfileImg">
           <div class="companyProfileImg_description">Upload Image</div>
@@ -81,10 +82,12 @@
             </div>
             <div class="col">
               <label>Country</label><p class="text-danger d-inline">*</p>
-              <input type="text" name="country" class="form-control" value="{{ $user->country }}" {{ $user->country ? 'required' : '' }}>
-              @error('country')
-                  <span class="errorMessage">{{ $message }}</span>
-              @enderror
+              <select class="form-control" name="country">
+                <option></option>
+                @foreach($countries as $country_code => $country_name)
+                <option value="{{ $country_code }}" @if($user->country == $country_code) selected @endif>{{ $country_name }}</option>
+                @endforeach
+              </select>
             </div>
             <div class="col">
               <label>Zipcode</label><p class="text-danger d-inline">*</p>

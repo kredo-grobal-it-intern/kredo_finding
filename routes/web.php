@@ -18,7 +18,7 @@ use App\Http\Controllers\ReactionController;
 Route::group(['prefix' => 'users', 'middleware' => 'auth', 'as' => 'users.'], function () {
   Route::get('mypage/show/{id}', 'UserController@show')->name('show');
   Route::get('edit/{id}', 'UserController@edit')->name('edit');
-  Route::post('updateUser/{id}', 'UserController@updateUser')->name('updateUser');
+  Route::patch('updateUser/{id}', 'UserController@updateUser')->name('updateUser');
   Route::patch('updateJob/{id}', 'UserController@updateJob')->name('updateJob');
   Route::delete('destroy/{id}', 'UserController@destroy')->name('delete');
 });
