@@ -73,12 +73,16 @@
 }
 .chatbox_detail > .chatbox_user_name {
     font-weight: 600;
+    display: block;
+    margin: 5px;
 }
 .chatbox_header_user_name {
     margin-top: 10px;
 }
 .users_chat > .chatbox_for_every_user > .chatbox_detail > .chatbox_user_msg {
     opacity: 0.5;
+    display: block;
+    margin: 5px;
 }
 .users_chat > .chatbox_for_every_user > .chatbox_timestamp {
     /* background-color: #F4920B; */
@@ -110,10 +114,10 @@
     display: flex;
     display: table;
 }
-.chatbox_detail > span {
+/* .chatbox_detail > span {
     display: block;
     margin: 5px;
-}
+} */
 .chatbox_detail > .chatbox_user_status {
     opacity: 0.5;
     margin-left: 5px;
@@ -123,6 +127,10 @@
 
     overflow: hidden;
     padding-right: 10px;
+
+    display: flex;
+    width: 100%;
+    flex-flow: column;
 }
 .chatbox_main:hover {
     overflow-y: scroll;
@@ -132,10 +140,10 @@
     width: 10px;
 }
 .chatbox_main::-webkit-scrollbar-track {
-    background-color: #FFFFFF;
+    background-color: gainsboro;
 }
 .chatbox_main::-webkit-scrollbar-thumb {
-    background-color: gainsboro;
+    background-color: #FFFFFF;
     border-radius: 5px;
 }
 
@@ -151,34 +159,46 @@
     margin: 10px;
     display: block;
 }
-.chatbox_main > .msg_for_you > .message_unit_you {
+.message {
+    /* text-align: center; */
+    display: table-cell;
+    vertical-align: middle;
+    /* display: block; */
+
+    padding: 0.5rem;
+    margin-bottom: 10px;
+
+    position: relative;
+    min-width: 30%;
+    max-width: 60%;
+    min-height: 30px;
+    /* display: inline-block; */
+}
+.you {
     color: #201301;
     background-color: #FFFFFF;
     border-radius: 0px 25px 25px 25px;
     margin-left: 10px;
 
-    min-width: 30%;
-    max-width: 70%;
+    /* display: block; */
+    /* min-width: 30%;
+    max-width: 60%; */
 }
-.chatbox_main > .message_unit_me {
+.me {
     color: #FFFFFF;
     background-color: #F4920B;
     border-radius: 25px 0px 25px 25px;
-    transform: translate(-10px);
+    /* transform: translate(-10px); */
 
-    margin: 0 0 0 auto;
-    min-width: 30%;
-    /* max-width: 70%; */
+    align-self: end;
+    margin-right: 10px;
+    /* margin: 0 0 0 auto; */
+    /* min-width: 30%;
+    max-width: 60%; */
     /* display: inline-block; */
 }
-.every_message_you, .every_message_me {
-    text-align: center;
-    display: table-cell;
-    vertical-align: middle;
+.you::after, .me::after {
     display: block;
-
-    padding: 0.5rem;
-    margin-bottom: 10px;
 }
 
 .chatbox_footer {
