@@ -197,32 +197,32 @@
         <div class="msg_for_you">
           <img src="{{ asset('images/facebook.png') }}" alt="user icon" class="user_icon_for_msg">
           <div class="message you">
-            <span class="message you">Hey, what's up?</span>
+            <span>Hey, what's up?</span>
           </div>
           <div class="message you">
-            <p class="message you">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus molestias recusandae quod veritatis nostrum! Sapiente, dignissimos maxime nobis doloremque aliquid aperiam reiciendis ea dolorem aut illum cupiditate. Aut, delectus. Sapiente officiis dolorem id reiciendis pariatur mollitia ipsam delectus provident hic!</p>
+            <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus molestias recusandae quod veritatis nostrum! Sapiente, dignissimos maxime nobis doloremque aliquid aperiam reiciendis ea dolorem aut illum cupiditate. Aut, delectus. Sapiente officiis dolorem id reiciendis pariatur mollitia ipsam delectus provident hic!</p>
           </div>
         </div>        
         
         <div class="message me">
-          <span class="message me">Lorue!</span>
+          <span>Lorue!</span>
         </div>
         <div class="message me">
-          <span class="message me">Lorue!</span>
+          <span>Lorue!</span>
         </div>
 
         <div class="msg_for_you">
           <img src="{{ asset('images/facebook.png') }}" alt="user icon" class="user_icon_for_msg">
           <div class="message you">
-            <span class="message you">Hey, what's up?</span>
+            <span>Hey, what's up?</span>
           </div>
-          <div class="unit_you">
-            <p class="message you">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus molestias recusandae quod veritatis nostrum! Sapiente, dignissimos maxime nobis doloremque aliquid aperiam reiciendis ea dolorem aut illum cupiditate. Aut, delectus. Sapiente officiis dolorem id reiciendis pariatur mollitia ipsam delectus provident hic!</p>
+          <div class="message you">
+            <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus molestias recusandae quod veritatis nostrum! Sapiente, dignissimos maxime nobis doloremque aliquid aperiam reiciendis ea dolorem aut illum cupiditate. Aut, delectus. Sapiente officiis dolorem id reiciendis pariatur mollitia ipsam delectus provident hic!</span>
           </div>
         </div>
 
         <div class="message me">
-          <span class="message me">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quisquam ullam unde nisi optio magni, corrupti aperiam animi beatae, tenetur harum numquam consequatur modi accusantium adipisci et incidunt soluta error dignissimos odit ea facere minus. Ea, aliquam aut id nemo consequuntur non error. Ipsam accusantium repellendus sunt placeat molestias distinctio?</span>
+          <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quisquam ullam unde nisi optio magni, corrupti aperiam animi beatae, tenetur harum numquam consequatur modi accusantium adipisci et incidunt soluta error dignissimos odit ea facere minus. Ea, aliquam aut id nemo consequuntur non error. Ipsam accusantium repellendus sunt placeat molestias distinctio?</span>
         </div>
 
         
