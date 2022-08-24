@@ -208,6 +208,9 @@
           <span>Lorue!</span>
         </div>
         <div class="message me">
+          <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo, recusandae! Reprehenderit aspernatur est dolore voluptatibus totam natus! Sit, adipisci? Repellat?</span>
+        </div>
+        <div class="message me">
           <span>Lorue!</span>
         </div>
 
