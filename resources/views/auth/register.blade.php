@@ -69,7 +69,7 @@
           <div class="row">
             <div class="form-group col">
               <label>Contact Number</label>
-              <input type="tel" name="contact_number" class="form-control" pattern="\d{2,4}-?\d{2,4}-?\d{3,4}" placeholder="Phone number without hyphen" maxlength="11">
+              <input type="tel" name="contact_number" class="form-control" value="{{ old('contact_number') }}" pattern="\d{2,4}-?\d{2,4}-?\d{3,4}" placeholder="Phone number without hyphen" maxlength="11">
               @error('contact_number')
               <span class="errorMessage">{{ $message }}</span>
               @enderror
@@ -81,7 +81,7 @@
                 <label class="form-check-label" for="inlineRadio1">Male</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" name="gender" value="1" type="radio" id="inlineRadio2">
+                <input class="form-check-input" name="gender" type="radio" id="inlineRadio2">
                 <label class="form-check-label" for="inlineRadio2">Female</label>
               </div>
             </div>
