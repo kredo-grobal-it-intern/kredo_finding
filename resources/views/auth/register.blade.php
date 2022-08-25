@@ -81,7 +81,7 @@
                 <label class="form-check-label" for="inlineRadio1">Male</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" name="gender" type="radio" id="inlineRadio2">
+                <input class="form-check-input" name="gender" value="1" type="radio" id="inlineRadio2">
                 <label class="form-check-label" for="inlineRadio2">Female</label>
               </div>
             </div>
