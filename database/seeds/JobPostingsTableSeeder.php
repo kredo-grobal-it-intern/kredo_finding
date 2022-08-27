@@ -37,7 +37,7 @@ class JobPostingsTableSeeder extends Seeder
                 ]);
             }
         }else{
-            for ($i = 4; $i <= 4994; $i = $i + ){
+            for ($i = 4; $i <= 4994; $i = $i + 10){
                 DB::table('job_postings')->insert([
                     'occupation' => $faker->numberBetween(1, 32),
                     'user_id' => $i + 500,
