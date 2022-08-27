@@ -51,7 +51,7 @@ class CompaniesTableSeeder extends Seeder
                 ]);
             }
         }else{
-            for ($i = 5004; $i <= 9994; $i++){
+            for ($i = 5004; $i <= 9994; $i = $i + 10){
                 $user = User::Find($i);
     
                 DB::table('companies')->insert([
