@@ -7,7 +7,7 @@ function isWorker($user_id){
     $user = User::find($user_id);
     return ($user->user_type == UserType::Worker) ? true : false;
 }
-    
+
 function profileImageInProfile($image){
     if($image){
         echo '<img src="'.$image.'">';

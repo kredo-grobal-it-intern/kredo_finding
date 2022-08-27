@@ -17,7 +17,7 @@ class User extends Authenticatable
    * @var array
    */
   protected $fillable = [
-    'name', 'user_type', 'email', 'password', 'self_introduction', 'gender', 'img_name', 'google_id', 'facebook_id', 'contact_number',
+    'name', 'user_type', 'email', 'password', 'self_introduction', 'gender', 'img_name', 'google_id', 'facebook_id', 'contact_number', 'address1', 'address2', 'city', 'state', 'country', 'zipcode'
   ];
 
   /**
@@ -88,5 +88,25 @@ class User extends Authenticatable
       'gender' => $data['gender'],
       'img_name' => $bin_image,
     ]);
+  }
+
+  public function updateUser($request, $bin_image)
+  {
+    return User::where('id', Auth::id())->update(
+      [
+          'name' => $request->name,
+          'email' =>  $request->email,
+          'img_name' => $bin_image,
+          'self_introduction' => $request->self_introduction,
+          'address1' => $request->address1,
+          'address2' => $request->address2,
+          'city' => $request->city,
+          'state' => $request->state,
+          'country' => $request->country,
+          'zipcode' => $request->zipcode,
+          'contact_number' => $request->contact_number,
+          'gender'=> $request->gender,
+      ]
+  );
   }
 }

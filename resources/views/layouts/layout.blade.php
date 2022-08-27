@@ -28,7 +28,7 @@
         </div>
         <p class="menu font-weight-bold">Main Menu</p>
         <div class="list-group">
-          <a href="{{ route('profile.show', Auth::user()->id) }}" class="{{ request()->is('users/mypage/show/*') ? 'active' : '' }} sideBarItem">
+          <a href="{{ route('users.show', Auth::user()->id) }}" class="{{ request()->is('users/mypage/show/*') ? 'active' : '' }} sideBarItem">
             {{ profileImageInMypage() }}
             <span class="font-weight-bold">PROFILE</span>
           </a>
@@ -45,7 +45,7 @@
             <span class="font-weight-bold">MESSAGES</span>
           </a>
 
-          <a href="{{ route('contacts') }}" class="sideBarItem">
+          <a href="{{ route('contact.show') }}" class="sideBarItem">
             <i class="fa-solid fa-envelope"></i>
             <span class="font-weight-bold">CONTACT</span>
           </a>

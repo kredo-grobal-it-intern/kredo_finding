@@ -9,7 +9,7 @@
           <div><a href="{{ route('home') }}"><img src="/images/kredo_logo.jpg" style="height: 3rem; width:3rem;"></a></div>
           <div><a href="{{ route('showAbout') }}">About Us</a></div>
           <div><a href="{{ route('faq') }}">FAQ</a></div>
-          <div><a href="{{ route('showContact') }}">Contact Us</a></div>
+          <div><a href="{{ route('contact.show') }}">Contact Us</a></div>
         </header>
 
         <div class='container'>
@@ -72,7 +72,7 @@
             <div class="row">
               <div class="form-group col-6">
                 <label>Contact Number</label>
-                <input type="tel" name="contact_number" class="form-control" placeholder="Phone number without hyphen" maxlength="11">
+                <input type="tel" name="contact_number" class="form-control" value="{{ old('contact_number') }}" placeholder="Phone number without hyphen" maxlength="11">
                 @error('contact_number')
                   <span class="errorMessage">{{ $message }}</span>
                 @enderror

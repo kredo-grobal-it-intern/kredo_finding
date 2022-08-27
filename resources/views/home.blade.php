@@ -26,10 +26,10 @@
       </div>
 
       <div class="myPageIcon">
-        <a href="{{ route('profile.show', Auth::user()->id) }}">{{ profileImageInNav(Auth::user()->img_name) }}</a>
+        <a href="{{ route('users.show', Auth::user()->id) }}">{{ profileImageInNav(Auth::user()->img_name) }}</a>
       </div>
       <span>
-        <a href="{{ route('profile.show', Auth::user()->id) }}" class="text-dark font-weight-bold">MyPage</a>
+        <a href="{{ route('users.show', Auth::user()->id) }}" class="text-dark font-weight-bold">MyPage</a>
       </span>
     </nav>
 
