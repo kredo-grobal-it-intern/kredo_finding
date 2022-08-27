@@ -29,7 +29,7 @@
                 <i class="fa-solid fa-thumbs-up like-icon"></i>
               </button>
               <button type="submit" class="btn"><i class="fa-solid fa-thumbs-down dislike-icon"></i></button>
-            </form>            
+            </form>
           </div>
         @endif
     </div>
