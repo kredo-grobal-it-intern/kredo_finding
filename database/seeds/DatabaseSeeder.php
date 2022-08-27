@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         UsersTableSeeder::class,
         CompaniesTableSeeder::class,
         CountriesTableSeeder::class,
+        JobPostingsTableSeeder::class,
     ]);
   }
 }
