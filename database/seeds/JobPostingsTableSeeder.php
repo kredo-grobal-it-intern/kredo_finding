@@ -40,7 +40,7 @@ class JobPostingsTableSeeder extends Seeder
             for ($i = 4; $i <= 4994; $i = $i + 10){
                 DB::table('job_postings')->insert([
                     'occupation' => $faker->numberBetween(1, 32),
-                    'user_id' => $i + 500,
+                    'user_id' => $i + 5000,
                     'company_id' => $i,
                     'industry' => $faker->numberBetween(1, 24),
                     'employment_status' => $faker->numberBetween(1, 3),
