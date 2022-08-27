@@ -11,6 +11,7 @@ use App\Services\FileUploadServices;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 use App\Constants\UserType;
 use App\Country;
 
@@ -45,7 +46,7 @@ class UserController extends Controller
   {
 
     $request->validate([
-        'contact_number' => 'unique:users'
+        'contact_number' => Rule::unique('users')->ignore(Auth::user()->id)
     ]);
 
     $user = User::findorFail($id);
@@ -63,19 +64,7 @@ class UserController extends Controller
       $bin_image = $user->img_name;
     }
 
-    $user->name                        = $request->name;
-    $user->email                       = $request->email;
-    $user->gender                      = $request->gender;
-    $user->self_introduction           = $request->self_introduction;
-    $user->contact_number              = $request->contact_number;
-    $user->address1                    = $request->address1;
-    $user->address2                    = $request->address2;
-    $user->city                        = $request->city;
-    $user->state                       = $request->state;
-    $user->country                     = $request->country;
-    $user->zipcode                     = $request->zipcode;
-
-    $user->save();
+    $user->updateUser($request, $bin_image);
 
     if(!isWorker($user->id)){
       $this->company->updateCompany($request, $bin_image);
