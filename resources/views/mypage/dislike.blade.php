@@ -12,13 +12,12 @@
           <p class="h5">{{ $job->company->name }}</p>
         </div>
         <div class="reactionicon">
-          <form action="{{ route('reaction.changeLikedToDislike' ,$job->id) }}" method="post" class="">
+          <form action="{{ route('reaction.changeDislikedToLike' ,$job->id) }}" method="post" class="">
             @csrf
             @method('PATCH')
             <button type="submit" class="btn">
               <i class="fa-solid fa-thumbs-up like-icon"></i>
             </button>
-            <button type="submit" class="btn"><i class="fa-solid fa-thumbs-down dislike-icon"></i></button>
           </form>
         </div>
       </div>
@@ -37,13 +36,12 @@
             <input name="user_id" type="hidden" value="">
           </form>
         <div class="reactionicon">
-          <form action="{{ route('reaction.changeLikedToDislike' ,$user->toUserId->id) }}" method="post" class="">
+          <form action="{{ route('reaction.changeDislikedToLike' ,$user->toUserId->id) }}" method="post" class="">
             @csrf
             @method('PATCH')
             <button type="submit" class="btn">
               <i class="fa-solid fa-thumbs-up like-icon"></i>
             </button>
-            <button type="submit" class="btn"><i class="fa-solid fa-thumbs-down dislike-icon"></i></button>
           </form>
         </div>
       </div>
