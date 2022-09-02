@@ -1,3 +1,189 @@
+/* 7 */
+/* .seven .card-group{
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 640px;
+  width: 90%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+}
+.seven .card-group > :nth-child(2n){
+  margin-left: 20px;
+}
+.seven .card-group > :nth-child(n+3){
+  margin-top: 20px;
+}
+.seven .card{
+  width: calc((100% - 20px * 1) / 2);
+  height: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,.2)
+} */
+
+.seven .card-header{
+  background-color: #f9f4ed;
+  /* border-top: solid 10px rgb(78, 102, 236); */
+}
+.seven .icon{
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  text-align: center;
+
+}
+.seven .icon li {
+  display: table-cell;
+  vertical-align: middle;
+  background: #3AB0FF;
+  font-size: 1.5em;
+  border: solid 2px #fff;
+}
+.seven .icon li a{
+  color: #fff;
+}
+
+.seven .avatar{
+  text-align: center;
+}
+.seven .card-header img {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border: solid 4px #F87474;
+}
+/* .homePage .seven .card-body{
+  padding-bottom: -1.5rem;
+} */
+.seven .name{
+  color: rgba(10, 3, 39, 0.731);
+  padding: 8px;
+  /* border-top: solid 3px #FFB562;
+  border-bottom: solid 3px #FFB562; */
+  border-left: solid 10px #FFB562;
+  /* text-align: center; */
+  font-weight: bold;
+  background-color: #F9F2ED;
+  border-radius: 0 10px 10px 0;
+}
+.seven .introtitle{
+  color: #607EAA; 
+}
+.seven .introduction {
+  white-space: normal;
+}
+/* .seven .intro{
+  position: relative;
+  border: solid 2px rgb(87, 161, 241);
+  padding: 1.2em 1em 1em;
+  margin-top: 15px;
+}
+.seven .introtitle{
+  position: absolute;
+  color: rgb(87, 161, 241);
+  background-color: white;
+  top: -0.5em;
+  padding: 0 3px;
+} */
+/* .seven button{
+  margin: 5px 0 0 200px;
+} */
+.seven .footer {
+  margin-top: 10px;
+}
+
+/* 5 */
+.five .card-header{
+  background-color: rgba(242, 241, 239, 0.237);
+  display: flex;
+  border-top: solid 3px #B8DFD8;
+}
+.five img {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+.five .icon{
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  text-align: center;
+
+}
+.five .icon li{
+  display: table-cell;
+  vertical-align: middle;
+  background: #FFE194;
+  font-size: 1.5em;
+  border: solid 2px #fff;
+}
+.five .icon li a{
+  color: #fff;
+}
+.five .name{
+  /* border-left: solid 9px rgb(239, 166, 76); */
+  background-color: #FFB562;
+  padding: 5px;
+  color: #F9F2ED;
+  text-align: center;
+  border-radius: 10px;
+}
+.five .introtitle{
+  border-bottom: solid 2px #E8F6EF;
+}
+
+/* 3 */
+.three{
+  border: solid 3px rgba(238, 177, 91, 0.255);
+  padding: 10px;
+  width: calc(40%);
+}
+.three .user-list {
+  display: flex;
+  padding: 10px;
+}
+.three .avatar{
+  position: relative;
+}
+.three .heart{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  font-size: 2rem;
+  background-color: #fff;
+  color: rgba(245, 124, 205, 0.219);
+  border-radius: 50%;
+  border: solid 2px rgba(47, 6, 6, 0.166);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.three img {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+.three .bio{
+  padding-left: 20px;
+}
+.three .name{
+  background: rgb(243, 203, 83);
+  font-weight: bold;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* ------------------------------ */
 .homePage .nav > ul > li.appIcon > a > img {
   width: 100%;
   align-items: center;
@@ -7,9 +193,9 @@
   text-align: right;
 }
 .homePage .profile-icon {
-  font-size: 400px;
-  padding-top: 50px;
+  font-size: 170px;
   color: #f3920b;
+  padding-top: 30px;
 }
 .homePage .profile-image {
   width: 400px;

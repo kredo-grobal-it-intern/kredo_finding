@@ -1,3 +1,4 @@
+<!-- home.blade.php first version -->
 @extends('layouts.layout')
 
 @section('content')
@@ -33,7 +34,7 @@
       </span>
     </nav>
 
-    <!-- <div id="tinderslide">
+    <div id="tinderslide">
       <ul>
         @if(!isWorker(Auth::id()))
           @foreach($users as $user)
@@ -90,51 +91,8 @@
     <div class="actions" id="actionBtnArea">
       <a href="#" class="dislike"><i class="fas fa-times fa-2x"></i></a>
       <a href="#" class="like"><i class="fas fa-heart fa-2x"></i></a>
-    </div> -->
-
-<div class="container"> 
-      <!-- 7 -->
-  <div class="row no-gutters">
-    @if(!isWorker(Auth::id()))
-      @foreach ($users as $user)
-        <div class="card seven col-xl-3 col-lg-4 col-md-6 mt-4 p-1">
-          <div class="card-header">
-              <div class="avatar">
-                <a href="{{ route( 'users.show',$user->id ) }}">{{ workerProfileImage($user->img_name) }}</a>
-              </div>
-          </div>
-          <div class="card-body">
-              <div class="bio">
-                  <h3 class="name">{{ $user->name }}</h3>
-                  <div class="intro">
-                      <h3 class="introtitle">Introduction</h3>
-                      <p class="introduction">{{ $user->self_introduction }}</p>
-                  </div>
-                  <button class="btn btn-outline-secondary">...Read More</button>
-              </div>
-              <div class="footer">
-                  <ul class="icon">
-                      <li><a href=""><i class="far fa-heart">
-                        
-                      </i></a></li>
-                      <li><a href=""><i class="fas fa-comment-dots"></i></a></li>
-                      <li><a href=""><i class="fas fa-map-marker-alt"></i></a></li>
-                      <li><a href=""><i class="fas fa-home"></i></a></li>
-                  </ul>
-              </div>
-            </div>
-            <div class="card-footer">Last Updated<span class="small text-muted">{{ date("D, M d Y", strtotime($user->updated_at)) }}</span>
-            </div>
-        </div>
-      @endforeach
-    @endif
+    </div>
   </div>
-</div>
-
-
-
-
-
 
   <script>
     var usersNum = {{ $userCount }};
@@ -142,3 +100,66 @@
   </script>
 
 @endsection
+
+
+
+
+            <!-- 5 -->
+
+ <!-- <div class="row no-gutters">
+        <div class="card five col-3">
+            <div class="card-header">
+                <div class="avatar">
+                  <a href="{{ route('users.show', $user->id) }}">{{ companyProfileImage($user->img_name) }}</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="bio">
+                    <h3 class="name">{{ $user->name }}</h3>
+                    <div class="intro">
+                        <div class="h4 introtitle">Introduction</div>
+                        <p class="introduction">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae quas blanditiis autem rerum? Blanditiis distinctio, dolor ea</p>
+                    </div>
+                    <button class="btn btn-outline-secondary">...Read More</button>
+                </div>
+            </div>
+            <div class="footer">
+              <ul class="icon">
+                  <li><a href=""><i class="far fa-heart"></i></a></li>
+                  <li><a href=""><i class="fas fa-comment-dots"></i></a></li>
+                  <li><a href=""><i class="fas fa-map-marker-alt"></i></a></li>
+                  <li><a href=""><i class="fas fa-home"></i></a></li>
+              </ul>
+            </div>
+        </div>
+  </div> -->
+<!-- </div>   -->
+
+
+
+
+        <!-- 3 -->
+  <!-- <div class="user-wrap three">
+        <div class="user-list">
+            <div class="avatar">
+              <a href="{{ route('users.show', Auth::user()->id) }}">{{ profileImageInNav(Auth::user()->img_name) }}</a>
+              <div class="heart">
+                <i class="far fa-heart"></i>
+              </div>
+              <div class="icon">
+                  <i class="fas fa-map-marker-alt">address</i>
+                  <a href=""><i class="fas fa-comment-dots"></i>Message</a>
+                  <a href="">Homepage</a>
+              </div>
+            </div>
+            <div class="bio">
+                <h4 class="name">Name Yamada</h4>
+                <h4>Introduction</h4>
+                <p class="introduction">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae quas blanditiis autem rerum? Blanditiis distinctio, dolor ea</p>
+                <button class="btn btn-outline-secondary">...Read More</button>
+            </div>
+        </div>
+    </div>
+  </div> -->
+
+ 
