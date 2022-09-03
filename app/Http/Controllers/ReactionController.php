@@ -118,20 +118,20 @@ class ReactionController extends Controller
 
   public function changeDislikedToLike($id){
     if(!isWorker(Auth::id())){
-      Reaction::where([
+      return Reaction::where([
         ['to_user_id', $id],
         ['from_user_id', Auth::id()],
         ])->update(['status'=> 0]
       );
     }else{
-      WorkerReaction::where([
+      return WorkerReaction::where([
         ['to_job_id', $id],
         ['from_worker_id', Auth::id()],
         ])->update(['status'=> 0]
       );
     }
 
-    return redirect()->back();
+    // return redirect()->back();
   }
 
   public function showLikedUser($id){
