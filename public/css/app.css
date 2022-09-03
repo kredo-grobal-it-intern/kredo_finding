@@ -20605,45 +20605,45 @@ html, body {
   margin-top: 10px;
 }
 
-.matchingPage {
+/* .matchingPage {
   height: 100vh;
-}
-.matchingPage .matchingNum {
+} */
+/* .matchingPage .matchingNum {
   text-align: center;
   font-size: 12px;
   color: #f3920b;
   margin-bottom: 20px;
-}
-.matchingPage .pageTitle {
+} */
+/* .matchingPage .pageTitle {
   font-size: 20px;
   text-align: center;
-}
-.matchingPage .matchingList {
+} */
+/* .matchingPage .matchingList {
   margin-top: 30px;
   padding: 0;
-}
-.matchingPage .matchingList .matchingPerson {
+} */
+/* .matchingPage .matchingList .matchingPerson {
   display: flex;
   align-items: center;
   padding: 20px 0px;
   border-bottom: 1px solid #e8e8e8;
   position: relative;
-}
-.matchingPage .matchingList .matchingPerson_img {
+} */
+/* .matchingPage .matchingList .matchingPerson_img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   overflow: hidden;
   margin-right: 10px;
-}
-.matchingPage .matchingList .matchingPerson_img > img {
+} */
+/* .matchingPage .matchingList .matchingPerson_img > img {
   width: 100%;
-}
-.matchingPage .matchingList .matchingPerson form {
+} */
+/* .matchingPage .matchingList .matchingPerson form {
   position: absolute;
   right: 0;
-}
-.matchingPage .matchingList .matchingPerson form .chatForm_btn {
+} */
+/* .matchingPage .matchingList .matchingPerson form .chatForm_btn {
   border: none;
   padding: 10px;
   background: #f3920b;
@@ -20651,10 +20651,10 @@ html, body {
   border-radius: 6px;
   cursor: pointer;
   transition: opacity 0.3s;
-}
-.matchingPage .matchingList .matchingPerson form .chatForm_btn:hover {
+} */
+/* .matchingPage .matchingList .matchingPerson form .chatForm_btn:hover {
   opacity: 0.7;
-}
+} */
 
  .header {
   display: flex;

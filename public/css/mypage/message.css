@@ -1,39 +1,48 @@
-.messageBox {
+.matchingPage {
     overflow: hidden;
     display: flex;
     height: calc(100vh - 26px);
+    border-left: 1px solid #F4F7FC;
 }
-.users_chat {
+.matchingList {
     width: 30%;
     overflow: hidden;
     padding-right: 15px;
     background-color: #FFFFFF;
+
+    height: 100vh;
+
 }
-.users_chat:hover {
+.matchingList:hover {
     overflow-y: scroll;
     padding-right: 5px;
 }
-.users_chat::-webkit-scrollbar {
+.matchingList::-webkit-scrollbar {
     width: 10px;
 }
-.users_chat::-webkit-scrollbar-track {
+.matchingList::-webkit-scrollbar-track {
     background-color: #FFFFFF;
 }
-.users_chat::-webkit-scrollbar-thumb {
+.matchingList::-webkit-scrollbar-thumb {
     background-color: gainsboro;
     border-radius: 5px;
 }
-.users_chat > .chatbox_for_every_user {
+.matchingList > .matchingPerson {
     width: 100%;
     height: 80px;
     background: #FFFFFF;
     display: flex;
     display: table;
+    border-bottom: 1px solid #F4F7FC;
+
+    padding: 5px 0px;
+    align-items: center;
+    position: relative;
 }
-.users_chat > .chatbox_for_every_user:hover {
+.matchingList > .matchingPerson:hover {
     background: #F4F7FC;
 }
-.chatbox_user_icon {
+.matchingList > .matchingPerson > .chatbox_user_icon {
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -41,11 +50,17 @@
     box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.06);
     margin: 10px 0 10px 15px;
 }
-.user_icon {
+.matchingList > .matchingPerson > .chatbox_user_icon .matchingPerson_img {
+    /* width: 50px;
+    height: 50px; */
+    display: block;
     width: 100%;
     height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
 }
-.chatbox_detail {
+.matchingList > .matchingPerson > .chatbox_detail {
     width: 90%;
     height: 100%;
     vertical-align: middle;
@@ -57,24 +72,24 @@
     line-height: 17px;
     color: #201301;
 }
-.chatbox_detail > .chatbox_user_name {
+.matchingList > .matchingPerson > .chatbox_detail > .matchingPerson_name {
     font-weight: 600;
     font-size: 15px;
     display: block;
     margin: 5px 10px;
 }
-.users_chat > .chatbox_for_every_user > .chatbox_detail > .chatbox_user_msg {
+.matchingList > .matchingPerson > .chatbox_detail > .matchingPerson_message {
     opacity: 0.5;
     display: block;
     margin: 5px 10px;
 }
-.users_chat > .chatbox_for_every_user > .chatbox_timestamp {
+.matchingList > .matchingPerson > .chatbox_timestamp {
     width: 100%;
     height: 100%;
-    transform: translate(0, -28px);
+    transform: translate(0, -10px);
 }
-.users_chat > .chatbox_for_every_user > .chatbox_timestamp .time{
-   transform: translate(0, 28px);
+.matchingList > .matchingPerson > .chatbox_timestamp .time{
+   transform: translate(0, 120%);
    display: block;
    color:#201301;
 }
