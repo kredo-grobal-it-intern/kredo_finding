@@ -134,4 +134,14 @@ class HomeController extends Controller
   public function showSearchBox(){
     return view('search.homepage');
   }
+
+  public function userslist(){
+
+    $user = Auth::user();
+    $job_postings = JobPosting::latest()->paginate(8);
+    $users = User::where('user_type', UserType::Worker)->paginate(8);
+    $countries = Country::pluck('name', 'code')->all();
+
+    return view('userslist',['users' => $users, 'user'=>$user, 'job_postings'=>$job_postings, 'countries'=>$countries]);
+  }
 }

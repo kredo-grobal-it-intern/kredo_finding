@@ -23,6 +23,7 @@
 @import url(register/register_company.css);
 @import url(mypage/profile.css);
 @import url(mypage/dislike.css);
+@import url(home_page/userslist.css);
 
 :root {
   --blue: #3490dc;
