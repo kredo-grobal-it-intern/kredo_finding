@@ -19,7 +19,7 @@ class DislikePageTest extends TestCase
      * @return void
      */
 
-    public function testAuthCreate()
+    public function testDislikeFunctionality()
     {
         $workerUser = factory(User::class)->state('Worker')->create();
         $companyUser = factory(User::class)->state('Company')->create();
@@ -31,9 +31,22 @@ class DislikePageTest extends TestCase
 
         Session::start();
         $dislikeResponse = $this->actingAs($workerUser)
-                        ->patch("/reaction/ChangeDisliked/{$workerReactionId}/update",[
+                        ->from('/mypage/reaction/showDisliked')->patch("/reaction/ChangeDisliked/{$workerReactionId}/update",[
                           '_token' => csrf_token(),
                       ]);
-        $dislikeResponse->assertStatus(200);
+        $dislikeResponse->assertRedirect(route('reaction.showDisliked'));
     }
+
+  public function testDislikeTokenMismatchWhenTheresNoToken(){
+        $workerUser = factory(User::class)->state('Worker')->create();
+        $companyUser = factory(User::class)->state('Company')->create();
+        $workerReactionId  = DB::table('worker_reactions')->insertGetId([
+          'to_job_id' => $companyUser->id,
+          'from_worker_id' => $workerUser->id,
+          'status' => 1
+        ]);
+        $dislikeResponse = $this->actingAs($workerUser)
+        ->patch("/reaction/ChangeDisliked/{$workerReactionId}/update");
+          $dislikeResponse->assertstatus(419);
+  }
 }

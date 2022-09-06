@@ -22,6 +22,7 @@ class ReactionController extends Controller
   public function __construct(User $user)
   {
     $this->user = $user;
+    $this->middleware('auth');
   }
 
   public function show()
@@ -118,20 +119,20 @@ class ReactionController extends Controller
 
   public function changeDislikedToLike($id){
     if(!isWorker(Auth::id())){
-      return Reaction::where([
+      Reaction::where([
         ['to_user_id', $id],
         ['from_user_id', Auth::id()],
         ])->update(['status'=> 0]
       );
     }else{
-      return WorkerReaction::where([
+      WorkerReaction::where([
         ['to_job_id', $id],
         ['from_worker_id', Auth::id()],
         ])->update(['status'=> 0]
       );
     }
 
-    // return redirect()->back();
+    return redirect()->back();
   }
 
   public function showLikedUser($id){
