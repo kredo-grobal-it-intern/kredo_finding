@@ -109,4 +109,12 @@ class User extends Authenticatable
       ]
   );
   }
+
+  public function reactionFrom() {
+    return $this->belongsToMany(User::class, 'reactions', 'to_user_id', 'from_user_id');
+  }
+
+  public function reactionTo() {
+    return $this->belongsToMany(User::class, 'worker_reactions', 'from_worker_id', 'to_job_id');
+  }
 }

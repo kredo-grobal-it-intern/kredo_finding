@@ -49,4 +49,26 @@ class DislikePageTest extends TestCase
         ->patch("/reaction/ChangeDisliked/{$workerReactionId}/update");
           $dislikeResponse->assertstatus(419);
   }
+
+  public function testCheckUserStatusWhenChangeDisliked(){
+        $workerUser = factory(User::class)->state('Worker')->create();
+        $companyUser = factory(User::class)->state('Company')->create();
+        $workerReactionId  = DB::table('worker_reactions')->insertGetId([
+          'to_job_id' => $companyUser->id,
+          'from_worker_id' => $workerUser->id,
+          'status' => 1
+        ]);
+
+        Session::start();
+        $dislikeResponse = $this->actingAs($workerUser)
+        ->from('/mypage/reaction/showDisliked')->patch("/reaction/ChangeDisliked/{$workerReactionId}/update",[
+          '_token' => csrf_token(),
+        ]);
+
+        $this->assertDatabaseHas('worker_reactions', [
+          'to_job_id' => $companyUser->id,
+          'from_worker_id' => $workerUser->id,
+          'status' => 0
+      ]);
+  }
 }
