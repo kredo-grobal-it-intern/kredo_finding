@@ -40,6 +40,7 @@ Route::group(['prefix' => 'home'], function () {
   Route::get('/searchbox', 'HomeController@showSearchBox')->name('showSearchBox');
   Route::get('/changePassword', 'HomeController@showChangePasswordGet')->name('changePasswordGet');
   Route::post('/changePassword', 'HomeController@changePasswordPost')->name('changePasswordPost');
+  Route::get('/users', 'HomeController@userslist')->name('users');
 });
 
 Route::group(['prefix' => 'reaction', 'as' => 'reaction.'], function () {
