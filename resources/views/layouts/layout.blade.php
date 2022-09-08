@@ -45,7 +45,7 @@
             <span class="font-weight-bold">MESSAGES</span>
           </a>
 
-          <a href="{{ route('contacts') }}" class="sideBarItem">
+          <a href="{{ route('contact.show') }}" class=" {{ request()->is('mypage/reatction/contact.show') ? 'active' : '' }} sideBarItem">
             <i class="fa-solid fa-envelope"></i>
             <span class="font-weight-bold">CONTACT</span>
           </a>
