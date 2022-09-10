@@ -22,7 +22,6 @@ class ReactionController extends Controller
   public function __construct(User $user)
   {
     $this->user = $user;
-    $this->middleware('auth');
   }
 
   public function show()
@@ -47,8 +46,9 @@ class ReactionController extends Controller
       $user = User::find(Auth::id());
 
       $dislike_user = $user->fromUserId()->where('status', 1)->get();
+
+      $you_dislike = WorkerReaction::where('from_worker_id', Auth::id())->where('status', 1)->pluck('to_job_id');
       
-      $you_dislike = $user->reactionTo->pluck('to_job_id');
       $dislike_job = JobPosting::whereIn('id', $you_dislike)->get();
 
     return view('mypage/dislike', compact('dislike_user', 'dislike_job'));
@@ -119,10 +119,16 @@ class ReactionController extends Controller
 
   public function changeDislikedToLike($id){
     if(!isWorker(Auth::id())){
-      Reaction::where('id', $id)->update(['status'=> 0]
+      Reaction::where([
+        ['to_user_id', $id],
+        ['from_user_id', Auth::id()],
+        ])->update(['status'=> 0]
       );
     }else{
-      WorkerReaction::where('id', $id)->update(['status'=> 0]
+      WorkerReaction::where([
+        ['to_job_id', $id],
+        ['from_worker_id', Auth::id()],
+        ])->update(['status'=> 0]
       );
     }
 
