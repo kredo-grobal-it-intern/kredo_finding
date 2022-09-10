@@ -1,4 +1,4 @@
-<div class = "likedList row">
+<!-- <div class = "likedList row">
     @foreach( $you_liked as $you_liked_user)
     <div class = "liked_wrap card border-0">
         @if (!isWorker(Auth::id()))
@@ -35,4 +35,7 @@
          @endif
      </div>
      @endforeach
-</div>
+</div> -->
+@foreach ($you_liked as $user )
+    <li>{{ $user->toUserId->name }}</li>    
+@endforeach

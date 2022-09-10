@@ -50,6 +50,9 @@
 .userlist .icon li a{
   color: #fff;
 }
+.userlist .icon li:first-child{
+  background: #fac9e0d3;
+}
 
 /* Companies list */
 .jobposting .title .occupation {
