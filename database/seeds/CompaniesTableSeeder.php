@@ -20,7 +20,8 @@ class CompaniesTableSeeder extends Seeder
 
         $environment = App::environment();
 
-        if($environment === 'local'){
+        
+        if($environment === 'local' || $environment === 'testing'){
             for ($i = 501; $i <= 1000; $i++){
                 $user = User::Find($i);
     

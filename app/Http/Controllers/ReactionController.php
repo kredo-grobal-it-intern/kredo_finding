@@ -47,8 +47,9 @@ class ReactionController extends Controller
 
       $dislike_user = $user->fromUserId()->where('status', 1)->get();
 
-      $you_likes = WorkerReaction::where('from_worker_id', Auth::id())->where('status', 1)->pluck('to_job_id');
-      $dislike_job = JobPosting::whereIn('id', $you_likes)->get();
+      $you_dislike = WorkerReaction::where('from_worker_id', Auth::id())->where('status', 1)->pluck('to_job_id');
+      
+      $dislike_job = JobPosting::whereIn('id', $you_dislike)->get();
 
     return view('mypage/dislike', compact('dislike_user', 'dislike_job'));
   }
