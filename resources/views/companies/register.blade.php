@@ -72,7 +72,7 @@
             <div class="row">
               <div class="form-group col-6">
                 <label>Contact Number</label>
-                <input type="tel" name="contact_number" class="form-control" placeholder="Phone number without hyphen" maxlength="11">
+                <input type="tel" name="contact_number" class="form-control" value="{{ old('contact_number') }}" placeholder="Phone number without hyphen" maxlength="11">
                 @error('contact_number')
                   <span class="errorMessage">{{ $message }}</span>
                 @enderror

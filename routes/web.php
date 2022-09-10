@@ -18,7 +18,7 @@ use App\Http\Controllers\ReactionController;
 Route::group(['prefix' => 'users', 'middleware' => 'auth', 'as' => 'users.'], function () {
   Route::get('mypage/show/{id}', 'UserController@show')->name('show');
   Route::get('edit/{id}', 'UserController@edit')->name('edit');
-  Route::post('updateUser/{id}', 'UserController@updateUser')->name('updateUser');
+  Route::patch('/{id}', 'UserController@updateUser')->name('updateUser');
   Route::patch('updateJob/{id}', 'UserController@updateJob')->name('updateJob');
   Route::delete('destroy/{id}', 'UserController@destroy')->name('delete');
 });
@@ -40,6 +40,7 @@ Route::group(['prefix' => 'home'], function () {
   Route::get('/searchbox', 'HomeController@showSearchBox')->name('showSearchBox');
   Route::get('/changePassword', 'HomeController@showChangePasswordGet')->name('changePasswordGet');
   Route::post('/changePassword', 'HomeController@changePasswordPost')->name('changePasswordPost');
+  Route::get('/users', 'HomeController@userslist')->name('users');
 });
 
 Route::group(['prefix' => 'reaction', 'as' => 'reaction.'], function () {

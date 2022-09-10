@@ -7,7 +7,7 @@ function isWorker($user_id){
     $user = User::find($user_id);
     return ($user->user_type == UserType::Worker) ? true : false;
 }
-    
+
 function profileImageInProfile($image){
     if($image){
         echo '<img src="'.$image.'">';
@@ -50,4 +50,8 @@ function profileImageInNav($image){
 
 function profileImageInMypage(){
     echo '<i class="'.((isWorker(Auth::id())) ? 'fas fa-user' : 'fas fa-building').'"></i>';
+}
+
+function companyImageInUserlist($image){
+    echo ($image) ? '<img src="'.$image.'" class="profile-image">' : '<i class="fa-solid fa-building profile-icon"></i>';
 }

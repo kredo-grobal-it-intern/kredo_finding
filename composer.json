@@ -11,6 +11,7 @@
     "php": "^7.2.5",
     "ext-gd": "*",
     "doctrine/dbal": "^2.6",
+    "fakerphp/faker": "^1.9.1",
     "fideloper/proxy": "^4.4",
     "intervention/image": "^2.7",
     "laravel/framework": "^6.20.26",
@@ -20,7 +21,6 @@
   },
   "require-dev": {
     "facade/ignition": "^1.16.15",
-    "fakerphp/faker": "^1.9.1",
     "laravel/ui": "1.2.0",
     "mockery/mockery": "^1.0",
     "nunomaduro/collision": "^3.0",
