@@ -13,7 +13,7 @@
         </div>
         <div class="reactionicon">
           <form action="{{ route('reaction.changeDislikedToLike' ,$job->id) }}" method="post" class="">
-            {{-- @csrf --}}
+            @csrf
             @method('PATCH')
             <button type="submit" class="btn">
               <i class="fa-solid fa-thumbs-up like-icon"></i>
