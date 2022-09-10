@@ -34,8 +34,25 @@
                                 </div>
                                 <div class="footer mt-2">
                                     <ul class="icon">
-                                        <li><a href="#"><i class="far fa-heart">
-                                        </i></a></li>
+                                        <li>
+                                            @if ($user->isLiked())
+                                            <form action="{{ route('dislike' , $user->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn likebtn">
+                                                <i class="fas fa-heart text-danger fa-lg"></i>
+                                                </button>
+                                            </form>
+                                            @else
+                                            <form action="{{ route('like', $user->id) }}" method="post">
+                                                @csrf
+                                                @method('POST')
+                                                <button type="submit" class="btn likebtn">
+                                                <i class="far fa-heart fa-lg"></i>
+                                                </button>
+                                            </form>
+                                            @endif
+                                        </li>
                                         <li><a href="#"><i class="fas fa-comment-dots"></i></a></li>
                                         <li><a href="#"><i class="fas fa-map-marker-alt"></i></a></li>
                                         <li><a href="#"><i class="fas fa-home"></i></a></li>
