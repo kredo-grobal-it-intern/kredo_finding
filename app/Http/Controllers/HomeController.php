@@ -149,16 +149,16 @@ class HomeController extends Controller
 
   public function react($id){
     if(!isWorker(Auth::id())){
-      Reaction::insert([
+      Reaction::create([
         "to_user_id" => $id,
         "from_user_id" => Auth::id(),
         "status" => 0
        ]);
     }else{
-      WorkerReaction::insert([
+      WorkerReaction::create([
         'to_job_id'=> $id,
         'from_worker_id'=> Auth::id(),
-        "status" => 0
+        "status" => 0,
       ]);
     }
     return redirect()->back();
