@@ -11,6 +11,8 @@ use Auth;
 use Hash;
 use App\Constants\UserType;
 use App\JobPosting;
+use App\Reaction;
+use App\WorkerReaction;
 
 class HomeController extends Controller
 {
@@ -134,4 +136,47 @@ class HomeController extends Controller
   public function showSearchBox(){
     return view('search.homepage');
   }
+
+  public function userslist(){
+
+    $user = Auth::user();
+    $job_postings = JobPosting::latest()->paginate(8);
+    $users = User::where('user_type', UserType::Worker)->paginate(8);
+    $countries = Country::pluck('name', 'code')->all();
+
+    return view('userslist',['users' => $users, 'user'=>$user, 'job_postings'=>$job_postings, 'countries'=>$countries]);
+  }
+
+  public function react($id){
+    if(!isWorker(Auth::id())){
+      Reaction::insert([
+        "to_user_id" => $id,
+        "from_user_id" => Auth::id(),
+        "status" => 0
+       ]);
+    }else{
+      WorkerReaction::insert([
+        'to_job_id'=> $id,
+        'from_worker_id'=> Auth::id(),
+        "status" => 0
+      ]);
+    }
+    return redirect()->back();
+  }
+
+  public function destroy($id){
+    if(!isWorker(Auth::id())){
+      Reaction::where([
+        ['to_user_id', $id],
+        ['from_user_id', Auth::id()],
+        ])->delete();
+    }else{
+      WorkerReaction::where([
+        ['to_job_id', $id],
+        ['from_worker_id', Auth::id()],
+        ])->delete();
+    }
+    return redirect()->back();
+  }
+
 }

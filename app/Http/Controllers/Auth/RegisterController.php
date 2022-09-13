@@ -53,7 +53,8 @@ class RegisterController extends Controller
     $this->company = $company;
   }
 
-  public function showCompanyRegister(){
+  public function showCompanyRegister()
+  {
     return view('companies/register');
   }
 
@@ -84,7 +85,7 @@ class RegisterController extends Controller
 
   protected function create(array $data)
   {
-    if (!empty($data['img_name'])){
+    if (!empty($data['img_name'])) {
 
       $imageFile = $data['img_name'];
 
@@ -93,12 +94,11 @@ class RegisterController extends Controller
       list($extension, $fileData) = $list;
 
       $bin_image = CheckExtensionServices::checkExtension($fileData, $extension);
-
     } else {
       $bin_image = NULL;
     }
 
-    if(empty($data['gender'])){
+    if (empty($data['gender'])) {
       $data['gender'] = NULL;
     }
 
@@ -106,11 +106,11 @@ class RegisterController extends Controller
 
     $user = User::find($create_user->id);
 
-    if(!isWorker($user->id)){
+    if (!isWorker($user->id)) {
       $this->company->createCompany($user, $bin_image);
     }
 
-    Mail::send(new RegisterUserAccountMail($user));
     return $create_user;
+    // Mail::send(new RegisterUserAccountMail($user));
   }
 }

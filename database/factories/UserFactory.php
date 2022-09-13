@@ -22,6 +22,7 @@ $factory->define(User::class, function (Faker $faker) {
         'self_introduction' => $faker->realText(300),
         'address1' => $faker->streetName,
         'address2' => 'hoge',
+        'name' => $faker->name,
         'city' => $faker->city,
         'state' => $faker->state,
         'country' => $faker->countryCode,

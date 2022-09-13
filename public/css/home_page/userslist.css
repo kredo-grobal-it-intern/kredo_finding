@@ -1,0 +1,95 @@
+/* Workers list */
+.userlist .card-header{
+    background-color: #f9f4ed;
+  }
+.userlist .profile-icon {
+  font-size: 170px;
+  color: #f3920b;
+  padding-top: 30px;
+}
+.userlist .card-header .avatar{
+  text-align: center;
+}
+.userlist .card-header img {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border: solid 4px #F87474;
+}
+.userlist .card-body .name{
+  color: rgba(10, 3, 39, 0.731);
+  padding: 8px;
+  border-left: solid 10px #FFB562;
+  font-weight: bold;
+  background-color: #F9F2ED;
+  border-radius: 0 10px 10px 0;
+}
+.userlist .card-body .introtitle{
+  color: #607EAA; 
+}
+.userlist .card-body .introduction {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+.userlist .icon{
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  text-align: center;
+}
+.userlist .icon li {
+  display: table-cell;
+  vertical-align: middle;
+  background: #3AB0FF;
+  font-size: 1.5em;
+  border: solid 2px #fff;
+}
+.userlist .icon li a{
+  color: #fff;
+}
+.userlist .icon li:first-child{
+  background: #fac9e0d3;
+}
+
+/* Companies list */
+.jobposting .title .occupation {
+  border-left: solid 8px #9AD0EC;
+  padding: 4px;
+  color: #021125ab;
+}
+.jobposting .title .status {
+  background-color: #44546ba6;
+  color: #f8f8f8;
+  border-radius: 10px;
+  padding: 2px;
+  margin: 5px;
+}
+.jobposting .card-header {
+  background-color: #FFF9F9;
+}
+.jobposting .card-header .avatar .profile-icon {
+  font-size: 90px;
+  color: #30a6e6;
+}
+.jobposting .card-header .avatar .profile-image {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: solid 3px #30a6e6;
+}
+.jobposting .card-header .location {
+  margin-top: 15px;
+}
+.jobposting .card-body span {
+  margin-left: 10px;
+}
+.jobposting .card-body .description {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}

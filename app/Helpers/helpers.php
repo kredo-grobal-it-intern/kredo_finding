@@ -51,3 +51,7 @@ function profileImageInNav($image){
 function profileImageInMypage(){
     echo '<i class="'.((isWorker(Auth::id())) ? 'fas fa-user' : 'fas fa-building').'"></i>';
 }
+
+function companyImageInUserlist($image){
+    echo ($image) ? '<img src="'.$image.'" class="profile-image">' : '<i class="fa-solid fa-building profile-icon"></i>';
+}

@@ -12,6 +12,11 @@ class JobPosting extends Model
         return $this->belongsTo('App\User', 'user_id', 'id');
     }
 
+    public function company()
+    {
+        return $this->belongsTo('App\Company', 'company_id', 'id');
+    }
+
     public function toJobId()
     {
         return $this->hasMany('App\WorkerReaction', 'to_job_id', 'id');
