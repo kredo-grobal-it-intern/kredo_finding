@@ -51,7 +51,5 @@ class MatchingController extends Controller
     $match_users_count = count($matching_users);
 
     return view('mypage.message', compact('matching_users', 'match_users_count'));
-
-    // var_dump($matching_users);
   }
 }

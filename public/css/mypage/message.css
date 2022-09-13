@@ -6,12 +6,9 @@
 }
 .matchingList {
     width: 30%;
-    overflow: hidden;
+    overflow-y: hidden;
     padding-right: 15px;
     background-color: #FFFFFF;
-
-    height: 100vh;
-
 }
 .matchingList:hover {
     overflow-y: scroll;
@@ -27,22 +24,21 @@
     background-color: gainsboro;
     border-radius: 5px;
 }
-.matchingList > .matchingPerson {
+.matchingPerson {
     width: 100%;
     height: 80px;
     background: #FFFFFF;
     display: flex;
-    display: table;
     border-bottom: 1px solid #F4F7FC;
-
     padding: 5px 0px;
     align-items: center;
     position: relative;
+    border-radius: 10px;
 }
-.matchingList > .matchingPerson:hover {
+.matchingPerson:hover {
     background: #F4F7FC;
 }
-.matchingList > .matchingPerson > .chatbox_user_icon {
+.user_icon {
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -50,9 +46,9 @@
     box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.06);
     margin: 10px 0 10px 15px;
 }
-.matchingList > .matchingPerson > .chatbox_user_icon .matchingPerson_img {
-    /* width: 50px;
-    height: 50px; */
+.user_icon > .matchingPerson_img {
+    font-size: 50px;
+    color: lightgray;
     display: block;
     width: 100%;
     height: 100%;
@@ -60,7 +56,10 @@
     overflow: hidden;
     margin-right: 10px;
 }
-.matchingList > .matchingPerson > .chatbox_detail {
+.user_icon > .fa-user {
+    padding: 8px;
+}
+.chatbox_detail {
     width: 90%;
     height: 100%;
     vertical-align: middle;
@@ -72,29 +71,47 @@
     line-height: 17px;
     color: #201301;
 }
-.matchingList > .matchingPerson > .chatbox_detail > .matchingPerson_name {
+.chatbox_detail > .matchingPerson_name {
     font-weight: 600;
     font-size: 15px;
     display: block;
-    margin: 5px 10px;
+    margin: 15px 0 0 10px;
 }
-.matchingList > .matchingPerson > .chatbox_detail > .matchingPerson_message {
+.chatbox_detail > .matchingPerson_message {
     opacity: 0.5;
     display: block;
     margin: 5px 10px;
 }
-.matchingList > .matchingPerson > .chatbox_timestamp {
-    width: 100%;
+.chatbox_timestamp {
     height: 100%;
     transform: translate(0, -10px);
+    text-align: end;
+    margin: 0 0 0 auto;
 }
-.matchingList > .matchingPerson > .chatbox_timestamp .time{
+.chatbox_timestamp > .time {
    transform: translate(0, 120%);
    display: block;
    color:#201301;
 }
 
 /* PERSONAL CHAT VIEW */
+.chatbox_initial {
+    background-color: #E5E5E5;
+    width: 70%;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+.initial_message{
+    height: 50%;
+    transform: translate(0, 90%);
+    color: #201301;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 17px;
+}
 .chatbox {
     background-color: #E5E5E5;
     width: 70%;
@@ -108,7 +125,38 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     height: 80px;
     display: flex;
-    display: table;
+    padding: 5px 15px;
+    align-items: center;
+    position: relative;
+}
+.header_user_icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.06);
+    margin: 10px 0 10px 15px;
+}
+.chatbox_header > .chatbox_user_icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.06);
+    margin: 10px 0 10px 15px;
+    z-index: 100;
+}
+.chatbox_user_icon > .matchingPerson_img {
+    font-size: 30px;
+    color: lightgray;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.06);
+    margin: 10px 0 10px 15px;
+    text-align: center;
+    padding-top: 7px;
 }
 .chatbox_header_user_name {
     font-size: 15px;
@@ -146,14 +194,6 @@
     display: flex;
     flex-flow: column;
     margin-bottom: 10px;
-}
-.chatbox_main > .msg_from_you > .user_icon_for_msg {
-    background-color: #FFFFFF;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    margin: 10px;
-    display: block;
 }
 .message {
     padding: 10px 15px;
