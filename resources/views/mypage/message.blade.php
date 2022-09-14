@@ -8,7 +8,7 @@
         <div class="matchingPerson">
           <div class="user_icon">
             @if($user->img_name)
-              <span class="matchingPerson_img">{{ profileImageInMessage($user->img_name) }}</span>
+              <span>{{ profileImageInMessage($user->img_name) }}</span>
             @else
               <i class="fa-solid fa-user matchingPerson_img"></i>
             @endif
@@ -28,7 +28,7 @@
       <div class="chatbox_header">
         <div class="user_icon header_user_icon">
           @if($user->img_name)
-              <span class="matchingPerson_img">{{ profileImageInMessage($user->img_name) }}</span>
+              <span>{{ profileImageInMessage($user->img_name) }}</span>
             @else
               <i class="fa-solid fa-user matchingPerson_img"></i>
             @endif
@@ -43,7 +43,7 @@
         <div class="msg_from_you">
           <div class="chatbox_user_icon">
             @if($user->img_name)
-              <span class="matchingPerson_img">{{ profileImageInMessage($user->img_name) }}</span>
+              <span>{{ profileImageInMessage($user->img_name) }}</span>
             @else
               <i class="fa-solid fa-user matchingPerson_img"></i>
             @endif
@@ -70,7 +70,7 @@
         <div class="msg_from_you">
           <div class="chatbox_user_icon user_icon_for_msg">
             @if($user->img_name)
-              <span class="matchingPerson_img">{{ profileImageInMessage($user->img_name) }}</span>
+              <span>{{ profileImageInMessage($user->img_name) }}</span>
             @else
               <i class="fa-solid fa-user matchingPerson_img"></i>
             @endif
