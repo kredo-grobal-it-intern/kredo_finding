@@ -20,11 +20,10 @@ class CompaniesTableSeeder extends Seeder
 
         $environment = App::environment();
 
-        
-        if($environment === 'local' || $environment === 'testing'){
-            for ($i = 501; $i <= 1000; $i++){
+        if ($environment === 'local' || $environment === 'testing') {
+            for ($i = 501; $i <= 1000; $i++) {
                 $user = User::Find($i);
-    
+
                 DB::table('companies')->insert([
                     'name' => $user->name,
                     'user_id' => $user->id,
@@ -51,10 +50,10 @@ class CompaniesTableSeeder extends Seeder
                     'updated_at' => $user->updated_at
                 ]);
             }
-        }else{
-            for ($i = 5004; $i <= 9994; $i = $i + 10){
+        } else {
+            for ($i = 5004; $i <= 9994; $i = $i + 10) {
                 $user = User::Find($i);
-    
+
                 DB::table('companies')->insert([
                     'name' => $user->name,
                     'user_id' => $user->id,

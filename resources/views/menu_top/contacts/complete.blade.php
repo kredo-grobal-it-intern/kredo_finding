@@ -12,7 +12,9 @@
                 </a>
             </div>
             <div class="col px-0">
-                <p style="font-size:18px; font-weight:700; font-family:'Inter'; line-height:22px; color:#000000;" >CONTACT US</p>
+                <p style="font-size:18px; font-weight:700; font-family:'Inter'; line-height:22px; color:#000000;">
+                    CONTACT US
+                </p>
             </div>
         </div>
     </div>
@@ -23,8 +25,8 @@
         <div class="comp-content">
             <p class="content-header">Thank you for contacting us.</p>
             <p class="content-text">We have received your inquiry and will get back to you soon.</p>
-    
+
             <a href="{{ route('top') }}" class="comp-btn">Go back to Top Page</a>
-        </div>        
+        </div>
     </div>
 @endsection

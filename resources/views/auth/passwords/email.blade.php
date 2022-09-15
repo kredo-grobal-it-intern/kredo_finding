@@ -17,13 +17,13 @@
                     <div class="form-group">
                         <div class="mt-4">
                             <h1 class="p-5 text-secondary">Forgot Your Password??</h1>
-
-
                             <p class="lead">Enter the emali address associated with your account.</p>
 
                             <label for="email" class="col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Enter Email Address" required autocomplete="email" autofocus>
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                name="email" value="{{ old('email') }}" placeholder="Enter Email Address" required
+                                autocomplete="email" autofocus>
 
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -47,7 +47,6 @@
             </div>
 
             <div class="forgotImage"></div>
-
         </div>
     </div>
 @endsection
