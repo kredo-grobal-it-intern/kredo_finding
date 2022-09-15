@@ -134,13 +134,13 @@
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" name="gender" value="0"
                                                     type="radio" id="inlineRadio1"
-                                                    @if ($user->gender === 0) checked @endif>
+                                                    @if ($user->gender === App\Constants\UserConstants::MALE) checked @endif>
                                                 <label class="form-check-label" for="inlineRadio1">male</label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" name="gender" value="1"
                                                     type="radio" id="inlineRadio2"
-                                                    @if ($user->gender === 1) checked @endif>
+                                                    @if ($user->gender === App\Constants\UserConstants::FEMALE) checked @endif>
                                                 <label class="form-check-label" for="inlineRadio2">female</label>
                                             </div>
                                         </div>
