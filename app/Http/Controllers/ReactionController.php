@@ -28,11 +28,11 @@ class ReactionController extends Controller
   {
     $user = User::find(Auth::id());
 
-    if(isWorker($user->id)){
+    if (isWorker($user->id)) {
       $you_likes = WorkerReaction::where('from_worker_id', Auth::id())->where('status', 0)->pluck('to_job_id');
       $you_liked = JobPosting::whereIn('id', $you_likes)->paginate(5);
       $liked_by = $user->toUserId()->where('status', 0)->paginate(5);
-    }else{
+    } else {
       $you_liked = $user->fromUserId()->where('status', 0)->paginate(5);
       $job_postings = JobPosting::where('user_id', Auth::id())->pluck('id');
       $liked_by = WorkerReaction::whereIn('to_job_id', $job_postings)->where('status', 0)->paginate(5);
@@ -43,13 +43,13 @@ class ReactionController extends Controller
 
   public function showDisliked()
   {
-      $user = User::find(Auth::id());
+    $user = User::find(Auth::id());
 
-      $dislike_user = $user->fromUserId()->where('status', 1)->get();
+    $dislike_user = $user->fromUserId()->where('status', 1)->get();
 
-      $you_dislike = WorkerReaction::where('from_worker_id', Auth::id())->where('status', 1)->pluck('to_job_id');
-      
-      $dislike_job = JobPosting::whereIn('id', $you_dislike)->get();
+    $you_dislike = WorkerReaction::where('from_worker_id', Auth::id())->where('status', 1)->pluck('to_job_id');
+
+    $dislike_job = JobPosting::whereIn('id', $you_dislike)->get();
 
     return view('mypage/dislike', compact('dislike_user', 'dislike_job'));
   }
@@ -60,9 +60,9 @@ class ReactionController extends Controller
     $like_status = $request->reaction;
     $from_user_id = $request->from_user_id;
 
-    if ($like_status === 'like'){
+    if ($like_status === 'like') {
       $status = Status::LIKE;
-    }else{
+    } else {
       $status = Status::DISLIKE;
     }
 
@@ -73,8 +73,8 @@ class ReactionController extends Controller
 
     $user = $this->user->where('id', $from_user_id)->first();
 
-    if($checkReaction->isEmpty()){
-      if($user->user_type == UserType::Company){
+    if ($checkReaction->isEmpty()) {
+      if ($user->user_type == UserType::Company) {
         $reaction = new Reaction();
 
         $reaction->to_user_id = $to_user_id;
@@ -82,7 +82,7 @@ class ReactionController extends Controller
         $reaction->status = $status;
 
         $reaction->save();
-      }else{
+      } else {
         $workerReaction = new WorkerReaction();
 
         $workerReaction->to_job_id = $to_user_id;
@@ -99,48 +99,56 @@ class ReactionController extends Controller
     return view('mypage.like');
   }
 
-  public function changeLikedToDislike($id){
-    if(!isWorker(Auth::id())){
+  public function changeLikedToDislike($id)
+  {
+    if (!isWorker(Auth::id())) {
       Reaction::where([
         ['to_user_id', $id],
         ['from_user_id', Auth::id()],
-        ])->update(['status'=> 1]
+      ])->update(
+        ['status' => 1]
       );
-    }else{
+    } else {
       WorkerReaction::where([
         ['to_job_id', $id],
         ['from_worker_id', Auth::id()],
-        ])->update(['status'=> 1]
+      ])->update(
+        ['status' => 1]
       );
     }
 
     return redirect()->back();
   }
 
-  public function changeDislikedToLike($id){
-    if(!isWorker(Auth::id())){
+  public function changeDislikedToLike($id)
+  {
+    if (!isWorker(Auth::id())) {
       Reaction::where([
         ['to_user_id', $id],
         ['from_user_id', Auth::id()],
-        ])->update(['status'=> 0]
+      ])->update(
+        ['status' => 0]
       );
-    }else{
+    } else {
       WorkerReaction::where([
         ['to_job_id', $id],
         ['from_worker_id', Auth::id()],
-        ])->update(['status'=> 0]
+      ])->update(
+        ['status' => 0]
       );
     }
 
     return redirect()->back();
   }
 
-  public function showLikedUser($id){
+  public function showLikedUser($id)
+  {
     $user = User::find($id);
     return view('mypage.liked_user_detail')->with('user', $user);
   }
 
-  public function showLikedCompany($id){
+  public function showLikedCompany($id)
+  {
     $company = Company::find($id);
     return view('mypage.liked_company_detail')->with('company', $company);
   }

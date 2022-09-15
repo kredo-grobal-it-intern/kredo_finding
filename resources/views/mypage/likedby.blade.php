@@ -20,7 +20,9 @@
             @else
                 <div class="icon">
                     <a href="{{ route('company_detail.show', $liked_by_user->fromUserId->id) }}"
-                        @if ($liked_by_user->fromUserId->img_name) class="liking_img" @endif>{{ profileImageInLike($liked_by_user->fromUserId->img_name) }}</a>
+                        @if ($liked_by_user->fromUserId->img_name) class="liking_img" @endif>
+                        {{ profileImageInLike($liked_by_user->fromUserId->img_name) }}
+                    </a>
                 </div>
                 <div class="liking_name text-center mt-2">
                     <p class="h5">{{ $liked_by_user->fromUserId->name }}</p>
