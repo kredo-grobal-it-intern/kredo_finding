@@ -12,7 +12,9 @@
                 </a>
             </div>
             <div class="col px-0">
-                <p style="font-size:18px; font-weight:700; font-family:'Inter'; line-height:22px; color:#000000;" >CONTACT US</p>
+                <p style="font-size:18px; font-weight:700; font-family:'Inter'; line-height:22px; color:#000000;">
+                    CONTACT US
+                </p>
             </div>
         </div>
     </div>
@@ -29,7 +31,7 @@
                     <p class="card-subtitle">Please press the SEND button if your inquiry below is good.</p>
                     <p class="card-subtitle">Please press the BACK button if you want to change your inquiry.</p>
                 </div>
-    
+
                 <div class="card-body">
                     <div class="body-inquiry row">
                         <p class="col-3 inquiry-title">First name</p>
@@ -40,7 +42,7 @@
                             <p class="text-danger small">{{ $message }}</p>
                         @enderror
                     </div>
-    
+
                     <div class="body-inquiry row">
                         <p class="col-3 inquiry-title">Last name</p>
                         <p class="col-9 inquiry-detail" name="last_name">{{ $last_name }}</p>
@@ -50,7 +52,7 @@
                             <p class="text-danger small">{{ $message }}</p>
                         @enderror
                     </div>
-    
+
                     <div class="body-inquiry row">
                         <p class="col-3 inquiry-title">email</p>
                         <p class="col-9 inquiry-detail" name="email">{{ $email }}</p>
@@ -58,9 +60,9 @@
 
                         @error('email')
                             <p class="text-danger small">{{ $message }}</p>
-                        @enderror                        
+                        @enderror
                     </div>
-    
+
                     <div class="body-inquiry row">
                         <p class="col-3 inquiry-title">Inquiry</p>
                         <p class="col-9 inquiry-detail" name="inquiry">{{ $inquiry }}</p>
@@ -70,7 +72,7 @@
                             <p class="text-danger small">{{ $message }}</p>
                         @enderror
                     </div>
-    
+
                     <div class="button">
                         <button type="submit" name="back" value="back" class="button-return">BACK</button>
                         <button type="submit" name="submit" value="submit" class="button-send">SEND</button>
@@ -78,5 +80,5 @@
                 </div>
             </div>
         </div>
-    </form>    
+    </form>
 @endsection
