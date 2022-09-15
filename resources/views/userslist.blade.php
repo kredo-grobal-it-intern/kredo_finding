@@ -107,9 +107,32 @@
                                         <h5 class=" introtitle">Job Description</h5>
                                         <p class="description">{{ $jobPosting->job_description }}
                                         </p>
-                                        <a href="{{ route('company_detail.show', $jobPosting->company->id) }}">
-                                            <span class="btn btn-outline-info">...Read More</span>
-                                        </a>
+                                        <div class="row">
+                                            <span>
+                                                <a href="{{ route('company_detail.show', $jobPosting->company->id) }}">
+                                                <span class="btn btn-outline-info">...Read More</span>
+                                                </a>
+                                            </span>
+                                            <span class="workerlikebtn">
+                                                @if ($jobPosting->isLiked())
+                                                <form action="{{ route('dislike' , $jobPosting->id) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-outline-danger">
+                                                    <i class="fas fa-heart text-danger"></i>&nbsp;Like
+                                                    </button>
+                                                </form>
+                                                @else
+                                                <form action="{{ route('like', $jobPosting->id) }}" method="post">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <button type="submit" class="btn btn-outline-danger">
+                                                    <i class="far fa-heart"></i>&nbsp;Like
+                                                    </button>
+                                                </form>
+                                                @endif
+                                            </span>  
+                                        </div>      
                                     </div>
                                 </div>
                             </div>

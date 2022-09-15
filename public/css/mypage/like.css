@@ -179,3 +179,14 @@
   border-radius: 50%;
   padding: 10px;
 }
+
+.likedList .icon li {
+  display: table-cell;
+  vertical-align: middle;
+  background: #3AB0FF;
+  font-size: 1.5em;
+  border: solid 2px #fff;
+}
+.userlist .icon li a{
+  color: #fff;
+}
