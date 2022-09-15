@@ -42,12 +42,12 @@ Route::group(['prefix' => 'home'], function () {
   Route::post('/changePassword', 'HomeController@changePasswordPost')->name('changePasswordPost');
   Route::get('/users', 'HomeController@userslist')->name('users');
   Route::post('/like/{id}/update', 'HomeController@react')->name('like');
-  Route::delete('/users/{id}/destroy','HomeController@destroy')->name('dislike');
+  Route::delete('/users/{id}/destroy', 'HomeController@destroy')->name('dislike');
 });
 
 Route::group(['prefix' => 'reaction', 'as' => 'reaction.'], function () {
-    Route::patch('/ChangeLiked/{id}/update', 'ReactionController@changeLikedToDislike')->name('changeLikedToDislike');
-    Route::patch('/ChangeDisliked/{id}/update', 'ReactionController@changeDislikedToLike')->name('changeDislikedToLike');
+  Route::patch('/ChangeLiked/{id}/update', 'ReactionController@changeLikedToDislike')->name('changeLikedToDislike');
+  Route::patch('/ChangeDisliked/{id}/update', 'ReactionController@changeDislikedToLike')->name('changeDislikedToLike');
 });
 
 Route::group(['prefix' => 'mypage'], function () {
@@ -65,14 +65,14 @@ Route::group(['prefix' => 'chat', 'middleware' => 'auth', 'as' => 'chat.'], func
   Route::post('chat', 'ChatController@chat')->name('chat');
 });
 
-Route::get('/showAbout',[HomeController::class, 'showAbout'])->name('showAbout');
-Route::get('/faq',[HomeController::class, 'showFaq'])->name('faq');
+Route::get('/showAbout', [HomeController::class, 'showAbout'])->name('showAbout');
+Route::get('/faq', [HomeController::class, 'showFaq'])->name('faq');
 
 Route::group(['prefix' => 'contact', 'as' => 'contact.'], function () {
-  Route::get('/',[ContactController::class, 'index'])->name('show');
-  Route::post('/confirm',[ContactController::class, 'confirm'])->name('confirm');
-  Route::post('/complete',[ContactController::class, 'complete'])->name('complete');
+  Route::get('/', [ContactController::class, 'index'])->name('show');
+  Route::post('/confirm', [ContactController::class, 'confirm'])->name('confirm');
+  Route::post('/complete', [ContactController::class, 'complete'])->name('complete');
 });
 
-Route::get('/user_detail/{id}',[ReactionController::class, 'showLikedUser'])->name('user_detail.show');
-Route::get('/company_detail/{id}',[ReactionController::class, 'showLikedCompany'])->name('company_detail.show');
+Route::get('/user_detail/{id}', [ReactionController::class, 'showLikedUser'])->name('user_detail.show');
+Route::get('/company_detail/{id}', [ReactionController::class, 'showLikedCompany'])->name('company_detail.show');
