@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reaction extends Model
 {
+  protected $fillable = ['to_user_id', 'from_user_id', 'status'];
+  
   // Relation
   public function toUserId()
   {
@@ -16,4 +18,5 @@ class Reaction extends Model
   {
     return $this->belongsTo('App\User', 'from_user_id', 'id');
   }
+
 }
