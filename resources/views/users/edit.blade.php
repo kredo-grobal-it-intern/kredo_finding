@@ -7,12 +7,13 @@
                 <div>Edit Profile</div>
             </header>
             <div class="tab_wrap">
-                <input id="tab1" type="radio" name="tab_btn" checked>
-                <input id="tab2" type="radio" name="tab_btn">
+                <input id="tab1" type="radio" name="tab_btn" checked style="display:none">
+                <input id="tab2" type="radio" name="tab_btn" style="display:none">
 
-                <div class="tab_area">
-                    <label class="tab1_label" for="tab1">User</label>
-                    <label class="tab2_label" for="tab2">Job</label>
+                <div class="tab_area  mx-auto mt-3" style="width:96%;">
+                    <label class="tab1_label" for="tab1">USER INFO</label>&nbsp;&nbsp;
+                    <label class="tab2_label" for="tab2">JOB DETAILS</label>
+                    <hr class="mt-0 text-secondary">
                 </div>
 
                 <div class="panel_area">
@@ -26,140 +27,162 @@
                             </form>
                         @endif
                         <div class='container'>
-                            <form class="form mt-5" method="POST" action="/users/{{ $user->id }}"
+                          <div class="edit_form" style="width:100%;height:387px;border:1px solid #000; border-radius:20px;">
+                            <form class="form mt-3" method="POST" action="/users/{{ $user->id }}"
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PATCH')
 
-                                <label for="file_photo" class="rounded-circle userProfileImg">
-                                    <div class="userProfileImg_description">Upload Image</div>
-                                    @if ($user->img_name)
-                                        <img src="{{ $user->img_name }}" class="rounded-circle userProfileIcon">
-                                    @else
-                                        <i class="fas fa-camera fa-3x"></i>
-                                    @endif
-                                    <input type="file" id="file_photo" name="img_name">
-                                </label>
-                                <div class="userImgPreview" id="userImgPreview">
-                                    <img id="thumbnail" class="userImgPreview_content" accept="image/*" src="">
-                                    <p class="userImgPreview_text">Uploaded Image</p>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Name</label>
-                                    <input type="text" name="name" class="form-control" value="{{ $user->name }}"
-                                        {{ $user->name ? 'required' : '' }}>
-                                    @error('name')
-                                        <span class="errorMessage">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="email" name="email" class="form-control" value="{{ $user->email }}"
-                                        {{ $user->email ? 'required' : '' }}>
-                                    @error('email')
-                                        <span class="errorMessage">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <!-- Change password -->
-                                    <a href="{{ route('changePasswordGet') }}">Change Password </a>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <label>Address 1</label>
-                                            <p class="text-danger d-inline">*</p>
-                                            <input type="text" name="address1" class="form-control"
-                                                value="{{ $user->address1 }}" {{ $user->address1 ? 'required' : '' }}>
-                                        </div>
-                                        <div class="col-6">
-                                            <label>Address 2</label>
-                                            <input type="text" name="address2" class="form-control"
-                                                value="{{ $user->address2 }}">
-                                            @error('address2')
-                                                <span class="errorMessage">{{ $message }}</span>
-                                            @enderror
-                                        </div>
+                                <div class="row">
+                                  <div class="col" id="image">
+                                    <label for="file_photo" class="rounded-circle userProfileImg">
+                                      <div class="userProfileImg_description">Upload Image</div>
+                                      @if ($user->img_name)
+                                          <img src="{{ $user->img_name }}" class="rounded-circle userProfileIcon">
+                                      @else
+                                          <img src="/images/vector.png" alt="">
+                                      @endif
+                                      <input type="file" id="file_photo" name="img_name">
+                                    </label>
+                                    <div class="userImgPreview" id="userImgPreview">
+                                        <img id="thumbnail" class="userImgPreview_content" accept="image/*" src="">
+                                        <p class="userImgPreview_text">Uploaded Image</p>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col">
-                                                <label>City</label>
-                                                <p class="text-danger d-inline">*</p>
-                                                <input type="text" name="city" class="form-control"
-                                                    value="{{ $user->city }}" {{ $user->city ? 'required' : '' }}>
-                                                @error('city')
-                                                    <span class="errorMessage">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                            <div class="col">
-                                                <label>State</label>
-                                                <p class="text-danger d-inline">*</p>
-                                                <input type="text" name="state" class="form-control"
-                                                    value="{{ $user->state }}" {{ $user->state ? 'required' : '' }}>
-                                                @error('state')
-                                                    <span class="errorMessage">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                            <div class="col">
-                                                <label>Country</label>
-                                                <p class="text-danger d-inline">*</p>
-                                                <select class="form-control" name="country">
-                                                    <option></option>
-                                                    @foreach ($countries as $country_code => $country_name)
-                                                        <option value="{{ $country_code }}"
-                                                            @if ($user->country == $country_code) selected @endif>
-                                                            {{ $country_name }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            <div class="col">
-                                                <label>Zipcode</label>
-                                                <p class="text-danger d-inline">*</p>
-                                                <input type="number" name="zipcode" class="form-control"
-                                                    value="{{ $user->zipcode }}" {{ $user->zipcode ? 'required' : '' }}>
-                                                @error('zipcode')
-                                                    <span class="errorMessage">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="form-group pt-4">
-                                            <label>Contact Number</label>
-                                            <input type="number" name="contact_number" class="form-control"
+                                  </div>
+
+                                  <div class="col p-0" id="middle">
+                                    <table class="mx-auto">
+                                      <p>{{$user->name}}</p>
+                                      <tr>
+                                        <th><label for="email" class="form-label">Email :</label></th>
+                                        <td>
+                                          <div class="form-group">
+                                            <input type="email" name="email" id="email" class="form-control" style="border:none;" value="{{ $user->email }}"
+                                              {{ $user->email ? 'required' : '' }}>
+                                              @error('email')
+                                                <span class="errorMessage">{{ $message }}</span>
+                                              @enderror
+                                          </div>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <th>
+                                          <label for="contact_number" cclass="form-label">Contact Number :</label>
+                                        </th>
+                                        <td>
+                                          <div class="form-group pt-4">
+                                            <input type="number" name="contact_number" id="contact_number" style="border:none;" class="form-control"
                                                 placeholder="Enter Contact Number" value="{{ $user->contact_number }}">
+                                          </div>
+                                        </td>
+                                      </tr>
+                                    </table>
+
+                                      <div class="form-group pt-4">
+                                        <div class="form-check form-check-inline">
+                                          <input class="form-check-input" name="gender" id="gender" style="border:none;" value="0"
+                                                type="radio" id="inlineRadio1"
+                                                @if ($user->gender === App\Constants\UserConstants::MALE) checked @endif>
+                                            <label class="form-check-label" for="inlineRadio1">male</label>
                                         </div>
-                                        <div class="form-group pt-4">
-                                            <div><label>Gender</label></div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" name="gender" value="0"
-                                                    type="radio" id="inlineRadio1"
-                                                    @if ($user->gender === App\Constants\UserConstants::MALE) checked @endif>
-                                                <label class="form-check-label" for="inlineRadio1">male</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" name="gender" value="1"
-                                                    type="radio" id="inlineRadio2"
-                                                    @if ($user->gender === App\Constants\UserConstants::FEMALE) checked @endif>
-                                                <label class="form-check-label" for="inlineRadio2">female</label>
-                                            </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" name="gender" value="1"
+                                                type="radio" id="inlineRadio2"
+                                                @if ($user->gender === App\Constants\UserConstants::FEMALE) checked @endif>
+                                            <label class="form-check-label" for="inlineRadio2">female</label>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Self Introduction</label>
-                                            <textarea class="form-control" name="self_introduction" rows="10">{{ $user->self_introduction }}</textarea>
-                                        </div>
-                                        <div class="text-center">
-                                            <button type="submit" class="btn submitBtn">Update</button>
-                                        </div>
-                                        <div class="text-center mt-2">
-                                            <button type="button" onclick="history.back()"
-                                                class="btn backBtn">Back</button>
-                                        </div>
+                                      </div>
+
+                                      <div class="">
+                                        <button type="submit" class="btn btn-info text-white" style="width:126px; margin:0 5%">edit</button>
+                                        <button type="submit" class="btn btn-success" style="width:126px;">save</button>
+                                      </div>
+                                    </div>
+                                    <div class="col" id="button">
+                                      <form action="">
+                                        <button type="submit" class="btn btn-success" style="border-radius:20px; width:209px; height:67px;">ACTIVATE</button>
+                                      </form>
+                                    </div>
+                                  </div>
                             </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                          </div>
+
+                          <div class="add_details">
+                            <div class="form-group">
+                              <div class="address">
+                                <p class="left">ADDRESS</p>
+                                <hr class="mt-0 text-secondary">
+                                <div class="row">
+                                  <div class="col-6">
+                                      <input type="text" name="address1" class="form-control" placeholder="Address 1"
+                                          value="{{ $user->address1 }}" {{ $user->address1 ? 'required' : '' }}>
+                                  </div>
+                                  <div class="col-6">
+                                      <input type="text" name="address2" class="form-control" placeholder="Address 2"
+                                          value="{{ $user->address2 }}">
+                                      @error('address2')
+                                          <span class="errorMessage">{{ $message }}</span>
+                                      @enderror
+                                  </div>
+                                </div>
+                                <div class="row mt-3">
+                                  <div class="col">
+                                      <input type="text" name="city" class="form-control" placeholder="City"
+                                          value="{{ $user->city }}" {{ $user->city ? 'required' : '' }}>
+                                      @error('city')
+                                          <span class="errorMessage">{{ $message }}</span>
+                                      @enderror
+                                  </div>
+                                  <div class="col">
+                                      <input type="text" name="state" class="form-control" placeholder="State"
+                                          value="{{ $user->state }}" {{ $user->state ? 'required' : '' }}>
+                                      @error('state')
+                                          <span class="errorMessage">{{ $message }}</span>
+                                      @enderror
+                                  </div>
+                                  <div class="col">
+                                      <select class="form-control" name="country">
+                                          <option style="display:none;" class="gray" >Country</option>
+                                          @foreach ($countries as $country_code => $country_name)
+                                              <option value="{{ $country_code }}"
+                                                  @if ($user->country == $country_code) selected @endif>
+                                                  {{ $country_name }}</option>
+                                          @endforeach
+                                      </select>
+                                  </div>
+                                  <div class="col">
+                                      <input type="number" name="zipcode" class="form-control" placeholder="Zipcode"
+                                          value="{{ $user->zipcode }}" {{ $user->zipcode ? 'required' : '' }}>
+                                      @error('zipcode')
+                                          <span class="errorMessage">{{ $message }}</span>
+                                      @enderror
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                              {{-- <div class="form-group">
+                                  <!-- Change password -->
+                                  <a href="{{ route('changePasswordGet') }}">Change Password </a>
+                              </div> --}}
+
+                          <div class="self_introduction">
+                            <div class="form-group">
+                              <p class="left">SELEF INTRODUCTION</p>
+                              <hr class="mt-0 text-secondary">
+                              <textarea class="form-control" name="self_introduction" rows="10">{{ $user->self_introduction }}</textarea>
+                            </div>
+                            <div class="text-center">
+                              <button type="submit" class="btn submitBtn">Update</button>
+                            </div>
+                            <div class="text-center mt-2">
+                              <button type="button" onclick="history.back()"
+                                  class="btn backBtn">Back</button>
+                            </div>
+                          </div>
+                  </div>
+              </div>
 
             <div id="panel2" class="tab_panel">
                 <form class="form mt-5" method="POST" action="/users/updateJob/{{ $user->id }}"
