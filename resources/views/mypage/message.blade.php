@@ -2,7 +2,8 @@
 
 @section('content')
 
-  <div class="matchingPage">
+<div class="matchingPage">
+  @if ( $matching_users->isNotEmpty())
     <div class="matchingList">
       @foreach( $matching_users as $user)
         <div class="matchingPerson">
@@ -93,5 +94,8 @@
         <button type="submit" class="send_button">Send</button>
       </div>
     </div>
-  </div>
+  @else
+  <p>No messages</p>
+  @endif  
+</div>
 @endsection
