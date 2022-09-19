@@ -8,8 +8,8 @@
   .userEditPage .userProfileImg {
     position: relative;
     margin: 0 auto 10px auto;
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     background: #f3920b;
     display: flex;
     cursor: pointer;
@@ -133,11 +133,17 @@
   }
 
   .userEditPage #middle {
-    margin-top: 3%;
+    margin-top: 50px;
   }
   .userEditPage #image{
-    margin-top:13%;
+    margin-top:45px;
+  }
+  .userEditPage #image img{
+    height:150px;
   }
   .userEditPage #button{
     margin-top:14%;
+  }
+  .user-profile{
+    height: 110px;
   }

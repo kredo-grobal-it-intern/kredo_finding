@@ -35,12 +35,12 @@
 
                                 <div class="row">
                                   <div class="col" id="image">
-                                    <label for="file_photo" class="rounded-circle userProfileImg">
+                                    <label for="file_photo" class="userProfileImg">
                                       <div class="userProfileImg_description">Upload Image</div>
                                       @if ($user->img_name)
                                           <img src="{{ $user->img_name }}" class="rounded-circle userProfileIcon">
                                       @else
-                                          <img src="/images/vector.png" alt="">
+                                          <img src="/images/vector.png" alt="" class="user-profile" >
                                       @endif
                                       <input type="file" id="file_photo" name="img_name">
                                     </label>
@@ -79,8 +79,9 @@
                                     </table>
 
                                       <div class="form-group pt-4">
+                                        <label class="form-lbel">Gender :</label>
                                         <div class="form-check form-check-inline">
-                                          <input class="form-check-input" name="gender" id="gender" style="border:none;" value="0"
+                                          <input class="form-check-input" name="gender" style="border:none;" value="0"
                                                 type="radio" id="inlineRadio1"
                                                 @if ($user->gender === App\Constants\UserConstants::MALE) checked @endif>
                                             <label class="form-check-label" for="inlineRadio1">male</label>
@@ -110,7 +111,7 @@
                           <div class="add_details">
                             <div class="form-group">
                               <div class="address">
-                                <p class="left">ADDRESS</p>
+                                <h5 class="mt-4 mb-1">ADDRESS</h5>
                                 <hr class="mt-0 text-secondary">
                                 <div class="row">
                                   <div class="col-6">
@@ -162,14 +163,9 @@
                             </div>
                           </div>
 
-                              {{-- <div class="form-group">
-                                  <!-- Change password -->
-                                  <a href="{{ route('changePasswordGet') }}">Change Password </a>
-                              </div> --}}
-
                           <div class="self_introduction">
                             <div class="form-group">
-                              <p class="left">SELEF INTRODUCTION</p>
+                              <h5 class="mt-4 mb-1">SELF INTRODUCTION</h5>
                               <hr class="mt-0 text-secondary">
                               <textarea class="form-control" name="self_introduction" rows="10">{{ $user->self_introduction }}</textarea>
                             </div>
@@ -179,6 +175,12 @@
                             <div class="text-center mt-2">
                               <button type="button" onclick="history.back()"
                                   class="btn backBtn">Back</button>
+                            </div>
+                          </div>
+
+                          <div class="account">
+                            <div class="form-group">
+                                <h5 class="mt-4 mb-1"></h5>
                             </div>
                           </div>
                   </div>
