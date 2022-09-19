@@ -34,7 +34,7 @@
                                 @method('PATCH')
 
                                 <div class="row">
-                                  <div class="col" id="image">
+                                  <div class="col-md-4" id="image">
                                     <label for="file_photo" class="userProfileImg">
                                       <div class="userProfileImg_description">Upload Image</div>
                                       @if ($user->img_name)
@@ -50,35 +50,42 @@
                                     </div>
                                   </div>
 
-                                  <div class="col p-0" id="middle">
-                                    <table class="mx-auto">
-                                      <p>{{$user->name}}</p>
-                                      <tr>
-                                        <th><label for="email" class="form-label">Email :</label></th>
-                                        <td>
-                                          <div class="form-group">
-                                            <input type="email" name="email" id="email" class="form-control" style="border:none;" value="{{ $user->email }}"
-                                              {{ $user->email ? 'required' : '' }}>
-                                              @error('email')
-                                                <span class="errorMessage">{{ $message }}</span>
-                                              @enderror
-                                          </div>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <th>
-                                          <label for="contact_number" cclass="form-label">Contact Number :</label>
-                                        </th>
-                                        <td>
-                                          <div class="form-group pt-4">
+                                  <div class="col-md-8 p-0" id="middle">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p class="text-left">{{$user->name}}</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <label for="email" class="form-label">Email :</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <input type="email" name="email" id="email" class="form-control" style="border:none;" value="{{ $user->email }}"
+                                                {{ $user->email ? 'required' : '' }}>
+                                                @error('email')
+                                                    <span class="errorMessage">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="contact_number" cclass="form-label">Contact Number :</label>
+                                        </div>
+                                        <div class="col-md-4">
                                             <input type="number" name="contact_number" id="contact_number" style="border:none;" class="form-control"
                                                 placeholder="Enter Contact Number" value="{{ $user->contact_number }}">
-                                          </div>
-                                        </td>
-                                      </tr>
-                                    </table>
+                                        </div>
+                                        <div class="col-md-4">
+                                        <button type="submit" class="btn btn-success" style="border-radius:20px; width:209px;">ACTIVATE</button>
+                                        </div>
+                                    </div>
 
-                                      <div class="form-group pt-4">
+                                      <div class="form-group pt-2">
                                         <label class="form-lbel">Gender :</label>
                                         <div class="form-check form-check-inline">
                                           <input class="form-check-input" name="gender" style="border:none;" value="0"
@@ -101,7 +108,7 @@
                                     </div>
                                     <div class="col" id="button">
                                       <form action="">
-                                        <button type="submit" class="btn btn-success" style="border-radius:20px; width:209px; height:67px;">ACTIVATE</button>
+                                        
                                       </form>
                                     </div>
                                   </div>

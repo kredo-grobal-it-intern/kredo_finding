@@ -124,7 +124,7 @@
 }
   .userEditPage #tab2:checked ~ .panel_area #panel2{display:block;}
   .userEditPage #middle{
-    line-height:3px;
+    line-height:40px;
   }
   .userEditPage #middle p{
     font-family:Kanit;
