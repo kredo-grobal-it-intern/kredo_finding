@@ -55,6 +55,10 @@
 }
 
 /* Companies list */
+.jobposting {
+  display: flex;
+  justify-content: center;
+}
 .jobposting .title .occupation {
   border-left: solid 8px #9AD0EC;
   padding: 4px;
