@@ -1,7 +1,12 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="likingList row mt-5 mx-3">
+<div class="showDislikePage">
+    <div class="button mt-5">
+        <p>You Disliked</p>
+    </div>
+
+    <div class="likingList row mt-5">
         @if (isWorker(Auth::id()))
             @foreach ($dislike_job as $job)
                 <div class="liking_wrap card border-0">
@@ -25,6 +30,9 @@
                     </div>
                 </div>
             @endforeach
+            <div class="col-md-12">
+                <div class="d-flex justify-content-center mt-3">{{ $dislike_job->links() }}<div> 
+            </div>
         @else
             @foreach ($dislike_user as $user)
                 <div class="liking_wrap card boreder-0">
@@ -35,9 +43,11 @@
                         </a>
                     </div>
                     <div class="liking_name text-center">{{ $user->toUserId->name }}
-                        <i class="fa-solid fa-heart text-danger"
-                            style="font-size: 0.7rem;">{{ App\Constants\Occupation::Occupation[$user->toUserId->occupation] }}
-                        </i>
+                        @if($user->toUserId->occupation)
+                            <i class="fa-solid fa-heart text-danger"
+                                style="font-size: 0.7rem;">{{ App\Constants\Occupation::Occupation[$user->toUserId->occupation] }}
+                            </i>
+                        @endif
                         <p class="h5 text-secondary">{{ date('m/d/Y', strtotime($user->created_at)) }}</p>
                     </div>
                     <form method="POST" action="{{ route('chat.show') }}">
@@ -55,6 +65,10 @@
                     </div>
                 </div>
             @endforeach
+                <div class="col-md-12">
+                    <div class="d-flex justify-content-center mt-3">{{ $dislike_user->links() }}<div> 
+                </div>
         @endif
     </div>
+</div>
 @endsection

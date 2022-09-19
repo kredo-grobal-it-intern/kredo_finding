@@ -45,11 +45,11 @@ class ReactionController extends Controller
   {
     $user = User::find(Auth::id());
 
-    $dislike_user = $user->fromUserId()->where('status', 1)->get();
+    $dislike_user = $user->fromUserId()->where('status', 1)->paginate(5);
 
     $you_dislike = WorkerReaction::where('from_worker_id', Auth::id())->where('status', 1)->pluck('to_job_id');
 
-    $dislike_job = JobPosting::whereIn('id', $you_dislike)->get();
+    $dislike_job = JobPosting::whereIn('id', $you_dislike)->paginate(5);
 
     return view('mypage/dislike', compact('dislike_user', 'dislike_job'));
   }
