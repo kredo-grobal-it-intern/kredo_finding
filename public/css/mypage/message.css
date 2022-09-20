@@ -253,3 +253,12 @@
 .chatbox_footer > .send_button:hover {
     background-color: #FAAC64;
 }
+
+/* when $matching_users is empty */
+.no_messages {
+    width: 100%;
+    text-align: center;
+    padding-top: 20%;
+    font-size: 20px;
+    font-weight: bold;
+}

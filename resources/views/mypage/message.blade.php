@@ -95,7 +95,7 @@
       </div>
     </div>
   @else
-  <p>No messages</p>
+  <p class="no_messages">No messages</p>
   @endif  
 </div>
 @endsection
