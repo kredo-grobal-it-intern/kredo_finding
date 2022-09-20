@@ -1,4 +1,4 @@
-.signupCompanyPage .companyImg{
+.signupCompanyPage .image{
     background-image: url(/images/register.png);
     background-repeat: no-repeat;
     background-color: #EFDBBE;
@@ -47,7 +47,7 @@
 .signupCompanyPage .button .btnB {
     background-color: #fa9f03;
     color: #F6F6FB;
-    border-radius: 40px;
+    border-radius: 50px;
     width: 100px;
 }
 

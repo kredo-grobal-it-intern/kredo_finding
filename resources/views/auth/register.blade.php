@@ -1,12 +1,11 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="signupPage">
-        <div class="column image"></div>
-        <div class="column register">
+    <div class="signupPage row">
+        <div class="image col-5"></div>
+        <div class="register col-7">
             <header>
-                <div><a href="{{ route('home') }}"><img src="/images/kredo_logo.jpg" style="height: 3rem; width:3rem;"></a>
-                </div>
+                <div><a href="{{ route('home') }}"><img src="/images/kredo_logo.jpg" style="height: 3rem; width:3rem;"></a></div>
                 <div><a href="{{ route('showAbout') }}">About Us</a></div>
                 <div><a href="{{ route('faq') }}">FAQ</a></div>
                 <div><a href="{{ route('contact.show') }}">Contact Us</a></div>

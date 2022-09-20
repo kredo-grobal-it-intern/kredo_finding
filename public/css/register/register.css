@@ -1,14 +1,8 @@
-.signupPage {
-    display: flex;
-    flex-wrap: wrap;
-  }
-.column {
-    width: 100%;
-}
-@media (min-width: 1024px) {
-    .column {
-      width: 50%;
-    }
+.signupPage .image{
+    background-image: url(/images/register.png);
+    background-repeat: no-repeat;
+    background-color: #EFDBBE;
+    width: 610px auto;
 }
 
 .signupPage header{
@@ -21,21 +15,21 @@
 }
 .signupPage header div {
     padding: 10px;
+    margin-right: 10px;
 }
 .signupPage header div:first-child{
     margin-right: auto;
-    margin-left: 20px;
 }
 
 .signupPage .container {
-    margin: 0 0 0 30px;
+    padding: 0 40px;
 }
 .signupPage .title {
     display: flex;
     justify-content:space-between;
 }
 .signupPage .outside {
-    width: 250px;
+    width: 200px;
     height: 50px;
     background-color: #F6F6FB;
     border-radius: 40px;
@@ -46,14 +40,13 @@
     margin: 0 auto;
 }
 .signupPage a.btnA {
-    width: 110px;
+    width: 100px;
     background-color: #fa9f03;
     border-radius: 50px;
     text-align: right;
     color: #ffffff;
 }
 .signupPage .button .btnB {
-    background-color: #F6F6FB;
     color: #fa9f03;
 }
 
@@ -70,13 +63,6 @@
 }
 .signupPage .userProfileImg .fa-user {
     color: #fff;
-}
-
-.signupPage .image{
-    background-image: url(/images/register.png);
-    background-repeat: no-repeat;
-    background-color: #EFDBBE;
-    width: 600px;
 }
 
 .signupPage p.line{
