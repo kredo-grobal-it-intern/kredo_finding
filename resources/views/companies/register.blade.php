@@ -3,7 +3,7 @@
 @section('content')
   <div class="signupCompanyPage">
     <div class="row">
-      <div class="companyImg col-5"></div>
+      <div class="image col-5"></div>
       <div class="register col-7">
         <header>
           <div><a href="{{ route('home') }}"><img src="/images/kredo_logo.jpg" style="height: 3rem; width:3rem;"></a></div>
