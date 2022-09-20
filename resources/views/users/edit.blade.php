@@ -56,7 +56,7 @@
                                             <p class="text-left">{{$user->name}}</p>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="row">
                                         <div class="col-md-2">
                                             <label for="email" class="form-label">Email :</label>
@@ -101,16 +101,13 @@
                                         </div>
                                       </div>
 
-                                      <div class="">
-                                        <button type="submit" class="btn btn-info text-white" style="width:126px; margin:0 5%">edit</button>
-                                        <button type="submit" class="btn btn-success" style="width:126px;">save</button>
+                                      <div class="row">
+                                        <button type="button" class="btn btn-info text-white" data-toggle="collapse" data-target="#collapseSave" aria-expanded="false" aria-controls="collapseSave"    style="width:126px; margin:0 5%">edit</button>
+                                        <div class="collapse" id="collapseSave">
+                                            <button type="submit" class="btn btn-success" style="width:126px;">save</button>
+                                        </div>
                                       </div>
-                                    </div>
-                                    <div class="col" id="button">
-                                      <form action="">
-                                        
-                                      </form>
-                                    </div>
+                                  </div>
                                   </div>
                             </form>
                           </div>
@@ -176,18 +173,15 @@
                               <hr class="mt-0 text-secondary">
                               <textarea class="form-control" name="self_introduction" rows="10">{{ $user->self_introduction }}</textarea>
                             </div>
-                            <div class="text-center">
-                              <button type="submit" class="btn submitBtn">Update</button>
-                            </div>
-                            <div class="text-center mt-2">
-                              <button type="button" onclick="history.back()"
-                                  class="btn backBtn">Back</button>
-                            </div>
                           </div>
 
                           <div class="account">
-                            <div class="form-group">
-                                <h5 class="mt-4 mb-1"></h5>
+                            <h5 class="mt-4 mb-1">ACCOUNT</h5>
+                            <hr class="mt-0 text-secondary">
+                            <div class="text-center">
+                              <button type="submit" class="btn btn-info submitBtn ">Update</button>
+                              <button type="button" onclick="history.back()"
+                                  class="btn backBtn">Back</button>
                             </div>
                           </div>
                   </div>

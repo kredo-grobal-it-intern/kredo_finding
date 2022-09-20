@@ -10,12 +10,14 @@
     margin: 0 auto 10px auto;
     width: 200px;
     height: 200px;
-    background: #f3920b;
     display: flex;
     cursor: pointer;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    background: #FAAC64;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
   }
   .userEditPage .userProfileImg:hover .userProfileImg_description {
     opacity: 1;
@@ -66,24 +68,22 @@
     color: #f3920b;
   }
   .userEditPage .submitBtn {
-    background: #f3920b;
-    color: #fff;
-    width: 200px;
+    color: white;
+    width: 130px;
     padding: 10px;
     border-radius: 90px;
     transition: opacity 0.5s;
+    margin-right: 100px;
   }
   .userEditPage .submitBtn:hover {
     opacity: 0.6;
   }
   .userEditPage .backBtn {
-    background: #fff;
-    color: #f3920b;
-    border-color: #f3920b;
-    width: 200px;
+    width: 130px;
     padding: 10px;
-    border-radius: 90px;
     transition: opacity 0.5s;
+    border: 1px solid #000000;
+  border-radius: 20px;
   }
   .userEditPage .backBtn:hover {
     opacity: 0.6;
