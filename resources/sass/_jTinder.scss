@@ -145,6 +145,7 @@ html, body {
   transform: translate3d(0%,0,0) scale3d(1,1,1);
   overflow: hidden;
   backface-visibility: hidden;
+  transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
   -webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
   -webkit-transform-style: preserve-3d;
@@ -208,7 +209,7 @@ html, body {
   font-weight: bold;
 }
 
-.topPage {
+.homePage {
   .nav {
     display: flex;
     justify-content: space-between;

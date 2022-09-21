@@ -14,7 +14,7 @@ class UsersTableSeeder extends Seeder
   {
     DB::table('users')->truncate();
 
-    factory(User::class, 500)->state('Worker')->create();
-    factory(User::class, 500)->state('Company')->create();
+    factory(User::class, 50)->state('Worker')->create();
+    factory(User::class, 50)->state('Company')->create();
   }
 }
