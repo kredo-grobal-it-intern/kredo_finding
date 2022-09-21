@@ -57,12 +57,12 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <label for="email" class="form-label">Email :</label>
+                                    <div class="row" style="position: relative;">
+                                        <div class="col-md-2 pr-0">
+                                            <label for="email" class="form-label text-right">email &nbsp; &nbsp;:</label>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
+                                        <div class="col-md-4 pl-0" style="position:absolute; left:11%">
+                                            <div class="form-group" id="email">
                                                 <input type="email" name="email" id="email" class="form-control" style="border:none;" value="{{ $user->email }}"
                                                 {{ $user->email ? 'required' : '' }}>
                                                 @error('email')
@@ -72,43 +72,49 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <label for="contact_number" cclass="form-label">Contact Number :</label>
+                                    <div class="row" style="position: relative;">
+                                        <div class="col-md-3 pr-0">
+                                            <label for="contact_number" cclass="form-label">contact :</label>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-4 pl-0" style="position:absolute; left:11%">
                                             <input type="number" name="contact_number" id="contact_number" style="border:none;" class="form-control"
                                                 placeholder="Enter Contact Number" value="{{ $user->contact_number }}">
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-4" style="position:absolute; right:15%">
                                         <button type="submit" class="btn btn-success" style="border-radius:20px; width:209px;">ACTIVATE</button>
                                         </div>
                                     </div>
 
-                                      <div class="form-group pt-2">
-                                        <label class="form-lbel">Gender :</label>
-                                        <div class="form-check form-check-inline">
-                                          <input class="form-check-input" name="gender" style="border:none;" value="0"
-                                                type="radio" id="inlineRadio1"
-                                                @if ($user->gender === App\Constants\UserConstants::MALE) checked @endif>
-                                            <label class="form-check-label" for="inlineRadio1">male</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" name="gender" value="1"
-                                                type="radio" id="inlineRadio2"
-                                                @if ($user->gender === App\Constants\UserConstants::FEMALE) checked @endif>
-                                            <label class="form-check-label" for="inlineRadio2">female</label>
-                                        </div>
+                                    <div class="row" style="position: relative;">
+                                      <div class="col-md-2">
+                                        <label class="form-lbel">gender :&nbsp;&nbsp;&nbsp</label>
+                                      </div>
+                                      <div class="col-md-4" style="position: absolute; left:11%;">
+                                        <div class="form-group">
+                                          <div class="form-check form-check-inline">
+                                            <input class="form-check-input" name="gender" style="border:none;" value="0"
+                                                  type="radio" id="inlineRadio1"
+                                                  @if ($user->gender === App\Constants\UserConstants::MALE) checked @endif>
+                                              <label class="form-check-label" for="inlineRadio1">male</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                              <input class="form-check-input" name="gender" value="1"
+                                                  type="radio" id="inlineRadio2"
+                                                  @if ($user->gender === App\Constants\UserConstants::FEMALE) checked @endif>
+                                              <label class="form-check-label" for="inlineRadio2">female</label>
+                                          </div>
+                                      </div>
+                                    </div>
                                       </div>
 
                                       <div class="row">
-                                        <button type="button" class="btn btn-info text-white" data-toggle="collapse" data-target="#collapseSave" aria-expanded="false" aria-controls="collapseSave"    style="width:126px; margin:0 5%">edit</button>
+                                        <button type="button" class="btn btn-info text-white" data-toggle="collapse" data-target="#collapseSave" aria-expanded="false" aria-controls="collapseSave" style="width:126px; margin-left: 16px;">edit</button>
                                         <div class="collapse" id="collapseSave">
-                                            <button type="submit" class="btn btn-success" style="width:126px;">save</button>
+                                            <button type="submit" class="btn btn-success" style="width:126px; margin-left:100px;">save</button>
                                         </div>
                                       </div>
-                                  </div>
-                                  </div>
+                                </div>
+                              </div>
                             </form>
                           </div>
 

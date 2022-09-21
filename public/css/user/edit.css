@@ -73,7 +73,6 @@
     padding: 10px;
     border-radius: 90px;
     transition: opacity 0.5s;
-    margin-right: 100px;
   }
   .userEditPage .submitBtn:hover {
     opacity: 0.6;
@@ -83,7 +82,7 @@
     padding: 10px;
     transition: opacity 0.5s;
     border: 1px solid #000000;
-  border-radius: 20px;
+    border-radius: 20px;
   }
   .userEditPage .backBtn:hover {
     opacity: 0.6;
