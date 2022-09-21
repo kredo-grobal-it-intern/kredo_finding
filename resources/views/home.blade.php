@@ -33,7 +33,6 @@
       </span>
     </nav>
 
-
     <div class="userlist-button text-right">
       <button class="btn btn-outline-primary justify-content-md-end userslist">
         <a href="{{ route('users') }}"><h4>Show the Users List</h4></a>
@@ -74,16 +73,8 @@
                       <p>{{ $jobPosting->city.', '.$jobPosting->state.', '.$countries[$jobPosting->country] }}</p>
                       <h3 class="card-title display-5 mb-2 pl-1">Employment status<h3>
                       <p>{{ App\Constants\EmploymentStatus::EmploymentStatus[$jobPosting->employment_status] }}</p>
-                      <!-- <h3 class="card-title display-5 mb-2 pl-1">Working hours<h3>
-                      <p>{{ $jobPosting->opening_time.' ~ '.$jobPosting->closing_time }}</p> -->
                       <h3 class="card-title display-5 mb-2 pl-1">Salary<h3>
                       <p>{{ App\Constants\JobPosting::Salary[$jobPosting->salary] }}</p>
-                      <!-- <h3 class="card-title display-5 mb-2 pl-1">Job Description<h3>
-                      <p>{{ $jobPosting->job_description }}</p>
-                      <h3 class="card-title display-5 mb-2 pl-1">Welcome requirements<h3>
-                      <p>{{ $jobPosting->welcome_requirements}}</p>
-                      <h3 class="card-title display-5 mb-2 pl-1">Employee benefits<h3>
-                      <p class="mb-4">{{ $jobPosting->employee_benefits }}</p> -->
                     </div>
                   </div>
                 </div>
