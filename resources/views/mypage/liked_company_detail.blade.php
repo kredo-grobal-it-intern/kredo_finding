@@ -33,7 +33,7 @@
                         </tr>
                         <tr>
                             <td class="bg-info text-center text-white">Self Introduction</td>
-                            <td>{{ $company->self_introduction }}</td>
+                            <td>{{ $company->services }}</td>
                         </tr>
                     </tbody>
                 </table>
