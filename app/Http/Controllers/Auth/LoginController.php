@@ -97,4 +97,7 @@ class LoginController extends Controller
         Auth::login($userModel);
         return Redirect::route('home');
     }
+    public function redirectTo(){
+      return route('users');
+    }
 }
