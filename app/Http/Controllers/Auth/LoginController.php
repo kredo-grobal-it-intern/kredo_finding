@@ -32,7 +32,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = 'home/users';
 
     /**
      * Create a new controller instance.
@@ -96,8 +96,5 @@ class LoginController extends Controller
         }
         Auth::login($userModel);
         return Redirect::route('home');
-    }
-    public function redirectTo(){
-      return route('users');
     }
 }
