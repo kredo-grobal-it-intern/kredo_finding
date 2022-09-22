@@ -21,7 +21,7 @@ class CompaniesTableSeeder extends Seeder
         $environment = App::environment();
 
         if ($environment === 'local' || $environment === 'testing') {
-            for ($i = 501; $i <= 1000; $i++) {
+            for ($i = 51; $i <= 100; $i++) {
                 $user = User::Find($i);
 
                 DB::table('companies')->insert([
@@ -51,7 +51,7 @@ class CompaniesTableSeeder extends Seeder
                 ]);
             }
         } else {
-            for ($i = 5004; $i <= 9994; $i = $i + 10) {
+            for ($i = 504; $i <= 994; $i = $i + 10) {
                 $user = User::Find($i);
 
                 DB::table('companies')->insert([

@@ -18,10 +18,10 @@ class JobPostingsTableSeeder extends Seeder
         $environment = App::environment();
 
         if($environment === 'local'){
-            for ($i = 1; $i <= 500; $i++){
+            for ($i = 1; $i <= 50; $i++){
                 DB::table('job_postings')->insert([
                     'occupation' => $faker->numberBetween(1, 32),
-                    'user_id' => $i + 500,
+                    'user_id' => $i + 50,
                     'company_id' => $i,
                     'industry' => $faker->numberBetween(1, 24),
                     'employment_status' => $faker->numberBetween(1, 3),
@@ -37,10 +37,10 @@ class JobPostingsTableSeeder extends Seeder
                 ]);
             }
         }else{
-            for ($i = 4; $i <= 4994; $i = $i + 10){
+            for ($i = 4; $i <= 494; $i = $i + 10){
                 DB::table('job_postings')->insert([
                     'occupation' => $faker->numberBetween(1, 32),
-                    'user_id' => $i + 5000,
+                    'user_id' => $i + 500,
                     'company_id' => $i,
                     'industry' => $faker->numberBetween(1, 24),
                     'employment_status' => $faker->numberBetween(1, 3),
