@@ -43,7 +43,9 @@
             <div class="row">
                 <div class="col-4">
                     <p>Contact Number</p>
-                    <div class="border">{{ $user->contact_number }}</div>
+                    <div class="border">
+                        <div>{{ ($user->contact_number == null) ? "not entered" : $user->contact_number }}</div>
+                    </div>
                 </div>
                 @if (isWorker(Auth::id()))
                     <div class="col-4">
