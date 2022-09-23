@@ -115,23 +115,30 @@
                                             </span>
                                             <span class="workerlikebtn">
                                                 @if ($jobPosting->isLiked())
-                                                <form action="{{ route('dislike' , $jobPosting->id) }}" method="post">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-outline-danger">
-                                                    <i class="fas fa-heart text-danger"></i>&nbsp;Like
-                                                    </button>
-                                                </form>
+                                                    <form action="{{ route('dislike', $jobPosting->id) }}" method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-outline-danger">
+                                                        <i class="fas fa-heart text-danger"></i>&nbsp;Like
+                                                        </button>
+                                                    </form>
                                                 @else
-                                                <form action="{{ route('like', $jobPosting->id) }}" method="post">
-                                                    @csrf
-                                                    @method('POST')
-                                                    <button type="submit" class="btn btn-outline-danger">
-                                                    <i class="far fa-heart"></i>&nbsp;Like
-                                                    </button>
-                                                </form>
+                                                    <form action="{{ route('like', $jobPosting->id) }}" method="post">
+                                                        @csrf
+                                                        @method('POST')
+                                                        <button type="submit" class="btn btn-outline-danger">
+                                                        <i class="far fa-heart"></i>&nbsp;Like
+                                                        </button>
+                                                    </form>
                                                 @endif
                                             </span>  
+                                            <span class="workerdislikebtn">
+                                                <form action="#" method="">
+                                                    <button type="submit" class="btn btn-outline-secondary">
+                                                    <i class="fas fa-heart-broken"></i>&nbsp;Dislike
+                                                    </button>
+                                                </form>
+                                            </span>
                                         </div>      
                                     </div>
                                 </div>
