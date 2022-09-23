@@ -42,8 +42,7 @@ Route::group(['prefix' => 'home'], function () {
   Route::post('/changePassword', 'HomeController@changePasswordPost')->name('changePasswordPost');
   Route::get('/users', 'HomeController@userslist')->name('users');
   Route::post('/like/{id}/update', 'HomeController@like')->name('like');
-  Route::post('/dislike/{id}/update', 'HomeController@dislike')->name('dislike');
-  Route::delete('/users/{id}/destroy', 'HomeController@destroy')->name('destroy');
+  Route::delete('/users/{id}/destroy', 'HomeController@destroy')->name('dislike');
 });
 
 Route::group(['prefix' => 'reaction', 'as' => 'reaction.'], function () {

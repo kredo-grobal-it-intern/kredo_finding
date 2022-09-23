@@ -164,23 +164,6 @@ class HomeController extends Controller
     return redirect()->back();
   }
 
-  public function dislike($id){
-    if(!isWorker(Auth::id())){
-      Reaction::create([
-        'to_user_id' => $id,
-        'from_user_id' => Auth::id(),
-        "status" => 1
-        ]);
-    }else{
-      WorkerReaction::create([
-        'to_job_id' => $id,
-        'from_worker_id' => Auth::id(),
-        'status' => 1,
-        ]);
-    }
-    return redirect()->back();
-  }
-
   public function destroy($id){
     if(!isWorker(Auth::id())){
       Reaction::where([

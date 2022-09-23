@@ -115,7 +115,7 @@
                                             </span>
                                             <span class="workerlikebtn">
                                                 @if ($jobPosting->isLiked())
-                                                    <form action="{{ route('destroy' , $jobPosting->id) }}" method="post">
+                                                    <form action="{{ route('dislike', $jobPosting->id) }}" method="post">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-outline-danger">
@@ -131,26 +131,14 @@
                                                         </button>
                                                     </form>
                                                 @endif
-                                            </span>
-                                            <span class="workerdislikebtn">
-                                            @if ($jobPosting->isLiked())
-                                                <form action="{{ route('destroy' , $jobPosting->id) }}" method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit" class="btn btn-outline-secondary">
-                                                    <i class="fas fa-heart-broken"></i>&nbsp;Dislike
-                                                    </button>
-                                                </form>
-                                            @else
-                                                <form action="{{ route('dislike' , $jobPosting->id) }}" method="post">
-                                                    @csrf
-                                                    @method('POST')
-                                                    <button type="submit" class="btn btn-outline-secondary">
-                                                    <i class="fas fa-heart-broken"></i>&nbsp;Dislike
-                                                    </button>
-                                                </form>
-                                            @endif
                                             </span>  
+                                            <span class="workerdislikebtn">
+                                                <form action="#" method="">
+                                                    <button type="submit" class="btn btn-outline-secondary">
+                                                    <i class="fas fa-heart-broken"></i>&nbsp;Dislike
+                                                    </button>
+                                                </form>
+                                            </span>
                                         </div>      
                                     </div>
                                 </div>
