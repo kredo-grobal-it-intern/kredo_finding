@@ -147,7 +147,7 @@ class HomeController extends Controller
     return view('userslist',['users' => $users, 'user'=>$user, 'job_postings'=>$job_postings, 'countries'=>$countries]);
   }
 
-  public function react($id){
+  public function like($id){
     if(!isWorker(Auth::id())){
       Reaction::create([
         "to_user_id" => $id,
@@ -160,6 +160,23 @@ class HomeController extends Controller
         'from_worker_id'=> Auth::id(),
         "status" => 0,
       ]);
+    }
+    return redirect()->back();
+  }
+
+  public function dislike($id){
+    if(!isWorker(Auth::id())){
+      Reaction::create([
+        'to_user_id' => $id,
+        'from_user_id' => Auth::id(),
+        "status" => 1
+        ]);
+    }else{
+      WorkerReaction::create([
+        'to_job_id' => $id,
+        'from_worker_id' => Auth::id(),
+        'status' => 1,
+        ]);
     }
     return redirect()->back();
   }
