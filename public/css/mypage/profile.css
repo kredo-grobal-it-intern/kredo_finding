@@ -77,7 +77,12 @@
     height: 120px;
     object-fit: cover;
 }
-.usershowPage i{
+.usershowPage .profile .userInfo_img .fa-circle-user{
+    color: #F4920B;
+    overflow: hidden;
+    font-size: 115px;
+}
+.usershowPage .profile .userInfo_img .fa-building{
     color: #F4920B;
     overflow: hidden;
     font-size: 88px;
