@@ -65,6 +65,36 @@
 
             <div class="row">
                 <div class="col">
+                    <p>Address1</p>
+                    <div class="border">{{ $user->address1 }}</div>
+                </div>
+                <div class="col">
+                    <p>Address2</p>
+                    <div class="border">{{ $user->address2 }}</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <p>City</p>
+                    <div class="border">{{ $user->city }}</div>
+                </div>
+                <div class="col">
+                    <p>State</p>
+                    <div class="border">{{ $user->state }}</div>
+                </div>
+                <div class="col">
+                    <p>Country</p>
+                    <div class="border">{{ $user->country }}</div>
+                </div>
+                <div class="col">
+                    <p>Zip code</p>
+                    <div class="border">{{ $user->zipcode }}</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
                     <p>{{ $user->user_type === App\Constants\UserType::Worker ? 'Introduction' : 'Services' }}</p>
                     <div class="border textarea">{{ $user->self_introduction }}</div>
                 </div>
