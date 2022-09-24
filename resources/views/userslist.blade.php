@@ -2,11 +2,14 @@
 
 @section('content')
     <div class="usersList">
-        <div class="nav">
-            <div class="logo m-3">
+        <div class="nav m-3">
+            <div class="logo">
                 <a href="{{ route('home') }}">
                     <img src="/images/kredo_logo.jpg" width="50px" height="50px">
                 </a>
+            </div>
+            <div class="home">
+                <a href="{{ route('home') }}" class="btn btn-home"><i class="fa-solid fa-house"></i>&nbsp;HOME</a>
             </div>
         </div>
 
