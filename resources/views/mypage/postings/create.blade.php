@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="container mt-5">
+    <div class="container mt-5" style="background-color: #F4F7FC">
         <div class="col-10 mx-auto">
             <h2 class="text-center mb-5 display-4">Job Posting</h2>
             <form action="{{ route('posting.store') }}" method="post" enctype="multipart/form-data">
