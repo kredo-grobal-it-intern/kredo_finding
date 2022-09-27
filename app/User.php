@@ -94,16 +94,8 @@ class User extends Authenticatable
   {
     return User::where('id', Auth::id())->update(
       [
-          'name' => $request->name,
           'email' =>  $request->email,
           'img_name' => $bin_image,
-          'self_introduction' => $request->self_introduction,
-          'address1' => $request->address1,
-          'address2' => $request->address2,
-          'city' => $request->city,
-          'state' => $request->state,
-          'country' => $request->country,
-          'zipcode' => $request->zipcode,
           'contact_number' => $request->contact_number,
           'gender'=> $request->gender,
       ]
