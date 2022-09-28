@@ -28,10 +28,10 @@
             </div>
         </div>
         <div class="row d-flex justify-content-center mt-5">
-            <div class="col-md-4 offset-md-1">
+            <div class="col-md-3">
                 <img src="/images/mail.png" alt="height:150px; width:150px;">
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <form action="{{ route('contact.confirm') }}" method="post">
                     @csrf
 
