@@ -83,7 +83,7 @@ class User extends Authenticatable
       'user_type' => $data['user_type'],
       'email' => $data['email'],
       'password' => Hash::make($data['password']),
-      'services' => $data['services'],
+      'self_introduction' => $data['self_introduction'],
       'contact_number' => $data['contact_number'],
       'gender' => $data['gender'],
       'img_name' => $bin_image,
