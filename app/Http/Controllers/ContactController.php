@@ -47,4 +47,8 @@ class ContactController extends Controller
 
         return view('menu_top.contacts.complete');
     }
+
+    public function contact(){
+        return view('mypage.contact');
+    }
 }

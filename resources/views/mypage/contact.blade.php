@@ -1,25 +1,17 @@
 @extends('layouts.layout')
 
 @section('content')
-
 <div class="contact_us">
-    <div class="contact_top my-4">
-        <div class="row">
-            <div class="col-5 px-5">
-                <a href="{{ route('home') }}">
-                    <img src="/images/kredo_logo.jpg" style="height: 2.5rem; width:2.5rem;">
-                </a>
-            </div>
-            <div class="col px-0">
+        <div class="contact_top my-4">
+            <div class="text-center">
                 <p style="font-size:18px; font-weight:700; font-family:'Inter'; line-height:22px; color:#000000;">CONTACT
                     US</p>
             </div>
         </div>
-    </div>
 
-    <hr>
+        <hr>
 
-    <div class="contact_content mt-5">
+    <div class="contact_content">
         <div class="row d-flex justify-content-center">
             <div class="col-md-6 offset-md-3">
                 <p
@@ -69,5 +61,4 @@
         </div>
     </div>
 </div>
-
 @endsection

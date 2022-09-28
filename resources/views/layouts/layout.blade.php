@@ -18,7 +18,6 @@
 
 <body>
     @if (Request::is('mypage/*') || Request::is('users/mypage/*'))
-     <!-- (Request::is('mypage/*') || Request::is('users/mypage/*') || Request::is('contact')) -->
         <!-- @include('mypage.navbar') -->
         <main class="sideBar_area">
             <div class="row">
@@ -51,24 +50,12 @@
                             <span class="font-weight-bold">MESSAGES</span>
                         </a>
                         
-                        <a href="{{ route('contact.show') }}" 
-                            class="{{ request()->is('contact') ? 'active' : '' }} sideBarItem">
+                        <a href="{{ route('contactus') }}" 
+                            class="{{ request()->is('mypage/contact') ? 'active' : '' }} sideBarItem">
                             <i class="fa-solid fa-envelope"></i>
                             <span class="font-weight-bold">CONTACT</span>
                         </a>
-                        <!-- @guest
-                            @include('menu_top.contacts.contact_us')
-                        @endguest
-
-                        @auth
-                        <a href="{{ route('contact.show') }}" 
-                            class="{{ request()->is('contact') ? 'active' : '' }} sideBarItem">
-                            <i class="fa-solid fa-envelope"></i>
-                            <span class="font-weight-bold">CONTACT</span>
-                        </a>
-                        @endauth -->
     
-
                         @if (!isWorker(Auth::id()))
                             <a href="{{ route('posting.create') }}"
                                 class="{{ request()->is('mypage/create/posting') ? 'active' : '' }} sideBarItem">
