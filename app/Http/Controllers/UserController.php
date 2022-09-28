@@ -42,7 +42,7 @@ class UserController extends Controller
     return view('users.edit', compact('user', 'countries'));
   }
 
-  public function updateUser($id, ProfileRequest $request)
+  public function updateUser($id, Request $request)
   {
 
     $request->validate([
@@ -70,6 +70,22 @@ class UserController extends Controller
       $this->company->updateCompany($request, $bin_image);
     }
 
+    return redirect('home');
+  }
+
+  public function renewUser(Request $request ,$id){
+    $user = User::findOrFail($id);
+    $user->update(
+      [
+          'self_introduction' => $request->self_introduction,
+          'address1' => $request->address1,
+          'address2' => $request->address2,
+          'city' => $request->city,
+          'state' => $request->state,
+          'country' => $request->country,
+          'zipcode' => $request->zipcode,
+      ]
+    );
     return redirect('home');
   }
 

@@ -14,6 +14,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ReactionController;
+use App\Http\Controllers\UserController;
 
 Route::group(['prefix' => 'users', 'middleware' => 'auth', 'as' => 'users.'], function () {
   Route::get('mypage/show/{id}', 'UserController@show')->name('show');
@@ -21,6 +22,7 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth', 'as' => 'users.'], fu
   Route::patch('/{id}', 'UserController@updateUser')->name('updateUser');
   Route::patch('updateJob/{id}', 'UserController@updateJob')->name('updateJob');
   Route::delete('destroy/{id}', 'UserController@destroy')->name('delete');
+  Route::patch('/update/{id}' , 'UserController@renewUser')->name('renewUser');
 });
 
 Auth::routes();
