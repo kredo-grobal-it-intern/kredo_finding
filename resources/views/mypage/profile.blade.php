@@ -44,7 +44,7 @@
                 <div class="col-4">
                     <p>Contact Number</p>
                     <div class="border">
-                        <div>{{ ($user->contact_number == null) ? "not entered" : $user->contact_number }}</div>
+                        <div>{{ ($user->contact_number) ? $user->contact_number : '-' }}</div>
                     </div>
                 </div>
                 @if (isWorker(Auth::id()))
@@ -61,6 +61,36 @@
                         </div>
                     </div>
                 @endif
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <p>Address1</p>
+                    <div class="border">{{ ($user->address1) ? $user->address1 : '-' }}</div>
+                </div>
+                <div class="col">
+                    <p>Address2</p>
+                    <div class="border">{{ ($user->address2) ? $user->address2 : '-' }}</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <p>City</p>
+                    <div class="border">{{ ($user->city) ? $user->city : '-' }}</div>
+                </div>
+                <div class="col">
+                    <p>State</p>
+                    <div class="border">{{ ($user->state) ? $user->state : '-' }}</div>
+                </div>
+                <div class="col">
+                    <p>Country</p>
+                    <div class="border">{{ ($user->country) ? $user->country : '-' }}</div>
+                </div>
+                <div class="col">
+                    <p>Zip code</p>
+                    <div class="border">{{ ($user->zipcode) ? $user->zipcode : '-' }}</div>
+                </div>
             </div>
 
             <div class="row">

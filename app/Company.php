@@ -44,7 +44,7 @@ class Company extends Model
                 'user_id' => $user->id,
                 'email' => $user->email,
                 'password' => $user->password,
-                'services' => $user->self_introduction,
+                'services' => $user->services,
                 'contact_number' => $user->contact_number,
                 'img_name' => $user->img_name,
             ]
@@ -58,7 +58,7 @@ class Company extends Model
                 'name' => $request->name,
                 'email' =>  $request->email,
                 'img_name' => $bin_image,
-                'services' => $request->self_introduction,
+                'services' => $request->services,
                 'address1' => $request->address1,
                 'address2' => $request->address2,
                 'city' => $request->city,

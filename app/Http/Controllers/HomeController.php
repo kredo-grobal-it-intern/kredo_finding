@@ -147,7 +147,7 @@ class HomeController extends Controller
     return view('userslist',['users' => $users, 'user'=>$user, 'job_postings'=>$job_postings, 'countries'=>$countries]);
   }
 
-  public function react($id){
+  public function like($id){
     if(!isWorker(Auth::id())){
       Reaction::create([
         "to_user_id" => $id,

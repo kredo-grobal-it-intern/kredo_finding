@@ -72,7 +72,7 @@ class RegisterController extends Controller
       'password' => ['required', 'string', 'min:8', 'confirmed'],
       'contact_number' => ['nullable', 'string', 'max:11', 'unique:users'],
       'img_name' => ['file', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2000'],
-      'self_introduction' => ['string', 'max:255'],
+      'services' => ['string', 'max:255'],
     ]);
   }
 

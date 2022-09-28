@@ -2,11 +2,14 @@
 
 @section('content')
     <div class="usersList">
-        <div class="nav">
-            <div class="logo m-3">
+        <div class="nav m-3">
+            <div class="logo">
                 <a href="{{ route('home') }}">
                     <img src="/images/kredo_logo.jpg" width="50px" height="50px">
                 </a>
+            </div>
+            <div class="home">
+                <a href="{{ route('home') }}" class="btn btn-home"><i class="fa-solid fa-house"></i>&nbsp;HOME</a>
             </div>
         </div>
 
@@ -115,23 +118,30 @@
                                             </span>
                                             <span class="workerlikebtn">
                                                 @if ($jobPosting->isLiked())
-                                                <form action="{{ route('dislike' , $jobPosting->id) }}" method="post">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-outline-danger">
-                                                    <i class="fas fa-heart text-danger"></i>&nbsp;Like
-                                                    </button>
-                                                </form>
+                                                    <form action="{{ route('dislike', $jobPosting->id) }}" method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-outline-danger">
+                                                        <i class="fas fa-heart text-danger"></i>&nbsp;Like
+                                                        </button>
+                                                    </form>
                                                 @else
-                                                <form action="{{ route('like', $jobPosting->id) }}" method="post">
-                                                    @csrf
-                                                    @method('POST')
-                                                    <button type="submit" class="btn btn-outline-danger">
-                                                    <i class="far fa-heart"></i>&nbsp;Like
-                                                    </button>
-                                                </form>
+                                                    <form action="{{ route('like', $jobPosting->id) }}" method="post">
+                                                        @csrf
+                                                        @method('POST')
+                                                        <button type="submit" class="btn btn-outline-danger">
+                                                        <i class="far fa-heart"></i>&nbsp;Like
+                                                        </button>
+                                                    </form>
                                                 @endif
                                             </span>  
+                                            <span class="workerdislikebtn">
+                                                <form action="#" method="">
+                                                    <button type="submit" class="btn btn-outline-secondary">
+                                                    <i class="fas fa-heart-broken"></i>&nbsp;Dislike
+                                                    </button>
+                                                </form>
+                                            </span>
                                         </div>      
                                     </div>
                                 </div>
