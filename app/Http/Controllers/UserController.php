@@ -31,15 +31,30 @@ class UserController extends Controller
   {
     $user = User::findorFail($id);
 
-    return view('mypage.profile', compact('user'));
+    if(isWorker($user->id)){
+      return view('mypage.profile', compact('user'));
+    }else{
+      $user = Company::where('user_id' , Auth::user()->id)->first();
+      return view('mypage.profile', compact('user'));
+    }
+
+
   }
 
   public function edit($id)
   {
     $user = User::findorFail($id);
-    $countries = Country::pluck('name', 'code')->all();
 
-    return view('users.edit', compact('user', 'countries'));
+    if(isWorker($id)){
+      $countries = Country::pluck('name', 'code')->all();
+
+      return view('users.edit', compact('user', 'countries'));
+    }else{
+      $user = Company::where('user_id' , Auth::user()->id)->first();
+      $countries = Country::pluck('name', 'code')->all();
+
+      return view('companies.edit', compact('user', 'countries'));
+    }
   }
 
   public function updateUser($id, Request $request)

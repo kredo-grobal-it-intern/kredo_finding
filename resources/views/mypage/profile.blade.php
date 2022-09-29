@@ -96,7 +96,13 @@
             <div class="row">
                 <div class="col">
                     <p>{{ $user->user_type === App\Constants\UserType::Worker ? 'Introduction' : 'Services' }}</p>
-                    <div class="border textarea">{{ $user->self_introduction }}</div>
+                    <div class="border textarea">
+                      @if(isWorker($user->id))
+                        {{ $user->self_introduction }}
+                      @else
+                        {{ $user->services }}
+                      @endif
+                    </div>
                 </div>
             </div>
         </div>
