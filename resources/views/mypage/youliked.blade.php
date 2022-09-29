@@ -9,7 +9,10 @@
             <p class="h5">{{ $you_liked_user->toUserId->name }}</p>
           </div>
           <div class="reactionicon">
-            <form action="#" method="">
+            <form action="{{ route('reaction.changeLikedToDislike', $you_liked_user->toUserId->id) }}" method="POST">
+              @csrf
+              @method('PATCH')
+
               <button type="submit" class="btn">
                 <i class="fa-solid fa-thumbs-down dislike-icon"></i>
               </button>
@@ -17,9 +20,6 @@
           </div>
       </div>
     @endforeach
-      <div class="col-md-12">
-        <div class="d-flex justify-content-center mt-3">{{ $you_liked->links() }}<div> 
-      </div>
   @else
     @foreach ( $you_liked as $you_liked_user )
       <div class="liked_wrap card border-0 mt-4">
@@ -30,7 +30,10 @@
             <p class="h5">{{ $you_liked_user->company->name }}</p>
           </div>
           <div class="reactionicon">
-            <form action="#" method="">
+            <form action="{{ route('reaction.changeLikedToDislike', $you_liked_user->id) }}" method="POST">
+              @csrf
+              @method('PATCH')
+
               <button type="submit" class="btn">
                 <i class="fa-solid fa-thumbs-down dislike-icon"></i>
               </button>
@@ -38,11 +41,8 @@
           </div>
       </div>
     @endforeach
-    <div class="col-md-12">
-        <div class="d-flex justify-content-center mt-3">{{ $you_liked->links() }}<div> 
-      </div>
   @endif
- </div>
+</div>
 
 
 
