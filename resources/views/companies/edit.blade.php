@@ -109,25 +109,25 @@
           <div class="row">
             <div class="col">
               <label>Establishment Year</label>
-              <input type="month" name="establishment_year" class="form-control" value="{{ empty($user->company->establishment_year) ? '' : $user->company->establishment_year }}">
+              <input type="month" name="establishment_year" class="form-control" value="{{ $user->establishment_year }}" >
             </div>
             <div class="col">
               <label>President Name</label>
-              <input type="text" name="president_name" class="form-control" value="{{ empty($user->company->president_name) ? '' : $user->company->president_name }}">
+              <input type="text" name="president_name" class="form-control" value="{{ $user->president_name }}" >
               @error('president_name')
                   <span class="errorMessage">{{ $message }}</span>
               @enderror
             </div>
             <div class="col">
               <label>Number of Employees</label>
-              <input type="number" name="total_personnel" class="form-control" value="{{ empty($user->company->total_personnel) ? '' : $user->company->total_personnel }}" min=1>
+              <input type="number" name="total_personnel" class="form-control" value="{{ $user->total_personnel }}" min=1>
               @error('total_personnel')
                   <span class="errorMessage">{{ $message }}</span>
               @enderror
             </div>
             <div class="col">
               <label>Capital</label>
-              <input type="number" name="capital" class="form-control" value="{{ empty($user->company->capital) ? '' : $user->company->capital }}" min=1>
+              <input type="number" name="capital" class="form-control" value="{{ $user->capital }}"  min=1>
               @error('capital')
                   <span class="errorMessage">{{ $message }}</span>
               @enderror
@@ -138,21 +138,21 @@
           <div class="row">
             <div class="col-3">
               <label>Gross Sales</label>
-              <input type="number" name="gross_sales" class="form-control" value="{{ empty($user->company->gross_sales) ? '' : $user->company->gross_sales }}" min=1>
+              <input type="number" name="gross_sales" class="form-control" value="{{ $user->gross_sales }}" min=1>
               @error('gross_sales')
                 <span class="errorMessage">{{ $message }}</span>
               @enderror
             </div>
             <div class="col-3">
               <label>Average Age</label>
-              <input type="number" name="average_age" class="form-control" value="{{ empty($user->company->average_age) ? '' : $user->company->average_age }}" min=1>
+              <input type="number" name="average_age" class="form-control" value="{{ $user->average_age }}" min=1>
               @error('average_age')
                   <span class="errorMessage">{{ $message }}</span>
               @enderror
             </div>
             <div class="col-6">
               <label>Homepage URL</label>
-              <input type="text" name="homepage_url" class="form-control" value="{{ empty($user->company->homepage_url) ? '' : $user->company->homepage_url }}">
+              <input type="text" name="homepage_url" class="form-control" value="{{ $user->homepage_url }}" >
               @error('homepage_url')
                   <span class="errorMessage">{{ $message }}</span>
               @enderror
@@ -161,7 +161,7 @@
         </div>
         <div class="form-group">
           <label>services</label>
-          <textarea class="form-control" name="self_introduction" rows="10">{{ $user->self_introduction }}</textarea>
+          <textarea class="form-control" name="self_introduction" rows="10">{{ $user->services }}</textarea>
         </div>
         <div class="text-center">
           <button type="submit" class="btn submitBtn">Update</button>

@@ -79,10 +79,10 @@
               </div>
             </div>
 
-            <div class="form-group @error('services')has-error @enderror">
+            <div class="form-group @error('self_introduction')has-error @enderror">
               <label>Company Info <span style="color: red">*</span></label>
-              <textarea class="form-control" name="services" rows="5" required>{{ old('services') }}</textarea>
-              @error('services')
+              <textarea class="form-control" name="self_introduction" rows="5" required>{{ old('self_introduction') }}</textarea>
+              @error('self_introduction')
                 <span class="errorMessage">{{ $message }}</span>
               @enderror
             </div>

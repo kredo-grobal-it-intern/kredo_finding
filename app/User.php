@@ -17,7 +17,7 @@ class User extends Authenticatable
    * @var array
    */
   protected $fillable = [
-    'name', 'user_type', 'email', 'password', 'services', 'gender', 'img_name', 'google_id', 'facebook_id', 'contact_number', 'address1', 'address2', 'city', 'state', 'country', 'zipcode'
+    'name', 'user_type', 'email', 'password', 'services','self_introduction', 'gender', 'img_name', 'google_id', 'facebook_id', 'contact_number', 'address1', 'address2', 'city', 'state', 'country', 'zipcode'
   ];
 
   /**
@@ -83,7 +83,7 @@ class User extends Authenticatable
       'user_type' => $data['user_type'],
       'email' => $data['email'],
       'password' => Hash::make($data['password']),
-      'services' => $data['services'],
+      'self_introduction' => $data['self_introduction'],
       'contact_number' => $data['contact_number'],
       'gender' => $data['gender'],
       'img_name' => $bin_image,
