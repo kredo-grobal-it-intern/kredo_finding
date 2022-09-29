@@ -1,7 +1,7 @@
 <div class="likedList row">
   @if (!isWorker(Auth::id()))
     @if (count($you_liked) == 0)
-      <span style="font-size: 25px; margin: 10px auto ; color: gray;">You haven't liked any users</span>
+      <span>You haven't liked any users</span>
     @else
       @foreach( $you_liked as $you_liked_user)
         <div class="liked_wrap card border-0 mt-4">
@@ -26,7 +26,7 @@
     </div>
   @else
     @if (count($you_liked) == 0)
-      <span style="font-size: 25px; margin: 10px auto ; color: gray;">You haven't liked any users</span>
+      <span>You haven't liked any users</span>
     @else
       @foreach ( $you_liked as $you_liked_user )
         <div class="liked_wrap card border-0 mt-4">
