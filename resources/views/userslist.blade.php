@@ -56,9 +56,9 @@
                                             </form>
                                             @endif
                                         </li>
-                                        <li><a href="#"><i class="fas fa-comment-dots"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-map-marker-alt"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-home"></i></a></li>
+                                        <li><a href="{{ route('matching') }}"><i class="fas fa-comment-dots"></i></a></li>
+                                        <li><a href="{{ route('user_detail.show', $user->id) }}"><i class="fas fa-map-marker-alt"></i></a></li>
+                                        <li><a href="{{ route('home') }}"><i class="fas fa-home"></i></a></li>
                                     </ul>
                                 </div>
                             </div>  
