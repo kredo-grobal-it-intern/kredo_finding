@@ -56,6 +56,7 @@ Route::group(['prefix' => 'mypage'], function () {
   Route::get('/matching', 'MatchingController@index')->name('matching');
   Route::get('/reaction', 'ReactionController@show')->name('reaction.show');
   Route::get('/reaction/showDisliked', 'ReactionController@showDisliked')->name('reaction.showDisliked');
+  Route::get('/contact', 'ContactController@contact')->name('contactus');
   Route::group(['middleware' => 'company', 'as' => 'posting.'], function () {
     Route::get('/create/posting', 'JobPostingController@create')->name('create');
     Route::post('/store/posting', 'JobPostingController@store')->name('store');

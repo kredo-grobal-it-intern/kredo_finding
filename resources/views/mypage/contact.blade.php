@@ -1,32 +1,27 @@
 @extends('layouts.layout')
 
 @section('content')
-
 <div class="contact_us">
-    <div class="contact_top my-4">
-        <div class="row">
-            <div class="col-5 px-5">
-                <a href="{{ route('home') }}">
-                    <img src="/images/kredo_logo.jpg" class="logo">
-                </a>
-            </div>
-            <div class="col px-0">
-                <p class="pagetitle">CONTACT US</p>
+        <div class="contact_top my-4">
+            <div class="text-center">
+                <p style="font-size:18px; font-weight:700; font-family:'Inter'; line-height:22px; color:#000000;">CONTACT
+                    US</p>
             </div>
         </div>
-    </div>
 
-    <hr>
+        <hr>
 
-    <div class="contact_content mt-5">
+    <div class="contact_content">
         <div class="row d-flex justify-content-center">
             <div class="col-md-6 offset-md-3">
-                <p class="title">Have some questions?</p>
+                <p
+                    style="font-weight:100; font-size:30px; line-height:36px; font-family:'Inter'; color:#000000; font-style:normal;">
+                    Have some questions?</p>
             </div>
         </div>
         <div class="row d-flex justify-content-center mt-5">
             <div class="col-md-3">
-                <img src="/images/mail.png">
+                <img src="/images/mail.png" alt="height:150px; width:150px;">
             </div>
             <div class="col-md-4">
                 <form action="{{ route('contact.confirm') }}" method="post">
@@ -58,11 +53,12 @@
                     <textarea name="inquiry" id="inquiry" cols="100" row="10" class="form-control contact-inquiry mb-3"
                         placeholder="Enter your question..." required>{{ old('inquiry') }}</textarea>
 
-                    <button type="submit" class="w-100 text-white border border-none submitbtn">SEND MESSAGE</button>
+                    <button type="submit" class="w-100 text-white border border-none"
+                        style="background-color: #FAAC64; font-size:22px; line-height:27px; font-weight:500;">SEND
+                        MESSAGE</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
 @endsection
