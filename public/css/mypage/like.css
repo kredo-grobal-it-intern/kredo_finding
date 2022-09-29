@@ -140,6 +140,11 @@
   margin: 0 5px 50px 5px;
   width: 220px;
 }
+.likedList span {
+  font-size: 25px;
+  margin: 10px auto ;
+  color: gray;
+}
 .likedList .icon{
   border-radius: 50%;
   height: 100px;
