@@ -1,9 +1,38 @@
 /* 
 CONTACT_US.blade.php
 */
-.contact-inquiry{
+.contact_us .contact_top .logo{
+    height: 2.5rem;
+    width: 2.5rem; 
+}
+.contact_us .contact_top .pagetitle{
+    font-size: 18px;
+    font-weight: 700;
+    font-family: 'Inter';
+    line-height: 22px;
+    color:#000000;
+}
+.contact_us .contact_content .title{
+    font-weight: 100;
+    font-size: 30px;
+    line-height: 36px;
+    font-family: 'Inter';
+    color:#000000;
+    font-style:normal;
+}
+.contact_us .contact_content img{
+    height: 150px;
+    width: 150px;
+}
+.contact_us .contact_content .contact-inquiry{
     resize: none;
 	min-height: 230px;
+}
+.contact_us .contact_content .submitbtn{
+    background-color: #FAAC64;
+    font-size: 22px;
+    line-height: 27px;
+    font-weight:500;
 }
 
 /* 
