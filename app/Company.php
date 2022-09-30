@@ -9,22 +9,22 @@ use Illuminate\Support\Facades\Auth;
 class Company extends Model
 {
     protected $fillable = [
-        'name', 
-        'user_id', 
-        'services', 
-        'img_name', 
-        'email', 
-        'password', 
-        'address1', 
-        'address2', 
-        'city', 
-        'state', 
-        'country', 
+        'name',
+        'user_id',
+        'services',
+        'img_name',
+        'email',
+        'password',
+        'address1',
+        'address2',
+        'city',
+        'state',
+        'country',
         'zipcode',
         'contact_number',
-        'establishment_year', 
-        'president_name', 
-        'total_personnel', 
+        'establishment_year',
+        'president_name',
+        'total_personnel',
         'capital',
         'gross_sales',
         'average_age',
@@ -52,7 +52,7 @@ class Company extends Model
     }
 
     public function updateCompany($request, $bin_image)
-    {   
+    {
         return Company::where('user_id', Auth::id())->update(
             [
                 'name' => $request->name,

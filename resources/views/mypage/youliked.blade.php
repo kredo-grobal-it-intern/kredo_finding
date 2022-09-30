@@ -43,6 +43,3 @@
     @endforeach
   @endif
 </div>
-
-
-

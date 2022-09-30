@@ -34,7 +34,7 @@
     </nav>
 
     <div class="userlist-button text-right">
-      <button class="btn btn-outline-primary justify-content-md-end userslist">
+      <button class="btn btn-outline-primary">
         <a href="{{ route('users') }}"><h4>Show the Users List</h4></a>
       </button>
     </div>

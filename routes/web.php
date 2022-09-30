@@ -14,6 +14,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ReactionController;
+use App\Http\Controllers\UserController;
 
 Route::group(['prefix' => 'users', 'middleware' => 'auth', 'as' => 'users.'], function () {
   Route::get('mypage/show/{id}', 'UserController@show')->name('show');
@@ -21,6 +22,7 @@ Route::group(['prefix' => 'users', 'middleware' => 'auth', 'as' => 'users.'], fu
   Route::patch('/{id}', 'UserController@updateUser')->name('updateUser');
   Route::patch('updateJob/{id}', 'UserController@updateJob')->name('updateJob');
   Route::delete('destroy/{id}', 'UserController@destroy')->name('delete');
+  Route::patch('/update/{id}' , 'UserController@renewUser')->name('renewUser');
 });
 
 Auth::routes();
@@ -41,7 +43,7 @@ Route::group(['prefix' => 'home'], function () {
   Route::get('/changePassword', 'HomeController@showChangePasswordGet')->name('changePasswordGet');
   Route::post('/changePassword', 'HomeController@changePasswordPost')->name('changePasswordPost');
   Route::get('/users', 'HomeController@userslist')->name('users');
-  Route::post('/like/{id}/update', 'HomeController@react')->name('like');
+  Route::post('/like/{id}/update', 'HomeController@like')->name('like');
   Route::delete('/users/{id}/destroy', 'HomeController@destroy')->name('dislike');
 });
 
@@ -54,6 +56,7 @@ Route::group(['prefix' => 'mypage'], function () {
   Route::get('/matching', 'MatchingController@index')->name('matching');
   Route::get('/reaction', 'ReactionController@show')->name('reaction.show');
   Route::get('/reaction/showDisliked', 'ReactionController@showDisliked')->name('reaction.showDisliked');
+  Route::get('/contact', 'ContactController@contact')->name('contactus');
   Route::group(['middleware' => 'company', 'as' => 'posting.'], function () {
     Route::get('/create/posting', 'JobPostingController@create')->name('create');
     Route::post('/store/posting', 'JobPostingController@store')->name('store');

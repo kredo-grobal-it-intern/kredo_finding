@@ -49,12 +49,13 @@
                             <i class="fas fa-comment-dots"></i>
                             <span class="font-weight-bold">MESSAGES</span>
                         </a>
-
-                        <a href="{{ route('contact.show') }}" class="sideBarItem">
+                        
+                        <a href="{{ route('contactus') }}" 
+                            class="{{ request()->is('mypage/contact') ? 'active' : '' }} sideBarItem">
                             <i class="fa-solid fa-envelope"></i>
                             <span class="font-weight-bold">CONTACT</span>
                         </a>
-
+    
                         @if (!isWorker(Auth::id()))
                             <a href="{{ route('posting.create') }}"
                                 class="{{ request()->is('mypage/create/posting') ? 'active' : '' }} sideBarItem">

@@ -28,7 +28,7 @@
                         @endif
                         <div class='container'>
                           <div class="edit_form" style="width:100%;height:387px;border:1px solid #000; border-radius:20px;">
-                            <form class="form mt-3" method="POST" action="/users/{{ $user->id }}"
+                            <form class="form mt-3" method="POST" action="{{ route('users.updateUser', $user->id) }}"
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PATCH')
@@ -81,7 +81,7 @@
                                                 placeholder="Enter Contact Number" value="{{ $user->contact_number }}">
                                         </div>
                                         <div class="col-md-4" style="position:absolute; right:15%">
-                                        <button type="submit" class="btn btn-success" style="border-radius:20px; width:209px;">ACTIVATE</button>
+                                        <button type="button" class="btn btn-success" style="border-radius:20px; width:209px;">ACTIVATE</button>
                                         </div>
                                     </div>
 
@@ -119,58 +119,62 @@
                           </div>
 
                           <div class="add_details">
-                            <div class="form-group">
-                              <div class="address">
-                                <h5 class="mt-4 mb-1">ADDRESS</h5>
-                                <hr class="mt-0 text-secondary">
-                                <div class="row">
-                                  <div class="col-6">
-                                      <input type="text" name="address1" class="form-control" placeholder="Address 1"
-                                          value="{{ $user->address1 }}" {{ $user->address1 ? 'required' : '' }}>
+                            <form action="{{ route('users.renewUser' ,$user->id) }}" method="post">
+                              @csrf
+                              @method('PATCH')
+                              <div class="form-group">
+                                <div class="address">
+                                  <h5 class="mt-4 mb-1">ADDRESS</h5>
+                                  <hr class="mt-0 text-secondary">
+                                  <div class="row">
+                                    <div class="col-6">
+                                        <input type="text" name="address1" class="form-control" placeholder="Address 1"
+                                            value="{{ $user->address1 }}" {{ $user->address1 ? 'required' : '' }}>
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="text" name="address2" class="form-control" placeholder="Address 2"
+                                            value="{{ $user->address2 }}">
+                                        @error('address2')
+                                            <span class="errorMessage">{{ $message }}</span>
+                                        @enderror
+                                    </div>
                                   </div>
-                                  <div class="col-6">
-                                      <input type="text" name="address2" class="form-control" placeholder="Address 2"
-                                          value="{{ $user->address2 }}">
-                                      @error('address2')
-                                          <span class="errorMessage">{{ $message }}</span>
-                                      @enderror
-                                  </div>
-                                </div>
-                                <div class="row mt-3">
-                                  <div class="col">
-                                      <input type="text" name="city" class="form-control" placeholder="City"
-                                          value="{{ $user->city }}" {{ $user->city ? 'required' : '' }}>
-                                      @error('city')
-                                          <span class="errorMessage">{{ $message }}</span>
-                                      @enderror
-                                  </div>
-                                  <div class="col">
-                                      <input type="text" name="state" class="form-control" placeholder="State"
-                                          value="{{ $user->state }}" {{ $user->state ? 'required' : '' }}>
-                                      @error('state')
-                                          <span class="errorMessage">{{ $message }}</span>
-                                      @enderror
-                                  </div>
-                                  <div class="col">
-                                      <select class="form-control" name="country">
-                                          <option style="display:none;" class="gray" >Country</option>
-                                          @foreach ($countries as $country_code => $country_name)
-                                              <option value="{{ $country_code }}"
-                                                  @if ($user->country == $country_code) selected @endif>
-                                                  {{ $country_name }}</option>
-                                          @endforeach
-                                      </select>
-                                  </div>
-                                  <div class="col">
-                                      <input type="number" name="zipcode" class="form-control" placeholder="Zipcode"
-                                          value="{{ $user->zipcode }}" {{ $user->zipcode ? 'required' : '' }}>
-                                      @error('zipcode')
-                                          <span class="errorMessage">{{ $message }}</span>
-                                      @enderror
+                                  <div class="row mt-3">
+                                    <div class="col">
+                                        <input type="text" name="city" class="form-control" placeholder="City"
+                                            value="{{ $user->city }}" {{ $user->city ? 'required' : '' }}>
+                                        @error('city')
+                                            <span class="errorMessage">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" name="state" class="form-control" placeholder="State"
+                                            value="{{ $user->state }}" {{ $user->state ? 'required' : '' }}>
+                                        @error('state')
+                                            <span class="errorMessage">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="col">
+                                        <select class="form-control" name="country">
+                                            <option style="display:none;" class="gray" >Country</option>
+                                            @foreach ($countries as $country_code => $country_name)
+                                                <option value="{{ $country_code }}"
+                                                    @if ($user->country == $country_code) selected @endif>
+                                                    {{ $country_name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <input type="number" name="zipcode" class="form-control" placeholder="Zipcode"
+                                            value="{{ $user->zipcode }}" {{ $user->zipcode ? 'required' : '' }}>
+                                        @error('zipcode')
+                                            <span class="errorMessage">{{ $message }}</span>
+                                        @enderror
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
+
                           </div>
 
                           <div class="self_introduction">
@@ -190,6 +194,7 @@
                                   class="btn backBtn">Back</button>
                             </div>
                           </div>
+                        </form>
                   </div>
               </div>
 
