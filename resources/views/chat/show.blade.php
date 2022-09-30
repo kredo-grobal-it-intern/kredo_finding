@@ -1,7 +1,6 @@
 @extends('layouts.layout')
 
 @section('content')
-
     <div class="chatPage">
         <header class="header">
             <a href="{{ route('matching') }}" class="linkToMatching"></a>
@@ -64,3 +63,4 @@
     </script>
 
 @endsection
+
