@@ -12,8 +12,8 @@
                     @endif
                 </div>
             </a>
-            <div class="chatbox_detail pt-3">
-                <p class="chatbox_header_user_name">snapchat</p>
+            <div class="chatbox_detail pt-1">
+                <p class="chatbox_header_user_name">{{ $chat_room_user->name }}</p>
                 <p class="chatbox_user_status">online</p>
             </div>
         </div>
