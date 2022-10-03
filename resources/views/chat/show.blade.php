@@ -45,7 +45,7 @@
         </div>
         <form class="chatbox_footer" method="POST" action="{{ route('chat.chat') }}">
             <div class='enter_message'>
-                <input type="text" data-behavior="chat_message" class="messageInputForm_input enter_message" placeholder="メッセージを入力...">
+                <input type="text" data-behavior="chat_message" class="messageInputForm_input enter_message" placeholder="Type your message here...">
             </div>
         </form>
     </div>
