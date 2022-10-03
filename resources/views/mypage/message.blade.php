@@ -11,7 +11,11 @@
             @if($user->img_name)
               <span>{{ profileImageInMessage($user->img_name) }}</span>
             @else
+              @if(isWorker(Auth::id()))
+              <i class="fa-solid fa-building matchingPerson_img text-center pt-3 fa-2x"></i>
+              @else
               <i class="fa-solid fa-user matchingPerson_img"></i>
+              @endif
             @endif
           </div>
           <div class="chatbox_detail">

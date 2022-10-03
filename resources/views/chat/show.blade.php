@@ -1,56 +1,51 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="chatPage">
-        <header class="header">
-            <a href="{{ route('matching') }}" class="linkToMatching"></a>
-            <div class="chatPartner">
-                <div class="chatPartner_img"><img src="{{ $chat_room_user->img_name }}"></div>
-                <div class="chatPartner_name">
-                    @if ($chat_room_user->img_name)
-                        <img src="{{ $chat_room_user->img_name }}">
+    <div class="chatbox">
+        <div class="chatbox_header">
+            <a href="{{ route('matching') }}" class="linkToMatching">
+                <div class="user_icon header_user_icon">
+                    @if($chat_room_user->img_name)
+                    <span class="matchingPerson_img">{{ profileImageInMessage($chat_room_user->img_name) }}</span>
                     @else
-                        @if ($chat_room_user->chat_room_id == 1)
-                            <i class="fa-solid fa-user index-icon"></i>
-                        @else
-                            <i class="fa-solid fa-building index-icon"></i>
-                        @endif
+                    <i class="fa-solid fa-user matchingPerson_img"></i>
                     @endif
-                    {{ $chat_room_user->name }}
                 </div>
+            </a>
+            <div class="chatbox_detail pt-3">
+                <p class="chatbox_header_user_name">snapchat</p>
+                <p class="chatbox_user_status">online</p>
             </div>
-        </header>
-        <div class="container">
-            <div class="messagesArea messages">
+        </div>
+        <div class="chatbox_main">
+            <div class="msg_from_you">
                 @foreach ($chat_messages as $message)
-                    <div class="message">
-                        @if ($chat_room_user->img_name)
-                            <img src="{{ $chat_room_user->img_name }}">
+                    @if ($message->user_id == Auth::id())
+                    <div class="message me">
+                        <span>{{ $message->message }}</span>
+                    </div>
+                    @else
+                    <div class="chatbox_user_icon">
+                        @if($chat_room_user->img_name)
+                        <span class="matchingPerson_img">{{ profileImageInMessage($chat_room_user->img_name) }}</span>
                         @else
-                            @if ($chat_room_user->chat_room_id == 0)
-                                <i class="fa-solid fa-user index-icon"></i>
+                            @if(isWorker(Auth::id()))
+                            <i class="fa-solid fa-building matchingPerson_img"></i>
                             @else
-                                <i class="fa-solid fa-building index-icon"></i>
+                            <i class="fa-solid fa-user matchingPerson_img"></i>
                             @endif
                         @endif
-                        @if ($message->user_id == Auth::id())
-                            <span>{{ Auth::user()->name }}</span>
-                        @else
-                            <span>{{ $chat_room_user_name }}</span>
-                        @endif
-
-                        <div class="commonMessage">
-                            <div>
-                                {{ $message->message }}
-                            </div>
-                        </div>
                     </div>
+                    <div class="message you">
+                        <span>{{ $message->message }}</span>
+                    </div>
+                    @endif
                 @endforeach
             </div>
         </div>
-        <form class="messageInputForm" method="POST" action="{{ route('chat.chat') }}">
-            <div class='container'>
-                <input type="text" data-behavior="chat_message" class="messageInputForm_input" placeholder="メッセージを入力...">
+        <form class="chatbox_footer" method="POST" action="{{ route('chat.chat') }}">
+            <div class='enter_message'>
+                <input type="text" data-behavior="chat_message" class="messageInputForm_input enter_message" placeholder="メッセージを入力...">
             </div>
         </form>
     </div>
@@ -63,4 +58,3 @@
     </script>
 
 @endsection
-
